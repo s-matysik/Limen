@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "MIT",
+  "owner": "ben-challis",
+  "reason": "layer 'PhpStanFramework' has no directory collector; its members cannot be located by path alone",
+  "repo": "greenlight",
+  "seconds": 0.0,
+  "sha": "edec4cce3c3a2f55b66dd481b3b5c286128ddc57",
+  "stars": 12,
+  "status": "untranslatable-config"
+}

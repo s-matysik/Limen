@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "MIT",
+  "owner": "giacomomasseron",
+  "reason": "layer 'Entity': collector type 'implements' needs PHP type resolution",
+  "repo": "php-clean-architecture",
+  "seconds": 0.0,
+  "sha": "1cfc687e10df166ed092100de0f2732fc5e72511",
+  "stars": 15,
+  "status": "untranslatable-config"
+}

@@ -1,0 +1,14 @@
+# limen frozen snapshot — identity of the LitRev workspace
+# columns: repo<TAB>tree-id<TAB>files<TAB>origin
+# tree-id = sha256 of eval/manifests/<repo>.tsv, itself the sorted
+#           list of (relative path, sha256(bytes)) over source files.
+# origin  = 'snapshot' (zip export, no .git) or 'git:<SHA>' (live repo).
+# regenerate: python eval/freeze_snapshot.py
+# workspace: /Users/sebastianmatysik/!!!!!Limen/workspace
+litrev-backend	5c93950e4ce0a9caf63bd75b36cfa1057bff31f505cfdc7af98e430e90520c44	304	snapshot
+backend-shared	aeb2afad253f3bec1f2c44b3f41f99eb10db6312b354dc20c2c9f4d216143a42	291	snapshot
+litrev-core-backend	29a9de7b1a87f697d6d59d6532131f840b3a5b728309048495da60c72e944fdb	23	snapshot
+litrev-frontend	0c521febf0219ee2819c4f74d7323ef741e74675b516eba7adfd915a594127ac	212	snapshot
+litrev-core-frontend	26a2d7d77205e8540da4233b53762686fa79049d4ba74148244cf1a9d061d1fc	30	snapshot
+frontend-shared	8b6911ff54120f144ccf3e8c12a401875982a647344fd881413cd8aa3de1618b	202	snapshot
+WORKSPACE	562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31	1062	snapshot

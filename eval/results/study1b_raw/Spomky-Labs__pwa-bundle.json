@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "Spomky-Labs",
+  "reason": "layer 'vendors': collector type 'classLike' needs PHP type resolution",
+  "repo": "pwa-bundle",
+  "seconds": 0.0,
+  "sha": "5867c5e02620b612b7d8e6eaf0fba173a4f46eb6",
+  "stars": 69,
+  "status": "untranslatable-config"
+}

@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "MIT",
+  "owner": "symfony",
+  "reason": "layer 'Controller': collector type 'classLike' needs PHP type resolution",
+  "repo": "recipes-contrib",
+  "seconds": 0.0,
+  "sha": "8365a35646b6565c446866577632f2c07b282ede",
+  "stars": 557,
+  "status": "untranslatable-config"
+}

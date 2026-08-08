@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": true,
+  "language": "python",
+  "license": "NOASSERTION",
+  "owner": "YFGaia",
+  "reason": "nested layer containers ('api/core/workflow/graph_engine/{layer}/**' and 'api/core/workflow/graph_engine/graph_traversal/{layer}/**') make the layer of a file ambiguous; limen binds {layer} to a fixed path position and refuses such files",
+  "repo": "dify-plus",
+  "seconds": 0.1,
+  "sha": "3a02769e4a03944af667ca290fb746d9fc883f53",
+  "stars": 2219,
+  "status": "untranslatable-config"
+}

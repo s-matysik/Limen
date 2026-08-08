@@ -1,0 +1,795 @@
+# LitRev architecture contract — full legacy retrofit (Faza 0, ścieżka
+# "Retrofit specyfikacji"; supersedes the Tier-1 starting point).
+#
+# Every rule below is traceable to a legacy checker; the mapping is recorded
+# per rule in `legacy:` comments and, machine-readably, in
+# eval/legacy_rule_inventory.csv. Legacy semantics that limen cannot express
+# are NOT faked here — they are recorded in docs/deviations.md.
+#
+# Scope: the six-repository frozen workspace (eval/WORKSPACE.md); five roots
+# are declared, frontend-shared is not yet scanned.
+#
+# Modelling decisions carried over from Tier-1:
+# - A module name (e.g. FolderItems) spans repositories: app/Modules/FolderItems
+#   and backend-shared/src/FolderItems resolve to ONE unit, which matches how
+#   the codebase treats them.
+# - `@litrev/frontend-common` (npm package) and `@litrev-core/*` (cross-repo
+#   alias) stay external to the JS resolver; core-frontend is its own root.
+# - backend-shared/core importing App\Models is the workspace's inverted-core
+#   convention (423/8 uses) and legacy allows it structurally; not outlawed.
+#
+# Retrofit decisions (Faza 0):
+# - public_surface (php) was tightened from Tier-1's `Application/**` to the
+#   definition the legacy shared checker actually enforces:
+#   Application\Contracts, Application\Events, Domain, Presentation. This makes
+#   K4 the faithful counterpart of both SharedBoundaryRulesTest::
+#   test_shared_cross_module_imports_use_contracts_events_domain_or_presentation
+#   and ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_
+#   application_internals.
+# - Dead allowlist entries found in the legacy config (four FQCNs that no file
+#   declares) were REMOVED rather than transcribed; each removal is logged in
+#   eval/legacy_rule_inventory.csv (column `retrofit_note`) and in
+#   docs/deviations.md. Removing a dead allow entry only tightens the rule.
+# - Where legacy code violates a legacy rule, the violation is preserved as a
+#   finding — no rule was relaxed to make the tree green.
+
+version: 1
+project: litrev
+
+roots:
+  host_app:      { repo: litrev-arch-snapshot/litrev-backend,       path: app, language: php, namespace: "App\\" }
+  shared:        { repo: litrev-arch-snapshot/backend-shared,       path: src, language: php, namespace: "LitRev\\BackendShared\\" }
+  core:          { repo: litrev-arch-snapshot/litrev-core-backend,  path: src, language: php, namespace: "LitRev\\CoreBackend\\" }
+  frontend:      { repo: litrev-arch-snapshot/litrev-frontend,      path: src, language: js }
+  core_frontend: { repo: litrev-arch-snapshot/litrev-core-frontend, path: src, language: js }
+
+extractors:
+  js:
+    resolve:
+      alias: { "@/": "src/" }
+
+units:
+  # legacy: config/architecture.php:21-36 `modules` (backend registry);
+  # frontend module registry is implicit in the audit script (readdir of
+  # src/modules).
+  discovery:
+    - { root: host_app, pattern: "litrev-arch-snapshot/litrev-backend/app/Modules/{unit}/**" }
+    - { root: shared,   pattern: "litrev-arch-snapshot/backend-shared/src/{unit}/**" }
+    - { root: core,     pattern: "litrev-arch-snapshot/litrev-core-backend/src/{unit}/**" }
+    - { root: frontend,      pattern: "litrev-arch-snapshot/litrev-frontend/src/modules/{unit}/**" }
+    - { root: core_frontend, pattern: "litrev-arch-snapshot/litrev-core-frontend/src/modules/{unit}/**" }
+  declared:
+    - AdminPolicies
+    - AdminUsers
+    - Audit
+    - Auth
+    - FolderItems
+    - Folders
+    - Harmonogram
+    - Messages
+    - Notifications
+    - PermissionProfiles
+    - Profile
+    - Projects
+    - RelationshipRequests
+    - Relationships
+    - Reviews
+    - admin-users
+    - auth
+    - dashboard
+    - folder-items
+    - folders
+    - messages
+    - notifications
+    - ownership
+    - permissions
+    - profile
+    - projects
+    - projects-list
+    - projects-view
+    - relationships
+    - reviews
+    - schedule
+    - search
+  registry_policy: exact
+
+layers:
+  # Backend layers are the segment below the module directory — that is what
+  # LayerBoundaryRulesTest keys on (`/Application/` in the path,
+  # `App\Modules\X\Infrastructure\` in the import).
+  discovery:
+    - { root: host_app, pattern: "litrev-arch-snapshot/litrev-backend/app/Modules/*/{layer}/**" }
+    - { root: shared,   pattern: "litrev-arch-snapshot/backend-shared/src/*/{layer}/**" }
+    - { root: core,     pattern: "litrev-arch-snapshot/litrev-core-backend/src/*/{layer}/**" }
+    - { root: frontend,      pattern: "litrev-arch-snapshot/litrev-frontend/src/{layer}/**" }
+    - { root: core_frontend, pattern: "litrev-arch-snapshot/litrev-core-frontend/src/{layer}/**" }
+  declared:
+    - Application
+    - Domain
+    - Http
+    - Infrastructure
+    - Jobs
+    - Mail
+    - Models
+    - Presentation
+    - Support
+    - app
+    - auth
+    - modules
+    - shared
+    - test
+
+public_surface:
+  # legacy: backend-shared/config/architecture.php:22-32 (the doc comment that
+  # defines the structurally-allowed sub-namespaces) enforced by
+  # SharedBoundaryRulesTest.php:110, plus ApplicationBoundaryRulesTest.php:43
+  # (`Contracts\` is the only cross-module Application entry).
+  php:
+    - "{unit}/Application/Contracts/**"
+    - "{unit}/Application/Events/**"
+    - "{unit}/Domain/**"
+    - "{unit}/Presentation/**"
+    - "{unit}/*.php"
+  # legacy: audit-frontend-architecture.mjs:150-163 `isPublicModuleEntry` —
+  # the module root, index.*, or any root-level file that is not an index file.
+  js:
+    - "{unit}/*.{js,jsx,ts,tsx}"
+
+artifact_sets:
+  models:
+    # legacy: the implicit artifact set of ModelOwnershipRulesTest — every
+    # *.php directly under app/Models.
+    discovery: { root: host_app, pattern: "litrev-arch-snapshot/litrev-backend/app/Models/*.php" }
+    identity: declared_fqcn
+
+unresolved_policy:
+  default: warn
+
+rules:
+
+  # ===================================================================== #
+  # K2 — ownership                                                        #
+  # ===================================================================== #
+
+  - id: model-owner-declared
+    kind: ownership
+    severity: error
+    artifact_set: models
+    require_every_artifact_owned: true
+    # legacy: ModelOwnershipRulesTest.php:7-31
+    #         test_every_model_has_declared_owner_module
+    #         (completeness of the registry — structural, not dependency)
+    # data:   config/architecture.php:38-51 `model_owners`
+    owners:
+      "App\\Models\\AccountPolicy": AdminPolicies
+      "App\\Models\\AuditLog": Audit
+      "App\\Models\\Folder": Folders
+      "App\\Models\\FolderItem": FolderItems
+      "App\\Models\\Message": Messages
+      "App\\Models\\PermissionProfile": PermissionProfiles
+      "App\\Models\\Project": Projects
+      "App\\Models\\RelationshipRequest": RelationshipRequests
+      "App\\Models\\Role": AdminPolicies
+      "App\\Models\\ScheduleTask": Harmonogram
+      "App\\Models\\TreePermissionProfileAssignment": PermissionProfiles
+      "App\\Models\\User": Auth
+    message: "Every Eloquent model must declare an owning module."
+    remedy: "Add the model to the ownership rule's owners: map, naming the module that owns its lifecycle."
+
+  # ===================================================================== #
+  # K3 — consumer-allowlist                                               #
+  # ===================================================================== #
+
+  - id: model-consumers
+    kind: consumer-allowlist
+    severity: error
+    artifact_set: models
+    # legacy: ModelOwnershipRulesTest.php:52-91
+    #         test_model_imports_are_limited_to_owner_or_declared_consumers
+    # data:   config/architecture.php:53-81 `allowed_model_consumers`
+    # scope:  legacy scans base_path('app/Modules') only; backend-shared and
+    #         core are deliberately NOT in scope, matching that.
+    scope: { roots: [host_app] }
+    allow:
+      "App\\Models\\AccountPolicy": [AdminPolicies, Auth, Notifications]
+      "App\\Models\\AuditLog": [Audit, AdminUsers]
+      "App\\Models\\Folder": [Folders, FolderItems, Harmonogram, Messages, Notifications, PermissionProfiles, Projects]
+      "App\\Models\\FolderItem": [FolderItems, Folders, Harmonogram, Messages, Notifications, PermissionProfiles]
+      "App\\Models\\Message": [Messages, Notifications]
+      "App\\Models\\PermissionProfile": [PermissionProfiles, Folders, FolderItems, Notifications]
+      "App\\Models\\Project": [Projects, Folders, Harmonogram, Messages, Notifications]
+      "App\\Models\\RelationshipRequest": [RelationshipRequests, Relationships]
+      "App\\Models\\Role": [AdminPolicies, AdminUsers, Auth]
+      "App\\Models\\ScheduleTask": [Harmonogram, Messages, Notifications]
+      "App\\Models\\TreePermissionProfileAssignment": [PermissionProfiles, Notifications]
+      "App\\Models\\User": [AdminPolicies, AdminUsers, Audit, Auth, FolderItems, Folders, Harmonogram, Messages, Notifications, PermissionProfiles, Profile, Projects, RelationshipRequests, Relationships]
+    message: "A model may be imported only by its owning module or a declared consumer."
+    remedy: "Route the access through the owning module's Application\\Contracts API, or declare the consumer explicitly with a reason."
+
+  # ===================================================================== #
+  # K4 — public-api-only                                                  #
+  # ===================================================================== #
+
+  - id: shared-cross-module-public-surface
+    kind: public-api-only
+    severity: error
+    # legacy: SharedBoundaryRulesTest.php:80-132
+    #         test_shared_cross_module_imports_use_contracts_events_domain_or_presentation
+    # data:   backend-shared/config/architecture.php:33-35
+    #         `cross_module_concrete_application_allowlist` (intentionally empty)
+    scope: { roots: [shared] }
+    exempt: []
+    message: "Inside backend-shared, cross-module imports must go through Contracts\\, Events\\, Domain\\ or Presentation\\."
+    remedy: "Import the target module's Application\\Contracts interface or its Domain type instead of a concrete Application service."
+
+  - id: host-cross-module-public-surface
+    kind: public-api-only
+    severity: error
+    # legacy: ApplicationBoundaryRulesTest.php:7-63
+    #         test_modules_do_not_import_foreign_application_internals
+    #         (only `Contracts\` passes) AND HttpBoundaryRulesTest.php:7-33
+    #         test_module_does_not_import_http_layer_of_other_modules
+    #         (Http is not on the public surface, so K4 subsumes it).
+    # NOTE: legacy matched only `App\Modules\...` imports, so host code reaching
+    #       a concrete LitRev\BackendShared\...\Application\ service was
+    #       structurally invisible to it. limen sees those too; the resulting
+    #       findings are real and are kept (Badanie 1 material), not exempted.
+    scope: { roots: [host_app, core] }
+    exempt:
+      - target: "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderPayloadDecorator"
+        reason: "core Reviews exposes its folder decorator from Support; mirrored in the host-into-core baseline."
+        owner: backend
+        since: 2026-08-04
+        expires: 2026-12-31
+      - target: "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderProjectGuard"
+        reason: "core Reviews exposes its project guard from Support; mirrored in the host-into-core baseline."
+        owner: backend
+        since: 2026-08-04
+        expires: 2026-12-31
+    message: "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation)."
+    remedy: "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service."
+
+  - id: frontend-cross-module-public-entry
+    kind: public-api-only
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:207-247
+    #         `cross-module-deep-import` + `cross-module-internal-import`,
+    #         restricted by ignoredFilePatterns at :43-47 (.test./.spec.).
+    scope:
+      roots: [frontend, core_frontend]
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+    exempt: []
+    message: "Modules must not import internal files of other modules; use the target module's public entry point."
+    remedy: "Import from `@/modules/<module>` (index.*) or one of its declared root-level sub-entrypoints."
+
+  # ===================================================================== #
+  # K5 — scoped-allowlist                                                 #
+  # ===================================================================== #
+
+  - id: admin-http-audit-application-allowlist
+    kind: scoped-allowlist
+    severity: error
+    # legacy: ModuleContractRulesTest.php:7-19 over
+    #         config/architecture.php:126-133,142-149,158-165,166-173
+    #         (`module_application_rules`, import_prefix Audit\Application)
+    # retrofit: the single allowed import
+    #   App\Modules\Audit\Application\Contracts\AuditApi
+    #   is DEAD — no file in the workspace declares it (the contract now lives
+    #   at LitRev\BackendShared\Audit\Application\Contracts\AuditApi). The
+    #   allowlist is therefore empty, which is strictly what legacy enforces
+    #   on this tree. See docs/deviations.md D-06.
+    target_prefix: "App\\Modules\\Audit\\Application\\"
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Profile/Http/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Auth/Http/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/AdminUsers/Http/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/AdminPolicies/Http/**"
+    allow: []
+    message: "These Http layers may import only allowlisted Audit\\Application classes."
+    remedy: "Use the Audit module API (LitRev\\BackendShared\\Audit\\Application\\Contracts\\AuditApi) instead of a concrete Audit Application class."
+
+  - id: admin-http-notifications-application-allowlist
+    kind: scoped-allowlist
+    severity: error
+    # legacy: ModuleContractRulesTest.php:7-19 over
+    #         config/architecture.php:134-141,150-157,174-181
+    # retrofit: allowed import
+    #   App\Modules\Notifications\Application\Contracts\MailNotificationModuleApi
+    #   is DEAD (contract lives in backend-shared). See docs/deviations.md D-06.
+    target_prefix: "App\\Modules\\Notifications\\Application\\"
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Profile/Http/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Auth/Http/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/AdminPolicies/Http/**"
+    allow: []
+    message: "These Http layers may import only allowlisted Notifications\\Application classes."
+    remedy: "Use LitRev\\BackendShared\\Notifications\\Application\\Contracts\\MailNotificationModuleApi instead of a concrete Notifications Application class."
+
+  - id: notifications-application-messages-allowlist
+    kind: scoped-allowlist
+    severity: error
+    # legacy: ModuleContractRulesTest.php:7-19 over
+    #         config/architecture.php:117-125
+    # NOTE: the legacy entry allowlists
+    #   LitRev\BackendShared\Messages\Application\Events\MessageNotificationRequested
+    #   while the pattern it is compared against captures
+    #   `App\Modules\Messages\Application\...` — the allowlist entry can never
+    #   match, so the legacy rule is an unconditional ban. Reproduced as such;
+    #   recorded in docs/deviations.md D-07.
+    target_prefix: "App\\Modules\\Messages\\Application\\"
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Notifications/Application/**"
+    allow: []
+    message: "Notifications\\Application may import only the allowlisted Messages\\Application classes."
+    remedy: "Consume the shared domain event LitRev\\BackendShared\\Messages\\Application\\Events\\MessageNotificationRequested instead."
+
+  - id: relationships-application-relationshiprequests-allowlist
+    kind: scoped-allowlist
+    severity: error
+    # legacy: ModuleContractRulesTest.php:7-19 over
+    #         config/architecture.php:182-189
+    # retrofit: allowed import
+    #   App\Modules\RelationshipRequests\Application\Contracts\RelationshipRequestsModuleApi
+    #   is DEAD (contract lives in backend-shared). See docs/deviations.md D-06.
+    target_prefix: "App\\Modules\\RelationshipRequests\\Application\\"
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Relationships/Application/**"
+    allow: []
+    message: "Relationships\\Application may import only the allowlisted RelationshipRequests\\Application classes."
+    remedy: "Use LitRev\\BackendShared\\RelationshipRequests\\Application\\Contracts\\RelationshipRequestsModuleApi."
+
+  - id: support-and-models-module-import-allowlist
+    kind: scoped-allowlist
+    severity: error
+    # legacy: LayerBoundaryRulesTest.php:71-81 test_support_imports_only_
+    #         allowlisted_module_classes (config:191-198) and
+    #         LayerBoundaryRulesTest.php:83-93 test_models_import_only_
+    #         allowlisted_module_classes (config:200-208); it also subsumes
+    #         LayerBoundaryRulesTest.php:40-69 test_models_do_not_import_
+    #         module_application_classes, which bans a strict subset.
+    # retrofit: the single allowed import
+    #   App\Modules\Auth\Domain\UserAuthNotificationDispatcher
+    #   is DEAD — no file declares it. See docs/deviations.md D-06.
+    target_prefix: "App\\Modules\\"
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Support/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Models/**"
+    allow: []
+    message: "app/Support and app/Models may import only allowlisted module classes."
+    remedy: "Move the collaboration into a module, or inject the behaviour instead of importing a module class from the shared host namespace."
+
+  # ===================================================================== #
+  # K6 — forbidden-target                                                 #
+  # ===================================================================== #
+
+  - id: shared-not-into-host-modules
+    kind: forbidden-target
+    severity: error
+    # legacy: SharedBoundaryRulesTest.php:40-78
+    #         test_shared_does_not_import_forbidden_host_classes
+    # data:   backend-shared/config/architecture.php:11-20
+    #         `allowed_host_app_imports` — of the eight entries exactly one is
+    #         an App\Modules\ class; App\Support\* and App\Exceptions\* entries
+    #         are all present in the allowlist, so on this tree the rule bites
+    #         only on the App\Modules\ namespace. The general form ("allow
+    #         App\Models\* structurally, allowlist every other App\ class") is
+    #         not expressible — docs/deviations.md D-01.
+    scope: { roots: [shared, core] }
+    forbid: ["App\\Modules\\**"]
+    exempt:
+      - target: "App\\Modules\\Harmonogram\\Domain\\ScheduleStatusLabel"
+        reason: "Legacy label enum still lives in the host module; extraction to backend-shared is the planned fix. Legacy allowlists it at backend-shared/config/architecture.php:13."
+        owner: backend
+        since: 2026-08-04
+        expires: 2026-12-31
+    message: "backend-shared and core must not reach into host application modules."
+    remedy: "Move the shared type into backend-shared, or invert the dependency through a contract."
+
+  - id: modules-not-into-admin
+    kind: forbidden-target
+    severity: error
+    # legacy: AdminBoundaryRulesTest.php:10-53
+    #         test_module_does_not_import_admin_modules_directly, data provider
+    #         AdminBoundaryRulesTest.php:43-53 (seven module paths)
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Auth/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/FolderItems/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/PermissionProfiles/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Relationships/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/RelationshipRequests/**"
+    forbid:
+      - "App\\Modules\\AdminUsers\\**"
+      - "App\\Modules\\AdminPolicies\\**"
+    exempt: []
+    message: "Business modules must not depend on the admin modules."
+    remedy: "Invert the dependency: let the admin module call into this module, or publish a contract the admin module consumes."
+
+  - id: no-direct-permissionprofile-model
+    kind: forbidden-target
+    severity: error
+    # legacy: ModelOwnershipRulesTest.php:93-116 over
+    #         config/architecture.php:89-99 (two `forbidden_model_import_rules`
+    #         entries sharing the same model and remedy)
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Infrastructure/PermissionProfiles/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/FolderItems/Infrastructure/PermissionProfiles/**"
+    forbid: ["App\\Models\\PermissionProfile"]
+    exempt: []
+    message: "Folders/FolderItems Infrastructure\\PermissionProfiles must not import the PermissionProfile owner model directly."
+    remedy: "Use PermissionProfileAssignmentApi (LitRev\\BackendShared\\PermissionProfiles\\Application\\Contracts\\PermissionProfileAssignmentApi) instead."
+
+  - id: no-direct-folderitem-model
+    kind: forbidden-target
+    severity: error
+    # legacy: ModelOwnershipRulesTest.php:93-116 over
+    #         config/architecture.php:99-104 and 109-114
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Infrastructure/FolderItems/**"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Harmonogram/Infrastructure/FolderItems/**"
+    forbid: ["App\\Models\\FolderItem"]
+    exempt: []
+    message: "Folders/Harmonogram Infrastructure\\FolderItems must not import the FolderItem owner model directly."
+    remedy: "Use FolderItemsModuleApi (LitRev\\BackendShared\\FolderItems\\Application\\Contracts\\FolderItemsModuleApi) instead."
+
+  - id: no-direct-folder-model
+    kind: forbidden-target
+    severity: error
+    # legacy: ModelOwnershipRulesTest.php:93-116 over
+    #         config/architecture.php:104-109
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Harmonogram/Infrastructure/Folders/**"
+    forbid: ["App\\Models\\Folder"]
+    exempt: []
+    message: "Harmonogram Infrastructure\\Folders must not import the Folder model directly."
+    remedy: "Use FolderModuleApi (LitRev\\BackendShared\\Folders\\Application\\Contracts\\FolderModuleApi) instead."
+
+  - id: no-direct-relationshiprequest-model
+    kind: forbidden-target
+    severity: error
+    # legacy: ModelOwnershipRulesTest.php:93-116 over
+    #         config/architecture.php:84-89
+    scope:
+      roots: [host_app]
+      paths:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/Relationships/Application/**"
+    forbid: ["App\\Models\\RelationshipRequest"]
+    exempt: []
+    message: "Relationships Application must not import the RelationshipRequest owner model directly."
+    remedy: "Use RelationshipRequestsModuleApi (LitRev\\BackendShared\\RelationshipRequests\\Application\\Contracts\\RelationshipRequestsModuleApi) instead."
+
+  # ===================================================================== #
+  # K7 — baseline-snapshot                                                #
+  # ===================================================================== #
+
+  - id: notifications-domain-baseline
+    kind: baseline-snapshot
+    severity: error
+    # legacy: ModuleBoundaryBaselineRulesTest.php:7-15
+    #         test_cross_module_notifications_domain_imports_match_declared_baseline
+    # data:   config/architecture.php:7 `baseline_exceptions.
+    #         notifications_domain_imports` — empty, i.e. the declared baseline
+    #         is "no cross-module import of Notifications\Domain exists".
+    target_pattern: "App\\Modules\\Notifications\\Domain\\**"
+    exclude_units: [Notifications]
+    scope: { roots: [host_app] }
+    expected: {}
+    message: "Cross-module Notifications\\Domain imports must match the declared baseline exactly."
+    remedy: "Either drop the import, or record it under expected: with reason/owner/since."
+
+  - id: notifications-mail-baseline
+    kind: baseline-snapshot
+    severity: error
+    # legacy: ModuleBoundaryBaselineRulesTest.php:17-25
+    #         test_cross_module_notifications_mail_imports_match_declared_baseline
+    # data:   config/architecture.php:8 `baseline_exceptions.
+    #         notifications_mail_imports` — empty.
+    target_pattern: "App\\Modules\\Notifications\\Mail\\**"
+    exclude_units: [Notifications]
+    scope: { roots: [host_app] }
+    expected: {}
+    message: "Cross-module Notifications\\Mail imports must match the declared baseline exactly."
+    remedy: "Either drop the import, or record it under expected: with reason/owner/since."
+
+  - id: host-into-core-baseline
+    kind: baseline-snapshot
+    severity: error
+    # No legacy counterpart: litrev-core-backend is outside the reach of
+    # tests/Architecture (it is a separate repository symlinked into the host).
+    # Kept from Tier-1 because it is the mechanism that keeps the two Support
+    # reach-ins from silently multiplying.
+    target_pattern: "LitRev\\CoreBackend\\**"
+    scope: { roots: [host_app, shared] }
+    expected:
+      "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php":
+        - target: "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderPayloadDecorator"
+          reason: "Folder payloads embed review metadata; decorator is the sanctioned entry until a contract lands."
+          owner: backend
+          since: 2026-08-04
+          expires: 2026-12-31
+      "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php":
+        - target: "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderProjectGuard"
+          reason: "Project deletion must respect review locks; guard is the sanctioned entry."
+          owner: backend
+          since: 2026-08-04
+          expires: 2026-12-31
+    message: "Host access to litrev-core-backend must match the declared baseline exactly."
+    remedy: "Either drop the import or record it in expected: with reason/owner."
+
+  # ===================================================================== #
+  # K8 — pattern-ban                                                      #
+  # ===================================================================== #
+
+  - id: runtime-console-log
+    kind: pattern-ban
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:83-89 rule `runtime-console-log`
+    #         (matchIn: "all-source-files", allowedIn: empty), scoped by
+    #         ignoredFilePatterns at :43-47 (.test./.spec./README.md).
+    pattern: "\\bconsole\\.log\\s*\\("
+    scope:
+      roots: [frontend, core_frontend]
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+        - "**/test/**"
+        - "**/__tests__/**"
+    exempt_files: []
+    message: "Do not leave console.log(...) in runtime source files."
+    remedy: "Remove the call or route it through the shared logger."
+
+  - id: raw-success-response-data
+    kind: pattern-ban
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:66-73 rule
+    #         `raw-success-response-data` (page files only).
+    # retrofit: the single allowedIn entry
+    #   src/modules/admin-users/pages/UsersManagement.jsx
+    #   matches no file in the frozen workspace, so it is not transcribed
+    #   (a dead exempt_files glob is an error under --strict-spec).
+    #   See docs/deviations.md D-06.
+    pattern: "\\b(?:response|result)\\?\\.data\\s*\\?\\?"
+    scope:
+      roots: [frontend, core_frontend]
+      paths:
+        - "**/src/pages/**"
+        - "**/src/modules/*/pages/**"
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+    exempt_files: []
+    message: "Use the shared response helpers instead of a raw response?.data ?? fallback in page files."
+    remedy: "Read the payload through the shared response helper so the success shape is defined in one place."
+
+  - id: local-message-fallback
+    kind: pattern-ban
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:74-82 rule
+    #         `local-message-fallback` (page files only).
+    # retrofit: both allowedIn entries (profile/pages/AccountDetails.jsx,
+    #   auth/pages/verify-email.jsx) match no file in the frozen workspace and
+    #   are therefore not transcribed. See docs/deviations.md D-06.
+    pattern: "\\bmessage\\s*\\|\\|\\s*t\\("
+    scope:
+      roots: [frontend, core_frontend]
+      paths:
+        - "**/src/pages/**"
+        - "**/src/modules/*/pages/**"
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+    exempt_files: []
+    message: "Prefer the shared error helpers over a local `message || t(...)` fallback in page files."
+    remedy: "Resolve the message through the shared error helper so the fallback chain is defined once."
+
+  - id: no-debug-dd
+    kind: pattern-ban
+    severity: error
+    # No legacy counterpart; kept from Tier-1 as a PHP hygiene rule.
+    pattern: "\\bdd\\("
+    scope: { roots: [host_app, shared, core] }
+    exempt_files: []
+    message: "Debug dd() calls must not reach the repository."
+    remedy: "Remove the call or use structured logging."
+
+  # ===================================================================== #
+  # K9 — structure                                                        #
+  # ===================================================================== #
+
+  - id: shared-has-no-http-or-infrastructure
+    kind: structure
+    severity: error
+    # legacy: SharedBoundaryRulesTest.php:20-38
+    #         test_shared_has_no_http_or_infrastructure_layers
+    assert:
+      root: shared
+      forbidden_dirs:
+        - "litrev-arch-snapshot/backend-shared/src/**/Http"
+        - "litrev-arch-snapshot/backend-shared/src/**/Infrastructure"
+    message: "The backend-shared package must not contain Http or Infrastructure layers."
+    remedy: "Keep transport and persistence in the host application; backend-shared holds Application/Domain/Presentation only."
+
+  - id: modules-have-no-local-deployment
+    kind: structure
+    severity: error
+    # legacy: DeploymentBoundaryRulesTest.php:7-19
+    #         test_repo_has_single_root_docker_compose_file and :21-41
+    #         test_modules_do_not_define_local_deploy_or_docker_directories
+    assert:
+      root: host_app
+      required_files:
+        - "litrev-arch-snapshot/litrev-backend/docker-compose.yml"
+      forbidden_dirs:
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/*/docker"
+        - "litrev-arch-snapshot/litrev-backend/app/Modules/*/deploy"
+    message: "Deployment is a repository-level concern, declared once at the root."
+    remedy: "Move the module-local docker/deploy directory into the root compose file, or restore the single root docker-compose.yml."
+
+  - id: frontend-module-entrypoint
+    kind: structure
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:305-325 `missing-module-entrypoint`
+    #         (a finding, i.e. an error, not a warning).
+    # NOTE: legacy accepts index.{js,jsx,ts,tsx}; limen's for_each_unit checks a
+    #       single filename, and every module in the snapshot uses index.js.
+    #       Recorded in docs/deviations.md D-04.
+    assert:
+      for_each_unit: { root: frontend }
+      file: index.js
+    message: "Each frontend module must expose a root public entrypoint."
+    remedy: "Add src/modules/<module>/index.js re-exporting the module's public API."
+
+  - id: frontend-module-readme-contract
+    kind: structure
+    severity: warning
+    # legacy: audit-frontend-architecture.mjs:326-350 — `missing-module-readme`
+    #         and `missing-module-contract` are WARNINGS in the legacy script
+    #         (pushed to `warnings`, not `findings`); the three required
+    #         sections are declared at :49-53.
+    assert:
+      for_each_unit: { root: frontend }
+      file: README.md
+      must_match:
+        - "(^|\\n)Odpowiedzialność:"
+        - "(^|\\n)Publiczne entrypointy:"
+        - "Nie importować z zewnątrz"
+    message: "Each frontend module documents its contract in README.md."
+    remedy: "Add the three sections: `Odpowiedzialność:`, `Publiczne entrypointy:`, and the `Nie importować z zewnątrz` rule."
+
+  - id: frontend-agents-doc-present
+    kind: structure
+    severity: error
+    # No legacy counterpart; kept from Tier-1.
+    assert:
+      required_files:
+        - "litrev-arch-snapshot/litrev-frontend/src/AGENTS.md"
+    message: "Each frontend repository ships its agent contract next to the source."
+    remedy: "Restore src/AGENTS.md."
+
+  # ===================================================================== #
+  # K1 — layer-dependency                                                 #
+  # ===================================================================== #
+
+  - id: application-not-into-infrastructure
+    kind: layer-dependency
+    severity: error
+    # legacy: LayerBoundaryRulesTest.php:7-38
+    #         test_application_layer_does_not_import_module_infrastructure
+    forbid: { from_layer: Application, to_layer: Infrastructure }
+    scope: { roots: [host_app, shared, core] }
+    exempt: []
+    message: "The Application layer must not import module Infrastructure classes."
+    remedy: "Depend on an interface the Application layer owns and bind the Infrastructure implementation in the service provider."
+
+  - id: frontend-shared-not-into-modules
+    kind: layer-dependency
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:194-206
+    #         `shared-must-not-depend-on-app-or-modules` (modules branch)
+    forbid: { from_layer: shared, to_layer: modules }
+    scope: { roots: [frontend, core_frontend] }
+    exempt: []
+    message: "src/shared is the foundation layer; it must not import feature modules."
+    remedy: "Lift the shared piece out of the module, or pass it in as a prop/callback."
+
+  - id: frontend-shared-not-into-app
+    kind: layer-dependency
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:194-206 (app branch)
+    forbid: { from_layer: shared, to_layer: app }
+    scope: { roots: [frontend, core_frontend] }
+    exempt: []
+    message: "src/shared must not import from src/app."
+    remedy: "Invert the dependency: let src/app compose the shared building block."
+
+  - id: frontend-shared-not-into-auth
+    kind: layer-dependency
+    severity: error
+    # legacy: audit-frontend-architecture.mjs:194-206 (auth branch)
+    forbid: { from_layer: shared, to_layer: auth }
+    scope: { roots: [frontend, core_frontend] }
+    exempt: []
+    message: "src/shared must not import from src/auth."
+    remedy: "Pass the auth-derived value in from the caller instead of importing the auth layer."
+
+  # ===================================================================== #
+  # K10 — metric-threshold                                                #
+  # ===================================================================== #
+
+  - id: oversized-page-file
+    kind: metric-threshold
+    severity: warning
+    # legacy: audit-frontend-architecture.mjs:62,263-272 (warning)
+    metric: lines
+    max: 600
+    scope:
+      roots: [frontend, core_frontend]
+      paths:
+        - "**/src/pages/**"
+        - "**/src/modules/*/pages/**"
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+    message: "Page file exceeds the review threshold of 600 lines."
+    remedy: "Extract hooks, helpers or components out of the page."
+
+  - id: oversized-module-entrypoint
+    kind: metric-threshold
+    severity: warning
+    # legacy: audit-frontend-architecture.mjs:63,273-282 (warning)
+    metric: lines
+    max: 80
+    scope:
+      roots: [frontend, core_frontend]
+      paths:
+        - "**/src/modules/*/index.{js,jsx,ts,tsx}"
+    message: "Module entrypoint exceeds the review threshold of 80 lines."
+    remedy: "Keep public API entrypoints thin: re-export, do not implement."
+
+  - id: oversized-hook-file
+    kind: metric-threshold
+    severity: warning
+    # legacy: audit-frontend-architecture.mjs:283-292 (warning, limit 350)
+    metric: lines
+    max: 350
+    scope:
+      roots: [frontend, core_frontend]
+      paths:
+        - "**/src/hooks/**"
+        - "**/src/modules/*/hooks/**"
+      exclude:
+        - "**/*.test.*"
+        - "**/*.spec.*"
+    message: "Hook file is large enough to review for mixed responsibilities."
+    remedy: "Split the hook along its distinct responsibilities."
+
+  - id: file-size
+    kind: metric-threshold
+    severity: warning
+    # No legacy counterpart; kept from Tier-1 as a repository-wide backstop.
+    metric: lines
+    max: 800
+    scope: { roots: [host_app, shared, core, frontend, core_frontend] }
+    message: "File exceeds the review threshold."
+    remedy: "Extract cohesive pieces; large files hide coupling."

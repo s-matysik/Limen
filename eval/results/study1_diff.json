@@ -1,0 +1,348 @@
+{
+  "agreements": [],
+  "categories": {
+    "C1": "legacy false alarm removed",
+    "C2": "legacy gap closed",
+    "C3": "deliberate semantic change"
+  },
+  "comparison_key": [
+    "file",
+    "line",
+    "target"
+  ],
+  "counts": {
+    "agreements": 0,
+    "differences_legacy_only": 0,
+    "differences_limen_only": 3,
+    "differences_total": 3,
+    "legacy_findings_in_scope": 0,
+    "legacy_findings_out_of_scope": 0,
+    "legacy_findings_total": 0,
+    "limen_findings_in_scope": 3,
+    "limen_findings_out_of_scope": 8,
+    "limen_findings_total": 11,
+    "per_category": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "deviations_seen": [
+    "D-01",
+    "D-02",
+    "D-03",
+    "D-04",
+    "D-05",
+    "D-06",
+    "D-07",
+    "D-08",
+    "D-09",
+    "D-10"
+  ],
+  "differences": [
+    {
+      "classification": {
+        "category": "C2",
+        "category_label": "legacy gap closed",
+        "evidence": {
+          "documentation": [
+            {
+              "claim": "backend-shared states that concrete Application classes of another module are forbidden across a module boundary and need an explicit allowlist entry; no legacy checker applied this to imports coming from the host app or from core-backend.",
+              "file": "backend-shared/CLAUDE.md",
+              "line": 52,
+              "quote": "**Forbidden:** importing concrete Application classes from a sibling module (actions, services, policies, exceptions). If you need cross-module access to a concrete class, first ask whether a contract interface would be more appropriate. If unavoidable, add it to `cross_module_concrete_application_allowlist` in `config/architecture.php` — but treat the allowlist as a last resort."
+            },
+            {
+              "claim": "backend-shared/src/AGENTS.md enumerates the public surface (Application\\Contracts, Application\\Events, Domain, Presentation) as the only cross-module entry.",
+              "file": "backend-shared/src/AGENTS.md",
+              "line": 15,
+              "quote": "- Między modułami preferuj:"
+            },
+            {
+              "claim": "the host app's own module contract requires cross-module communication through contracts/interfaces/facades, without restricting the statement to the App\\Modules namespace.",
+              "file": "litrev-backend/app/Modules/AGENTS.md",
+              "line": 29,
+              "quote": "- Między modułami używaj kontraktów, interfejsów albo fasad modułowych."
+            }
+          ],
+          "legacy_blindness": [
+            {
+              "claim": "the cross-module Application check is anchored to `App\\Modules\\`, so an import of a concrete `LitRev\\BackendShared\\...\\Application\\` service never matches.",
+              "file": "litrev-backend/tests/Architecture/ApplicationBoundaryRulesTest.php",
+              "line": 32,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Application\\\\\\\\([^;]+);/m', $contents, $matches, PREG_SET_ORDER);"
+            },
+            {
+              "claim": "the Http boundary check is anchored to `App\\Modules\\` as well.",
+              "file": "litrev-backend/tests/Architecture/HttpBoundaryRulesTest.php",
+              "line": 19,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Http\\\\\\\\/m', $contents, $matches);"
+            }
+          ],
+          "source_line": {
+            "file": "litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+            "line": 24,
+            "match_offset": 4,
+            "matched_text": "LitRev\\BackendShared\\Audit\\Application\\AuditLogService",
+            "resolved": true,
+            "source_line": "use LitRev\\BackendShared\\Audit\\Application\\AuditLogService;",
+            "span_class": "code"
+          }
+        },
+        "rationale": "the constraint behind `host-cross-module-public-surface` is stated in 3 documentation location(s) verified in this run; the legacy checkers that would have had to enforce it are anchored to a namespace that cannot match the offending import, so the rule existed only in prose.",
+        "rule": "classify_c2: prose rule exists, no legacy checker enforced it"
+      },
+      "direction": "limen-only",
+      "file": "litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+      "key": "litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php:24:LitRev\\BackendShared\\Audit\\Application\\AuditLogService",
+      "line": 24,
+      "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+      "rule_id": "host-cross-module-public-surface",
+      "severity": "error",
+      "source": "limen",
+      "target": "LitRev\\BackendShared\\Audit\\Application\\AuditLogService"
+    },
+    {
+      "classification": {
+        "category": "C2",
+        "category_label": "legacy gap closed",
+        "evidence": {
+          "documentation": [
+            {
+              "claim": "backend-shared states that concrete Application classes of another module are forbidden across a module boundary and need an explicit allowlist entry; no legacy checker applied this to imports coming from the host app or from core-backend.",
+              "file": "backend-shared/CLAUDE.md",
+              "line": 52,
+              "quote": "**Forbidden:** importing concrete Application classes from a sibling module (actions, services, policies, exceptions). If you need cross-module access to a concrete class, first ask whether a contract interface would be more appropriate. If unavoidable, add it to `cross_module_concrete_application_allowlist` in `config/architecture.php` — but treat the allowlist as a last resort."
+            },
+            {
+              "claim": "backend-shared/src/AGENTS.md enumerates the public surface (Application\\Contracts, Application\\Events, Domain, Presentation) as the only cross-module entry.",
+              "file": "backend-shared/src/AGENTS.md",
+              "line": 15,
+              "quote": "- Między modułami preferuj:"
+            },
+            {
+              "claim": "the host app's own module contract requires cross-module communication through contracts/interfaces/facades, without restricting the statement to the App\\Modules namespace.",
+              "file": "litrev-backend/app/Modules/AGENTS.md",
+              "line": 29,
+              "quote": "- Między modułami używaj kontraktów, interfejsów albo fasad modułowych."
+            }
+          ],
+          "legacy_blindness": [
+            {
+              "claim": "the cross-module Application check is anchored to `App\\Modules\\`, so an import of a concrete `LitRev\\BackendShared\\...\\Application\\` service never matches.",
+              "file": "litrev-backend/tests/Architecture/ApplicationBoundaryRulesTest.php",
+              "line": 32,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Application\\\\\\\\([^;]+);/m', $contents, $matches, PREG_SET_ORDER);"
+            },
+            {
+              "claim": "the Http boundary check is anchored to `App\\Modules\\` as well.",
+              "file": "litrev-backend/tests/Architecture/HttpBoundaryRulesTest.php",
+              "line": 19,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Http\\\\\\\\/m', $contents, $matches);"
+            }
+          ],
+          "source_line": {
+            "file": "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+            "line": 26,
+            "match_offset": 4,
+            "matched_text": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+            "resolved": true,
+            "source_line": "use LitRev\\BackendShared\\Folders\\Application\\FolderViewService;",
+            "span_class": "code"
+          }
+        },
+        "rationale": "the constraint behind `host-cross-module-public-surface` is stated in 3 documentation location(s) verified in this run; the legacy checkers that would have had to enforce it are anchored to a namespace that cannot match the offending import, so the rule existed only in prose.",
+        "rule": "classify_c2: prose rule exists, no legacy checker enforced it"
+      },
+      "direction": "limen-only",
+      "file": "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+      "key": "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php:26:LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+      "line": 26,
+      "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+      "rule_id": "host-cross-module-public-surface",
+      "severity": "error",
+      "source": "limen",
+      "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService"
+    },
+    {
+      "classification": {
+        "category": "C2",
+        "category_label": "legacy gap closed",
+        "evidence": {
+          "documentation": [
+            {
+              "claim": "backend-shared states that concrete Application classes of another module are forbidden across a module boundary and need an explicit allowlist entry; no legacy checker applied this to imports coming from the host app or from core-backend.",
+              "file": "backend-shared/CLAUDE.md",
+              "line": 52,
+              "quote": "**Forbidden:** importing concrete Application classes from a sibling module (actions, services, policies, exceptions). If you need cross-module access to a concrete class, first ask whether a contract interface would be more appropriate. If unavoidable, add it to `cross_module_concrete_application_allowlist` in `config/architecture.php` — but treat the allowlist as a last resort."
+            },
+            {
+              "claim": "backend-shared/src/AGENTS.md enumerates the public surface (Application\\Contracts, Application\\Events, Domain, Presentation) as the only cross-module entry.",
+              "file": "backend-shared/src/AGENTS.md",
+              "line": 15,
+              "quote": "- Między modułami preferuj:"
+            },
+            {
+              "claim": "the host app's own module contract requires cross-module communication through contracts/interfaces/facades, without restricting the statement to the App\\Modules namespace.",
+              "file": "litrev-backend/app/Modules/AGENTS.md",
+              "line": 29,
+              "quote": "- Między modułami używaj kontraktów, interfejsów albo fasad modułowych."
+            }
+          ],
+          "legacy_blindness": [
+            {
+              "claim": "the cross-module Application check is anchored to `App\\Modules\\`, so an import of a concrete `LitRev\\BackendShared\\...\\Application\\` service never matches.",
+              "file": "litrev-backend/tests/Architecture/ApplicationBoundaryRulesTest.php",
+              "line": 32,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Application\\\\\\\\([^;]+);/m', $contents, $matches, PREG_SET_ORDER);"
+            },
+            {
+              "claim": "the Http boundary check is anchored to `App\\Modules\\` as well.",
+              "file": "litrev-backend/tests/Architecture/HttpBoundaryRulesTest.php",
+              "line": 19,
+              "quote": "preg_match_all('/use\\s+App\\\\\\\\Modules\\\\\\\\([^\\\\\\\\]+)\\\\\\\\Http\\\\\\\\/m', $contents, $matches);"
+            }
+          ],
+          "source_line": {
+            "file": "litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+            "line": 14,
+            "match_offset": 4,
+            "matched_text": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+            "resolved": true,
+            "source_line": "use LitRev\\BackendShared\\Folders\\Application\\FolderHomeService;",
+            "span_class": "code"
+          }
+        },
+        "rationale": "the constraint behind `host-cross-module-public-surface` is stated in 3 documentation location(s) verified in this run; the legacy checkers that would have had to enforce it are anchored to a namespace that cannot match the offending import, so the rule existed only in prose.",
+        "rule": "classify_c2: prose rule exists, no legacy checker enforced it"
+      },
+      "direction": "limen-only",
+      "file": "litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+      "key": "litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php:14:LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+      "line": 14,
+      "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+      "rule_id": "host-cross-module-public-surface",
+      "severity": "error",
+      "source": "limen",
+      "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService"
+    }
+  ],
+  "inputs": {
+    "deviations": "docs/deviations.md",
+    "legacy": "eval/results/legacy_findings.json",
+    "limen": "eval/results/limen_findings.json"
+  },
+  "legacy_oracle_provenance": {
+    "counts": {
+      "per_legacy_rule_id": {},
+      "per_source": {},
+      "total": 0
+    },
+    "php": {
+      "assertions": 52,
+      "classes": [
+        "Tests\\Architecture\\AdminBoundaryRulesTest",
+        "Tests\\Architecture\\ApplicationBoundaryRulesTest",
+        "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+        "Tests\\Architecture\\HttpBoundaryRulesTest",
+        "Tests\\Architecture\\LayerBoundaryRulesTest",
+        "Tests\\Architecture\\ModelOwnershipRulesTest",
+        "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+        "Tests\\Architecture\\ModuleContractRulesTest",
+        "Tests\\Architecture\\SharedBoundaryRulesTest"
+      ],
+      "errors": [],
+      "failed_assertions": 0,
+      "methods_errored": 0,
+      "methods_executed": 26
+    },
+    "schema": "legacy-findings/1",
+    "tool": "legacy"
+  },
+  "oracle_available": true,
+  "out_of_scope": [
+    {
+      "key": "litrev-frontend/src/app/pages/Home.jsx:5:@/assets/hero-litrev-ai.png",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/main.jsx:3:./index.css",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/i18n/index.ts:2:../../locales/pl/app.json",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/i18n/index.ts:3:../../locales/en/app.json",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/i18n/index.ts:4:../../locales/pl/dashboard.json",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/i18n/index.ts:5:../../locales/en/dashboard.json",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/ui/LanguageSwitcher.jsx:2:@/assets/flags/pl.svg",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    },
+    {
+      "key": "litrev-frontend/src/shared/ui/LanguageSwitcher.jsx:3:@/assets/flags/gb.svg",
+      "message": "Dependency could not be resolved statically (unresolved-path).",
+      "reason": "engine diagnostic, not a contract rule (spec_path=unresolved_policy); the legacy checkers are pattern matchers and cannot express this judgement, so no counterpart is possible by construction",
+      "rule_id": "unresolved-dependency",
+      "severity": "warning",
+      "source": "limen",
+      "spec_path": "unresolved_policy"
+    }
+  ],
+  "provisional": false,
+  "provisional_note": null,
+  "schema": "study1-diff/1",
+  "scope_rule": "a finding takes part in the diff only if it is a contract-rule verdict (limen: spec_path matches rules[n]; legacy: the finding carries a legacy rule identity). Engine diagnostics are listed under out_of_scope and counted separately.",
+  "snapshot": {
+    "legacy_workspace_id": "562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31",
+    "limen_workspace_id": "562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31",
+    "match": true
+  },
+  "workspace": "/Users/sebastianmatysik/!!!!!Limen/workspace"
+}

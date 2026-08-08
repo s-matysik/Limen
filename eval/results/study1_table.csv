@@ -1,0 +1,16 @@
+kind,limen_rules,legacy_rules,legacy_loc_total,legacy_loc_code,yaml_loc_total,yaml_loc_code
+K1 layer-dependency,4,2,45,37,46,32
+K2 ownership,1,2,39,35,29,20
+K3 consumer-allowlist,1,2,69,62,30,20
+K4 public-api-only,3,7,202,156,58,35
+K5 scoped-allowlist,5,7,158,150,106,61
+K6 forbidden-target,6,5,150,131,109,78
+K7 baseline-snapshot,3,3,22,22,58,38
+K8 pattern-ban,4,3,37,36,76,52
+K9 structure,5,6,98,88,74,50
+K10 metric-threshold,4,3,32,29,56,49
+K11 reachability,0,0,0,0,0,0
+shared infrastructure,0,7,260,216,153,91
+shared helper machinery (unclaimed),0,0,152,108,0,0
+file scaffolding (unclaimed),0,0,233,176,0,0
+TOTAL,36,47,1497,1246,795,526

@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": false,
+  "language": "python",
+  "license": "AGPL-3.0",
+  "owner": "ICHNSantiago",
+  "reason": "no directory in the tree holds the declared root package(s) ['lms', 'cms', 'openedx', 'openedx_learning']",
+  "repo": "ICHNedx",
+  "seconds": 0.1,
+  "sha": "e5cafb6cc0469837e95c1c2efb2f23c06071bb10",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

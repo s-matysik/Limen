@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "NOASSERTION",
+  "owner": "RaptorXilef",
+  "reason": "TypeError: object of type 'NoneType' has no len()",
+  "repo": "twokinds.4lima.de",
+  "seconds": 0.0,
+  "sha": "6a4d07600acb405c8fae462033419601525f3f4c",
+  "stars": 1,
+  "status": "translation-error"
+}

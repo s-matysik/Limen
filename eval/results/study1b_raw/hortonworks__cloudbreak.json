@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "Apache-2.0",
+  "owner": "hortonworks",
+  "reason": "regex=\"true\" on <allow> in com.sequenceiq.cloudbreak.cloud",
+  "repo": "cloudbreak",
+  "seconds": 0.0,
+  "sha": "55d5e383a0caeca4f15fc90cdbd033e2582ebb24",
+  "stars": 361,
+  "status": "untranslatable-config"
+}

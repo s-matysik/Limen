@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "AdrienFelipe",
+  "reason": "directory collector value '' is a regex this translator will not approximate",
+  "repo": "localingo",
+  "seconds": 0.0,
+  "sha": "1ec0a32491d921ed32407b320c51be6f6f928a63",
+  "stars": 4,
+  "status": "untranslatable-config"
+}

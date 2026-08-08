@@ -1,0 +1,125 @@
+{
+  "api_calls": {
+    "core": 707,
+    "search": 11
+  },
+  "candidates": 720,
+  "dev": 40,
+  "heldout": 20,
+  "heldout_frac": 0.3333333333333333,
+  "included": 60,
+  "included_by_kind": {
+    "dependency-cruiser": 15,
+    "deptrac": 15,
+    "import-control": 15,
+    "import-linter": 15
+  },
+  "included_by_language": {
+    "java": 15,
+    "js": 15,
+    "php": 15,
+    "python": 15
+  },
+  "min_source_files": 30,
+  "name_denylist": [
+    "deptrac",
+    "import-linter",
+    "importlinter",
+    "dependency-cruiser",
+    "dependency_cruiser",
+    "checkstyle",
+    "phparkitect",
+    "arkitect",
+    "tutorial",
+    "example",
+    "examples",
+    "demo",
+    "boilerplate",
+    "skeleton",
+    "starter",
+    "template",
+    "playground",
+    "sandbox",
+    "workshop",
+    "training",
+    "kata",
+    "exercise",
+    "sample",
+    "samples",
+    "scaffold",
+    "seed-project",
+    "learning",
+    "course",
+    "awesome"
+  ],
+  "per_step": {
+    "F2": 1,
+    "F3": 108,
+    "F4": 4,
+    "F6": 13,
+    "F7": 31,
+    "F8": 503,
+    "INCLUDED": 60
+  },
+  "quota_per_tool": 15,
+  "schema": "arch-corpus/1",
+  "searches": [
+    {
+      "hits": 100,
+      "kind": "dependency-cruiser",
+      "query": ".dependency-cruiser.js"
+    },
+    {
+      "hits": 100,
+      "kind": "dependency-cruiser",
+      "query": ".dependency-cruiser.json"
+    },
+    {
+      "hits": 100,
+      "kind": "dependency-cruiser",
+      "query": ".dependency-cruiser.cjs"
+    },
+    {
+      "hits": 100,
+      "kind": "deptrac",
+      "query": "filename:deptrac.yaml"
+    },
+    {
+      "hits": 87,
+      "kind": "deptrac",
+      "query": "filename:deptrac.yml"
+    },
+    {
+      "hits": 100,
+      "kind": "deptrac",
+      "query": "filename:depfile.yaml"
+    },
+    {
+      "hits": 1,
+      "kind": "deptrac",
+      "query": "filename:deptrac.dist.yaml"
+    },
+    {
+      "hits": 100,
+      "kind": "import-control",
+      "query": "filename:import-control.xml"
+    },
+    {
+      "hits": 100,
+      "kind": "import-control",
+      "query": "filename:import-control-core.xml"
+    },
+    {
+      "hits": 100,
+      "kind": "import-linter",
+      "query": "filename:.importlinter"
+    },
+    {
+      "hits": 100,
+      "kind": "import-linter",
+      "query": "importlinter filename:setup.cfg"
+    }
+  ],
+  "seed": 20260804,
+  "wall_seconds": 402.5
+}

@@ -1,0 +1,13 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": false,
+  "language": "js",
+  "license": "NOASSERTION",
+  "owner": "bounded-systems",
+  "reason": "no `forbidden` rule is a directory-prefix ban; untranslated: no-circular (graph/metadata criteria ['circular'] are not predicates over a single dependency edge); shared-stays-pure (criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule); no-orphans (graph/metadata ",
+  "repo": "prx",
+  "seconds": 0.2,
+  "sha": "df5ab254486ce887c68540b633da9198426e656b",
+  "stars": 1,
+  "status": "untranslatable-config"
+}

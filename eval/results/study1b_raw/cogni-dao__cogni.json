@@ -1,0 +1,166 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": false,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "NOASSERTION",
+  "n_limen_rules": 6,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 1615,
+      "dependencies_seen": 1615,
+      "dependencies_unresolved": 1562,
+      "modules_cruised": 1313,
+      "resolution_rate": 0.03281733746130031
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress packages/**/*.ts packages/**/*.tsx packages/**/*.js packages/**/*.jsx packages/**/*.mjs packages/**/*.cjs packages/**/*.vue",
+    "exit_code": 0,
+    "not_live_reason": "1562/1615 dependencies could not be resolved (3.3% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": false,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "cogni-dao",
+  "reason": "1562/1615 dependencies could not be resolved (3.3% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+  "repo": "cogni",
+  "rule_kinds": {
+    "dc-no-ai-core-to-ai-tools": "forbidden-target",
+    "dc-no-ai-facades-to-feature-services": "forbidden-target",
+    "dc-no-graphs-to-ai-core": "forbidden-target",
+    "dc-no-services-to-src": "forbidden-target",
+    "dc-no-src-to-services": "forbidden-target",
+    "dc-shared-not-node": "forbidden-target"
+  },
+  "seconds": 0.8,
+  "sha": "f7b1995f7c2121d4db44560b719c139f24199356",
+  "stars": 4,
+  "status": "oracle-not-live",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 31,
+    "native_rule_ids_translated": [
+      "no-ai-facades-to-feature-services",
+      "no-services-to-src",
+      "shared-not-node",
+      "no-src-to-services",
+      "no-ai-core-to-ai-tools",
+      "no-graphs-to-ai-core"
+    ],
+    "pairs": [
+      "nodes/operator/app/src/app/_facades/ai/ -> nodes/operator/app/src/features/ai/services/",
+      "services/ -> nodes/operator/app/src/",
+      "packages/ -> nodes/",
+      "nodes/operator/app/src/ -> services/",
+      "packages/ai-core/ -> packages/ai-tools/",
+      "packages/langgraph-graphs/src/graphs/ -> packages/ai-core/"
+    ],
+    "rules_emitted": 6,
+    "rules_untranslated": 25,
+    "src_dir": "packages",
+    "untranslated": [
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-unknown-src-layer"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src' / to.path='\\\\.\\\\./' is a regex, not a directory prefix",
+        "rule": "unnamed"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(?!ports/)' / to.path='^nodes/operator/app/src/ports/(?!index\\\\.ts$|server\\\\.ts$).*\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-internal-ports-imports"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(?!core/)' / to.path='^nodes/operator/app/src/core/(?!public\\\\.ts$).*\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-internal-core-imports"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(?!adapters/server/)(?!auth\\\\.ts$)(?!bootstrap/container\\\\.ts$)(?!bootstrap/graph-executor\\\\.factory\\\\.ts$)(?!bootstrap/agent-discovery\\\\.ts$)(?!bootstrap/jobs/syncGovernanceSchedules\\\\.job\\\\.ts$)' / to.path='^nodes/operator/app/src/adapters/server/(?!index\\\\.ts$).*\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-internal-adapter-imports"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(?!adapters/test/)' / to.path='^nodes/operator/app/src/adapters/test/(?!index\\\\.ts$).*\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-internal-test-adapter-imports"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(?!features/)' / to.path='^nodes/operator/app/src/features/[^/]+/(mappers|utils|constants)/' is a regex, not a directory prefix",
+        "rule": "no-internal-features-imports"
+      },
+      {
+        "reason": "from.path='^packages/' / to.path='^nodes/operator/app/src/|^services/' is a regex, not a directory prefix",
+        "rule": "no-packages-to-src-or-services"
+      },
+      {
+        "reason": "from.path='^nodes/' / to.path='^apps/|^services/' is a regex, not a directory prefix",
+        "rule": "node-not-operator"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-cross-node"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-deep-package-imports"
+      },
+      {
+        "reason": "from.path='^packages/db-schema/src/refs' / to.path='^packages/db-schema/src/(scheduling|auth|billing|ai)' is a regex, not a directory prefix",
+        "rule": "no-refs-to-slices"
+      },
+      {
+        "reason": "from.path='^packages/db-schema/src/(scheduling|auth|billing|ai)\\\\.ts$' / to.path='^packages/db-schema/src/(scheduling|auth|billing|ai)\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-cross-slice-schema-imports"
+      },
+      {
+        "reason": "from.path='^nodes/operator/app/src/(features|components|core|styles|assets)/' / to.path='^packages/db-client/' is a regex, not a directory prefix",
+        "rule": "db-client-server-only"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-service-db-package-import"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-service-db-adapter-import"
+      },
+      {
+        "reason": "from.path='^services/[^/]+/src/(core|ports)/' / to.path='^services/[^/]+/src/adapters/' is a regex, not a directory prefix",
+        "rule": "no-service-core-or-ports-to-adapters"
+      },
+      {
+        "reason": "from.path='^services/[^/]+/src/adapters/' / to.path='^services/[^/]+/src/main\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-service-adapters-to-main"
+      },
+      {
+        "reason": "from.path='^services/[^/]+/src/(activities|workflows)/' / to.path='^services/[^/]+/src/adapters/' is a regex, not a directory prefix",
+        "rule": "no-service-activities-to-adapters"
+      },
+      {
+        "reason": "from.path='^services/[^/]+/src/(activities|workflows)/' / to.path='^packages/db-client/' is a regex, not a directory prefix",
+        "rule": "no-service-activities-to-db-client"
+      },
+      {
+        "reason": "from.path='^services/[^/]+/src/(activities|workflows)/' / to.path='^services/[^/]+/src/bootstrap/' is a regex, not a directory prefix",
+        "rule": "no-service-activities-to-bootstrap"
+      },
+      {
+        "reason": "from.path='^services/scheduler-worker/' / to.path='schedule-control|ScheduleControl' is a regex, not a directory prefix",
+        "rule": "no-worker-schedule-control"
+      },
+      {
+        "reason": "from.path='^services/scheduler-worker/src/(activities|workflows)/' / to.path='^packages/attribution-ledger/src/allocation\\\\.ts$' is a regex, not a directory prefix",
+        "rule": "no-worker-direct-ledger-allocation-subpath"
+      },
+      {
+        "reason": "from.path='^nodes/poly/packages/market-provider/src/policy/' / to.path='^node_modules/viem|^node_modules/@polymarket/clob-client/|^node_modules/@polymarket/clob-client-v2/|^nodes/[^/]+/(app|graphs)/|^services/' is a regex, not a directory prefix",
+        "rule": "no-io-in-policy"
+      },
+      {
+        "reason": "from.path='^nodes/(operator|resy|node-template)/' / to.path='(@cogni/poly-ai-tools|^nodes/poly/packages/ai-tools/)' is a regex, not a directory prefix",
+        "rule": "no-poly-ai-tools-in-non-poly-nodes"
+      }
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+version: 1
+project: vscode-code-layering-retrofit
+roots:
+  main:
+    path: src/vs
+    language: js
+layers:
+  discovery:
+  - root: main
+    pattern: src/vs/**/{layer}/**
+  declared:
+  - browser
+  - common
+  - electron-browser
+  - electron-main
+  - electron-utility
+  - node
+unresolved_policy:
+  default: 'off'
+rules:
+- id: layer-browser-not-electron-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: browser
+    to_layer: electron-browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-browser from here,
+    allowed layers are: [browser, common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-browser-not-electron-main
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: browser
+    to_layer: electron-main
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-main from here, allowed
+    layers are: [browser, common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-browser-not-electron-utility
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: browser
+    to_layer: electron-utility
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-utility from here,
+    allowed layers are: [browser, common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-browser-not-node
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: browser
+    to_layer: node
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access node from here, allowed layers
+    are: [browser, common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-common-not-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: common
+    to_layer: browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access browser from here, allowed
+    layers are: [common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-common-not-electron-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: common
+    to_layer: electron-browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-browser from here,
+    allowed layers are: [common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-common-not-electron-main
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: common
+    to_layer: electron-main
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-main from here, allowed
+    layers are: [common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-common-not-electron-utility
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: common
+    to_layer: electron-utility
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-utility from here,
+    allowed layers are: [common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-common-not-node
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: common
+    to_layer: node
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access node from here, allowed layers
+    are: [common]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-browser-not-electron-main
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-browser
+    to_layer: electron-main
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-main from here, allowed
+    layers are: [browser, common, electron-browser]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-browser-not-electron-utility
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-browser
+    to_layer: electron-utility
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-utility from here,
+    allowed layers are: [browser, common, electron-browser]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-browser-not-node
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-browser
+    to_layer: node
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access node from here, allowed layers
+    are: [browser, common, electron-browser]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-main-not-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-main
+    to_layer: browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access browser from here, allowed
+    layers are: [common, electron-main, electron-utility, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-main-not-electron-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-main
+    to_layer: electron-browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-browser from here,
+    allowed layers are: [common, electron-main, electron-utility, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-utility-not-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-utility
+    to_layer: browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access browser from here, allowed
+    layers are: [common, electron-utility, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-utility-not-electron-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-utility
+    to_layer: electron-browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-browser from here,
+    allowed layers are: [common, electron-utility, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-electron-utility-not-electron-main
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: electron-utility
+    to_layer: electron-main
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-main from here, allowed
+    layers are: [common, electron-utility, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-node-not-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: node
+    to_layer: browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access browser from here, allowed
+    layers are: [common, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-node-not-electron-browser
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: node
+    to_layer: electron-browser
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-browser from here,
+    allowed layers are: [common, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-node-not-electron-main
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: node
+    to_layer: electron-main
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-main from here, allowed
+    layers are: [common, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.
+- id: layer-node-not-electron-utility
+  kind: layer-dependency
+  severity: warning
+  forbid:
+    from_layer: node
+    to_layer: electron-utility
+  scope:
+    roots:
+    - main
+  message: 'Bad layering. You are not allowed to access electron-utility from here,
+    allowed layers are: [common, node]'
+  remedy: Move the code, or reach the other layer through a service interface declared
+    in a common layer.

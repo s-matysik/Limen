@@ -1,0 +1,69 @@
+version: 1
+project: minimal-python
+
+roots:
+  main: { path: src, language: python }
+
+units:
+  discovery:
+    - { root: main, pattern: "src/{unit}/**" }
+  declared: [billing, core, reporting]
+  registry_policy: exact
+
+layers:
+  discovery:
+    - { pattern: "src/*/{layer}/**" }
+  declared: [domain, infra]
+
+public_surface:
+  python:
+    - "{unit}/api.py"
+    - "{unit}/__init__.py"
+
+unresolved_policy:
+  default: warn
+
+rules:
+  - id: domain-not-infra
+    kind: layer-dependency
+    severity: error
+    forbid: { from_layer: domain, to_layer: infra }
+    scope: { roots: [main] }
+    message: "The domain layer must not depend on infrastructure."
+    remedy: "Define an interface in domain and bind it in infra."
+
+  - id: cross-unit-public-api-only
+    kind: public-api-only
+    severity: error
+    scope: { roots: [main] }
+    exempt: []
+    message: "Cross-unit dependencies must resolve to the target unit's public surface."
+    remedy: "Import the unit's api module, not its internals."
+
+  - id: billing-no-direct-db
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["src/billing/**"] }
+    forbid: ["core.infra.db"]
+    message: "Billing must not import the core database module directly."
+    remedy: "Use core.api.get_connection()."
+
+  - id: baseline-core-domain
+    kind: baseline-snapshot
+    severity: error
+    target_pattern: "core.domain.*"
+    scope: { roots: [main] }
+    exclude_units: [core]
+    expected: {}
+    message: "Cross-unit core.domain imports must match the declared baseline exactly."
+    remedy: "Either remove the import, or record it in expected: with reason/owner/expires."
+
+  - id: billing-reporting-independent
+    kind: reachability
+    severity: error
+    mode: independence
+    units: [billing, reporting]
+    max_depth: null
+    report_path: true
+    message: "billing and reporting must not reach each other, directly or transitively."
+    remedy: "Move the shared concern into core, which both may depend on."

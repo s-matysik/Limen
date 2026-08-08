@@ -1,0 +1,13 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": true,
+  "language": "js",
+  "license": "MIT",
+  "owner": "TommasoRibaudo",
+  "reason": "dependency-cruiser could not resolve the config: ERROR: ENOENT: no such file or directory, stat 'tsconfig.json'",
+  "repo": "wavis-public",
+  "seconds": 0.1,
+  "sha": "f534c6b6c370f119bbb5ff9afe6e63ed616df56e",
+  "stars": 1,
+  "status": "untranslatable-config"
+}

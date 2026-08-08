@@ -1,0 +1,96 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "python",
+  "license": "Apache-2.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/teangtang1122__siming-ai/_limen_architecture.yaml --workspace /tmp/corpuswork/teangtang1122__siming-ai --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 11,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 0,
+      "contracts_kept": 4,
+      "dependencies": 673,
+      "files_analyzed": 328
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config backend/.importlinter --no-cache",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "teangtang1122",
+  "reason": null,
+  "repo": "siming-ai",
+  "rule_kinds": {
+    "il-architecture-contracts-do-not-depend-on-legacy-services-0": "forbidden-target",
+    "il-model-gateway-does-not-import-the-context-orchestrator-0": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-0": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-1": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-2": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-3": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-4": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-5": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-6": "forbidden-target",
+    "il-module-application-layers-do-not-depend-on-legacy-runtime-7": "forbidden-target",
+    "il-prompt-declarations-do-not-import-the-workspace-runtime-0": "forbidden-target"
+  },
+  "seconds": 0.5,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "e8a04b65a59d75bad4b14ab2cdc363d0efdddc1d",
+  "stars": 49,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 4
+    },
+    "contracts_total": 4,
+    "ignore_imports_entries": 0,
+    "root_dir": "backend",
+    "root_packages": [
+      "app"
+    ],
+    "rules_emitted": 11,
+    "transitive_by_default": [
+      "Architecture contracts do not depend on legacy services",
+      "Module application layers do not depend on legacy runtime",
+      "Model gateway does not import the context orchestrator",
+      "Prompt declarations do not import the workspace runtime"
+    ]
+  }
+}

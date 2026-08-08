@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": false,
+  "language": "python",
+  "license": "MIT",
+  "owner": "axisrow",
+  "reason": "no directory in the tree holds the declared root package(s) ['src']",
+  "repo": "tg_content_factory",
+  "seconds": 0.0,
+  "sha": "2c8cc3bb75a6f29dfb35f3c0bfcc67ae00b0a517",
+  "stars": 31,
+  "status": "untranslatable-config"
+}

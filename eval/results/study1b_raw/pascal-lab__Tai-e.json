@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "LGPL-3.0",
+  "owner": "pascal-lab",
+  "reason": "regex=\"true\" on <allow> in pascal.taie",
+  "repo": "Tai-e",
+  "seconds": 0.0,
+  "sha": "e8c6000c243ef2e7f24d4ae350bab237a8bd442d",
+  "stars": 1798,
+  "status": "untranslatable-config"
+}

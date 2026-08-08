@@ -1,0 +1,79 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "NOASSERTION",
+  "n_limen_rules": 1,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 785,
+      "dependencies_seen": 785,
+      "dependencies_unresolved": 784,
+      "modules_cruised": 324,
+      "resolution_rate": 0.0012738853503184713
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress src/**/*.ts src/**/*.tsx src/**/*.js src/**/*.jsx src/**/*.mjs src/**/*.cjs src/**/*.vue",
+    "exit_code": 0,
+    "not_live_reason": "784/785 dependencies could not be resolved (0.1% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": false,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "saltbo",
+  "reason": "784/785 dependencies could not be resolved (0.1% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+  "repo": "any-managed-agents",
+  "rule_kinds": {
+    "dc-http-not-into-adapters": "forbidden-target"
+  },
+  "seconds": 0.5,
+  "sha": "8fee805d9553c0f756ea30e2a3d82553a93d1bfc",
+  "stars": 7,
+  "status": "oracle-not-live",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 8,
+    "native_rule_ids_translated": [
+      "http-not-into-adapters"
+    ],
+    "pairs": [
+      "server/http/ -> server/adapters/"
+    ],
+    "rules_emitted": 1,
+    "rules_untranslated": 7,
+    "src_dir": "src",
+    "untranslated": [
+      {
+        "reason": "graph/metadata criteria ['circular'] are not predicates over a single dependency edge",
+        "rule": "no-circular"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "domain-stays-pure"
+      },
+      {
+        "reason": "from.path='^server/usecases' / to.path='^server/(adapters|http|db)|^server/composition' is a regex, not a directory prefix",
+        "rule": "usecases-no-infrastructure"
+      },
+      {
+        "reason": "from.path='^server/usecases' / to.path='node_modules/(hono|drizzle-orm)|@hono/' is a regex, not a directory prefix",
+        "rule": "usecases-no-framework-packages"
+      },
+      {
+        "reason": "from.path='^server/adapters' / to.path='^server/(http|composition)' is a regex, not a directory prefix",
+        "rule": "adapters-not-into-delivery"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "drizzle-stays-in-persistence"
+      },
+      {
+        "reason": "from.path='^shared' / to.path='^server|^src' is a regex, not a directory prefix",
+        "rule": "shared-is-a-leaf"
+      }
+    ]
+  }
+}

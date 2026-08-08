@@ -1,0 +1,84 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "Apache-2.0",
+  "n_limen_rules": 4,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 491,
+      "dependencies_seen": 491,
+      "dependencies_unresolved": 490,
+      "modules_cruised": 330,
+      "resolution_rate": 0.002036659877800407
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress src/**/*.ts src/**/*.tsx src/**/*.js src/**/*.jsx src/**/*.mjs src/**/*.cjs src/**/*.vue",
+    "exit_code": 0,
+    "not_live_reason": "490/491 dependencies could not be resolved (0.2% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": false,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "constructorfabric",
+  "reason": "490/491 dependencies could not be resolved (0.2% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+  "repo": "gears-frontx",
+  "rule_kinds": {
+    "dc-flux-no-actions-in-effects-folder": "forbidden-target",
+    "dc-flux-no-effects-in-actions-folder": "forbidden-target",
+    "dc-framework-no-react": "forbidden-target",
+    "dc-packages-no-src-import": "forbidden-target"
+  },
+  "seconds": 0.4,
+  "sha": "f69fdab7508a683e0b15c96ff2d29a120e1e1653",
+  "stars": 9,
+  "status": "oracle-not-live",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 10,
+    "native_rule_ids_translated": [
+      "flux-no-actions-in-effects-folder",
+      "flux-no-effects-in-actions-folder",
+      "framework-no-react",
+      "packages-no-src-import"
+    ],
+    "pairs": [
+      "/effects/ -> /actions/",
+      "/actions/ -> /effects/",
+      "packages/framework/ -> packages/react/",
+      "packages/ -> src/"
+    ],
+    "rules_emitted": 4,
+    "rules_untranslated": 6,
+    "src_dir": "src",
+    "untranslated": [
+      {
+        "reason": "graph/metadata criteria ['circular'] are not predicates over a single dependency edge",
+        "rule": "no-circular"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-cross-mfe-imports"
+      },
+      {
+        "reason": "graph/metadata criteria ['circular'] are not predicates over a single dependency edge",
+        "rule": "no-circular-screenset-deps"
+      },
+      {
+        "reason": "from.path='^src/' / to.path='^packages/[^/]+/src/' is a regex, not a directory prefix",
+        "rule": "no-internal-package-imports"
+      },
+      {
+        "reason": "from.path='^packages/(state|screensets|api|i18n)/' / to.path='^packages/(framework|react)/' is a regex, not a directory prefix",
+        "rule": "sdk-no-framework-import"
+      },
+      {
+        "reason": "from.path='^packages/react/' / to.path='^packages/(state|screensets|api|i18n)/' is a regex, not a directory prefix",
+        "rule": "react-no-sdk"
+      }
+    ]
+  }
+}

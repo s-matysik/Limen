@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "limen-arch"
+version = "0.1.0"
+description = "Declarative architecture contract: one spec drives a deterministic CI gate, a scoped context generator for coding agents, and a review checklist."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Sebastian Matysik" }]
+keywords = ["architecture", "conformance", "static-analysis", "llm-agents", "dependency-rules"]
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+treesitter = ["tree-sitter>=0.21"]
+rich = ["rich>=13"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+limen = "limen.cli:main"
+
+[project.entry-points."limen.extractors"]
+php-regex = "limen.extract.php:PhpRegexExtractor"
+js-regex = "limen.extract.js:JsRegexExtractor"
+python-regex = "limen.extract.python:PythonRegexExtractor"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

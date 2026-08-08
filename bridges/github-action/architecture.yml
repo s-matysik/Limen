@@ -1,0 +1,45 @@
+# Architecture contract in CI: fails the build on contract errors and uploads
+# a SARIF report so findings appear inline in pull-request diffs under the
+# Security > Code scanning tab. Copy into .github/workflows/architecture.yml.
+name: architecture-contract
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  limen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write # SARIF upload
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install limen
+        run: pip install limen-arch
+
+      - name: Validate the specification
+        run: limen spec validate --spec architecture.yaml --workspace .
+
+      - name: Check the architecture contract
+        id: check
+        run: |
+          set +e
+          limen check --spec architecture.yaml --workspace . \
+            --format sarif > limen.sarif
+          code=$?
+          limen check --spec architecture.yaml --workspace . || true
+          exit $code
+
+      - name: Upload SARIF
+        if: always() && hashFiles('limen.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: limen.sarif
+          category: limen-architecture

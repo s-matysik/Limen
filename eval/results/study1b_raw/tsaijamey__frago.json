@@ -1,0 +1,212 @@
+{
+  "agreement_file_target": 1,
+  "agreements_by_rule": [
+    {
+      "key": "src/frago/browser/extension/lifecycle.py:309:frago.browser.backends.extension",
+      "limen_rule_id": "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0",
+      "native_rule_id": "import-linter"
+    },
+    {
+      "key": "src/frago/browser/extension/lifecycle.py:323:frago.browser.backends.extension",
+      "limen_rule_id": "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0",
+      "native_rule_id": "import-linter"
+    },
+    {
+      "key": "src/frago/browser/extension/lifecycle.py:367:frago.browser.backends.extension",
+      "limen_rule_id": "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0",
+      "native_rule_id": "import-linter"
+    },
+    {
+      "key": "src/frago/browser/extension/lifecycle.py:412:frago.browser.backends.extension",
+      "limen_rule_id": "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0",
+      "native_rule_id": "import-linter"
+    },
+    {
+      "key": "src/frago/browser/extension/lifecycle.py:93:frago.browser.backends.extension",
+      "limen_rule_id": "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0",
+      "native_rule_id": "import-linter"
+    }
+  ],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 5,
+    "differences_limen_only": 0,
+    "differences_native_only": 4,
+    "differences_total": 4,
+    "limen_findings_in_scope": 5,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 5,
+    "native_findings_in_scope": 14,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 14,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 4
+    },
+    "unclassified": 0
+  },
+  "differences": [
+    {
+      "classification": {
+        "category": "C3",
+        "category_label": "deliberate semantic change",
+        "evidence": {
+          "deviation": "D-IL-1"
+        },
+        "rationale": "import-linter contracts are transitive by default and report whole import chains; limen's K1/K6 are direct-edge rules. An indirect chain is not a limen miss of a rule limen was given.",
+        "rule": "classify_c3: covered by D-IL-1"
+      },
+      "direction": "native-only",
+      "file": "src/frago/browser/backends/base.py",
+      "key": "src/frago/browser/backends/base.py:153:frago.browser.cdp.browser_detection",
+      "line": 153,
+      "message": "frago.browser.backends.base -> frago.browser.cdp.browser_detection",
+      "rule_id": "import-linter",
+      "severity": "error",
+      "source": "native",
+      "target": "frago.browser.cdp.browser_detection"
+    },
+    {
+      "classification": {
+        "category": "C3",
+        "category_label": "deliberate semantic change",
+        "evidence": {
+          "deviation": "D-IL-1"
+        },
+        "rationale": "import-linter contracts are transitive by default and report whole import chains; limen's K1/K6 are direct-edge rules. An indirect chain is not a limen miss of a rule limen was given.",
+        "rule": "classify_c3: covered by D-IL-1"
+      },
+      "direction": "native-only",
+      "file": "src/frago/browser/backends/extension.py",
+      "key": "src/frago/browser/backends/extension.py:18:frago.browser.backends.base",
+      "line": 18,
+      "message": "frago.browser.backends.extension -> frago.browser.backends.base",
+      "rule_id": "import-linter",
+      "severity": "error",
+      "source": "native",
+      "target": "frago.browser.backends.base"
+    },
+    {
+      "classification": {
+        "category": "C3",
+        "category_label": "deliberate semantic change",
+        "evidence": {
+          "deviation": "D-IL-1"
+        },
+        "rationale": "import-linter contracts are transitive by default and report whole import chains; limen's K1/K6 are direct-edge rules. An indirect chain is not a limen miss of a rule limen was given.",
+        "rule": "classify_c3: covered by D-IL-1"
+      },
+      "direction": "native-only",
+      "file": "src/frago/recipes/runner.py",
+      "key": "src/frago/recipes/runner.py:244:frago.run.context",
+      "line": 244,
+      "message": "frago.recipes.runner -> frago.run.context",
+      "rule_id": "import-linter",
+      "severity": "error",
+      "source": "native",
+      "target": "frago.run.context"
+    },
+    {
+      "classification": {
+        "category": "C3",
+        "category_label": "deliberate semantic change",
+        "evidence": {
+          "deviation": "D-IL-1"
+        },
+        "rationale": "import-linter contracts are transitive by default and report whole import chains; limen's K1/K6 are direct-edge rules. An indirect chain is not a limen miss of a rule limen was given.",
+        "rule": "classify_c3: covered by D-IL-1"
+      },
+      "direction": "native-only",
+      "file": "src/frago/run/context.py",
+      "key": "src/frago/run/context.py:188:frago.browser.cdp.config",
+      "line": 188,
+      "message": "frago.run.context -> frago.browser.cdp.config",
+      "rule_id": "import-linter",
+      "severity": "error",
+      "source": "native",
+      "target": "frago.browser.cdp.config"
+    }
+  ],
+  "heldout": false,
+  "kinds": [
+    "K1",
+    "K6"
+  ],
+  "language": "python",
+  "license": "AGPL-3.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/tsaijamey__frago/_limen_architecture.yaml --workspace /tmp/corpuswork/tsaijamey__frago --today 2026-08-04 --format json",
+    "exit_code": 1,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 11,
+  "native_only_file_target": 4,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 2,
+      "contracts_kept": 9,
+      "dependencies": 741,
+      "files_analyzed": 282
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config .importlinter --no-cache",
+    "exit_code": 1,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "tsaijamey",
+  "reason": null,
+  "repo": "frago",
+  "rule_kinds": {
+    "il-agent-driver-never-imports-server-cli-pure-lazy-cycle-with-server-removed-by-phase-4-0": "forbidden-target",
+    "il-browser-backends-never-imports-server-cli-recipes-0": "forbidden-target",
+    "il-browser-cdp-never-imports-server-cli-recipes-browser-extension-0": "forbidden-target",
+    "il-browser-extension-never-imports-server-cli-browser-cdp-browser-backends-0": "forbidden-target",
+    "il-browser-never-imports-server-cli-recipes-0": "forbidden-target",
+    "il-init-never-imports-server-cli-0": "forbidden-target",
+    "il-layered-dependency-direction-cli-server-per-frago-md-frago-server-not-frago-cli": "layer-dependency",
+    "il-recipes-never-imports-browser-open-url-runtime-lazy-permanent-known-exception-tolerated-long-term-0": "forbidden-target",
+    "il-recipes-never-imports-server-cli-reverse-cycle-removed-by-phase-3-0": "forbidden-target",
+    "il-session-never-imports-server-cli-pure-lower-layer-eager-zero-reverse-imports-0": "forbidden-target",
+    "il-viewer-never-imports-cli-viewer-server-is-legal-not-forbidden-0": "forbidden-target"
+  },
+  "seconds": 0.3,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "5ce35b6b6f7d7fffbd64fb33d6613053047edb5a",
+  "stars": 60,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 10,
+      "layers": 1
+    },
+    "contracts_total": 11,
+    "ignore_imports_entries": 0,
+    "root_dir": "src",
+    "root_packages": [
+      "frago"
+    ],
+    "rules_emitted": 11,
+    "transitive_by_default": [
+      "browser/ NEVER imports server/, cli/, recipes/",
+      "browser/cdp/ NEVER imports server/, cli/, recipes/, browser/extension/",
+      "browser/extension/ NEVER imports server/, cli/, browser/cdp/, browser/backends/",
+      "browser/backends/ NEVER imports server/, cli/, recipes/",
+      "recipes/ NEVER imports server/, cli/ (reverse cycle, removed by Phase 3)",
+      "recipes/ NEVER imports browser/ (open_url runtime lazy \u2014 permanent known exception, tolerated long-term)",
+      "agent_driver/ NEVER imports server/, cli/ (pure-lazy cycle with server, removed by Phase 4)",
+      "viewer/ NEVER imports cli/ (viewer\u2192server is legal, not forbidden)",
+      "session/ NEVER imports server/, cli/ (pure lower layer \u2014 eager, zero reverse imports)",
+      "init/ NEVER imports server/, cli/",
+      "Layered dependency direction (cli > server, per FRAGO.md)"
+    ]
+  }
+}

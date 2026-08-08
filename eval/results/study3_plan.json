@@ -1,0 +1,2748 @@
+{
+ "seed": 20260807,
+ "reps": 3,
+ "conditions": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "k": 10,
+ "model": "claude-sonnet-5",
+ "session_model": "claude-opus-5",
+ "temperature": null,
+ "temperature_note": "`temperature` is rejected by the API for this model ('deprecated for this model'); the sampler default applies identically in every condition.",
+ "spec_frozen": "/Users/sebastianmatysik/!!!!!Limen/workspace/architecture.yaml",
+ "spec_sha256": "b20e0862aff96abd6cb7b941a4713c868745bb2f12c39a75f6de38ebdcb04fc6",
+ "spec_full": "/tmp/limen_s3/spec_full_open.yaml",
+ "spec_shown": "/tmp/limen_s3/spec_shown_open.yaml",
+ "heldout_rules": [
+  "host-cross-module-public-surface",
+  "host-into-core-baseline",
+  "runtime-console-log",
+  "modules-have-no-local-deployment",
+  "support-and-models-module-import-allowlist",
+  "shared-not-into-host-modules",
+  "oversized-page-file"
+ ],
+ "max_d_iterations": 2,
+ "task_state": {
+  "be-01-f3708851": {
+   "litrev-backend": "7446fc5ab2b21ceeb4f329523bde71eeee47413f",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "fe-02-a35eba69": {
+   "litrev-frontend": "aa28e0dddfb6240361c6d886287c5931ff3b68e6",
+   "litrev-backend": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "be-03-d1750eb8": {
+   "litrev-backend": "75a00e9aa4de8289c85c2ce047572df9acbe4ca0",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "fe-04-210a7b28": {
+   "litrev-frontend": "af922b9fbe6fbd5a90a2bc434cf621fba8041372",
+   "litrev-backend": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "be-05-75a00e9a": {
+   "litrev-backend": "4d603e8c8b842c5fa4dbb70240bc5adb51899a36",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "fe-06-5859c0b2": {
+   "litrev-frontend": "02bab673fbb343b37670c35260917daabb7638b6",
+   "litrev-backend": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "be-07-4d603e8c": {
+   "litrev-backend": "566a218d712f84288cd9f685fae6da7efe03927d",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "fe-08-40e68718": {
+   "litrev-frontend": "5ee315fcc674c2f32c905be4990a071bd58931ed",
+   "litrev-backend": "e46ee9bf64da824630f358191a1c4db6fb38d661",
+   "backend-shared": "2ce0408ee86304fb92caeea4ccd268e0aef4bf20",
+   "litrev-core-backend": null,
+   "litrev-core-frontend": "b397b4e7f1ec50dc68a6b7af05a70da7ddc8eb54",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "be-09-566a218d": {
+   "litrev-backend": "325dce813a9c0badd64073ae598ea67fd4638cfd",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  },
+  "be-10-4412aa58": {
+   "litrev-backend": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "backend-shared": "14a285e4a45c5894b2a5fd91e649b8b8b5f7b8e6",
+   "litrev-core-backend": "b03bd4fd099c9bf30a3bd81132ba451ac3fc13f1",
+   "litrev-frontend": "5ee315fcc674c2f32c905be4990a071bd58931ed",
+   "litrev-core-frontend": "4cc29fd7357be7d28695d37e741cf8edb7f7c184",
+   "frontend-shared": "ec8438f8ace3078d81424baa6d304fc5e18f1147"
+  }
+ },
+ "task_today": {
+  "be-01-f3708851": "2026-05-22",
+  "fe-02-a35eba69": "2026-05-21",
+  "be-03-d1750eb8": "2026-05-21",
+  "fe-04-210a7b28": "2026-05-20",
+  "be-05-75a00e9a": "2026-05-21",
+  "fe-06-5859c0b2": "2026-05-20",
+  "be-07-4d603e8c": "2026-05-20",
+  "fe-08-40e68718": "2026-05-17",
+  "be-09-566a218d": "2026-05-20",
+  "be-10-4412aa58": "2026-05-18"
+ },
+ "baseline": {
+  "be-01-f3708851": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 3,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 3
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+     "kind": "public-api-only",
+     "line": 24,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Audit\\Application\\AuditLogService",
+     "unit": "AdminUsers"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "public-api-only",
+     "line": 26,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+     "unit": "Projects"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": true,
+    "n_passed": 41,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "ProjectsModule",
+     "exit_code": 0,
+     "passed": 41,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests:    41 passed (143 assertions)",
+     "tail": "er detached projects                          0.01s  \n  ✓ owner can delete detached project                                    0.01s  \n  ✓ other user cannot delete detached project                            0.01s  \n  ✓ manager can update attached project                                  0.01s  \n  ✓ owner can update detached project                                    0.01s  \n  ✓ other user cannot update detached project                            0.01s  \n  ✓ owner can change owner of detached project                           0.01s  \n  ✓ owner can change owner of attached project via project endpoint      0.02s  \n  ✓ owner can change manager of detached project                         0.01s  \n  ✓ owner can change manager of attached project via project endpoint    0.02s  \n  ✓ owner can set self as manager for detached project                   0.01s  \n  ✓ owner can set self as manager for attached project                   0.02s  \n  ✓ owner can delete project with folder                                 0.02s  \n  ✓ cannot delete detached project with folder                           0.01s  \n  ✓ project incoming links preview returns folder incoming links payloa… 0.01s  \n  ✓ project incoming links preview rejects detached project              0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectFolderGatewayContractTest\n  ✓ contract returns true for folder in users tree                       0.01s  \n  ✓ contract returns false for folder outside users tree                 0.01s  \n  ✓ contract returns folder details shape                                0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectsModuleApiContractTest\n  ✓ projects module api exposes stable project payload shape             0.01s  \n\n   PASS  Tests\\UseCases\\Projects\\ProjectServiceTest\n  ✓ use case creates project for regular folder                          0.01s  \n  ✓ use case rejects creating second project for same folder             0.01s  \n\n  Tests:    41 passed (143 assertions)\n  Duration: 0.80s\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 128994,
+   "source_files": 39,
+   "limen_context_bytes_shown": 9431,
+   "limen_context_bytes_full": 16999
+  },
+  "fe-02-a35eba69": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 1,
+    "n_warnings": 11,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 1
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/README.md",
+     "kind": "structure",
+     "line": null,
+     "message": "Each frontend module documents its contract in README.md. [missing README.md for unit projects-view]",
+     "path_trace": null,
+     "remedy": "Add the three sections: `Odpowiedzialność:`, `Publiczne entrypointy:`, and the `Nie importować z zewnątrz` rule.",
+     "rule_id": "frontend-module-readme-contract",
+     "severity": "warning",
+     "spec_path": "rules[26]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/pages/ProjectDetailPage.jsx",
+     "kind": "metric-threshold",
+     "line": null,
+     "message": "Page file exceeds the review threshold of 600 lines. [617 lines > 600]",
+     "path_trace": null,
+     "remedy": "Extract hooks, helpers or components out of the page.",
+     "rule_id": "oversized-page-file",
+     "severity": "warning",
+     "spec_path": "rules[32]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "npm run test:components",
+    "green": false,
+    "n_passed": 87,
+    "n_failed": 1,
+    "failing": [
+     "src/app/pages/AvatarRendering.test.jsx>avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu"
+    ]
+   },
+   "tests_suites": [
+    {
+     "suite": "test:components",
+     "exit_code": 1,
+     "passed": 87,
+     "failed": 1,
+     "errors": 0,
+     "summary_line": "Tests  1 failed | 87 passed (88)",
+     "tail": "\n RUN  v3.2.4 /private/tmp/limen_s3/baseline/fe-02-a35eba69/repos/litrev-frontend\n\n ✓ src/modules/projects-list/pages/ProjectFileMessageCreatePage.test.jsx (3 tests) 229ms\n ✓ src/modules/projects/components/ProjectsPageContent.test.jsx (1 test) 26ms\n ✓ src/modules/projects-list/pages/ProjectMessageCreatePage.test.jsx (3 tests) 302ms\n ✓ src/test/integration/ManagementScreensRegression.test.jsx (4 tests) 218ms\n ✓ src/modules/schedule/components/TaskForm.test.jsx (7 tests) 349ms\n ❯ src/app/pages/AvatarRendering.test.jsx (2 tests | 1 failed) 108ms\n   × avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu 94ms\n     → expected <img alt …(3)></img>\n<img …(4)></img> to have a length of 1 but got 2\n   ✓ avatar rendering > DashboardLayout falls back to initials when avatar is missing 12ms\n ✓ src/modules/projects-list/pages/ProjectNewTextDocumentPage.test.jsx (8 tests) 393ms\n ✓ src/modules/projects-list/pages/ProjectFilesPage.test.jsx (17 tests) 421ms\n ✓ src/modules/projects-list/pages/ProjectFileEditPage.test.jsx (10 tests) 507ms\n ✓ src/modules/projects/components/IncomingLinksPreviewModal.test.jsx (1 test) 16ms\n ✓ src/modules/schedule/lib/schedule.test.jsx (23 tests) 3ms\n ✓ src/modules/projects/components/FolderDetailsPanel.test.jsx (3 tests) 60ms\n ✓ src/modules/projects-list/pages/ProjectFileDetailsPage.test.jsx (6 tests) 97ms\n\n Test Files  1 failed | 12 passed (13)\n      Tests  1 failed | 87 passed (88)\n   Start at  11:10:02\n   Duration  2.33s (transform 648ms, setup 2.08s, collect 3.03s, tests 2.73s, environment 6.31s, prepare 977ms)\n\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  src/app/pages/AvatarRendering.test.jsx > avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu\nAssertionError: expected <img alt …(3)></img>\n<img …(4)></img> to have a length of 1 but got 2\n\n- Expected\n+ Received\n\n- 1\n+ 2\n\n ❯ src/app/pages/AvatarRendering.test.jsx:73:24\n     71|     const menuImages = menu.querySelectorAll(\"img\");\n     72| \n     73|     expect(menuImages).toHaveLength(1);\n       |                        ^\n     74|     expect(menuImages[0]).toHaveAttribute(\"src\", \"https://example.com/…\n     75|   });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\n\n"
+    }
+   ],
+   "tests_green": false,
+   "source_bytes": 109490,
+   "source_files": 18,
+   "limen_context_bytes_shown": 7389,
+   "limen_context_bytes_full": 7535
+  },
+  "be-03-d1750eb8": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 3,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 3
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+     "kind": "public-api-only",
+     "line": 24,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Audit\\Application\\AuditLogService",
+     "unit": "AdminUsers"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "public-api-only",
+     "line": 26,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+     "unit": "Projects"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": false,
+    "n_passed": 26,
+    "n_failed": 4,
+    "failing": [
+     "Feature::authenticated users can upload a private avatar",
+     "Feature::avatar endpoints require authentication",
+     "Feature::avatar upload returns a readable error for files that are too large",
+     "Feature::uploading a new avatar replaces the old file"
+    ]
+   },
+   "tests_suites": [
+    {
+     "suite": "Feature",
+     "exit_code": 2,
+     "passed": 26,
+     "failed": 4,
+     "errors": 0,
+     "summary_line": "Tests:    4 failed, 26 passed (85 assertions)",
+     "tail": "t, $extension)\n     75▕     {\n     76▕         if (! function_exists('imagecreatetruecolor')) {\n  ➜  77▕             throw new LogicException('GD extension is not installed.');\n     78▕         }\n     79▕ \n     80▕         return tap(tmpfile(), function ($temp) use ($width, $height, $extension) {\n     81▕             ob_start();\n\n      +2 vendor frames \n  3   tests/Feature/Profile/ProfileAvatarTest.php:51\n\n  ────────────────────────────────────────────────────────────────────────────  \n   FAILED  Tests\\Feature\\Profile\\ProfileAvatarTest > uploadi…  LogicException   \n  GD extension is not installed.\n\n  at vendor/laravel/framework/src/Illuminate/Http/Testing/FileFactory.php:77\n     73▕      */\n     74▕     protected function generateImage($width, $height, $extension)\n     75▕     {\n     76▕         if (! function_exists('imagecreatetruecolor')) {\n  ➜  77▕             throw new LogicException('GD extension is not installed.');\n     78▕         }\n     79▕ \n     80▕         return tap(tmpfile(), function ($temp) use ($width, $height, $extension) {\n     81▕             ob_start();\n\n      +2 vendor frames \n  3   tests/Feature/Profile/ProfileAvatarTest.php:167\n\n  ────────────────────────────────────────────────────────────────────────────  \n   FAILED  Tests\\Feature\\Profile\\ProfileAvatarTest > avatar…   LogicException   \n  GD extension is not installed.\n\n  at vendor/laravel/framework/src/Illuminate/Http/Testing/FileFactory.php:77\n     73▕      */\n     74▕     protected function generateImage($width, $height, $extension)\n     75▕     {\n     76▕         if (! function_exists('imagecreatetruecolor')) {\n  ➜  77▕             throw new LogicException('GD extension is not installed.');\n     78▕         }\n     79▕ \n     80▕         return tap(tmpfile(), function ($temp) use ($width, $height, $extension) {\n     81▕             ob_start();\n\n      +2 vendor frames \n  3   tests/Feature/Profile/ProfileAvatarTest.php:196\n\n\n  Tests:    4 failed, 26 passed (85 assertions)\n  Duration: 0.45s\n\n"
+    }
+   ],
+   "tests_green": false,
+   "source_bytes": 55785,
+   "source_files": 17,
+   "limen_context_bytes_shown": 9429,
+   "limen_context_bytes_full": 16997
+  },
+  "fe-04-210a7b28": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 1,
+    "n_warnings": 11,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 1
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/README.md",
+     "kind": "structure",
+     "line": null,
+     "message": "Each frontend module documents its contract in README.md. [missing README.md for unit projects-view]",
+     "path_trace": null,
+     "remedy": "Add the three sections: `Odpowiedzialność:`, `Publiczne entrypointy:`, and the `Nie importować z zewnątrz` rule.",
+     "rule_id": "frontend-module-readme-contract",
+     "severity": "warning",
+     "spec_path": "rules[26]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/pages/ProjectDetailPage.jsx",
+     "kind": "metric-threshold",
+     "line": null,
+     "message": "Page file exceeds the review threshold of 600 lines. [617 lines > 600]",
+     "path_trace": null,
+     "remedy": "Extract hooks, helpers or components out of the page.",
+     "rule_id": "oversized-page-file",
+     "severity": "warning",
+     "spec_path": "rules[32]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "npm run test:components",
+    "green": false,
+    "n_passed": 87,
+    "n_failed": 1,
+    "failing": [
+     "src/app/pages/AvatarRendering.test.jsx>avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu"
+    ]
+   },
+   "tests_suites": [
+    {
+     "suite": "test:components",
+     "exit_code": 1,
+     "passed": 87,
+     "failed": 1,
+     "errors": 0,
+     "summary_line": "Tests  1 failed | 87 passed (88)",
+     "tail": "\n RUN  v3.2.4 /private/tmp/limen_s3/baseline/fe-04-210a7b28/repos/litrev-frontend\n\n ✓ src/modules/projects-list/pages/ProjectFileMessageCreatePage.test.jsx (3 tests) 220ms\n ✓ src/modules/projects-list/pages/ProjectMessageCreatePage.test.jsx (3 tests) 292ms\n ✓ src/test/integration/ManagementScreensRegression.test.jsx (4 tests) 200ms\n ✓ src/modules/projects-list/pages/ProjectFileDetailsPage.test.jsx (6 tests) 153ms\n ❯ src/app/pages/AvatarRendering.test.jsx (2 tests | 1 failed) 93ms\n   × avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu 85ms\n     → expected <img alt …(3)></img>\n<img …(4)></img> to have a length of 1 but got 2\n   ✓ avatar rendering > DashboardLayout falls back to initials when avatar is missing 7ms\n ✓ src/modules/schedule/components/TaskForm.test.jsx (7 tests) 352ms\n ✓ src/modules/projects-list/pages/ProjectNewTextDocumentPage.test.jsx (8 tests) 402ms\n ✓ src/modules/projects-list/pages/ProjectFilesPage.test.jsx (17 tests) 516ms\n ✓ src/modules/projects-list/pages/ProjectFileEditPage.test.jsx (10 tests) 522ms\n ✓ src/modules/projects/components/IncomingLinksPreviewModal.test.jsx (1 test) 14ms\n ✓ src/modules/schedule/lib/schedule.test.jsx (23 tests) 3ms\n ✓ src/modules/projects/components/ProjectsPageContent.test.jsx (1 test) 17ms\n ✓ src/modules/projects/components/FolderDetailsPanel.test.jsx (3 tests) 62ms\n\n Test Files  1 failed | 12 passed (13)\n      Tests  1 failed | 87 passed (88)\n   Start at  11:10:38\n   Duration  2.24s (transform 547ms, setup 2.12s, collect 2.73s, tests 2.85s, environment 5.91s, prepare 808ms)\n\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  src/app/pages/AvatarRendering.test.jsx > avatar rendering > DashboardLayout uses small avatar in the header button and full avatar in the user menu\nAssertionError: expected <img alt …(3)></img>\n<img …(4)></img> to have a length of 1 but got 2\n\n- Expected\n+ Received\n\n- 1\n+ 2\n\n ❯ src/app/pages/AvatarRendering.test.jsx:73:24\n     71|     const menuImages = menu.querySelectorAll(\"img\");\n     72| \n     73|     expect(menuImages).toHaveLength(1);\n       |                        ^\n     74|     expect(menuImages[0]).toHaveAttribute(\"src\", \"https://example.com/…\n     75|   });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\n\n"
+    }
+   ],
+   "tests_green": false,
+   "source_bytes": 104982,
+   "source_files": 17,
+   "limen_context_bytes_shown": 7389,
+   "limen_context_bytes_full": 7535
+  },
+  "be-05-75a00e9a": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 3,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 3
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+     "kind": "public-api-only",
+     "line": 24,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Audit\\Application\\AuditLogService",
+     "unit": "AdminUsers"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "public-api-only",
+     "line": 26,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+     "unit": "Projects"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": true,
+    "n_passed": 76,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "AdminUsersModule",
+     "exit_code": 0,
+     "passed": 76,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests:    76 passed (458 assertions)",
+     "tail": "dmin p… 0.01s  \n  ✓ administrator can mark user as deleted and anonymize personal data   0.01s  \n  ✓ anonymized deletion removes avatar file from storage                 0.02s  \n  ✓ administrator can restore deleted account with restore code and new… 0.01s  \n  ✓ administrator can lookup anonymized deleted account by restore code  0.01s  \n  ✓ administrator can not lookup deleted account with invalid restore c… 0.01s  \n  ✓ admin restore lookup is not affected by public restore global limit  0.02s  \n  ✓ administrator can restore soft deleted account without restore code… 0.01s  \n  ✓ administrator can require password change for user                   0.01s  \n  ✓ administrator can notify user about roles change                     0.01s  \n  ✓ administrator created user with direct password is verified immedia… 0.01s  \n  ✓ administrator created user with direct password is reported as veri… 0.01s  \n  ✓ administrator can create user account with activation email          0.01s  \n  ✓ administrator created user with activation email is reported as unv… 0.01s  \n  ✓ administrator can resend activation link                             0.01s  \n  ✓ administrator update rejects duplicate email                         0.01s  \n  ✓ administrator update rejects invalid role                            0.02s  \n  ✓ administrator can update user password and require password change   0.01s  \n  ✓ administrator password update verifies user if they were unverified  0.01s  \n  ✓ administrator password update enforces password policy               0.01s  \n  ✓ administrator password update requires a different password          0.01s  \n  ✓ admin with required password change cannot access user list          0.01s  \n\n   PASS  Tests\\UseCases\\AdminUsers\\CreateAdminUserActionTest\n  ✓ use case creates admin user in password mode with home folder        0.02s  \n  ✓ use case creates admin user in activation mode and dispatches activ… 0.01s  \n\n  Tests:    76 passed (458 assertions)\n  Duration: 1.25s\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 98158,
+   "source_files": 37,
+   "limen_context_bytes_shown": 9435,
+   "limen_context_bytes_full": 17003
+  },
+  "fe-06-5859c0b2": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 1,
+    "n_warnings": 11,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 1
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/README.md",
+     "kind": "structure",
+     "line": null,
+     "message": "Each frontend module documents its contract in README.md. [missing README.md for unit projects-view]",
+     "path_trace": null,
+     "remedy": "Add the three sections: `Odpowiedzialność:`, `Publiczne entrypointy:`, and the `Nie importować z zewnątrz` rule.",
+     "rule_id": "frontend-module-readme-contract",
+     "severity": "warning",
+     "spec_path": "rules[26]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects-view/pages/ProjectDetailPage.jsx",
+     "kind": "metric-threshold",
+     "line": null,
+     "message": "Page file exceeds the review threshold of 600 lines. [603 lines > 600]",
+     "path_trace": null,
+     "remedy": "Extract hooks, helpers or components out of the page.",
+     "rule_id": "oversized-page-file",
+     "severity": "warning",
+     "spec_path": "rules[32]",
+     "target": null,
+     "unit": "projects-view"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "npm run test:components",
+    "green": true,
+    "n_passed": 88,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "test:components",
+     "exit_code": 0,
+     "passed": 88,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests  88 passed (88)",
+     "tail": "\n RUN  v3.2.4 /private/tmp/limen_s3/baseline/fe-06-5859c0b2/repos/litrev-frontend\n\n ✓ src/modules/projects-list/pages/ProjectFileMessageCreatePage.test.jsx (3 tests) 229ms\n ✓ src/modules/projects-list/pages/ProjectMessageCreatePage.test.jsx (3 tests) 299ms\n ✓ src/test/integration/ManagementScreensRegression.test.jsx (4 tests) 204ms\n ✓ src/modules/projects-list/pages/ProjectFileDetailsPage.test.jsx (6 tests) 136ms\n ✓ src/app/pages/AvatarRendering.test.jsx (2 tests) 92ms\n ✓ src/modules/schedule/components/TaskForm.test.jsx (7 tests) 368ms\n ✓ src/modules/projects-list/pages/ProjectNewTextDocumentPage.test.jsx (8 tests) 409ms\n ✓ src/modules/projects-list/pages/ProjectFilesPage.test.jsx (17 tests) 421ms\n ✓ src/modules/projects-list/pages/ProjectFileEditPage.test.jsx (10 tests) 535ms\n ✓ src/modules/projects/components/IncomingLinksPreviewModal.test.jsx (1 test) 14ms\n ✓ src/modules/schedule/lib/schedule.test.jsx (23 tests) 3ms\n ✓ src/modules/projects/components/ProjectsPageContent.test.jsx (1 test) 18ms\n ✓ src/modules/projects/components/FolderDetailsPanel.test.jsx (3 tests) 60ms\n\n Test Files  13 passed (13)\n      Tests  88 passed (88)\n   Start at  11:11:15\n   Duration  2.33s (transform 696ms, setup 2.18s, collect 3.13s, tests 2.79s, environment 6.03s, prepare 978ms)\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 101893,
+   "source_files": 17,
+   "limen_context_bytes_shown": 7389,
+   "limen_context_bytes_full": 7535
+  },
+  "be-07-4d603e8c": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 2,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 2
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "public-api-only",
+     "line": 26,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+     "unit": "Projects"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": true,
+    "n_passed": 76,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "AdminUsersModule",
+     "exit_code": 0,
+     "passed": 76,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests:    76 passed (458 assertions)",
+     "tail": "dmin p… 0.01s  \n  ✓ administrator can mark user as deleted and anonymize personal data   0.01s  \n  ✓ anonymized deletion removes avatar file from storage                 0.02s  \n  ✓ administrator can restore deleted account with restore code and new… 0.01s  \n  ✓ administrator can lookup anonymized deleted account by restore code  0.01s  \n  ✓ administrator can not lookup deleted account with invalid restore c… 0.01s  \n  ✓ admin restore lookup is not affected by public restore global limit  0.02s  \n  ✓ administrator can restore soft deleted account without restore code… 0.01s  \n  ✓ administrator can require password change for user                   0.01s  \n  ✓ administrator can notify user about roles change                     0.01s  \n  ✓ administrator created user with direct password is verified immedia… 0.01s  \n  ✓ administrator created user with direct password is reported as veri… 0.01s  \n  ✓ administrator can create user account with activation email          0.01s  \n  ✓ administrator created user with activation email is reported as unv… 0.01s  \n  ✓ administrator can resend activation link                             0.01s  \n  ✓ administrator update rejects duplicate email                         0.01s  \n  ✓ administrator update rejects invalid role                            0.01s  \n  ✓ administrator can update user password and require password change   0.01s  \n  ✓ administrator password update verifies user if they were unverified  0.01s  \n  ✓ administrator password update enforces password policy               0.01s  \n  ✓ administrator password update requires a different password          0.01s  \n  ✓ admin with required password change cannot access user list          0.01s  \n\n   PASS  Tests\\UseCases\\AdminUsers\\CreateAdminUserActionTest\n  ✓ use case creates admin user in password mode with home folder        0.01s  \n  ✓ use case creates admin user in activation mode and dispatches activ… 0.01s  \n\n  Tests:    76 passed (458 assertions)\n  Duration: 1.23s\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 87201,
+   "source_files": 37,
+   "limen_context_bytes_shown": 9435,
+   "limen_context_bytes_full": 17003
+  },
+  "fe-08-40e68718": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 2,
+    "n_warnings": 13,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 2
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+     "kind": "baseline-snapshot",
+     "line": null,
+     "message": "Host access to litrev-core-backend must match the declared baseline exactly. [dead baseline entry: the declared exception no longer exists in the code]",
+     "path_trace": null,
+     "remedy": "Either drop the import or record it in expected: with reason/owner.",
+     "rule_id": "host-into-core-baseline",
+     "severity": "error",
+     "spec_path": "rules[18].expected.litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php[0]",
+     "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderPayloadDecorator",
+     "unit": null
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "baseline-snapshot",
+     "line": null,
+     "message": "Host access to litrev-core-backend must match the declared baseline exactly. [dead baseline entry: the declared exception no longer exists in the code]",
+     "path_trace": null,
+     "remedy": "Either drop the import or record it in expected: with reason/owner.",
+     "rule_id": "host-into-core-baseline",
+     "severity": "error",
+     "spec_path": "rules[18].expected.litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php[0]",
+     "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderProjectGuard",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": null,
+     "kind": "spec-integrity",
+     "line": null,
+     "message": "no file declares 'LitRev\\\\CoreBackend\\\\Reviews\\\\Support\\\\ReviewFolderPayloadDecorator'",
+     "path_trace": null,
+     "remedy": "Fix or remove the entry; run `limen spec validate --strict-spec`.",
+     "rule_id": "spec-dead-entry",
+     "severity": "warning",
+     "spec_path": "rules[18].expected.litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php[0]",
+     "target": null,
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": null,
+     "kind": "spec-integrity",
+     "line": null,
+     "message": "no file declares 'LitRev\\\\CoreBackend\\\\Reviews\\\\Support\\\\ReviewFolderProjectGuard'",
+     "path_trace": null,
+     "remedy": "Fix or remove the entry; run `limen spec validate --strict-spec`.",
+     "rule_id": "spec-dead-entry",
+     "severity": "warning",
+     "spec_path": "rules[18].expected.litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php[0]",
+     "target": null,
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": null,
+     "kind": "spec-integrity",
+     "line": null,
+     "message": "no file declares 'LitRev\\\\CoreBackend\\\\Reviews\\\\Support\\\\ReviewFolderPayloadDecorator'",
+     "path_trace": null,
+     "remedy": "Fix or remove the entry; run `limen spec validate --strict-spec`.",
+     "rule_id": "spec-dead-entry",
+     "severity": "warning",
+     "spec_path": "rules[3].exempt[0]",
+     "target": null,
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": null,
+     "kind": "spec-integrity",
+     "line": null,
+     "message": "no file declares 'LitRev\\\\CoreBackend\\\\Reviews\\\\Support\\\\ReviewFolderProjectGuard'",
+     "path_trace": null,
+     "remedy": "Fix or remove the entry; run `limen spec validate --strict-spec`.",
+     "rule_id": "spec-dead-entry",
+     "severity": "warning",
+     "spec_path": "rules[3].exempt[1]",
+     "target": null,
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "npm run test:components",
+    "green": true,
+    "n_passed": 88,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "test:components",
+     "exit_code": 0,
+     "passed": 88,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests  88 passed (88)",
+     "tail": "\n RUN  v3.2.4 /private/tmp/limen_s3/baseline/fe-08-40e68718/repos/litrev-frontend\n\n ✓ src/modules/projects-list/pages/ProjectFileMessageCreatePage.test.jsx (3 tests) 271ms\n ✓ src/modules/projects-list/pages/ProjectMessageCreatePage.test.jsx (3 tests) 311ms\n ✓ src/test/integration/ManagementScreensRegression.test.jsx (4 tests) 239ms\n ✓ src/modules/projects-list/pages/ProjectFileDetailsPage.test.jsx (6 tests) 175ms\n ✓ src/modules/schedule/components/TaskForm.test.jsx (7 tests) 378ms\n ✓ src/app/pages/AvatarRendering.test.jsx (2 tests) 93ms\n ✓ src/modules/projects-list/pages/ProjectNewTextDocumentPage.test.jsx (8 tests) 414ms\n ✓ src/modules/projects-list/pages/ProjectFilesPage.test.jsx (17 tests) 431ms\n ✓ src/modules/projects-list/pages/ProjectFileEditPage.test.jsx (10 tests) 537ms\n ✓ src/modules/projects/components/IncomingLinksPreviewModal.test.jsx (1 test) 15ms\n ✓ src/modules/schedule/lib/schedule.test.jsx (23 tests) 3ms\n ✓ src/modules/projects/components/ProjectsPageContent.test.jsx (1 test) 17ms\n ✓ src/modules/projects/components/FolderDetailsPanel.test.jsx (3 tests) 60ms\n\n Test Files  13 passed (13)\n      Tests  88 passed (88)\n   Start at  11:11:53\n   Duration  2.25s (transform 620ms, setup 2.12s, collect 2.92s, tests 2.95s, environment 5.41s, prepare 897ms)\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 204189,
+   "source_files": 39,
+   "limen_context_bytes_shown": 7139,
+   "limen_context_bytes_full": 7285
+  },
+  "be-09-566a218d": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 2,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 2
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+     "kind": "public-api-only",
+     "line": 26,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderViewService",
+     "unit": "Projects"
+    },
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": true,
+    "n_passed": 41,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "ProjectsModule",
+     "exit_code": 0,
+     "passed": 41,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests:    41 passed (143 assertions)",
+     "tail": "er detached projects                          0.01s  \n  ✓ owner can delete detached project                                    0.01s  \n  ✓ other user cannot delete detached project                            0.01s  \n  ✓ manager can update attached project                                  0.01s  \n  ✓ owner can update detached project                                    0.01s  \n  ✓ other user cannot update detached project                            0.01s  \n  ✓ owner can change owner of detached project                           0.02s  \n  ✓ owner can change owner of attached project via project endpoint      0.02s  \n  ✓ owner can change manager of detached project                         0.01s  \n  ✓ owner can change manager of attached project via project endpoint    0.02s  \n  ✓ owner can set self as manager for detached project                   0.01s  \n  ✓ owner can set self as manager for attached project                   0.02s  \n  ✓ owner can delete project with folder                                 0.02s  \n  ✓ cannot delete detached project with folder                           0.01s  \n  ✓ project incoming links preview returns folder incoming links payloa… 0.01s  \n  ✓ project incoming links preview rejects detached project              0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectFolderGatewayContractTest\n  ✓ contract returns true for folder in users tree                       0.01s  \n  ✓ contract returns false for folder outside users tree                 0.01s  \n  ✓ contract returns folder details shape                                0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectsModuleApiContractTest\n  ✓ projects module api exposes stable project payload shape             0.01s  \n\n   PASS  Tests\\UseCases\\Projects\\ProjectServiceTest\n  ✓ use case creates project for regular folder                          0.01s  \n  ✓ use case rejects creating second project for same folder             0.01s  \n\n  Tests:    41 passed (143 assertions)\n  Duration: 0.81s\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 127073,
+   "source_files": 39,
+   "limen_context_bytes_shown": 9431,
+   "limen_context_bytes_full": 16999
+  },
+  "be-10-4412aa58": {
+   "check": {
+    "exit_code": 1,
+    "n_errors": 1,
+    "n_warnings": 9,
+    "n_errors_shown": 0,
+    "n_errors_heldout": 1
+   },
+   "findings": [
+    {
+     "exemptible": true,
+     "file": "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php",
+     "kind": "public-api-only",
+     "line": 14,
+     "message": "Across module boundaries, backend code must enter through the module's public surface (Application\\Contracts, Application\\Events, Domain, Presentation).",
+     "path_trace": null,
+     "remedy": "Import the Application\\Contracts interface or Domain type, not Http/Infrastructure/Support internals or a concrete Application service.",
+     "rule_id": "host-cross-module-public-surface",
+     "severity": "error",
+     "spec_path": "rules[3].exempt",
+     "target": "LitRev\\BackendShared\\Folders\\Application\\FolderHomeService",
+     "unit": "Reviews"
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-core-frontend/src/modules/reviews/routes.jsx",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/app/RouteChrome",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/app/pages/Home.jsx",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/hero-litrev-ai.png",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/main.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "./index.css",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/app.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 4,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/pl/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/i18n/index.ts",
+     "kind": "unresolved",
+     "line": 5,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "../../locales/en/dashboard.json",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 2,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/pl.svg",
+     "unit": null
+    },
+    {
+     "exemptible": false,
+     "file": "litrev-arch-snapshot/litrev-frontend/src/shared/ui/LanguageSwitcher.jsx",
+     "kind": "unresolved",
+     "line": 3,
+     "message": "Dependency could not be resolved statically (unresolved-path).",
+     "path_trace": null,
+     "remedy": "Make the dependency static, or extend the extractor patterns; an unresolved import is invisible to every rule.",
+     "rule_id": "unresolved-dependency",
+     "severity": "warning",
+     "spec_path": "unresolved_policy",
+     "target": "@/assets/flags/gb.svg",
+     "unit": null
+    }
+   ],
+   "tests": {
+    "runner": "php artisan test",
+    "green": true,
+    "n_passed": 41,
+    "n_failed": 0,
+    "failing": []
+   },
+   "tests_suites": [
+    {
+     "suite": "ProjectsModule",
+     "exit_code": 0,
+     "passed": 41,
+     "failed": 0,
+     "errors": 0,
+     "summary_line": "Tests:    41 passed (143 assertions)",
+     "tail": "er detached projects                          0.01s  \n  ✓ owner can delete detached project                                    0.01s  \n  ✓ other user cannot delete detached project                            0.01s  \n  ✓ manager can update attached project                                  0.01s  \n  ✓ owner can update detached project                                    0.01s  \n  ✓ other user cannot update detached project                            0.01s  \n  ✓ owner can change owner of detached project                           0.02s  \n  ✓ owner can change owner of attached project via project endpoint      0.02s  \n  ✓ owner can change manager of detached project                         0.01s  \n  ✓ owner can change manager of attached project via project endpoint    0.02s  \n  ✓ owner can set self as manager for detached project                   0.01s  \n  ✓ owner can set self as manager for attached project                   0.02s  \n  ✓ owner can delete project with folder                                 0.02s  \n  ✓ cannot delete detached project with folder                           0.01s  \n  ✓ project incoming links preview returns folder incoming links payloa… 0.01s  \n  ✓ project incoming links preview rejects detached project              0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectFolderGatewayContractTest\n  ✓ contract returns true for folder in users tree                       0.01s  \n  ✓ contract returns false for folder outside users tree                 0.01s  \n  ✓ contract returns folder details shape                                0.01s  \n\n   PASS  Tests\\Contracts\\Projects\\ProjectsModuleApiContractTest\n  ✓ projects module api exposes stable project payload shape             0.01s  \n\n   PASS  Tests\\UseCases\\Projects\\ProjectServiceTest\n  ✓ use case creates project for regular folder                          0.01s  \n  ✓ use case rejects creating second project for same folder             0.01s  \n\n  Tests:    41 passed (143 assertions)\n  Duration: 0.77s\n\n"
+    }
+   ],
+   "tests_green": true,
+   "source_bytes": 121207,
+   "source_files": 39,
+   "limen_context_bytes_shown": 9431,
+   "limen_context_bytes_full": 16999
+  }
+ },
+ "excluded_tasks": [],
+ "order": [
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "D",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "condition": "B",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "condition": "B",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "C",
+   "repetition": 3
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "A",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "condition": "A",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "B",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "C",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "condition": "D",
+   "repetition": 1
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "D",
+   "repetition": 2
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "condition": "A",
+   "repetition": 3
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "condition": "C",
+   "repetition": 1
+  },
+  {
+   "task_id": "be-01-f3708851",
+   "condition": "B",
+   "repetition": 2
+  }
+ ],
+ "n_cells": 120,
+ "prose_bundle": {
+  "n_files": 33,
+  "bytes": 48451
+ }
+}

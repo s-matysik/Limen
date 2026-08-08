@@ -1,0 +1,594 @@
+{
+  "axes": {
+    "per-repo/as-is": {
+      "bootstrap": {
+        "b": 10000,
+        "hi": 19.68466435185185,
+        "lo": 2.459074074074074,
+        "point": 2.459074074074074,
+        "resamples_with_median": 10000,
+        "resamples_without_median": 0
+      },
+      "episodes_per_kind": {
+        "K1": 0,
+        "K10": 7,
+        "K11": 0,
+        "K2": 0,
+        "K3": 0,
+        "K4": 0,
+        "K5": 13,
+        "K6": 0,
+        "K7": 42,
+        "K8": 22,
+        "K9": 2
+      },
+      "findings_at_last_point": {
+        "errors": 4,
+        "exit_code": 1,
+        "unresolved_count": 0,
+        "warnings": 28
+      },
+      "km_curve": [
+        {
+          "at_risk": 86,
+          "events": 2,
+          "survival": 0.9767441860465116,
+          "t": 0.018912037037037036
+        },
+        {
+          "at_risk": 84,
+          "events": 41,
+          "survival": 0.49999999999999994,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 43,
+          "events": 1,
+          "survival": 0.48837209302325574,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 42,
+          "events": 2,
+          "survival": 0.4651162790697673,
+          "t": 14.549826388888889
+        },
+        {
+          "at_risk": 40,
+          "events": 12,
+          "survival": 0.3255813953488371,
+          "t": 19.68466435185185
+        },
+        {
+          "at_risk": 28,
+          "events": 3,
+          "survival": 0.2906976744186046,
+          "t": 22.600358796296295
+        },
+        {
+          "at_risk": 25,
+          "events": 11,
+          "survival": 0.1627906976744186,
+          "t": 24.392476851851853
+        },
+        {
+          "at_risk": 14,
+          "events": 11,
+          "survival": 0.03488372093023256,
+          "t": 29.351319444444446
+        },
+        {
+          "at_risk": 3,
+          "events": 1,
+          "survival": 0.023255813953488375,
+          "t": 35.73454861111111
+        },
+        {
+          "at_risk": 2,
+          "events": 2,
+          "survival": 0.0,
+          "t": 57.69864583333333
+        }
+      ],
+      "km_curve_near_median": [
+        {
+          "at_risk": 84,
+          "events": 41,
+          "survival": 0.49999999999999994,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 43,
+          "events": 1,
+          "survival": 0.48837209302325574,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 42,
+          "events": 2,
+          "survival": 0.4651162790697673,
+          "t": 14.549826388888889
+        }
+      ],
+      "km_median_ci95_bootstrap": [
+        2.459074074074074,
+        19.68466435185185
+      ],
+      "km_median_days": 2.459074074074074,
+      "n_episodes": 86,
+      "n_introduced": 86,
+      "n_open_at_end_censored": 0,
+      "n_points": 69,
+      "n_repaired": 86,
+      "naive_complete_case_median_days": 3.7089583333333334,
+      "spec_integrity_episodes": 166,
+      "spec_integrity_open_at_end": 140,
+      "spec_integrity_repaired": 26
+    },
+    "per-repo/no-exemptions": {
+      "bootstrap": {
+        "b": 10000,
+        "hi": 19.68466435185185,
+        "lo": 2.459074074074074,
+        "point": 4.9588425925925925,
+        "resamples_with_median": 10000,
+        "resamples_without_median": 0
+      },
+      "episodes_per_kind": {
+        "K1": 0,
+        "K10": 7,
+        "K11": 0,
+        "K2": 0,
+        "K3": 0,
+        "K4": 0,
+        "K5": 13,
+        "K6": 1,
+        "K7": 42,
+        "K8": 22,
+        "K9": 2
+      },
+      "findings_at_last_point": {
+        "errors": 2,
+        "exit_code": 1,
+        "unresolved_count": 0,
+        "warnings": 24
+      },
+      "km_curve": [
+        {
+          "at_risk": 87,
+          "events": 2,
+          "survival": 0.9770114942528736,
+          "t": 0.018912037037037036
+        },
+        {
+          "at_risk": 85,
+          "events": 41,
+          "survival": 0.5057471264367815,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 44,
+          "events": 1,
+          "survival": 0.49425287356321834,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 43,
+          "events": 2,
+          "survival": 0.47126436781609193,
+          "t": 14.549826388888889
+        },
+        {
+          "at_risk": 41,
+          "events": 12,
+          "survival": 0.3333333333333333,
+          "t": 19.68466435185185
+        },
+        {
+          "at_risk": 29,
+          "events": 3,
+          "survival": 0.29885057471264365,
+          "t": 22.600358796296295
+        },
+        {
+          "at_risk": 26,
+          "events": 11,
+          "survival": 0.17241379310344823,
+          "t": 24.392476851851853
+        },
+        {
+          "at_risk": 14,
+          "events": 11,
+          "survival": 0.03694581280788177,
+          "t": 29.351319444444446
+        },
+        {
+          "at_risk": 3,
+          "events": 1,
+          "survival": 0.024630541871921183,
+          "t": 35.73454861111111
+        }
+      ],
+      "km_curve_near_median": [
+        {
+          "at_risk": 85,
+          "events": 41,
+          "survival": 0.5057471264367815,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 44,
+          "events": 1,
+          "survival": 0.49425287356321834,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 43,
+          "events": 2,
+          "survival": 0.47126436781609193,
+          "t": 14.549826388888889
+        }
+      ],
+      "km_median_ci95_bootstrap": [
+        2.459074074074074,
+        19.68466435185185
+      ],
+      "km_median_days": 4.9588425925925925,
+      "n_episodes": 87,
+      "n_introduced": 87,
+      "n_open_at_end_censored": 3,
+      "n_points": 69,
+      "n_repaired": 84,
+      "naive_complete_case_median_days": 2.459074074074074,
+      "spec_integrity_episodes": 142,
+      "spec_integrity_open_at_end": 120,
+      "spec_integrity_repaired": 22
+    },
+    "workspace/as-is": {
+      "bootstrap": {
+        "b": 10000,
+        "hi": 19.68466435185185,
+        "lo": 2.459074074074074,
+        "point": 14.549826388888889,
+        "resamples_with_median": 10000,
+        "resamples_without_median": 0
+      },
+      "episodes_per_kind": {
+        "K1": 0,
+        "K10": 7,
+        "K11": 0,
+        "K2": 0,
+        "K3": 0,
+        "K4": 3,
+        "K5": 13,
+        "K6": 0,
+        "K7": 42,
+        "K8": 22,
+        "K9": 2
+      },
+      "findings_at_last_point": {
+        "errors": 3,
+        "exit_code": 1,
+        "unresolved_count": 8,
+        "warnings": 8
+      },
+      "km_curve": [
+        {
+          "at_risk": 89,
+          "events": 2,
+          "survival": 0.9775280898876404,
+          "t": 0.018912037037037036
+        },
+        {
+          "at_risk": 87,
+          "events": 41,
+          "survival": 0.5168539325842697,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 46,
+          "events": 1,
+          "survival": 0.5056179775280899,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 45,
+          "events": 2,
+          "survival": 0.48314606741573035,
+          "t": 14.549826388888889
+        },
+        {
+          "at_risk": 43,
+          "events": 12,
+          "survival": 0.348314606741573,
+          "t": 19.68466435185185
+        },
+        {
+          "at_risk": 31,
+          "events": 3,
+          "survival": 0.31460674157303364,
+          "t": 22.600358796296295
+        },
+        {
+          "at_risk": 28,
+          "events": 11,
+          "survival": 0.19101123595505617,
+          "t": 24.392476851851853
+        },
+        {
+          "at_risk": 17,
+          "events": 11,
+          "survival": 0.06741573033707865,
+          "t": 29.351319444444446
+        },
+        {
+          "at_risk": 6,
+          "events": 1,
+          "survival": 0.056179775280898875,
+          "t": 35.73454861111111
+        },
+        {
+          "at_risk": 5,
+          "events": 2,
+          "survival": 0.033707865168539325,
+          "t": 57.69864583333333
+        }
+      ],
+      "km_curve_near_median": [
+        {
+          "at_risk": 87,
+          "events": 41,
+          "survival": 0.5168539325842697,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 46,
+          "events": 1,
+          "survival": 0.5056179775280899,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 45,
+          "events": 2,
+          "survival": 0.48314606741573035,
+          "t": 14.549826388888889
+        }
+      ],
+      "km_median_ci95_bootstrap": [
+        2.459074074074074,
+        19.68466435185185
+      ],
+      "km_median_days": 14.549826388888889,
+      "n_episodes": 89,
+      "n_introduced": 89,
+      "n_open_at_end_censored": 3,
+      "n_points": 69,
+      "n_repaired": 86,
+      "naive_complete_case_median_days": 3.7089583333333334,
+      "spec_integrity_episodes": 26,
+      "spec_integrity_open_at_end": 0,
+      "spec_integrity_repaired": 26
+    },
+    "workspace/no-exemptions": {
+      "bootstrap": {
+        "b": 10000,
+        "hi": 19.68466435185185,
+        "lo": 2.459074074074074,
+        "point": 14.549826388888889,
+        "resamples_with_median": 10000,
+        "resamples_without_median": 0
+      },
+      "episodes_per_kind": {
+        "K1": 0,
+        "K10": 7,
+        "K11": 0,
+        "K2": 0,
+        "K3": 0,
+        "K4": 5,
+        "K5": 13,
+        "K6": 1,
+        "K7": 42,
+        "K8": 22,
+        "K9": 2
+      },
+      "findings_at_last_point": {
+        "errors": 8,
+        "exit_code": 1,
+        "unresolved_count": 8,
+        "warnings": 8
+      },
+      "km_curve": [
+        {
+          "at_risk": 92,
+          "events": 2,
+          "survival": 0.9782608695652174,
+          "t": 0.018912037037037036
+        },
+        {
+          "at_risk": 90,
+          "events": 41,
+          "survival": 0.532608695652174,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 49,
+          "events": 1,
+          "survival": 0.5217391304347826,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 48,
+          "events": 2,
+          "survival": 0.5,
+          "t": 14.549826388888889
+        },
+        {
+          "at_risk": 46,
+          "events": 12,
+          "survival": 0.3695652173913043,
+          "t": 19.68466435185185
+        },
+        {
+          "at_risk": 34,
+          "events": 3,
+          "survival": 0.33695652173913043,
+          "t": 22.600358796296295
+        },
+        {
+          "at_risk": 31,
+          "events": 11,
+          "survival": 0.21739130434782608,
+          "t": 24.392476851851853
+        },
+        {
+          "at_risk": 20,
+          "events": 11,
+          "survival": 0.09782608695652173,
+          "t": 29.351319444444446
+        },
+        {
+          "at_risk": 9,
+          "events": 1,
+          "survival": 0.08695652173913042,
+          "t": 35.73454861111111
+        }
+      ],
+      "km_curve_near_median": [
+        {
+          "at_risk": 90,
+          "events": 41,
+          "survival": 0.532608695652174,
+          "t": 2.459074074074074
+        },
+        {
+          "at_risk": 49,
+          "events": 1,
+          "survival": 0.5217391304347826,
+          "t": 4.9588425925925925
+        },
+        {
+          "at_risk": 48,
+          "events": 2,
+          "survival": 0.5,
+          "t": 14.549826388888889
+        },
+        {
+          "at_risk": 46,
+          "events": 12,
+          "survival": 0.3695652173913043,
+          "t": 19.68466435185185
+        }
+      ],
+      "km_median_ci95_bootstrap": [
+        2.459074074074074,
+        19.68466435185185
+      ],
+      "km_median_days": 14.549826388888889,
+      "n_episodes": 92,
+      "n_introduced": 92,
+      "n_open_at_end_censored": 8,
+      "n_points": 69,
+      "n_repaired": 84,
+      "naive_complete_case_median_days": 2.459074074074074,
+      "spec_integrity_episodes": 22,
+      "spec_integrity_open_at_end": 0,
+      "spec_integrity_repaired": 22
+    }
+  },
+  "exemption_manifest_removed": [
+    {
+      "expires": "2026-12-31",
+      "field": "exempt",
+      "rule_id": "host-cross-module-public-surface",
+      "since": "2026-08-04",
+      "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderPayloadDecorator"
+    },
+    {
+      "expires": "2026-12-31",
+      "field": "exempt",
+      "rule_id": "host-cross-module-public-surface",
+      "since": "2026-08-04",
+      "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderProjectGuard"
+    },
+    {
+      "expires": "2026-12-31",
+      "field": "exempt",
+      "rule_id": "shared-not-into-host-modules",
+      "since": "2026-08-04",
+      "target": "App\\Modules\\Harmonogram\\Domain\\ScheduleStatusLabel"
+    },
+    {
+      "expires": "2026-12-31",
+      "field": "expected",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+      "rule_id": "host-into-core-baseline",
+      "since": "2026-08-04",
+      "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderPayloadDecorator"
+    },
+    {
+      "expires": "2026-12-31",
+      "field": "expected",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+      "rule_id": "host-into-core-baseline",
+      "since": "2026-08-04",
+      "target": "LitRev\\CoreBackend\\Reviews\\Support\\ReviewFolderProjectGuard"
+    }
+  ],
+  "exemptions": {
+    "all_open_at_end": true,
+    "declared_median_lifetime_days": 149,
+    "median_actual_age_days": 76.31944444444444,
+    "n_forgiven_findings": 5,
+    "spec_stats_today": "rules per kind:\n  baseline-snapshot: 3\n  consumer-allowlist: 1\n  forbidden-target: 6\n  layer-dependency: 4\n  metric-threshold: 4\n  ownership: 1\n  pattern-ban: 4\n  public-api-only: 3\n  scoped-allowlist: 5\n  structure: 5\nexemptions: 4 total, 4 active, 0 expired\n  median age: 0 days\n  median declared lifetime (expires - since): 149 days\n"
+  },
+  "identity_rule": "(rule_id, file, target); line is an attribute",
+  "limitations": [
+    "L1 one specification (today's) for the whole history; rules are NOT reconstructed per commit, so findings dated before the rule existed are anachronistic — they state that the commit would violate today's contract, not that it violated a contract in force at the time.",
+    "L2 --today only drives exemption expiry; all debt exemptions expire 2026-12-31, after the end of this window, so within this history it is a verified no-op (see --verify-today).",
+    "L3 axis 'workspace' RECONSTRUCTS the workspace at time T from each repository's last commit <= T; such a combination need not have existed simultaneously.",
+    "L4 before a repository's first commit its root is materialised empty; K9 structure rules still fire on it — findings carry repo_present.",
+    "L5 axis 'per-repo' evaluates one repository with the others empty, so cross-repository dependencies degrade to unresolved-dependency.",
+    "L6 units.registry_policy is relaxed from 'exact' to 'open' for the history run: 'exact' is an assertion about TODAY's module registry (the declared list is recorded verbatim in index.json as units_declared_today) and aborts every historical tree with exit 3 before any rule runs. The relaxation is verified inert on today's tree (--verify-registry) and the registry delta is recorded per commit instead."
+  ],
+  "n_commits_first_parent": 69,
+  "n_measurement_points": 276,
+  "schema": "limen-study2-metrics/1",
+  "sensitivity_line_in_key": {
+    "per-repo/as-is": {
+      "delta_episodes": 37,
+      "episodes_primary_key": 86,
+      "episodes_with_line_in_key": 123,
+      "km_median_primary": 2.459074074074074,
+      "km_median_with_line": 19.68466435185185,
+      "repaired_primary": 86,
+      "repaired_with_line": 123
+    },
+    "per-repo/no-exemptions": {
+      "delta_episodes": 38,
+      "episodes_primary_key": 87,
+      "episodes_with_line_in_key": 125,
+      "km_median_primary": 4.9588425925925925,
+      "km_median_with_line": 19.68466435185185,
+      "repaired_primary": 84,
+      "repaired_with_line": 122
+    },
+    "workspace/as-is": {
+      "delta_episodes": 37,
+      "episodes_primary_key": 89,
+      "episodes_with_line_in_key": 126,
+      "km_median_primary": 14.549826388888889,
+      "km_median_with_line": 19.68466435185185,
+      "repaired_primary": 86,
+      "repaired_with_line": 123
+    },
+    "workspace/no-exemptions": {
+      "delta_episodes": 39,
+      "episodes_primary_key": 92,
+      "episodes_with_line_in_key": 131,
+      "km_median_primary": 14.549826388888889,
+      "km_median_with_line": 19.68466435185185,
+      "repaired_primary": 84,
+      "repaired_with_line": 123
+    }
+  }
+}

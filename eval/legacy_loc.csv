@@ -1,0 +1,14 @@
+source_group,path,language,total_lines,code_lines,non_blank_lines
+backend_config,litrev-backend-main/config/architecture.php,php,210,199,199
+backend_shared_config,backend-shared-main/config/architecture.php,php,36,16,33
+backend_tests,litrev-backend-main/tests/Architecture/AdminBoundaryRulesTest.php,php,55,45,46
+backend_tests,litrev-backend-main/tests/Architecture/ApplicationBoundaryRulesTest.php,php,64,50,50
+backend_tests,litrev-backend-main/tests/Architecture/ArchitectureRulesTestCase.php,php,124,94,95
+backend_tests,litrev-backend-main/tests/Architecture/DeploymentBoundaryRulesTest.php,php,67,56,56
+backend_tests,litrev-backend-main/tests/Architecture/HttpBoundaryRulesTest.php,php,34,27,27
+backend_tests,litrev-backend-main/tests/Architecture/LayerBoundaryRulesTest.php,php,94,78,78
+backend_tests,litrev-backend-main/tests/Architecture/ModelOwnershipRulesTest.php,php,117,95,95
+backend_tests,litrev-backend-main/tests/Architecture/ModuleBoundaryBaselineRulesTest.php,php,68,55,55
+backend_tests,litrev-backend-main/tests/Architecture/ModuleContractRulesTest.php,php,20,17,17
+backend_tests,litrev-backend-main/tests/Architecture/SharedBoundaryRulesTest.php,php,133,103,103
+frontend_audit,litrev-frontend-main/scripts/audit-frontend-architecture.mjs,js,475,411,411

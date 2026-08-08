@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "codeigniter4projects",
+  "reason": "layer 'Model': collector type 'class' needs PHP type resolution",
+  "repo": "website",
+  "seconds": 0.0,
+  "sha": "d76e3279ea74457cba4410e15d8d4db03dd1e3f0",
+  "stars": 33,
+  "status": "untranslatable-config"
+}

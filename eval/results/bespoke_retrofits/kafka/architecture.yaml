@@ -1,0 +1,9 @@
+version: 1
+project: kafka-import-control-retrofit
+roots:
+  main:
+    path: clients/src/main/java
+    language: java
+unresolved_policy:
+  default: 'off'
+rules: []

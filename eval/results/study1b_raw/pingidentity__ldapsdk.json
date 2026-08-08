@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "NOASSERTION",
+  "owner": "pingidentity",
+  "reason": "no source root contains classes under the governed package 'com.puppycrawl.tools.checkstyle'",
+  "repo": "ldapsdk",
+  "seconds": 0.4,
+  "sha": "337850d64960bf017bb6bce20ef458568ba3ec66",
+  "stars": 374,
+  "status": "untranslatable-config"
+}

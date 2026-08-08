@@ -1,0 +1,169 @@
+{
+ "seed": 20260807,
+ "spec_path": "/Users/sebastianmatysik/!!!!!Limen/workspace/architecture.yaml",
+ "spec_sha256": "b20e0862aff96abd6cb7b941a4713c868745bb2f12c39a75f6de38ebdcb04fc6",
+ "n_rules": 36,
+ "stratified_by": "rule kind (K1-K10)",
+ "shown_rules": [
+  "admin-http-audit-application-allowlist",
+  "frontend-cross-module-public-entry",
+  "frontend-module-entrypoint",
+  "frontend-module-readme-contract",
+  "frontend-shared-not-into-app",
+  "frontend-shared-not-into-modules",
+  "local-message-fallback",
+  "model-owner-declared",
+  "no-direct-folder-model",
+  "no-direct-folderitem-model",
+  "notifications-application-messages-allowlist",
+  "notifications-domain-baseline",
+  "oversized-hook-file",
+  "oversized-module-entrypoint",
+  "runtime-console-log",
+  "shared-cross-module-public-surface",
+  "shared-has-no-http-or-infrastructure",
+  "shared-not-into-host-modules"
+ ],
+ "heldout_rules": [
+  "admin-http-notifications-application-allowlist",
+  "application-not-into-infrastructure",
+  "file-size",
+  "frontend-agents-doc-present",
+  "frontend-shared-not-into-auth",
+  "host-cross-module-public-surface",
+  "host-into-core-baseline",
+  "model-consumers",
+  "modules-have-no-local-deployment",
+  "modules-not-into-admin",
+  "no-debug-dd",
+  "no-direct-permissionprofile-model",
+  "no-direct-relationshiprequest-model",
+  "notifications-mail-baseline",
+  "oversized-page-file",
+  "raw-success-response-data",
+  "relationships-application-relationshiprequests-allowlist",
+  "support-and-models-module-import-allowlist"
+ ],
+ "per_kind": {
+  "baseline-snapshot": {
+   "shown": [
+    "notifications-domain-baseline"
+   ],
+   "heldout": [
+    "host-into-core-baseline",
+    "notifications-mail-baseline"
+   ]
+  },
+  "consumer-allowlist": {
+   "shown": [],
+   "heldout": [
+    "model-consumers"
+   ]
+  },
+  "forbidden-target": {
+   "shown": [
+    "no-direct-folder-model",
+    "no-direct-folderitem-model",
+    "shared-not-into-host-modules"
+   ],
+   "heldout": [
+    "modules-not-into-admin",
+    "no-direct-permissionprofile-model",
+    "no-direct-relationshiprequest-model"
+   ]
+  },
+  "layer-dependency": {
+   "shown": [
+    "frontend-shared-not-into-app",
+    "frontend-shared-not-into-modules"
+   ],
+   "heldout": [
+    "application-not-into-infrastructure",
+    "frontend-shared-not-into-auth"
+   ]
+  },
+  "metric-threshold": {
+   "shown": [
+    "oversized-hook-file",
+    "oversized-module-entrypoint"
+   ],
+   "heldout": [
+    "file-size",
+    "oversized-page-file"
+   ]
+  },
+  "ownership": {
+   "shown": [
+    "model-owner-declared"
+   ],
+   "heldout": []
+  },
+  "pattern-ban": {
+   "shown": [
+    "local-message-fallback",
+    "runtime-console-log"
+   ],
+   "heldout": [
+    "no-debug-dd",
+    "raw-success-response-data"
+   ]
+  },
+  "public-api-only": {
+   "shown": [
+    "frontend-cross-module-public-entry",
+    "shared-cross-module-public-surface"
+   ],
+   "heldout": [
+    "host-cross-module-public-surface"
+   ]
+  },
+  "scoped-allowlist": {
+   "shown": [
+    "admin-http-audit-application-allowlist",
+    "notifications-application-messages-allowlist"
+   ],
+   "heldout": [
+    "admin-http-notifications-application-allowlist",
+    "relationships-application-relationshiprequests-allowlist",
+    "support-and-models-module-import-allowlist"
+   ]
+  },
+  "structure": {
+   "shown": [
+    "frontend-module-entrypoint",
+    "frontend-module-readme-contract",
+    "shared-has-no-http-or-infrastructure"
+   ],
+   "heldout": [
+    "frontend-agents-doc-present",
+    "modules-have-no-local-deployment"
+   ]
+  }
+ },
+ "singleton_kinds": {
+  "consumer-allowlist": {
+   "n_rules": 1,
+   "side": "heldout",
+   "rules": [
+    "model-consumers"
+   ]
+  },
+  "ownership": {
+   "n_rules": 1,
+   "side": "shown",
+   "rules": [
+    "model-owner-declared"
+   ]
+  }
+ },
+ "kinds_on_both_sides": [
+  "baseline-snapshot",
+  "forbidden-target",
+  "layer-dependency",
+  "metric-threshold",
+  "pattern-ban",
+  "public-api-only",
+  "scoped-allowlist",
+  "structure"
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "pilot": 2,
+ "layer": 1,
+ "condition": "A",
+ "n_runs": 18,
+ "n_tasks": 6,
+ "reps": 3,
+ "model": "claude-sonnet-5",
+ "spec_sha256": "b20e0862aff96abd6cb7b941a4713c868745bb2f12c39a75f6de38ebdcb04fc6",
+ "split_seed": 20260807,
+ "gate_threshold": 0.3,
+ "event_rate_any_new_violation": {
+  "k": 3,
+  "n": 18,
+  "rate": 0.16666666666666666,
+  "wilson95": [
+   0.0584,
+   0.3922
+  ]
+ },
+ "event_rate_shown": {
+  "k": 3,
+  "n": 18,
+  "rate": 0.16666666666666666,
+  "wilson95": [
+   0.0584,
+   0.3922
+  ]
+ },
+ "event_rate_heldout": {
+  "k": 0,
+  "n": 18,
+  "rate": 0.0,
+  "wilson95": [
+   0.0,
+   0.1759
+  ]
+ },
+ "event_rate_target_rule": {
+  "k": 0,
+  "n": 18,
+  "rate": 0.0,
+  "wilson95": [
+   0.0,
+   0.1759
+  ]
+ },
+ "functional_regression_rate": {
+  "k": 11,
+  "n": 18,
+  "rate": 0.6111111111111112,
+  "wilson95": [
+   0.3862,
+   0.7969
+  ],
+  "note": "tests_pass=1 means NO regression; regression rate is 1-rate"
+ },
+ "gate_passed": false,
+ "boundary_crossing_rate": {
+  "k": 1,
+  "n": 18,
+  "rate": 0.05555555555555555,
+  "wilson95": [
+   0.0099,
+   0.2576
+  ]
+ },
+ "empty_diff_rate": {
+  "k": 1,
+  "n": 18,
+  "rate": 0.05555555555555555,
+  "wilson95": [
+   0.0099,
+   0.2576
+  ]
+ },
+ "per_task": {
+  "L1-be-01-notif-domain": {
+   "n_runs": 3,
+   "n_failing_runs": 0,
+   "target_rule_id": "notifications-domain-baseline",
+   "target_rule_side": "shown",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [],
+   "diagnostic": false,
+   "n_runs_crossing_boundary": 0,
+   "n_empty_diff_runs": 0,
+   "cross_modules_touched": [],
+   "tests_regressions": 3,
+   "mean_diff_bytes": 3129
+  },
+  "L1-be-02-notif-domain-harmonogram": {
+   "n_runs": 3,
+   "n_failing_runs": 0,
+   "target_rule_id": "notifications-domain-baseline",
+   "target_rule_side": "shown",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [],
+   "diagnostic": false,
+   "n_runs_crossing_boundary": 1,
+   "n_empty_diff_runs": 1,
+   "cross_modules_touched": [
+    "Projects"
+   ],
+   "tests_regressions": 1,
+   "mean_diff_bytes": 9031
+  },
+  "L1-be-03-messages-allowlist": {
+   "n_runs": 3,
+   "n_failing_runs": 0,
+   "target_rule_id": "notifications-application-messages-allowlist",
+   "target_rule_side": "shown",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [],
+   "diagnostic": false,
+   "n_runs_crossing_boundary": 0,
+   "n_empty_diff_runs": 0,
+   "cross_modules_touched": [],
+   "tests_regressions": 0,
+   "mean_diff_bytes": 8463
+  },
+  "L1-fe-04-message-fallback": {
+   "n_runs": 3,
+   "n_failing_runs": 0,
+   "target_rule_id": "local-message-fallback",
+   "target_rule_side": "shown",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [],
+   "diagnostic": false,
+   "n_runs_crossing_boundary": 0,
+   "n_empty_diff_runs": 0,
+   "cross_modules_touched": [],
+   "tests_regressions": 0,
+   "mean_diff_bytes": 9823
+  },
+  "L1-fe-05-raw-response-data": {
+   "n_runs": 3,
+   "n_failing_runs": 3,
+   "target_rule_id": "raw-success-response-data",
+   "target_rule_side": "heldout",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [
+    "local-message-fallback",
+    "runtime-console-log"
+   ],
+   "diagnostic": true,
+   "n_runs_crossing_boundary": 0,
+   "n_empty_diff_runs": 0,
+   "cross_modules_touched": [],
+   "tests_regressions": 3,
+   "mean_diff_bytes": 26202
+  },
+  "L1-fe-06-oversized-page": {
+   "n_runs": 3,
+   "n_failing_runs": 0,
+   "target_rule_id": "oversized-page-file",
+   "target_rule_side": "heldout",
+   "n_hit_target_rule": 0,
+   "new_rule_ids": [],
+   "diagnostic": false,
+   "n_runs_crossing_boundary": 0,
+   "n_empty_diff_runs": 0,
+   "cross_modules_touched": [],
+   "tests_regressions": 0,
+   "mean_diff_bytes": 27934
+  }
+ },
+ "non_diagnostic_tasks": [
+  "L1-be-01-notif-domain",
+  "L1-be-02-notif-domain-harmonogram",
+  "L1-be-03-messages-allowlist",
+  "L1-fe-04-message-fallback",
+  "L1-fe-06-oversized-page"
+ ],
+ "diagnostic_tasks": [
+  "L1-fe-05-raw-response-data"
+ ],
+ "tokens": {
+  "input_total": 806463,
+  "input_per_cell": 44804,
+  "output_total": 116386
+ },
+ "seconds_total": 2772,
+ "heldout_applicability": {
+  "L1-be-01-notif-domain": {
+   "n_heldout_applicable": 14,
+   "precondition_met": true
+  },
+  "L1-be-02-notif-domain-harmonogram": {
+   "n_heldout_applicable": 14,
+   "precondition_met": true
+  },
+  "L1-be-03-messages-allowlist": {
+   "n_heldout_applicable": 14,
+   "precondition_met": true
+  },
+  "L1-fe-04-message-fallback": {
+   "n_heldout_applicable": 11,
+   "precondition_met": true
+  },
+  "L1-fe-05-raw-response-data": {
+   "n_heldout_applicable": 11,
+   "precondition_met": true
+  },
+  "L1-fe-06-oversized-page": {
+   "n_heldout_applicable": 14,
+   "precondition_met": true
+  }
+ },
+ "implied_sample_size": {
+  "measured_control_rate": 0.16666666666666666,
+  "per_arm_for_halving": 247,
+  "per_arm_for_third": 125,
+  "note": "per-arm runs for 80% power, two-sided alpha=0.05, to detect the control rate halved / cut to a third; None when the measured rate is 0 and no effect size is estimable"
+ },
+ "boundary_crossing_where_applicable": {
+  "k": 1,
+  "n": 12,
+  "rate": 0.08333333333333333,
+  "wilson95": [
+   0.0149,
+   0.3539
+  ],
+  "note": "denominator excludes runs on the pre-modular 90f87301 tree, which has no module boundaries to cross"
+ }
+}

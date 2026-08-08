@@ -1,0 +1,67 @@
+version: 1
+project: spring-like
+
+roots:
+  main: { path: src/main/java, language: java }
+
+units:
+  discovery:
+    - { root: main, pattern: "src/main/java/com/example/{unit}/**" }
+  declared: [billing, catalog, shared]
+  registry_policy: exact
+
+layers:
+  discovery:
+    - { pattern: "src/main/java/com/example/*/{layer}/**" }
+  declared: [api, domain, infra]
+
+public_surface:
+  java:
+    - "{unit}/api/**"
+    - "{unit}/*.java"
+
+unresolved_policy:
+  default: warn
+
+rules:
+  - id: domain-not-infra
+    kind: layer-dependency
+    severity: error
+    forbid: { from_layer: domain, to_layer: infra }
+    scope: { roots: [main] }
+    message: "The domain layer must not depend on infrastructure."
+    remedy: "Define a port in domain and implement it in infra."
+
+  - id: cross-unit-api-only
+    kind: public-api-only
+    severity: error
+    scope: { roots: [main] }
+    exempt: []
+    message: "A unit reaches another unit only through its api package."
+    remedy: "Import the target unit's api types, not its internals."
+
+  - id: no-catalog-to-billing
+    kind: reachability
+    severity: error
+    mode: forbidden-path
+    forbid: { from: catalog, to: billing }
+    report_path: true
+    message: "catalog must not reach billing, directly or transitively."
+    remedy: "billing may call catalog, never the other way around."
+
+  - id: no-driver-manager
+    kind: forbidden-target
+    severity: error
+    scope: { roots: [main] }
+    forbid: ["java.sql.DriverManager"]
+    message: "Raw JDBC connections bypass the configured datasource."
+    remedy: "Inject the repository instead."
+
+  - id: java-file-size
+    kind: metric-threshold
+    severity: warning
+    metric: lines
+    max: 400
+    scope: { roots: [main] }
+    message: "File exceeds the review threshold."
+    remedy: "Extract collaborators."

@@ -1,0 +1,136 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "dependency-cruiser",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": false,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "MIT",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/juliusz-cwiakalski__marksync/_limen_architecture.yaml --workspace /tmp/corpuswork/juliusz-cwiakalski__marksync --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 4,
+  "native_findings_excluded_untranslated_rules": 0,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 320,
+      "dependencies_seen": 320,
+      "dependencies_unresolved": 33,
+      "modules_cruised": 105,
+      "resolution_rate": 0.896875
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress src/**/*.ts src/**/*.tsx src/**/*.js src/**/*.jsx src/**/*.mjs src/**/*.cjs src/**/*.vue",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "juliusz-cwiakalski",
+  "reason": null,
+  "repo": "marksync",
+  "rule_kinds": {
+    "dc-domain-may-not-import-app": "forbidden-target",
+    "dc-domain-may-not-import-infra": "forbidden-target",
+    "dc-presentation-may-not-import-domain": "forbidden-target",
+    "dc-presentation-may-not-import-infra": "forbidden-target"
+  },
+  "seconds": 2.3,
+  "seeded": {
+    "both_detected": 4,
+    "enabled": true,
+    "injections": [
+      {
+        "from_prefix": "src/domain/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/domain/assets/naming.ts",
+        "specifier": "../../infra/confluence/attachments",
+        "to_prefix": "src/infra/"
+      },
+      {
+        "from_prefix": "src/domain/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/domain/assets/resolver.ts",
+        "specifier": "../../app/branch",
+        "to_prefix": "src/app/"
+      },
+      {
+        "from_prefix": "src/cli/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/cli/commands/doctor.ts",
+        "specifier": "../../domain/assets/naming",
+        "to_prefix": "src/domain/"
+      },
+      {
+        "from_prefix": "src/cli/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/cli/commands/init.ts",
+        "specifier": "../../infra/confluence/attachments",
+        "to_prefix": "src/infra/"
+      }
+    ],
+    "key_note": "dependency-cruiser reports no line number, so its detection is keyed on the file; limen's is keyed on (file, line)",
+    "limen_detected": 4,
+    "limen_exit": 1,
+    "n_injections": 4,
+    "native_detected": 4,
+    "native_exit": 0
+  },
+  "sha": "5a85254edc4906c7949453c6d8f6005d4780c3e2",
+  "stars": 0,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 4,
+    "native_rule_ids_translated": [
+      "domain-may-not-import-infra",
+      "domain-may-not-import-app",
+      "presentation-may-not-import-domain",
+      "presentation-may-not-import-infra"
+    ],
+    "pairs": [
+      "src/domain/ -> src/infra/",
+      "src/domain/ -> src/app/",
+      "src/cli/ -> src/domain/",
+      "src/cli/ -> src/infra/"
+    ],
+    "rules_emitted": 4,
+    "rules_untranslated": 0,
+    "src_dir": "src",
+    "untranslated": []
+  }
+}

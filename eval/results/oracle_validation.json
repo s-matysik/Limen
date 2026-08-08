@@ -1,0 +1,869 @@
+{
+  "schema": "oracle-validation/1",
+  "generated_at": "2026-08-06T22:20:06.571048+00:00",
+  "claim": "The PHPUnit/Laravel shim in eval/legacy/php/ runs the legacy rules faithfully: on the clean snapshot it reports zero violations, and every planted backend violation is reported by the unmodified legacy class, with the total finding count rising by exactly the number of rules the injected line breaks.",
+  "shim_mutation_validation": {
+    "baseline_legacy_findings": 0,
+    "backend_mutations": 20,
+    "detected": 20,
+    "undetected": [],
+    "delta_exact": 17,
+    "delta_not_exact": [
+      {
+        "mutation_id": "M-BE-02-admin-import",
+        "injected": 1,
+        "legacy_total_delta": 2,
+        "legacy_rules_fired": {
+          "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly": 1,
+          "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules": 1
+        },
+        "notes": "Also trips HttpBoundaryRulesTest (cross-module Http import) — both are legacy rules, so the legacy delta is 2 for one injected line."
+      },
+      {
+        "mutation_id": "M-BE-09-model-into-application",
+        "injected": 1,
+        "legacy_total_delta": 2,
+        "legacy_rules_fired": {
+          "LayerBoundaryRulesTest::test_models_do_not_import_module_application_classes": 1,
+          "LayerBoundaryRulesTest::test_models_import_only_allowlisted_module_classes": 1
+        },
+        "notes": "Legacy fires twice: the dedicated Models->Application rule (L-BE-TEST-09) and the allowlist driver over model_module_import_rules (L-BE-TEST-11)."
+      },
+      {
+        "mutation_id": "M-BE-18-module-application-allowlist",
+        "injected": 1,
+        "legacy_total_delta": 2,
+        "legacy_rules_fired": {
+          "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals": 1,
+          "ModuleContractRulesTest::test_module_paths_use_only_allowlisted_cross_module_application_imports": 1
+        },
+        "notes": ""
+      }
+    ],
+    "per_mutation": [
+      {
+        "mutation_id": "M-BE-02-admin-import",
+        "inventory_id": "L-BE-TEST-02",
+        "expect_legacy_rule": "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 2,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-03-foreign-application",
+        "inventory_id": "L-BE-TEST-03",
+        "expect_legacy_rule": "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-03b-foreign-application-dangling",
+        "inventory_id": "L-BE-TEST-03",
+        "expect_legacy_rule": "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-04-no-root-compose",
+        "inventory_id": "L-BE-TEST-04",
+        "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_repo_has_single_root_docker_compose_file",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-05-module-docker-dir",
+        "inventory_id": "L-BE-TEST-05",
+        "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_modules_do_not_define_local_deploy_or_docker_directories",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-06-module-db-connection",
+        "inventory_id": "L-BE-TEST-06",
+        "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_database_config_does_not_define_module_scoped_connections",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-07-cross-module-http",
+        "inventory_id": "L-BE-TEST-07",
+        "expect_legacy_rule": "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-08-application-into-infrastructure",
+        "inventory_id": "L-BE-TEST-08",
+        "expect_legacy_rule": "LayerBoundaryRulesTest::test_application_layer_does_not_import_module_infrastructure",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-09-model-into-application",
+        "inventory_id": "L-BE-TEST-09",
+        "expect_legacy_rule": "LayerBoundaryRulesTest::test_models_do_not_import_module_application_classes",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 2,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-10-support-module-import",
+        "inventory_id": "L-BE-TEST-10",
+        "expect_legacy_rule": "LayerBoundaryRulesTest::test_support_imports_only_allowlisted_module_classes",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-12-undeclared-model",
+        "inventory_id": "L-BE-TEST-12",
+        "expect_legacy_rule": "ModelOwnershipRulesTest::test_every_model_has_declared_owner_module",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-13-unknown-owner-module",
+        "inventory_id": "L-BE-TEST-13",
+        "expect_legacy_rule": "ModelOwnershipRulesTest::test_model_owner_modules_exist",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-14-model-consumer",
+        "inventory_id": "L-BE-TEST-14",
+        "expect_legacy_rule": "ModelOwnershipRulesTest::test_model_imports_are_limited_to_owner_or_declared_consumers",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-15-forbidden-model",
+        "inventory_id": "L-BE-TEST-15",
+        "expect_legacy_rule": "ModelOwnershipRulesTest::test_forbidden_model_import_rules_are_enforced",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-16-notifications-domain-baseline",
+        "inventory_id": "L-BE-TEST-16",
+        "expect_legacy_rule": "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_domain_imports_match_declared_baseline",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-17-notifications-mail-baseline",
+        "inventory_id": "L-BE-TEST-17",
+        "expect_legacy_rule": "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_mail_imports_match_declared_baseline",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-18-module-application-allowlist",
+        "inventory_id": "L-BE-TEST-18",
+        "expect_legacy_rule": "ModuleContractRulesTest::test_module_paths_use_only_allowlisted_cross_module_application_imports",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 2,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-19-shared-http-layer",
+        "inventory_id": "L-BE-TEST-19",
+        "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_has_no_http_or_infrastructure_layers",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-20-shared-host-import",
+        "inventory_id": "L-BE-TEST-20",
+        "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_does_not_import_forbidden_host_classes",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      },
+      {
+        "mutation_id": "M-BE-21-shared-cross-module-concrete",
+        "inventory_id": "L-BE-TEST-21",
+        "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_cross_module_imports_use_contracts_events_domain_or_presentation",
+        "legacy_hits_on_expected_rule": 1,
+        "legacy_total_delta": 1,
+        "detected": true
+      }
+    ]
+  },
+  "laravel_validation": {
+    "claim": "The shim reproduces real PHPUnit + Laravel: same test methods, same assertion count, same pass/fail verdict — on the clean tree and on every injectable backend mutant.",
+    "laravel_root": "/private/tmp/laravel_check/litrev-backend",
+    "summary": {
+      "clean_agrees": true,
+      "mutants_compared": 20,
+      "mutants_agreeing": 20,
+      "mutants_failure_sets_equal": 20,
+      "mutants_disagreeing": []
+    },
+    "detail": {
+      "clean": {
+        "comparison": {
+          "tests_real": 26,
+          "tests_shim": 26,
+          "test_sets_equal": true,
+          "assertions_real": 52,
+          "assertions_shim": 52,
+          "assertions_match": true,
+          "assertions_consistent": true,
+          "all_pass": true,
+          "only_in_real": [],
+          "only_in_shim": [],
+          "disagreements": [],
+          "real_failures": [],
+          "shim_failures": [],
+          "failure_sets_equal": true,
+          "agree": true
+        },
+        "real_tests": 26,
+        "real_assertions": 52
+      },
+      "mutants": [
+        {
+          "mutation_id": "M-BE-02-admin-import",
+          "inventory_id": "L-BE-TEST-02",
+          "touched_files": [
+            "litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 44,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 44,
+            "assertions_shim": 52,
+            "assertions_match": false,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\AdminBoundaryRulesTest', 'test_module_does_not_import_admin_modules_directly', 'folders')",
+              "('Tests\\\\Architecture\\\\HttpBoundaryRulesTest', 'test_module_does_not_import_http_layer_of_other_modules', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\AdminBoundaryRulesTest', 'test_module_does_not_import_admin_modules_directly', 'folders')",
+              "('Tests\\\\Architecture\\\\HttpBoundaryRulesTest', 'test_module_does_not_import_http_layer_of_other_modules', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-03-foreign-application",
+          "inventory_id": "L-BE-TEST-03",
+          "touched_files": [
+            "litrev-backend/app/Modules/Audit/Application/AuditLogWriterService.php",
+            "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-03b-foreign-application-dangling",
+          "inventory_id": "L-BE-TEST-03",
+          "touched_files": [
+            "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-04-no-root-compose",
+          "inventory_id": "L-BE-TEST-04",
+          "touched_files": [
+            "litrev-backend/docker-compose.yml"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_repo_has_single_root_docker_compose_file', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_repo_has_single_root_docker_compose_file', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-05-module-docker-dir",
+          "inventory_id": "L-BE-TEST-05",
+          "touched_files": [
+            "litrev-backend/app/Modules/Folders/docker"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_modules_do_not_define_local_deploy_or_docker_directories', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_modules_do_not_define_local_deploy_or_docker_directories', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-06-module-db-connection",
+          "inventory_id": "L-BE-TEST-06",
+          "touched_files": [
+            "litrev-backend/config/database.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_database_config_does_not_define_module_scoped_connections', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\DeploymentBoundaryRulesTest', 'test_database_config_does_not_define_module_scoped_connections', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-07-cross-module-http",
+          "inventory_id": "L-BE-TEST-07",
+          "touched_files": [
+            "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 46,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 46,
+            "assertions_shim": 52,
+            "assertions_match": false,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\HttpBoundaryRulesTest', 'test_module_does_not_import_http_layer_of_other_modules', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\HttpBoundaryRulesTest', 'test_module_does_not_import_http_layer_of_other_modules', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-08-application-into-infrastructure",
+          "inventory_id": "L-BE-TEST-08",
+          "touched_files": [
+            "litrev-backend/app/Modules/Relationships/Application/MutantService.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_application_layer_does_not_import_module_infrastructure', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_application_layer_does_not_import_module_infrastructure', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-09-model-into-application",
+          "inventory_id": "L-BE-TEST-09",
+          "touched_files": [
+            "litrev-backend/app/Models/Folder.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_models_do_not_import_module_application_classes', None)",
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_models_import_only_allowlisted_module_classes', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_models_do_not_import_module_application_classes', None)",
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_models_import_only_allowlisted_module_classes', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-10-support-module-import",
+          "inventory_id": "L-BE-TEST-10",
+          "touched_files": [
+            "litrev-backend/app/Support/PolishAlphabet.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_support_imports_only_allowlisted_module_classes', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\LayerBoundaryRulesTest', 'test_support_imports_only_allowlisted_module_classes', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-12-undeclared-model",
+          "inventory_id": "L-BE-TEST-12",
+          "touched_files": [
+            "litrev-backend/app/Models/MutantModel.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_every_model_has_declared_owner_module', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_every_model_has_declared_owner_module', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-13-unknown-owner-module",
+          "inventory_id": "L-BE-TEST-13",
+          "touched_files": [
+            "litrev-backend/config/architecture.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_model_owner_modules_exist', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_model_owner_modules_exist', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-14-model-consumer",
+          "inventory_id": "L-BE-TEST-14",
+          "touched_files": [
+            "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_model_imports_are_limited_to_owner_or_declared_consumers', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_model_imports_are_limited_to_owner_or_declared_consumers', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-15-forbidden-model",
+          "inventory_id": "L-BE-TEST-15",
+          "touched_files": [
+            "litrev-backend/app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 48,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 48,
+            "assertions_shim": 52,
+            "assertions_match": false,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_forbidden_model_import_rules_are_enforced', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModelOwnershipRulesTest', 'test_forbidden_model_import_rules_are_enforced', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-16-notifications-domain-baseline",
+          "inventory_id": "L-BE-TEST-16",
+          "touched_files": [
+            "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModuleBoundaryBaselineRulesTest', 'test_cross_module_notifications_domain_imports_match_declared_baseline', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModuleBoundaryBaselineRulesTest', 'test_cross_module_notifications_domain_imports_match_declared_baseline', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-17-notifications-mail-baseline",
+          "inventory_id": "L-BE-TEST-17",
+          "touched_files": [
+            "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ModuleBoundaryBaselineRulesTest', 'test_cross_module_notifications_mail_imports_match_declared_baseline', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ModuleBoundaryBaselineRulesTest', 'test_cross_module_notifications_mail_imports_match_declared_baseline', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-18-module-application-allowlist",
+          "inventory_id": "L-BE-TEST-18",
+          "touched_files": [
+            "litrev-backend/app/Modules/Profile/Http/Controllers/ProfileController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 45,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 45,
+            "assertions_shim": 52,
+            "assertions_match": false,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)",
+              "('Tests\\\\Architecture\\\\ModuleContractRulesTest', 'test_module_paths_use_only_allowlisted_cross_module_application_imports', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\ApplicationBoundaryRulesTest', 'test_modules_do_not_import_foreign_application_internals', None)",
+              "('Tests\\\\Architecture\\\\ModuleContractRulesTest', 'test_module_paths_use_only_allowlisted_cross_module_application_imports', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-19-shared-http-layer",
+          "inventory_id": "L-BE-TEST-19",
+          "touched_files": [
+            "backend-shared/src/Folders/Http/MutantController.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_has_no_http_or_infrastructure_layers', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_has_no_http_or_infrastructure_layers', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-20-shared-host-import",
+          "inventory_id": "L-BE-TEST-20",
+          "touched_files": [
+            "backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_does_not_import_forbidden_host_classes', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_does_not_import_forbidden_host_classes', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        },
+        {
+          "mutation_id": "M-BE-21-shared-cross-module-concrete",
+          "inventory_id": "L-BE-TEST-21",
+          "touched_files": [
+            "backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php"
+          ],
+          "status": "ok",
+          "real_tests": 26,
+          "real_assertions": 52,
+          "comparison": {
+            "tests_real": 26,
+            "tests_shim": 26,
+            "test_sets_equal": true,
+            "assertions_real": 52,
+            "assertions_shim": 52,
+            "assertions_match": true,
+            "assertions_consistent": true,
+            "all_pass": false,
+            "only_in_real": [],
+            "only_in_shim": [],
+            "disagreements": [],
+            "real_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_cross_module_imports_use_contracts_events_domain_or_presentation', None)"
+            ],
+            "shim_failures": [
+              "('Tests\\\\Architecture\\\\SharedBoundaryRulesTest', 'test_shared_cross_module_imports_use_contracts_events_domain_or_presentation', None)"
+            ],
+            "failure_sets_equal": true,
+            "agree": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "kinds": [],
+  "language": "java",
+  "license": "Apache-2.0",
+  "n_limen_rules": 0,
+  "owner": "segun-s",
+  "reason": "the native cascade forbids none of the imports present in this tree, so no rule was emitted and both sides are empty by construction",
+  "repo": "kafka-internals-extracted",
+  "rule_kinds": {},
+  "seconds": 0.3,
+  "sha": "d0e0a99ea56befabb9a61393fe45291ac3e7b20a",
+  "stars": 0,
+  "status": "vacuous-no-violations-possible",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "coverage": {
+      "guards_covered": 49,
+      "guards_total": 49,
+      "scopes_covered": 7,
+      "scopes_total": 8,
+      "scopes_uncovered": 1,
+      "uncovered_reasons": [
+        "kafka.utils: <file name='LoggingController.scala'/> keys on the declared type name, which a path-glob rule scope cannot express"
+      ]
+    },
+    "governed_package": "kafka",
+    "native_guards": 49,
+    "native_scopes": 8,
+    "packages_covered": 6,
+    "packages_skipped": 0,
+    "scope": {
+      "java_files_in_tree": 2171,
+      "limen_only_files": 0,
+      "limen_rule_scopes_cover": 0,
+      "native_only_files": 19,
+      "native_sees": 19,
+      "note": "counts, not a guarantee: `native_sees` is the file set checkstyle was invoked on; `limen_rule_scopes_cover` is the subset matched by at least one emitted rule scope. `native_only_files` are files the native tool checked that no limen rule scopes (their packages had no denied target, so no rule was emitted for them) and `limen_only_files` are files a rule scope matches outside the invoked roots. Both are potential sources of one-sided findings.",
+      "seen_by_both": 0
+    },
+    "source_roots": [
+      "core/src/main/java"
+    ],
+    "source_roots_not_governed": [
+      "clients/src/main/java",
+      "coordinator-common/src/main/java",
+      "group-coordinator/group-coordinator-api/src/main/java",
+      "group-coordinator/src/main/java",
+      "metadata/src/main/java",
+      "raft/src/main/java",
+      "server-common/src/main/java",
+      "server/src/main/java",
+      "share-coordinator/src/main/java",
+      "storage/api/src/main/java",
+      "storage/src/main/java"
+    ]
+  }
+}

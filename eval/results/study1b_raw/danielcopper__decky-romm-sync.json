@@ -1,0 +1,103 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": false,
+  "kinds": [
+    "K11",
+    "K6"
+  ],
+  "language": "python",
+  "license": "GPL-3.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/danielcopper__decky-romm-sync/_limen_architecture.yaml --workspace /tmp/corpuswork/danielcopper__decky-romm-sync --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 8,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 0,
+      "contracts_kept": 8,
+      "dependencies": 1293,
+      "files_analyzed": 248
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config .importlinter --no-cache",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "danielcopper",
+  "reason": null,
+  "repo": "decky-romm-sync",
+  "rule_kinds": {
+    "il-adapters-must-not-import-services-0": "forbidden-target",
+    "il-domain-must-not-import-services-adapters-lib-or-models-0": "forbidden-target",
+    "il-domain-must-not-import-vendored-third-party-packages-0": "forbidden-target",
+    "il-models-must-not-import-services-adapters-domain-or-lib-0": "forbidden-target",
+    "il-services-must-not-import-concrete-adapter-implementations-0": "forbidden-target",
+    "il-services-must-not-import-other-services-indep": "reachability",
+    "il-services-must-not-import-stdlib-i-o-or-concurrency-primitives-0": "forbidden-target",
+    "il-utilities-must-not-import-services-adapters-or-domain-0": "forbidden-target"
+  },
+  "seconds": 0.3,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "2c31e057ddd4823fcbcec3f1d8cec2000ee17ad2",
+  "stars": 107,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 7,
+      "independence": 1
+    },
+    "contracts_total": 8,
+    "ignore_imports_entries": 0,
+    "root_dir": "py_modules",
+    "root_packages": [
+      "services",
+      "adapters",
+      "lib",
+      "domain",
+      "models"
+    ],
+    "rules_emitted": 8,
+    "transitive_by_default": [
+      "Services must not import concrete adapter implementations",
+      "Adapters must not import services",
+      "Utilities must not import services, adapters, or domain",
+      "Domain must not import services, adapters, lib, or models",
+      "Domain must not import vendored third-party packages",
+      "Models must not import services, adapters, domain, or lib",
+      "Services must not import stdlib I/O or concurrency primitives",
+      "Services must not import other services"
+    ]
+  }
+}

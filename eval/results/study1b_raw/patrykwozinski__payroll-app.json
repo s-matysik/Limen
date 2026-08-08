@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "patrykwozinski",
+  "reason": "directory collector value '' is a regex this translator will not approximate",
+  "repo": "payroll-app",
+  "seconds": 0.0,
+  "sha": "c4c1287b9b2b830afeedd10e2501feba138daac1",
+  "stars": 2,
+  "status": "untranslatable-config"
+}

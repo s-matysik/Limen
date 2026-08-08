@@ -1,0 +1,62 @@
+{
+  "repos": [
+    {
+      "files": 304,
+      "git_sha": null,
+      "manifest": "manifests/litrev-backend.tsv",
+      "repo": "litrev-backend",
+      "source": "snapshot",
+      "tree_id": "5c93950e4ce0a9caf63bd75b36cfa1057bff31f505cfdc7af98e430e90520c44",
+      "unreadable": []
+    },
+    {
+      "files": 291,
+      "git_sha": null,
+      "manifest": "manifests/backend-shared.tsv",
+      "repo": "backend-shared",
+      "source": "snapshot",
+      "tree_id": "aeb2afad253f3bec1f2c44b3f41f99eb10db6312b354dc20c2c9f4d216143a42",
+      "unreadable": []
+    },
+    {
+      "files": 23,
+      "git_sha": null,
+      "manifest": "manifests/litrev-core-backend.tsv",
+      "repo": "litrev-core-backend",
+      "source": "snapshot",
+      "tree_id": "29a9de7b1a87f697d6d59d6532131f840b3a5b728309048495da60c72e944fdb",
+      "unreadable": []
+    },
+    {
+      "files": 212,
+      "git_sha": null,
+      "manifest": "manifests/litrev-frontend.tsv",
+      "repo": "litrev-frontend",
+      "source": "snapshot",
+      "tree_id": "0c521febf0219ee2819c4f74d7323ef741e74675b516eba7adfd915a594127ac",
+      "unreadable": []
+    },
+    {
+      "files": 30,
+      "git_sha": null,
+      "manifest": "manifests/litrev-core-frontend.tsv",
+      "repo": "litrev-core-frontend",
+      "source": "snapshot",
+      "tree_id": "26a2d7d77205e8540da4233b53762686fa79049d4ba74148244cf1a9d061d1fc",
+      "unreadable": []
+    },
+    {
+      "files": 202,
+      "git_sha": null,
+      "manifest": "manifests/frontend-shared.tsv",
+      "repo": "frontend-shared",
+      "source": "snapshot",
+      "tree_id": "8b6911ff54120f144ccf3e8c12a401875982a647344fd881413cd8aa3de1618b",
+      "unreadable": []
+    }
+  ],
+  "schema": "limen-frozen-snapshot/1",
+  "total_files": 1062,
+  "workspace": "/Users/sebastianmatysik/!!!!!Limen/workspace",
+  "workspace_tree_id": "562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31"
+}

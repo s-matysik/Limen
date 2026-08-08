@@ -1,0 +1,6 @@
+kind,split,repos,tools,native_findings,limen_findings,agreements_TP,limen_only_FP,native_only_FN,exercised,precision,precision_lo,precision_hi,recall,recall_lo,recall_hi,C1,C2,C3,unclassified
+K1,dev,1,import-linter,0,0,0,0,0,False,n/a,n/a,n/a,n/a,n/a,n/a,0,0,0,0
+K6,dev,7,dependency-cruiser|import-control|import-linter,5567,5362,5203,164,369,True,0.969443,0.964492,0.973722,0.933776,0.926943,0.940011,0,1,532,0
+K6,held-out,5,dependency-cruiser|import-control|import-linter,167,167,167,0,0,True,1.000000,0.977514,1.000000,1.000000,0.977514,1.000000,0,0,0,0
+K11,dev,1,import-linter,0,0,0,0,0,False,n/a,n/a,n/a,n/a,n/a,n/a,0,0,0,0
+oracle-side,dev,0,import-linter,0,0,0,0,0,False,n/a,n/a,n/a,n/a,n/a,n/a,0,0,4,0

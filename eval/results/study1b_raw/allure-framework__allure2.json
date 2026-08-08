@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "Apache-2.0",
+  "owner": "allure-framework",
+  "reason": "strategyOnMismatch='allowed'",
+  "repo": "allure2",
+  "seconds": 0.0,
+  "sha": "86573bbdbe85b947764441989ea409aee09f3a22",
+  "stars": 5488,
+  "status": "untranslatable-config"
+}

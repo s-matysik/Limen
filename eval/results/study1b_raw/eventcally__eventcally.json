@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": false,
+  "language": "python",
+  "license": "MIT",
+  "owner": "eventcally",
+  "reason": "no directory in the tree holds the declared root package(s) ['project']",
+  "repo": "eventcally",
+  "seconds": 0.0,
+  "sha": "096a5335f2ce9db78a8dcc348fb2937029de5ff9",
+  "stars": 5,
+  "status": "untranslatable-config"
+}

@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": false,
+  "language": "python",
+  "license": "MIT",
+  "owner": "rislab",
+  "reason": "no directory in the tree holds the declared root package(s) ['examples', 'habitat_sim', 'tests']",
+  "repo": "habitat-sim",
+  "seconds": 0.0,
+  "sha": "3f89600c942a4dee1866a589acd6e59741952a9f",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

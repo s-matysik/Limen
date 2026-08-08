@@ -1,0 +1,55 @@
+{
+  "config_kind": "import-control",
+  "heldout": true,
+  "kinds": [],
+  "language": "java",
+  "license": "Apache-2.0",
+  "n_limen_rules": 0,
+  "owner": "pravega",
+  "reason": "the native cascade forbids none of the imports present in this tree, so no rule was emitted and both sides are empty by construction",
+  "repo": "schema-registry",
+  "rule_kinds": {},
+  "seconds": 0.0,
+  "sha": "77fcaeb9000e3831ee54788bd39f1595ac8106ea",
+  "stars": 16,
+  "status": "vacuous-no-violations-possible",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "coverage": {
+      "guards_covered": 40,
+      "guards_total": 40,
+      "scopes_covered": 1,
+      "scopes_total": 1,
+      "scopes_uncovered": 0,
+      "uncovered_reasons": []
+    },
+    "governed_package": "io.pravega",
+    "native_guards": 40,
+    "native_scopes": 1,
+    "packages_covered": 34,
+    "packages_skipped": 0,
+    "scope": {
+      "java_files_in_tree": 216,
+      "limen_only_files": 0,
+      "limen_rule_scopes_cover": 0,
+      "native_only_files": 164,
+      "native_sees": 164,
+      "note": "counts, not a guarantee: `native_sees` is the file set checkstyle was invoked on; `limen_rule_scopes_cover` is the subset matched by at least one emitted rule scope. `native_only_files` are files the native tool checked that no limen rule scopes (their packages had no denied target, so no rule was emitted for them) and `limen_only_files` are files a rule scope matches outside the invoked roots. Both are potential sources of one-sided findings.",
+      "seen_by_both": 0
+    },
+    "source_roots": [
+      "auth/src/main/java",
+      "client/src/main/java",
+      "common/src/main/java",
+      "contract/src/main/java",
+      "serializers/avro/src/main/java",
+      "serializers/json/src/main/java",
+      "serializers/protobuf/src/main/java",
+      "serializers/shared/src/main/java",
+      "serializers/src/main/java",
+      "server/src/main/java",
+      "test/src/main/java"
+    ],
+    "source_roots_not_governed": []
+  }
+}

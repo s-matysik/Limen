@@ -1,0 +1,92 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": false,
+  "kinds": [
+    "K6"
+  ],
+  "language": "python",
+  "license": "MIT",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/maksimzayats__acodex/_limen_architecture.yaml --workspace /tmp/corpuswork/maksimzayats__acodex --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 7,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 0,
+      "contracts_kept": 4,
+      "dependencies": 365,
+      "files_analyzed": 101
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config .importlinter --no-cache",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "maksimzayats",
+  "reason": null,
+  "repo": "acodex",
+  "rule_kinds": {
+    "il-cli-must-not-import-http-transport-0": "forbidden-target",
+    "il-core-must-not-depend-on-transport-cli-or-wiring-0": "forbidden-target",
+    "il-http-transport-must-not-depend-on-cli-or-wiring-0": "forbidden-target",
+    "il-only-process-entrypoints-may-import-the-container-0": "forbidden-target",
+    "il-only-process-entrypoints-may-import-the-container-1": "forbidden-target",
+    "il-only-process-entrypoints-may-import-the-container-2": "forbidden-target",
+    "il-only-process-entrypoints-may-import-the-container-3": "forbidden-target"
+  },
+  "seconds": 0.2,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "9b2b0333119e2df531804974144a463c6e8f7e89",
+  "stars": 56,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 4
+    },
+    "contracts_total": 4,
+    "ignore_imports_entries": 3,
+    "root_dir": "src",
+    "root_packages": [
+      "acodex"
+    ],
+    "rules_emitted": 7,
+    "transitive_by_default": [
+      "Core must not depend on transport, CLI, or wiring",
+      "HTTP transport must not depend on CLI or wiring",
+      "CLI must not import HTTP transport",
+      "Only process entrypoints may import the container"
+    ]
+  }
+}

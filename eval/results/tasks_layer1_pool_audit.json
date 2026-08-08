@@ -1,0 +1,102 @@
+{
+ "46bbf692": {
+  "repo": "litrev-backend",
+  "n_violations": 41,
+  "rules": [
+   "notifications-application-messages-allowlist",
+   "notifications-domain-baseline"
+  ],
+  "parent_sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+  "date": "2026-05-07T15:20:02+02:00",
+  "parent_date": "2026-04-30T12:55:01+02:00",
+  "parent_has_module_layout": true,
+  "usable": true,
+  "reason": "parent tree exists and carries the layout the rules scope to"
+ },
+ "9cf5ac79": {
+  "repo": "litrev-frontend",
+  "n_violations": 15,
+  "rules": [
+   "file-size",
+   "frontend-agents-doc-present",
+   "local-message-fallback",
+   "oversized-page-file",
+   "runtime-console-log"
+  ],
+  "parent_sha": null,
+  "date": "2026-03-22T00:41:37+01:00",
+  "usable": false,
+  "reason": "root commit — no parent tree exists, so there is no state on which to pose the task"
+ },
+ "eab22e21": {
+  "repo": "litrev-backend",
+  "n_violations": 12,
+  "rules": [
+   "admin-http-audit-application-allowlist",
+   "admin-http-notifications-application-allowlist",
+   "relationships-application-relationshiprequests-allowlist",
+   "support-and-models-module-import-allowlist"
+  ],
+  "parent_sha": "b2a70b496cf6578ebd619b58ce6fe442ec34d8e2",
+  "date": "2026-04-20T09:55:11+02:00",
+  "parent_date": "2026-03-26T23:25:45+01:00",
+  "parent_has_module_layout": false,
+  "usable": false,
+  "reason": "parent tree predates modularisation (no app/Modules); every violated rule is scoped to app/Modules/** paths that do not exist there, so no rule can fire — the pilot-1 failure mode"
+ },
+ "c1d3e424": {
+  "repo": "litrev-frontend",
+  "n_violations": 11,
+  "rules": [
+   "file-size",
+   "local-message-fallback",
+   "oversized-page-file",
+   "raw-success-response-data"
+  ],
+  "parent_sha": "90f87301c69785f173aa1279324ea718a9d01a50",
+  "date": "2026-03-26T23:42:21+01:00",
+  "parent_date": "2026-03-22T01:08:51+01:00",
+  "parent_has_module_layout": false,
+  "usable": true,
+  "reason": "parent tree exists and carries the layout the rules scope to"
+ },
+ "82915ff2": {
+  "repo": "litrev-frontend",
+  "n_violations": 3,
+  "rules": [
+   "file-size",
+   "local-message-fallback"
+  ],
+  "parent_sha": "c1d3e42430d02b38b7d43f0041b1024e37d513bc",
+  "date": "2026-04-20T10:07:31+02:00",
+  "parent_date": "2026-03-26T23:42:21+01:00",
+  "parent_has_module_layout": false,
+  "usable": true,
+  "reason": "parent tree exists and carries the layout the rules scope to"
+ },
+ "c32d1719": {
+  "repo": "litrev-backend",
+  "n_violations": 2,
+  "rules": [
+   "host-into-core-baseline"
+  ],
+  "parent_sha": null,
+  "date": "2026-03-22T00:04:12+01:00",
+  "usable": false,
+  "reason": "root commit — no parent tree exists, so there is no state on which to pose the task"
+ },
+ "0334bc8f": {
+  "repo": "litrev-frontend",
+  "n_violations": 2,
+  "rules": [
+   "frontend-module-readme-contract",
+   "oversized-page-file"
+  ],
+  "parent_sha": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+  "date": "2026-05-22T00:55:01+00:00",
+  "parent_date": "2026-05-18T17:55:01+02:00",
+  "parent_has_module_layout": true,
+  "usable": true,
+  "reason": "parent tree exists and carries the layout the rules scope to"
+ }
+}

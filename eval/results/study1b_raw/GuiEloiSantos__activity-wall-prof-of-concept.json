@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "MIT",
+  "owner": "GuiEloiSantos",
+  "reason": "layer 'Domain' has no directory collector; its members cannot be located by path alone",
+  "repo": "activity-wall-prof-of-concept",
+  "seconds": 0.0,
+  "sha": "6de67b372967bfc93ded924cd60483bf2f455d00",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

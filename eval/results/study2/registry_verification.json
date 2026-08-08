@@ -1,0 +1,18 @@
+{
+  "exact_findings": 11,
+  "exact_summary": {
+    "errors": 3,
+    "exit_code": 1,
+    "unresolved_count": 8,
+    "warnings": 8
+  },
+  "open_findings": 11,
+  "open_summary": {
+    "errors": 3,
+    "exit_code": 1,
+    "unresolved_count": 8,
+    "warnings": 8
+  },
+  "reports_identical": true,
+  "today": "2026-08-04"
+}

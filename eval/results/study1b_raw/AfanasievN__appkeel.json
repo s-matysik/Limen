@@ -1,0 +1,13 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": false,
+  "language": "js",
+  "license": "MIT",
+  "owner": "AfanasievN",
+  "reason": "no `forbidden` rule is a directory-prefix ban; untranslated: no-circular (graph/metadata criteria ['circular'] are not predicates over a single dependency edge); domain-standalone (from.path='^packages/domain' / to.path='^packages/(?!domain)' is a regex, not a directory prefix)",
+  "repo": "appkeel",
+  "seconds": 0.3,
+  "sha": "dfce223fdf71d655cdf693bc94aa8b3169dfc52e",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

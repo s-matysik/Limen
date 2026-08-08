@@ -1,0 +1,1306 @@
+{
+  "config_check": {
+    "constant_in_script": {
+      "browser": [
+        "common"
+      ],
+      "common": [],
+      "electron-browser": [
+        "common",
+        "browser"
+      ],
+      "electron-main": [
+        "common",
+        "node",
+        "electron-utility"
+      ],
+      "electron-utility": [
+        "common",
+        "node"
+      ],
+      "node": [
+        "common"
+      ]
+    },
+    "native_severity": "warn",
+    "parsed_from_repo": {
+      "browser": [
+        "common"
+      ],
+      "common": [],
+      "electron-browser": [
+        "common",
+        "browser"
+      ],
+      "electron-main": [
+        "common",
+        "node",
+        "electron-utility"
+      ],
+      "electron-utility": [
+        "common",
+        "node"
+      ],
+      "node": [
+        "common"
+      ]
+    },
+    "verified": true
+  },
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/b5d08273-135a-456c-bfb2-d0461846ef8f/.venv/limen-eval/bin/python -m limen.cli check --spec /Users/sebastianmatysik/!!!!!Limen/limen/eval/results/bespoke_retrofits/vscode/architecture.yaml --workspace /Users/sebastianmatysik/!!!!!Limen/limen/eval/_scratch/repos/microsoft-vscode --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "stderr_tail": ""
+  },
+  "limen_findings": [],
+  "native_config": "eslint.config.js + .eslint-plugin-local/code-layering.ts",
+  "native_findings": [],
+  "oracle": {
+    "oracle_kind": "reimplemented-from-source",
+    "oracle_note": "The rule is TypeScript loaded through the repository's own build toolchain, which needs a full `npm ci` of the VS Code repo. It was NOT executed here. The decision procedure was re-implemented from `.eslint-plugin-local/code-layering.ts` and `utils.ts` at the pinned SHA; the layer table is verified against `eslint.config.js` at run time (config_check).",
+    "source_files_read": [
+      ".eslint-plugin-local/code-layering.ts",
+      ".eslint-plugin-local/utils.ts",
+      "eslint.config.js"
+    ],
+    "tool": "local/code-layering (VS Code's own ESLint rule)"
+  },
+  "repo": "microsoft/vscode",
+  "scan_stats": {
+    "files": 7987,
+    "files_in_a_layer": 7958,
+    "imports": 91250
+  },
+  "schema": "bespoke-retrofit/1",
+  "seeded": {
+    "both_detected": 30,
+    "enabled": true,
+    "injection_policy": "one injection per file, only in files where the native scan and limen's discovery glob assign the SAME layer, so this arm measures rule agreement and not the D-VSC-1 discovery gap",
+    "injections": [
+      {
+        "from_layer": "browser",
+        "injected_line": 8,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/animatedValue.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/animationSync.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 10,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/broadcast.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 8,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/browser.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/canIUse.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 13,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/contextmenu.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 8,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/cssValue.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 5,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/deviceAccess.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/dnd.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 22,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/dom.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 10,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/domSanitize.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 11,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/domStylesheets.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/event.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 5,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/fastDomNode.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/fonts.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 10,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/formattedTextRenderer.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 8,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/globalPointerMoveMonitor.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 7,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/history.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 17,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/htmlToMarkdown.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 5,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/iframe.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/indexedDB.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 10,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/keyboardEvent.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 26,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/markdownRenderer.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/mouseEvent.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/overlayLayoutElement.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 7,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/performance.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 9,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/pixelRatio.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 12,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/touch.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 8,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/trustedTypes.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "from_layer": "browser",
+        "injected_line": 5,
+        "limen_detected": true,
+        "native_detected": true,
+        "rel_path": "src/vs/base/browser/window.ts",
+        "specifier": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      }
+    ],
+    "limen_detected": 30,
+    "limen_findings": [
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/animatedValue.ts",
+        "kind": "layer-dependency",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/animationSync.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/broadcast.ts",
+        "kind": "layer-dependency",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/browser.ts",
+        "kind": "layer-dependency",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/canIUse.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/contextmenu.ts",
+        "kind": "layer-dependency",
+        "line": 13,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/cssValue.ts",
+        "kind": "layer-dependency",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/deviceAccess.ts",
+        "kind": "layer-dependency",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/dnd.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/dom.ts",
+        "kind": "layer-dependency",
+        "line": 22,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/domSanitize.ts",
+        "kind": "layer-dependency",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/domStylesheets.ts",
+        "kind": "layer-dependency",
+        "line": 11,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/event.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/fastDomNode.ts",
+        "kind": "layer-dependency",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/fonts.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/formattedTextRenderer.ts",
+        "kind": "layer-dependency",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/globalPointerMoveMonitor.ts",
+        "kind": "layer-dependency",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/history.ts",
+        "kind": "layer-dependency",
+        "line": 7,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/htmlToMarkdown.ts",
+        "kind": "layer-dependency",
+        "line": 17,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/iframe.ts",
+        "kind": "layer-dependency",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/indexedDB.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/keyboardEvent.ts",
+        "kind": "layer-dependency",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/markdownRenderer.ts",
+        "kind": "layer-dependency",
+        "line": 26,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/mouseEvent.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/overlayLayoutElement.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/performance.ts",
+        "kind": "layer-dependency",
+        "line": 7,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/pixelRatio.ts",
+        "kind": "layer-dependency",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/touch.ts",
+        "kind": "layer-dependency",
+        "line": 12,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/trustedTypes.ts",
+        "kind": "layer-dependency",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      },
+      {
+        "exemptible": true,
+        "file": "src/vs/base/browser/window.ts",
+        "kind": "layer-dependency",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "path_trace": null,
+        "remedy": "Move the code, or reach the other layer through a service interface declared in a common layer.",
+        "rule_id": "layer-browser-not-electron-browser",
+        "severity": "warning",
+        "source": "limen",
+        "spec_path": "rules[0].exempt",
+        "target": "src/vs/base/parts/contextmenu/electron-browser/contextmenu.ts",
+        "unit": null
+      }
+    ],
+    "limen_findings_total": 30,
+    "limen_run": {
+      "command": "/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/b5d08273-135a-456c-bfb2-d0461846ef8f/.venv/limen-eval/bin/python -m limen.cli check --spec /Users/sebastianmatysik/!!!!!Limen/limen/eval/results/bespoke_retrofits/vscode/architecture.yaml --workspace /Users/sebastianmatysik/!!!!!Limen/limen/eval/results/bespoke_retrofits/vscode/_seeded --today 2026-08-04 --format json",
+      "exit_code": 0,
+      "stderr_tail": ""
+    },
+    "n_injections": 30,
+    "native_detected": 30,
+    "native_findings": [
+      {
+        "file": "src/vs/base/browser/animatedValue.ts",
+        "from_layer": "browser",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/animationSync.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/broadcast.ts",
+        "from_layer": "browser",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/browser.ts",
+        "from_layer": "browser",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/canIUse.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/contextmenu.ts",
+        "from_layer": "browser",
+        "line": 13,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/cssValue.ts",
+        "from_layer": "browser",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/deviceAccess.ts",
+        "from_layer": "browser",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/dnd.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/dom.ts",
+        "from_layer": "browser",
+        "line": 22,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/domSanitize.ts",
+        "from_layer": "browser",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/domStylesheets.ts",
+        "from_layer": "browser",
+        "line": 11,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/event.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/fastDomNode.ts",
+        "from_layer": "browser",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/fonts.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/formattedTextRenderer.ts",
+        "from_layer": "browser",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/globalPointerMoveMonitor.ts",
+        "from_layer": "browser",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/history.ts",
+        "from_layer": "browser",
+        "line": 7,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/htmlToMarkdown.ts",
+        "from_layer": "browser",
+        "line": 17,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/iframe.ts",
+        "from_layer": "browser",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/indexedDB.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/keyboardEvent.ts",
+        "from_layer": "browser",
+        "line": 10,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/markdownRenderer.ts",
+        "from_layer": "browser",
+        "line": 26,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/mouseEvent.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/overlayLayoutElement.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/performance.ts",
+        "from_layer": "browser",
+        "line": 7,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/pixelRatio.ts",
+        "from_layer": "browser",
+        "line": 9,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/touch.ts",
+        "from_layer": "browser",
+        "line": 12,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/trustedTypes.ts",
+        "from_layer": "browser",
+        "line": 8,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      },
+      {
+        "file": "src/vs/base/browser/window.ts",
+        "from_layer": "browser",
+        "line": 5,
+        "message": "Bad layering. You are not allowed to access electron-browser from here, allowed layers are: [browser, common]",
+        "native_rule_id": "local/code-layering",
+        "rule_id": "local/code-layering",
+        "severity": "warning",
+        "source": "native",
+        "target": "../parts/contextmenu/electron-browser/contextmenu",
+        "to_layer": "electron-browser"
+      }
+    ],
+    "native_findings_total": 30
+  },
+  "subdir": "src/vs",
+  "translation": {
+    "declared_layers": [
+      "browser",
+      "common",
+      "electron-browser",
+      "electron-main",
+      "electron-utility",
+      "node"
+    ],
+    "forbidden_pairs": 21,
+    "layer_assignment": {
+      "by_pair_native_vs_limen": {
+        "browser vs -": 1663,
+        "common vs -": 676,
+        "electron-browser vs -": 60,
+        "electron-utility vs -": 10,
+        "node vs -": 953
+      },
+      "deviation": "D-VSC-1: the native rule scans directory segments right to left and SKIPS segments that are not configured layers; limen binds {layer} to the rightmost segment and then drops it if it is not declared. Files whose layer directory is not the immediate parent therefore get no layer in limen and are not checked.",
+      "differing_assignment": 3362,
+      "examples": [
+        {
+          "file": "src/vs/base/browser/dompurify/dompurify.d.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/actionbar/actionViewItems.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/actionbar/actionbar.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/animations/animations.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/aria/aria.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/breadcrumbs/breadcrumbsWidget.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/button/button.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/centered/centeredViewLayout.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/codicons/codiconStyles.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/contextview/contextview.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/countBadge/countBadge.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/dialog/dialog.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/dnd/dnd.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/dropdown/dropdown.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        },
+        {
+          "file": "src/vs/base/browser/ui/dropdown/dropdownActionViewItem.ts",
+          "limen_layer": null,
+          "native_layer": "browser"
+        }
+      ],
+      "files": 7987,
+      "identical_assignment": 4625,
+      "limen_assigns_a_layer": 4596,
+      "native_assigns_a_layer": 7958
+    },
+    "layer_discovery_patterns": [
+      "src/vs/**/{layer}/**"
+    ],
+    "pairs": [
+      "browser->electron-browser",
+      "browser->electron-main",
+      "browser->electron-utility",
+      "browser->node",
+      "common->browser",
+      "common->electron-browser",
+      "common->electron-main",
+      "common->electron-utility",
+      "common->node",
+      "electron-browser->electron-main",
+      "electron-browser->electron-utility",
+      "electron-browser->node",
+      "electron-main->browser",
+      "electron-main->electron-browser",
+      "electron-utility->browser",
+      "electron-utility->electron-browser",
+      "electron-utility->electron-main",
+      "node->browser",
+      "node->electron-browser",
+      "node->electron-main",
+      "node->electron-utility"
+    ]
+  }
+}

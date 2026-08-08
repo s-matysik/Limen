@@ -1,0 +1,1279 @@
+{
+ "k_planned": 10,
+ "r_planned": 3,
+ "cells_planned": 120,
+ "cells_completed": 25,
+ "complete": false,
+ "coverage": {
+  "be-01-f3708851": {
+   "A": 0,
+   "B": 0,
+   "C": 1,
+   "D": 0
+  },
+  "be-03-d1750eb8": {
+   "A": 1,
+   "B": 0,
+   "C": 2,
+   "D": 1
+  },
+  "be-05-75a00e9a": {
+   "A": 0,
+   "B": 1,
+   "C": 1,
+   "D": 1
+  },
+  "be-07-4d603e8c": {
+   "A": 1,
+   "B": 0,
+   "C": 0,
+   "D": 1
+  },
+  "be-09-566a218d": {
+   "A": 1,
+   "B": 1,
+   "C": 0,
+   "D": 1
+  },
+  "be-10-4412aa58": {
+   "A": 0,
+   "B": 0,
+   "C": 0,
+   "D": 1
+  },
+  "fe-02-a35eba69": {
+   "A": 0,
+   "B": 0,
+   "C": 0,
+   "D": 1
+  },
+  "fe-04-210a7b28": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 1
+  },
+  "fe-06-5859c0b2": {
+   "A": 1,
+   "B": 1,
+   "C": 1,
+   "D": 0
+  },
+  "fe-08-40e68718": {
+   "A": 2,
+   "B": 1,
+   "C": 0,
+   "D": 2
+  }
+ },
+ "tasks_with_all_conditions": 0,
+ "k": 10,
+ "r": 2,
+ "n_runs": 25,
+ "model": "claude-sonnet-5",
+ "temperature": null,
+ "seed": 20260807,
+ "spec_sha256": "b20e0862aff96abd6cb7b941a4713c868745bb2f12c39a75f6de38ebdcb04fc6",
+ "heldout_rules": [
+  "host-cross-module-public-surface",
+  "host-into-core-baseline",
+  "runtime-console-log",
+  "modules-have-no-local-deployment",
+  "support-and-models-module-import-allowlist",
+  "shared-not-into-host-modules",
+  "oversized-page-file"
+ ],
+ "balance": {
+  "litrev-backend": 6,
+  "litrev-frontend": 4
+ },
+ "per_condition": {
+  "A": {
+   "n_runs": 6,
+   "errors_mean": 2.1666666666666665,
+   "errors_median": 2.0,
+   "delta_mean": 0.16666666666666666,
+   "delta_median": 0.0,
+   "delta_shown_mean": 0.16666666666666666,
+   "delta_heldout_mean": 0.0,
+   "cell_mean_delta_mean": 0.2,
+   "tests_pass_rate": 0.8333333333333334,
+   "tests_green_rate": 0.8333333333333334,
+   "n_runs_with_regression": 1,
+   "tokens_in_mean": 55717.0,
+   "tokens_out_mean": 2078.3333333333335,
+   "context_total_bytes_mean": 130055.0,
+   "diff_bytes_median": 2612.5,
+   "rejected_edits_total": 1,
+   "seconds_mean": 33.005
+  },
+  "B": {
+   "n_runs": 5,
+   "errors_mean": 1.8,
+   "errors_median": 2.0,
+   "delta_mean": 0.0,
+   "delta_median": 0.0,
+   "delta_shown_mean": 0.0,
+   "delta_heldout_mean": 0.0,
+   "cell_mean_delta_mean": 0.0,
+   "tests_pass_rate": 0.8,
+   "tests_green_rate": 0.6,
+   "n_runs_with_regression": 1,
+   "tokens_in_mean": 75934.6,
+   "tokens_out_mean": 3967.8,
+   "context_total_bytes_mean": 175710.0,
+   "diff_bytes_median": 6075.0,
+   "rejected_edits_total": 0,
+   "seconds_mean": 45.82000000000001
+  },
+  "C": {
+   "n_runs": 5,
+   "errors_mean": 2.6,
+   "errors_median": 3.0,
+   "delta_mean": 0.0,
+   "delta_median": 0.0,
+   "delta_shown_mean": 0.0,
+   "delta_heldout_mean": 0.0,
+   "cell_mean_delta_mean": 0.0,
+   "tests_pass_rate": 0.6,
+   "tests_green_rate": 0.6,
+   "n_runs_with_regression": 2,
+   "tokens_in_mean": 40520.8,
+   "tokens_out_mean": 2371.4,
+   "context_total_bytes_mean": 97145.6,
+   "diff_bytes_median": 4253.0,
+   "rejected_edits_total": 0,
+   "seconds_mean": 31.322000000000003
+  },
+  "D": {
+   "n_runs": 9,
+   "errors_mean": 2.0,
+   "errors_median": 2.0,
+   "delta_mean": 0.1111111111111111,
+   "delta_median": 0.0,
+   "delta_shown_mean": 0.1111111111111111,
+   "delta_heldout_mean": 0.0,
+   "cell_mean_delta_mean": 0.125,
+   "tests_pass_rate": 0.5555555555555556,
+   "tests_green_rate": 0.3333333333333333,
+   "n_runs_with_regression": 4,
+   "tokens_in_mean": 65655.33333333333,
+   "tokens_out_mean": 5516.222222222223,
+   "context_total_bytes_mean": 132054.55555555556,
+   "diff_bytes_median": 6047.0,
+   "rejected_edits_total": 13,
+   "seconds_mean": 52.69888888888889
+  }
+ },
+ "contrasts": {
+  "delta_errors:A->B": {
+   "k_pairs": 3,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 3,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-09-566a218d": 0.0,
+    "fe-06-5859c0b2": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors:A->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors:A->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-07-4d603e8c": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors:B->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors:B->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-04-210a7b28": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors:C->D": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-05-75a00e9a": 0.0
+   }
+  },
+  "delta_errors_shown:A->B": {
+   "k_pairs": 3,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 3,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-09-566a218d": 0.0,
+    "fe-06-5859c0b2": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_shown:A->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors_shown:A->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-07-4d603e8c": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_shown:B->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors_shown:B->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-04-210a7b28": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_shown:C->D": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-05-75a00e9a": 0.0
+   }
+  },
+  "delta_errors_heldout:A->B": {
+   "k_pairs": 3,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 3,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-09-566a218d": 0.0,
+    "fe-06-5859c0b2": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_heldout:A->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors_heldout:A->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-07-4d603e8c": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_heldout:B->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "delta_errors_heldout:B->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-04-210a7b28": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "delta_errors_heldout:C->D": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-05-75a00e9a": 0.0
+   }
+  },
+  "tests_pass:A->B": {
+   "k_pairs": 3,
+   "mean_diff": -0.3333333333333333,
+   "mean_diff_ci95": [
+    -1.0,
+    0.0
+   ],
+   "sd_diff": 0.5773502691896257,
+   "cohen_dz": -0.5773502691896257,
+   "cohen_dz_ci95": [
+    -1.1547005383792515,
+    Infinity
+   ],
+   "permutation": {
+    "k": 3,
+    "observed": -0.3333333333333333,
+    "p_value": 1.0,
+    "mode": "exact",
+    "n_perm": 8
+   },
+   "mde_at_achieved_k": 0.9338617393709895,
+   "per_task_diffs": {
+    "be-09-566a218d": -1.0,
+    "fe-06-5859c0b2": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "tests_pass:A->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "tests_pass:A->D": {
+   "k_pairs": 4,
+   "mean_diff": -0.5,
+   "mean_diff_ci95": [
+    -1.0,
+    0.0
+   ],
+   "sd_diff": 0.5773502691896257,
+   "cohen_dz": -0.8660254037844387,
+   "cohen_dz_ci95": [
+    -1.5,
+    Infinity
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": -0.5,
+    "p_value": 0.5,
+    "mode": "exact",
+    "n_perm": 16
+   },
+   "mde_at_achieved_k": 0.8087479899175993,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-07-4d603e8c": -1.0,
+    "be-09-566a218d": -1.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "tests_pass:B->C": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "fe-06-5859c0b2": 0.0
+   }
+  },
+  "tests_pass:B->D": {
+   "k_pairs": 4,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 4,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-05-75a00e9a": 0.0,
+    "be-09-566a218d": 0.0,
+    "fe-04-210a7b28": 0.0,
+    "fe-08-40e68718": 0.0
+   }
+  },
+  "tests_pass:C->D": {
+   "k_pairs": 2,
+   "mean_diff": 0.0,
+   "mean_diff_ci95": [
+    0.0,
+    0.0
+   ],
+   "sd_diff": 0.0,
+   "cohen_dz": 0.0,
+   "cohen_dz_ci95": [
+    0.0,
+    0.0
+   ],
+   "permutation": {
+    "k": 2,
+    "observed": 0.0,
+    "p_value": 1.0,
+    "mode": "all-zero",
+    "n_perm": 0
+   },
+   "mde_at_achieved_k": null,
+   "per_task_diffs": {
+    "be-03-d1750eb8": 0.0,
+    "be-05-75a00e9a": 0.0
+   }
+  }
+ },
+ "variance": {
+  "A": {
+   "sigma2_within": 0.0,
+   "sigma2_task": 0.2,
+   "mean_reps": 1.2,
+   "var_cell_means": 0.2
+  },
+  "B": {
+   "sigma2_within": 0.0,
+   "sigma2_task": 0.0,
+   "mean_reps": 1.0,
+   "var_cell_means": 0.0
+  },
+  "C": {
+   "sigma2_within": 0.0,
+   "sigma2_task": 0.0,
+   "mean_reps": 1.25,
+   "var_cell_means": 0.0
+  },
+  "D": {
+   "sigma2_within": 0.0,
+   "sigma2_task": 0.125,
+   "mean_reps": 1.125,
+   "var_cell_means": 0.125
+  }
+ },
+ "context": {
+  "B_prose_bytes_mean": 48451.0,
+  "C_limen_bytes_mean": 9022.6,
+  "reduction_factor": 5.369959878527253,
+  "reduction_pct": 81.37788693731811,
+  "tokens_in_mean_by_condition": {
+   "A": 55717.0,
+   "B": 75934.6,
+   "C": 40520.8,
+   "D": 65655.33333333333
+  }
+ },
+ "power": {
+  "A->B": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  },
+  "A->C": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  },
+  "A->D": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  },
+  "B->C": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  },
+  "B->D": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  },
+  "C->D": {
+   "observed_effect": 0.0,
+   "sigma2_within_pooled": 0.0,
+   "sigma2_task_diff": 0.0,
+   "sd_diff_observed": 0.0,
+   "table": [
+    {
+     "R": 1,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 2,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 3,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 4,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 5,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 6,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 7,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 8,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 9,
+     "sd_diff": 0.0,
+     "K_required": null
+    },
+    {
+     "R": 10,
+     "sd_diff": 0.0,
+     "K_required": null
+    }
+   ]
+  }
+ },
+ "iterations_d": {
+  "iterations_mean": 1.2222222222222223,
+  "iterations_hist": {
+   "1": 8,
+   "3": 1
+  },
+  "runs_reaching_max": 1
+ },
+ "floor_effect": {
+  "runs_total": 25,
+  "runs_with_nonzero_delta": 2,
+  "runs_with_new_error": 2,
+  "runs_with_fewer_errors": 0,
+  "fraction_zero": 0.92,
+  "event_rate": 0.08,
+  "event_rate_ci95": [
+   0.022220401284847563,
+   0.24966108950395313
+  ],
+  "delta_variance_overall": 0.07666666666666666,
+  "primary_measure_degenerate": true,
+  "per_condition_event_rate": {
+   "A": {
+    "n": 6,
+    "n_events": 1,
+    "rate": 0.16666666666666666,
+    "ci95": [
+     0.030053369748306635,
+     0.5635028221864702
+    ]
+   },
+   "B": {
+    "n": 5,
+    "n_events": 0,
+    "rate": 0.0,
+    "ci95": [
+     0.0,
+     0.43448246478317476
+    ]
+   },
+   "C": {
+    "n": 5,
+    "n_events": 0,
+    "rate": 0.0,
+    "ci95": [
+     0.0,
+     0.43448246478317476
+    ]
+   },
+   "D": {
+    "n": 9,
+    "n_events": 1,
+    "rate": 0.1111111111111111,
+    "ci95": [
+     0.019890887638544907,
+     0.434999705576656
+    ]
+   }
+  }
+ },
+ "power_event_rate": {
+  "observed_pooled_rate": 0.08,
+  "n_per_arm_to_detect_halving": 553,
+  "n_per_arm_to_detect_rate_0.20_vs_0.05": 76,
+  "n_per_arm_to_detect_rate_0.30_vs_0.10": 62
+ },
+ "power_regression_rate": {
+  "regression_rate_pooled": 0.32,
+  "regression_rate_ci95": [
+   0.17205190306907978,
+   0.5158973072689775
+  ],
+  "n_runs_per_arm_0.40_vs_0.15": 49,
+  "n_runs_per_arm_0.40_vs_0.20": 82,
+  "n_runs_per_arm_0.20_vs_0.05": 76
+ },
+ "floor_effect_note": "delta_errors is zero in most runs and its between-task variance is 0 for every contrast, so the paired permutation test degenerates (p=1, mode='all-zero') and no K/R can detect a difference in its MEAN. The answerable power questions are the event rate (does a run introduce any new error at all) and the co-primary regression rate."
+}

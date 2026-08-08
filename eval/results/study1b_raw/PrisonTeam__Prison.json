@@ -1,0 +1,943 @@
+{
+  "agreement_file_target": 161,
+  "agreements_by_rule": [
+    {
+      "key": "prison-core/src/main/java/tech/mcprison/prison/discord/PrisonPasteChat.java:20:nl.kyllian.enums.Expire",
+      "limen_rule_id": "ic-tech-mcprison-prison-discord",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-core/src/main/java/tech/mcprison/prison/discord/PrisonPasteChat.java:21:nl.kyllian.enums.PasteFormat",
+      "limen_rule_id": "ic-tech-mcprison-prison-discord",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-core/src/main/java/tech/mcprison/prison/discord/PrisonPasteChat.java:22:nl.kyllian.models.Paste",
+      "limen_rule_id": "ic-tech-mcprison-prison-discord",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/SpigotPlatform.java:60:com.cryptomorin.xseries.XBlock",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/SpigotPlatform.java:61:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/SpigotPlatform.java:62:com.cryptomorin.xseries.messages.Titles",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/SpigotUtil.java:38:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/AutoManagerFeatures.java:28:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/AutoManagerFeatures.java:29:com.vk2gpz.tokenenchant.api.ITokenEnchant",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/AutoManagerFeatures.java:30:com.vk2gpz.tokenenchant.api.TokenEnchantAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/AutoManagerFeatures.java:32:me.revils.revenchants.api.RevEnchantsApi",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerCrazyEnchants.java:15:me.badbones69.crazyenchantments.api.events.BlastUseEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerPrisonEnchants.java:19:me.pulsi_.prisonenchants.events.PEExplosionEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerRevEnchantsExplosiveEvent.java:15:me.revils.revenchants.events.ExplosiveEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerRevEnchantsJackHammerEvent.java:17:me.revils.revenchants.events.JackHammerEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerTokenEnchant.java:15:com.vk2gpz.tokenenchant.event.TEBlockExplodeEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerXPrisonExplosionTriggerEvent.java:15:dev.drawethree.xprison.enchants.api.events.ExplosionTriggerEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerXPrisonLayerTriggerEvent.java:15:dev.drawethree.xprison.enchants.api.events.LayerTriggerEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerXPrisonNukeTriggerEvent.java:15:dev.drawethree.xprison.enchants.api.events.NukeTriggerEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/AutoManagerZenchantments.java:25:zedly.zenchantments.BlockShredEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/autofeatures/events/PrisonDebugBlockInspector.java:11:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-autofeatures-events",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/backpacks/BackpacksUtil.java:23:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-backpacks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/OnBlockBreakEventCore.java:14:me.pulsi_.prisonenchants.events.PEExplosionEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/OnBlockBreakEventCore.java:15:me.revils.revenchants.events.ExplosiveEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/OnBlockBreakEventCore.java:16:me.revils.revenchants.events.JackHammerEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/OnBlockBreakPlayerManualCore.java:11:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/SpigotBlock.java:26:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/block/SpigotItemStack.java:14:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-block",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/bstats/PrisonBStats.java:11:org.bstats.bukkit.Metrics",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-bstats",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/bstats/PrisonBStats.java:12:org.bstats.charts.DrilldownPie",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-bstats",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/bstats/PrisonBStats.java:13:org.bstats.charts.SimpleBarChart",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-bstats",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/bstats/PrisonBStats.java:14:org.bstats.charts.SimplePie",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-bstats",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/commands/PrisonSpigotSellAllCommands.java:14:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-commands",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/CompatibilityBlocks.java:6:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/CompatibilityCache.java:8:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_13_Blocks.java:12:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_8_Blocks.java:10:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_8_Blocks.java:9:com.cryptomorin.xseries.XBlock",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_8_Player.java:5:com.cryptomorin.xseries.messages.ActionBar",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_8_Player.java:6:com.cryptomorin.xseries.messages.Titles",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_9_Player.java:7:com.cryptomorin.xseries.messages.ActionBar",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/compat/Spigot_1_9_Player.java:8:com.cryptomorin.xseries.messages.Titles",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-compat",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/configs/GuiConfig.java:12:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-configs",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/CustomItems.java:6:com.jojodmo.customitems.api.CustomItemsAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/CustomItemsWrapper.java:11:com.jojodmo.customitems.api.CustomItemsAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/PrisonItemAdderStartupListener.java:8:dev.lone.itemsadder.api.Events.ItemsAdderLoadDataEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/PrisonItemsAdderWrapper.java:11:dev.lone.itemsadder.api.CustomBlock",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/PrisonItemsAdderWrapper.java:12:dev.lone.itemsadder.api.CustomStack",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/customblock/PrisonItemsAdderWrapper.java:13:dev.lone.itemsadder.api.ItemsAdder",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-customblock",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/CoinsEngineEconomyWrapper.java:3:su.nightexpress.coinsengine.api.CoinsEngineAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/CoinsEngineEconomyWrapper.java:4:su.nightexpress.coinsengine.api.currency.Currency",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/EdPrisonEconomyWrapper.java:10:com.edwardbelt.edprison.utils.EconomyUtils",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/EdPrisonEconomyWrapper.java:8:com.edwardbelt.edprison.EdPrison",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/EdPrisonEconomyWrapper.java:9:com.edwardbelt.edprison.api.models.EconomyModel",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/GemsEconomyWrapper.java:7:me.xanium.gemseconomy.api.GemsEconomyAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/SaneEconomyWrapper.java:3:org.appledash.saneeconomy.economy.EconomyManager",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/SaneEconomyWrapper.java:4:org.appledash.saneeconomy.economy.economable.EconomablePlayer",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/TheNewEconomyWrapper.java:3:net.tnemc.core.TNECore",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/economies/TheNewEconomyWrapper.java:4:net.tnemc.core.api.TNEAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-economies",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/game/SpigotPlayer.java:33:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-game",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/game/SpigotWorld.java:28:com.cryptomorin.xseries.XEntityType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-game",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/game/SpigotWorld.java:29:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-game",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/game/entity/SpigotEntity.java:7:com.cryptomorin.xseries.XEntityType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-game-entity",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/game/entity/SpigotEntityType.java:3:com.cryptomorin.xseries.XEntityType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-game-entity",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/ListenersPrisonManager.java:25:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/PrisonSetupGUI.java:3:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/SpigotGUIMenuTools.java:12:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/SpigotPrisonGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/autofeatures/SpigotAutoBlockGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/autofeatures/SpigotAutoFeaturesGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/autofeatures/SpigotAutoPickupGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/autofeatures/SpigotAutoSmeltGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-autofeatures",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/backpacks/BackpacksAdminGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-backpacks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/backpacks/BackpacksAdminListGUI.java:8:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-backpacks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/backpacks/BackpacksAdminPlayerListGUI.java:3:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-backpacks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/backpacks/BackpacksListPlayerGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-backpacks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/guiutility/Button.java:8:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-guiutility",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/guiutility/SpigotGUIComponents.java:15:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-guiutility",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotBlocksListGUI.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotBlocksMineListGUI.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMineBlockPercentageGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMineInfoGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMineNotificationRadiusGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMineNotificationsGUI.java:6:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMineResetTimeGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMinesBlocksGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMinesConfirmGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotMinesGUI.java:9:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotPlayerMinesGUI.java:10:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/mine/SpigotPlayerMinesGUI.java:12:me.clip.placeholderapi.PlaceholderAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-mine",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotConfirmPrestigeGUI.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotLaddersGUI.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotPlayerPrestigesGUI.java:11:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotPlayerPrestigesGUI.java:13:me.clip.placeholderapi.PlaceholderAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotPlayerRanksGUI.java:13:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotPlayerRanksGUI.java:15:me.clip.placeholderapi.PlaceholderAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotRankManagerGUI.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotRankPriceGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotRankUPCommandsGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/rank/SpigotRanksGUI.java:8:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-rank",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllAdminAutoSellGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllAdminBlocksGUI.java:8:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllAdminGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllDelayGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllPrestigesMultiplierGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllPrestigesSetMultiplierGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/gui/sellall/SellAllPriceGUI.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-gui-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationBackpackAPI.java:13:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationCrazyEnchantmentsPickaxes.java:13:me.badbones69.crazyenchantments.api.CrazyEnchantments",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationCrazyEnchantmentsPickaxes.java:14:me.badbones69.crazyenchantments.api.enums.CEnchantments",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationCrazyEnchantmentsPickaxes.java:15:me.badbones69.crazyenchantments.api.events.EnchantmentUseEvent",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationCrazyEnchantmentsPickaxes.java:16:me.badbones69.crazyenchantments.api.objects.CEnchantment",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationMinepacksPlugin.java:13:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationMinepacksPlugin.java:15:at.pcgamingfreaks.Minepacks.Bukkit.API.Backpack",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/integrations/IntegrationMinepacksPlugin.java:16:at.pcgamingfreaks.Minepacks.Bukkit.API.MinepacksPlugin",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-integrations",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/inventory/SpigotFurnaceRecipe.java:21:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-inventory",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/inventory/SpigotInventory.java:31:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-inventory",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/inventory/SpigotShapedRecipe.java:24:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-inventory",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/inventory/SpigotShapelessRecipe.java:24:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-inventory",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/nbt/PrisonNBTUtil.java:13:de.tr7zw.changeme.nbtapi.NBT",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-nbt",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/nbt/PrisonNBTUtil.java:14:de.tr7zw.changeme.nbtapi.NBTType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-nbt",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/nbt/PrisonNBTUtil.java:15:de.tr7zw.changeme.nbtapi.iface.ReadWriteNBT",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-nbt",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/nbt/PrisonNBTUtil.java:16:de.tr7zw.changeme.nbtapi.iface.ReadableItemNBT",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-nbt",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/nbt/PrisonNBTUtil.java:17:de.tr7zw.changeme.nbtapi.iface.ReadableNBT",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-nbt",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissions.java:6:me.lucko.luckperms.LuckPerms",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissions.java:7:me.lucko.luckperms.api.LuckPermsApi",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissionsWrapper.java:10:me.lucko.luckperms.api.DataMutateResult",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissionsWrapper.java:11:me.lucko.luckperms.api.LuckPermsApi",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissionsWrapper.java:12:me.lucko.luckperms.api.Node",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissionsWrapper.java:13:me.lucko.luckperms.api.User",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPermissionsWrapper.java:9:me.lucko.luckperms.LuckPerms",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5.java:9:net.luckperms.api.LuckPerms",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:14:net.luckperms.api.LuckPerms",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:15:net.luckperms.api.context.DefaultContextKeys",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:16:net.luckperms.api.model.data.DataMutateResult",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:17:net.luckperms.api.model.user.User",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:18:net.luckperms.api.model.user.UserManager",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:19:net.luckperms.api.node.Node",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:20:net.luckperms.api.node.NodeType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:21:net.luckperms.api.node.types.InheritanceNode",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:22:net.luckperms.api.node.types.PermissionNode",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:23:net.luckperms.api.node.types.WeightNode",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/permissions/LuckPerms5Wrapper.java:24:net.luckperms.api.query.QueryOptions",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-permissions",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/placeholder/PlaceHolderAPIIntegrationUppercaseWrapper.java:7:me.clip.placeholderapi.expansion.PlaceholderExpansion",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-placeholder",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/placeholder/PlaceHolderAPIIntegrationWrapper.java:7:me.clip.placeholderapi.expansion.PlaceholderExpansion",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-placeholder",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/placeholder/SpigotPlaceholders.java:14:me.clip.placeholderapi.PlaceholderAPI",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-placeholder",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/sellall/SellAllBlockData.java:3:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/sellall/SellAllUtil.java:20:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/sellall/SellAllUtil.java:21:com.cryptomorin.xseries.XSound",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-sellall",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/spiget/BluesSpigetSemVerComparator.java:3:org.inventivetalent.update.spiget.comparator.VersionComparator",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-spiget",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/spiget/PrisonSpigetUpdateCheckTask.java:3:org.inventivetalent.update.spiget.SpigetUpdate",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-spiget",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsDecay.java:6:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombs.java:18:com.cryptomorin.xseries.XEntityType",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombs.java:19:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombs.java:20:com.cryptomorin.xseries.XSound",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombsTasks.java:13:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombsTasks.java:14:com.cryptomorin.xseries.XSound",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/PrisonUtilsMineBombsTasks.java:15:com.cryptomorin.xseries.particles.ParticleDisplay",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/tasks/DecayObbyTask.java:3:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils-tasks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/tasks/DecayRainbowTask.java:5:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils-tasks",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "prison-spigot/src/main/java/tech/mcprison/prison/spigot/utils/tasks/PrisonUtilsRainbowDecay.java:7:com.cryptomorin.xseries.XMaterial",
+      "limen_rule_id": "ic-tech-mcprison-prison-spigot-utils-tasks",
+      "native_rule_id": "checkstyle:ImportControl"
+    }
+  ],
+  "config_kind": "import-control",
+  "counts": {
+    "agreements": 161,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 161,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 161,
+    "native_findings_in_scope": 161,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 161,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "java",
+  "license": "NOASSERTION",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/PrisonTeam__Prison/_limen_architecture.yaml --workspace /tmp/corpuswork/PrisonTeam__Prison --today 2026-08-04 --format json",
+    "exit_code": 1,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 30,
+  "native_only_file_target": 0,
+  "oracle": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-oracles/lib/jvm/bin/java -jar /Users/sebastianmatysik/!!!!!Limen/limen/eval/_scratch/tools/checkstyle-all.jar -c /tmp/corpuswork/_cs/PrisonTeam__Prison/cs.xml -p <8 source roots>",
+    "exit_code": 161,
+    "oracle_kind": "executed-native-tool",
+    "source_roots": [
+      "prison-core/src/main/java",
+      "prison-mines/src/main/java",
+      "prison-ranks/src/main/java",
+      "prison-sellall/src/main/java",
+      "prison-spigot/src/main/java",
+      "prison-sponge/src/main/java",
+      "prison-worldguard6/src/main/java",
+      "prison-worldguard7/src/main/java"
+    ],
+    "stderr_tail": "Checkstyle ends with 161 errors.\n",
+    "tool": "checkstyle ImportControl"
+  },
+  "owner": "PrisonTeam",
+  "reason": null,
+  "repo": "Prison",
+  "rule_kinds": {
+    "ic-tech-mcprison-prison-discord": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-autofeatures": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-autofeatures-events": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-backpacks": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-block": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-bstats": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-commands": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-compat": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-configs": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-customblock": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-economies": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-game": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-game-entity": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-autofeatures": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-backpacks": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-guiutility": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-mine": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-rank": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-gui-sellall": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-integrations": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-inventory": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-nbt": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-permissions": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-placeholder": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-sellall": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-spiget": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-utils": "forbidden-target",
+    "ic-tech-mcprison-prison-spigot-utils-tasks": "forbidden-target"
+  },
+  "seconds": 6.5,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection site found"
+  },
+  "sha": "6914aa0a687c26a44e10d150ae5e4b17bf733b04",
+  "stars": 125,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "coverage": {
+      "guards_covered": 53,
+      "guards_total": 53,
+      "scopes_covered": 8,
+      "scopes_total": 8,
+      "scopes_uncovered": 0,
+      "uncovered_reasons": []
+    },
+    "governed_package": "tech.mcprison",
+    "native_guards": 53,
+    "native_scopes": 8,
+    "packages_covered": 101,
+    "packages_skipped": 0,
+    "scope": {
+      "java_files_in_tree": 753,
+      "limen_only_files": 0,
+      "limen_rule_scopes_cover": 226,
+      "native_only_files": 487,
+      "native_sees": 713,
+      "note": "counts, not a guarantee: `native_sees` is the file set checkstyle was invoked on; `limen_rule_scopes_cover` is the subset matched by at least one emitted rule scope. `native_only_files` are files the native tool checked that no limen rule scopes (their packages had no denied target, so no rule was emitted for them) and `limen_only_files` are files a rule scope matches outside the invoked roots. Both are potential sources of one-sided findings.",
+      "seen_by_both": 226
+    },
+    "source_roots": [
+      "prison-core/src/main/java",
+      "prison-mines/src/main/java",
+      "prison-ranks/src/main/java",
+      "prison-sellall/src/main/java",
+      "prison-spigot/src/main/java",
+      "prison-sponge/src/main/java",
+      "prison-worldguard6/src/main/java",
+      "prison-worldguard7/src/main/java"
+    ],
+    "source_roots_not_governed": [
+      "prison-misc/src/main/java"
+    ]
+  }
+}

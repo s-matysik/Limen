@@ -1,0 +1,29 @@
+# --- środowisko i artefakty lokalne ---
+__pycache__/
+*.py[cod]
+.coverage
+.pytest_cache/
+.DS_Store
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# --- cache limen (generowany, nie źródłowy) ---
+.limen/cache/
+
+# --- materiał roboczy badań: pobrane cudze repozytoria ---
+# NIE commitować: 7,4 GB drzew źródłowych osób trzecich, pobieranych skryptem
+eval/_scratch/
+ktest/
+
+# Drzewa źródłowe osób trzecich zaszczepione do retrofitów bespoke.
+# Kod VS Code / Home Assistant / Kafka należy do ich właścicieli i jest
+# odtwarzalny przez eval/study1b_corpus.py z SHA przypiętych w corpus.jsonl.
+eval/results/bespoke_retrofits/*/_seeded/
+eval/results/bespoke_retrofits/*/_work/
+
+# Surowe wyjścia agenta z Badania 3 (odtwarzalne, duże, bez wartości dla czytelnika)
+eval/results/study3/*/
+eval/results/study3_pilot2/*/

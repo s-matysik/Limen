@@ -1,0 +1,63 @@
+version: 1
+project: django-like
+
+roots:
+  main: { path: apps, language: python }
+
+units:
+  discovery:
+    - { root: main, pattern: "apps/{unit}/**" }
+  declared: [accounts, catalog, orders]
+  registry_policy: exact
+
+public_surface:
+  python:
+    - "{unit}/api.py"
+    - "{unit}/__init__.py"
+
+unresolved_policy:
+  default: warn
+
+rules:
+  - id: cross-app-via-api-only
+    kind: public-api-only
+    severity: error
+    scope: { roots: [main] }
+    exempt: []
+    message: "An app reaches another app only through its api module."
+    remedy: "Import the target app's api module, not its internals."
+
+  - id: orders-no-direct-account-models
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["apps/orders/**"] }
+    forbid: ["accounts.models"]
+    message: "Orders must not query the accounts models directly."
+    remedy: "Use accounts.api.get_user()."
+
+  - id: no-raw-sql
+    kind: pattern-ban
+    severity: error
+    pattern: "\\.objects\\.raw\\("
+    scope: { roots: [main] }
+    exempt_files: []
+    message: "Raw SQL bypasses the ORM layer and every model policy."
+    remedy: "Express the query through the ORM or a manager method."
+
+  - id: accounts-catalog-independent
+    kind: reachability
+    severity: error
+    mode: independence
+    units: [accounts, catalog]
+    report_path: true
+    message: "accounts and catalog must not reach each other, even transitively."
+    remedy: "Move the shared concern into a third app both may depend on."
+
+  - id: app-file-size
+    kind: metric-threshold
+    severity: warning
+    metric: lines
+    max: 300
+    scope: { roots: [main] }
+    message: "File exceeds the review threshold."
+    remedy: "Split views or services into cohesive modules."

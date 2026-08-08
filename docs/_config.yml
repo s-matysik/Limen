@@ -1,0 +1,11 @@
+title: limen
+description: A declarative architecture contract for deterministic CI enforcement and scoped context generation for coding agents
+theme: jekyll-theme-cayman
+show_downloads: false
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+exclude:
+  - deviations.md
+  - study3-redesign.md

@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "EPL-2.0",
+  "owner": "junit-pioneer",
+  "reason": "regex=\"true\" on <allow> in org.junitpioneer",
+  "repo": "junit-pioneer",
+  "seconds": 0.0,
+  "sha": "0cc29d1ba9ee8c8322bc7a1028cc03e95c05bed8",
+  "stars": 617,
+  "status": "untranslatable-config"
+}

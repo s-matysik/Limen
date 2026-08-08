@@ -1,0 +1,145 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "dependency-cruiser",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "MIT",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/anieyrudh__Paideia/_limen_architecture.yaml --workspace /tmp/corpuswork/anieyrudh__Paideia --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 4,
+  "native_findings_excluded_untranslated_rules": 0,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 2,
+      "dependencies_seen": 2,
+      "dependencies_unresolved": 0,
+      "modules_cruised": 908,
+      "resolution_rate": 1.0
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress ./**/*.ts ./**/*.tsx ./**/*.js ./**/*.jsx ./**/*.mjs ./**/*.cjs ./**/*.vue",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "anieyrudh",
+  "reason": null,
+  "repo": "Paideia",
+  "rule_kinds": {
+    "dc-branch-no-shared-package-cross": "forbidden-target",
+    "dc-branch-no-shared-package-cross-reverse": "forbidden-target",
+    "dc-no-cross-branch-imports-1": "forbidden-target",
+    "dc-no-cross-branch-imports-2": "forbidden-target"
+  },
+  "seconds": 8.6,
+  "seeded": {
+    "both_detected": 0,
+    "enabled": true,
+    "injections": [
+      {
+        "from_prefix": "a-level/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": false,
+        "rel_path": "a-level/apps/shell/src/App.tsx",
+        "specifier": "../../../../sutd/apps/shell/src/App",
+        "to_prefix": "sutd/"
+      },
+      {
+        "from_prefix": "sutd/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": false,
+        "rel_path": "sutd/apps/shell/src/App.tsx",
+        "specifier": "../../../../a-level/apps/shell/src/App",
+        "to_prefix": "a-level/"
+      },
+      {
+        "from_prefix": "a-level/packages/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": false,
+        "rel_path": "a-level/packages/math-sims/src/confidence-intervals.contract.tsx",
+        "specifier": "../../../../sutd/packages/sims/src/atomic-structure-and-electron-configuration",
+        "to_prefix": "sutd/packages/"
+      },
+      {
+        "from_prefix": "sutd/packages/",
+        "injected_line": 1,
+        "limen_detected": true,
+        "native_detected": false,
+        "rel_path": "sutd/packages/sims/src/atomic-structure-and-electron-configuration.tsx",
+        "specifier": "../../../../a-level/packages/math-sims/src/confidence-intervals.contract",
+        "to_prefix": "a-level/packages/"
+      }
+    ],
+    "key_note": "dependency-cruiser reports no line number, so its detection is keyed on the file; limen's is keyed on (file, line)",
+    "limen_detected": 4,
+    "limen_exit": 1,
+    "n_injections": 4,
+    "native_detected": 0,
+    "native_exit": 0
+  },
+  "sha": "dee5c571f89bbef6c3735341ae97dc94e3dca039",
+  "stars": 0,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 6,
+    "native_rule_ids_translated": [
+      "no-cross-branch-imports-1",
+      "no-cross-branch-imports-2",
+      "branch-no-shared-package-cross",
+      "branch-no-shared-package-cross-reverse"
+    ],
+    "pairs": [
+      "a-level/ -> sutd/",
+      "sutd/ -> a-level/",
+      "a-level/packages/ -> sutd/packages/",
+      "sutd/packages/ -> a-level/packages/"
+    ],
+    "rules_emitted": 4,
+    "rules_untranslated": 2,
+    "src_dir": ".",
+    "untranslated": [
+      {
+        "reason": "from.path='^core/' / to.path='^(shared|a-level|sutd)/' is a regex, not a directory prefix",
+        "rule": "core-no-branch-imports"
+      },
+      {
+        "reason": "from.path='^shared/' / to.path='^(a-level|sutd)/' is a regex, not a directory prefix",
+        "rule": "shared-no-branch-imports"
+      }
+    ]
+  }
+}

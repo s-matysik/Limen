@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "alanbem",
+  "reason": "directory collector value '' is a regex this translator will not approximate",
+  "repo": "todocler",
+  "seconds": 0.0,
+  "sha": "31668c3cb3ebb3fa8f3ecb80d64c36277d2cf7c8",
+  "stars": 5,
+  "status": "untranslatable-config"
+}

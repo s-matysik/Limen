@@ -1,0 +1,25 @@
+{
+  "code_lines": 526,
+  "declared_unit_count": 32,
+  "non_blank_lines": 740,
+  "root_count": 5,
+  "rule_count": 36,
+  "rules_per_kind": {
+    "baseline-snapshot": 3,
+    "consumer-allowlist": 1,
+    "forbidden-target": 6,
+    "layer-dependency": 4,
+    "metric-threshold": 4,
+    "ownership": 1,
+    "pattern-ban": 4,
+    "public-api-only": 3,
+    "scoped-allowlist": 5,
+    "structure": 5
+  },
+  "rules_per_severity": {
+    "error": 31,
+    "warning": 5
+  },
+  "spec_path": "/Users/sebastianmatysik/!!!!!Limen/workspace/architecture.yaml",
+  "total_lines": 795
+}

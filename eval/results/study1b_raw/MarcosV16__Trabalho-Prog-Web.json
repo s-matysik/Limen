@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "MarcosV16",
+  "reason": "layer 'API' has no directory collector; its members cannot be located by path alone",
+  "repo": "Trabalho-Prog-Web",
+  "seconds": 0.0,
+  "sha": "a7d325fccf33161b4b18aa9c3bf573b8c59d6a5e",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

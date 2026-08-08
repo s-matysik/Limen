@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": false,
+  "language": "java",
+  "license": "Apache-2.0",
+  "owner": "opensearch-project",
+  "reason": "strategyOnMismatch='allowed'",
+  "repo": "data-prepper",
+  "seconds": 0.0,
+  "sha": "4ce13a7b1a25e4247589bcbce022700a740d2fc3",
+  "stars": 367,
+  "status": "untranslatable-config"
+}

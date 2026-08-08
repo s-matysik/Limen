@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": false,
+  "language": "python",
+  "license": "MIT",
+  "owner": "Jackela",
+  "reason": "no directory in the tree holds the declared root package(s) ['src']",
+  "repo": "Novel-Engine",
+  "seconds": 0.0,
+  "sha": "1d01ee9635b2addaf0690dc5388a472fc3870080",
+  "stars": 6,
+  "status": "untranslatable-config"
+}

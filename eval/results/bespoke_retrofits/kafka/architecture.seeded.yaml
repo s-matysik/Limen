@@ -1,0 +1,369 @@
+version: 1
+project: kafka-import-control-retrofit
+roots:
+  main:
+    path: clients/src/main/java
+    language: java
+unresolved_policy:
+  default: 'off'
+rules:
+- id: ic-org-apache-kafka-clients
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/*.java
+  forbid:
+  - org.apache.kafka.server.authorizer.AclDeleteResult
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-admin
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/admin/*.java
+  forbid:
+  - org.apache.kafka.clients.producer.BufferExhaustedException
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.admin.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-admin-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/admin/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.producer.BufferExhaustedException
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.admin.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-consumer
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/consumer/*.java
+  forbid:
+  - org.apache.kafka.clients.admin.AbortTransactionSpec
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.consumer.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-consumer-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/consumer/internals/*.java
+  forbid:
+  - org.apache.kafka.server.authorizer.AclDeleteResult
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.consumer.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-consumer-internals-events
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/consumer/internals/events/*.java
+  forbid:
+  - org.apache.kafka.server.authorizer.AclDeleteResult
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.consumer.internals.events.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-consumer-internals-metrics
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/consumer/internals/metrics/*.java
+  forbid:
+  - org.apache.kafka.server.authorizer.AclDeleteResult
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.consumer.internals.metrics.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-producer
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/producer/*.java
+  forbid:
+  - org.apache.kafka.clients.admin.AbortTransactionSpec
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.producer.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-clients-producer-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/clients/producer/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.admin.AbortTransactionSpec
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.clients.producer.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-acl
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/acl/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.acl.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-annotation
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/annotation/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.annotation.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-cache
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/cache/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.cache.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-compress
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/compress/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.compress.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-config
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/config/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.config.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-config-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/config/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.config.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-config-provider
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/config/provider/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.config.provider.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-config-types
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/config/types/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.config.types.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-errors
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/errors/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.errors.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-feature
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/feature/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.feature.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-header
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/header/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.header.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-header-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/header/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.header.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-memory
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/memory/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.memory.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-metrics
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/metrics/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.metrics.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-metrics-internals
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/metrics/internals/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.metrics.internals.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-metrics-stats
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/metrics/stats/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.metrics.stats.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-network
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/network/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.network.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-protocol
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/protocol/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.protocol.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.
+- id: ic-org-apache-kafka-common-protocol-types
+  kind: forbidden-target
+  severity: error
+  scope:
+    roots:
+    - main
+    paths:
+    - clients/src/main/java/org/apache/kafka/common/protocol/types/*.java
+  forbid:
+  - org.apache.kafka.clients.ApiVersions
+  message: Import denied by checkstyle ImportControl for package org.apache.kafka.common.protocol.types.
+  remedy: Add an <allow> element to checkstyle/import-control.xml or drop the dependency.

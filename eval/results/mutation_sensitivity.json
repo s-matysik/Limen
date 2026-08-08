@@ -1,0 +1,933 @@
+{
+  "schema": "mutation-sensitivity/1",
+  "generated_at": "2026-08-06T22:12:46.991281+00:00",
+  "workspace": "/Users/sebastianmatysik/!!!!!Limen/workspace",
+  "baseline": {
+    "legacy_findings": 0,
+    "limen_findings": 11,
+    "limen_rules": {
+      "host-cross-module-public-surface": 3,
+      "unresolved-dependency": 8
+    },
+    "legacy_rules": {}
+  },
+  "summary": {
+    "mutations": 35,
+    "detected_legacy": 35,
+    "detected_limen": 35,
+    "detected_both": 35,
+    "legacy_delta_exact": 30,
+    "backend_mutations": 20,
+    "frontend_mutations": 15
+  },
+  "results": [
+    {
+      "mutation_id": "M-BE-02-admin-import",
+      "inventory_id": "L-BE-TEST-02",
+      "side": "backend",
+      "description": "Business module (Folders) imports an admin module class.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly",
+      "expect_limen_rule": "modules-not-into-admin",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 2,
+      "limen_total_delta": 2,
+      "legacy_delta_equals_injected": false,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly": 1,
+        "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules": 1
+      },
+      "limen_rules_fired": {
+        "host-cross-module-public-surface": 1,
+        "modules-not-into-admin": 1
+      },
+      "notes": "Also trips HttpBoundaryRulesTest (cross-module Http import) — both are legacy rules, so the legacy delta is 2 for one injected line."
+    },
+    {
+      "mutation_id": "M-BE-03-foreign-application",
+      "inventory_id": "L-BE-TEST-03",
+      "side": "backend",
+      "description": "Module imports another module's concrete Application class (not Contracts). The target class is created too, so the import RESOLVES.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Audit/Application/AuditLogWriterService.php",
+        "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals",
+      "expect_limen_rule": "host-cross-module-public-surface",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals": 1
+      },
+      "limen_rules_fired": {
+        "host-cross-module-public-surface": 1
+      },
+      "notes": "The host modules contain no Application classes at all in the frozen snapshot (every app/Modules/*/Application holds only .gitkeep), so a violation of this rule cannot be planted with a single import line — the target class has to be created too. See M-BE-03b for what happens when it is not."
+    },
+    {
+      "mutation_id": "M-BE-03b-foreign-application-dangling",
+      "inventory_id": "L-BE-TEST-03",
+      "side": "backend",
+      "description": "Same import as M-BE-03, but the target class is NOT created: the import dangles.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "DIVERGENCE, expected and reported as such: legacy matches the `use` statement as TEXT and fires; limen resolves dependencies to units first and a PHP import that resolves to no file is dropped silently (not even unresolved-dependency, which the spec's unresolved_policy raises only for the JS roots). A dangling import is dead code rather than an architecture violation, so this is a difference in what the two tools consider a fact, not a difference in the rule. Recorded in results/oracle_gaps.md."
+    },
+    {
+      "mutation_id": "M-BE-04-no-root-compose",
+      "inventory_id": "L-BE-TEST-04",
+      "side": "backend",
+      "description": "The single root docker-compose.yml is removed.",
+      "touched_files": [
+        "litrev-backend/docker-compose.yml"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_repo_has_single_root_docker_compose_file",
+      "expect_limen_rule": "modules-have-no-local-deployment",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "DeploymentBoundaryRulesTest::test_repo_has_single_root_docker_compose_file": 1
+      },
+      "limen_rules_fired": {
+        "modules-have-no-local-deployment": 1
+      },
+      "notes": "Legacy splits this across two methods of DeploymentBoundaryRulesTest; limen folds both into one structure rule (required_files + forbidden_dirs)."
+    },
+    {
+      "mutation_id": "M-BE-05-module-docker-dir",
+      "inventory_id": "L-BE-TEST-05",
+      "side": "backend",
+      "description": "A module defines its own docker/ directory.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Folders/docker"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_modules_do_not_define_local_deploy_or_docker_directories",
+      "expect_limen_rule": "modules-have-no-local-deployment",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "DeploymentBoundaryRulesTest::test_modules_do_not_define_local_deploy_or_docker_directories": 1
+      },
+      "limen_rules_fired": {
+        "modules-have-no-local-deployment": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-06-module-db-connection",
+      "inventory_id": "L-BE-TEST-06",
+      "side": "backend",
+      "description": "config/database.php declares a module-scoped connection.",
+      "touched_files": [
+        "litrev-backend/config/database.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "DeploymentBoundaryRulesTest::test_database_config_does_not_define_module_scoped_connections",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "DeploymentBoundaryRulesTest::test_database_config_does_not_define_module_scoped_connections": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "L-BE-TEST-06 is documented as not-encoded in limen (inventory status 'not-encoded'); limen is expected NOT to fire."
+    },
+    {
+      "mutation_id": "M-BE-07-cross-module-http",
+      "inventory_id": "L-BE-TEST-07",
+      "side": "backend",
+      "description": "Module imports another module's Http layer.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules",
+      "expect_limen_rule": "host-cross-module-public-surface",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules": 1
+      },
+      "limen_rules_fired": {
+        "host-cross-module-public-surface": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-08-application-into-infrastructure",
+      "inventory_id": "L-BE-TEST-08",
+      "side": "backend",
+      "description": "An Application-layer file imports a module Infrastructure class.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Relationships/Application/MutantService.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "LayerBoundaryRulesTest::test_application_layer_does_not_import_module_infrastructure",
+      "expect_limen_rule": "application-not-into-infrastructure",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "LayerBoundaryRulesTest::test_application_layer_does_not_import_module_infrastructure": 1
+      },
+      "limen_rules_fired": {
+        "application-not-into-infrastructure": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-09-model-into-application",
+      "inventory_id": "L-BE-TEST-09",
+      "side": "backend",
+      "description": "An Eloquent model imports a module Application class.",
+      "touched_files": [
+        "litrev-backend/app/Models/Folder.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "LayerBoundaryRulesTest::test_models_do_not_import_module_application_classes",
+      "expect_limen_rule": "support-and-models-module-import-allowlist",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 2,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": false,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "LayerBoundaryRulesTest::test_models_do_not_import_module_application_classes": 1,
+        "LayerBoundaryRulesTest::test_models_import_only_allowlisted_module_classes": 1
+      },
+      "limen_rules_fired": {
+        "support-and-models-module-import-allowlist": 1
+      },
+      "notes": "Legacy fires twice: the dedicated Models->Application rule (L-BE-TEST-09) and the allowlist driver over model_module_import_rules (L-BE-TEST-11)."
+    },
+    {
+      "mutation_id": "M-BE-10-support-module-import",
+      "inventory_id": "L-BE-TEST-10",
+      "side": "backend",
+      "description": "app/Support imports a module class (allowlist is empty = total ban).",
+      "touched_files": [
+        "litrev-backend/app/Support/PolishAlphabet.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "LayerBoundaryRulesTest::test_support_imports_only_allowlisted_module_classes",
+      "expect_limen_rule": "support-and-models-module-import-allowlist",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "LayerBoundaryRulesTest::test_support_imports_only_allowlisted_module_classes": 1
+      },
+      "limen_rules_fired": {
+        "support-and-models-module-import-allowlist": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-12-undeclared-model",
+      "inventory_id": "L-BE-TEST-12",
+      "side": "backend",
+      "description": "A new model in app/Models has no declared owner module.",
+      "touched_files": [
+        "litrev-backend/app/Models/MutantModel.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModelOwnershipRulesTest::test_every_model_has_declared_owner_module",
+      "expect_limen_rule": "model-owner-declared",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModelOwnershipRulesTest::test_every_model_has_declared_owner_module": 1
+      },
+      "limen_rules_fired": {
+        "model-owner-declared": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-13-unknown-owner-module",
+      "inventory_id": "L-BE-TEST-13",
+      "side": "backend",
+      "description": "config declares a model owner that is not a registered module.",
+      "touched_files": [
+        "litrev-backend/config/architecture.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModelOwnershipRulesTest::test_model_owner_modules_exist",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModelOwnershipRulesTest::test_model_owner_modules_exist": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "L-BE-TEST-13 is a config-integrity check (inventory status 'subsumed'); the limen equivalent is spec validation, not `check`, so `check` is expected NOT to fire."
+    },
+    {
+      "mutation_id": "M-BE-14-model-consumer",
+      "inventory_id": "L-BE-TEST-14",
+      "side": "backend",
+      "description": "A module imports a model it is not a declared consumer of.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModelOwnershipRulesTest::test_model_imports_are_limited_to_owner_or_declared_consumers",
+      "expect_limen_rule": "model-consumers",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModelOwnershipRulesTest::test_model_imports_are_limited_to_owner_or_declared_consumers": 1
+      },
+      "limen_rules_fired": {
+        "model-consumers": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-15-forbidden-model",
+      "inventory_id": "L-BE-TEST-15",
+      "side": "backend",
+      "description": "Folders Infrastructure/PermissionProfiles imports the PermissionProfile model directly.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModelOwnershipRulesTest::test_forbidden_model_import_rules_are_enforced",
+      "expect_limen_rule": "no-direct-permissionprofile-model",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModelOwnershipRulesTest::test_forbidden_model_import_rules_are_enforced": 1
+      },
+      "limen_rules_fired": {
+        "no-direct-permissionprofile-model": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-16-notifications-domain-baseline",
+      "inventory_id": "L-BE-TEST-16",
+      "side": "backend",
+      "description": "A non-Notifications module imports Notifications\\Domain (baseline is empty).",
+      "touched_files": [
+        "litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_domain_imports_match_declared_baseline",
+      "expect_limen_rule": "notifications-domain-baseline",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_domain_imports_match_declared_baseline": 1
+      },
+      "limen_rules_fired": {
+        "notifications-domain-baseline": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-17-notifications-mail-baseline",
+      "inventory_id": "L-BE-TEST-17",
+      "side": "backend",
+      "description": "A non-Notifications module imports Notifications\\Mail (baseline is empty).",
+      "touched_files": [
+        "litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_mail_imports_match_declared_baseline",
+      "expect_limen_rule": "notifications-mail-baseline",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_mail_imports_match_declared_baseline": 1
+      },
+      "limen_rules_fired": {
+        "notifications-mail-baseline": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-18-module-application-allowlist",
+      "inventory_id": "L-BE-TEST-18",
+      "side": "backend",
+      "description": "Profile/Http imports a non-allowlisted Audit\\Application class.",
+      "touched_files": [
+        "litrev-backend/app/Modules/Profile/Http/Controllers/ProfileController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "ModuleContractRulesTest::test_module_paths_use_only_allowlisted_cross_module_application_imports",
+      "expect_limen_rule": "admin-http-audit-application-allowlist",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 2,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": false,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "ApplicationBoundaryRulesTest::test_modules_do_not_import_foreign_application_internals": 1,
+        "ModuleContractRulesTest::test_module_paths_use_only_allowlisted_cross_module_application_imports": 1
+      },
+      "limen_rules_fired": {
+        "admin-http-audit-application-allowlist": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-19-shared-http-layer",
+      "inventory_id": "L-BE-TEST-19",
+      "side": "backend",
+      "description": "backend-shared grows an Http/ layer.",
+      "touched_files": [
+        "backend-shared/src/Folders/Http/MutantController.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_has_no_http_or_infrastructure_layers",
+      "expect_limen_rule": "shared-has-no-http-or-infrastructure",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "SharedBoundaryRulesTest::test_shared_has_no_http_or_infrastructure_layers": 1
+      },
+      "limen_rules_fired": {
+        "shared-has-no-http-or-infrastructure": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-20-shared-host-import",
+      "inventory_id": "L-BE-TEST-20",
+      "side": "backend",
+      "description": "backend-shared imports a host App\\ class outside the allowlist.",
+      "touched_files": [
+        "backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_does_not_import_forbidden_host_classes",
+      "expect_limen_rule": "shared-not-into-host-modules",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 2,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "SharedBoundaryRulesTest::test_shared_does_not_import_forbidden_host_classes": 1
+      },
+      "limen_rules_fired": {
+        "shared-cross-module-public-surface": 1,
+        "shared-not-into-host-modules": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-BE-21-shared-cross-module-concrete",
+      "inventory_id": "L-BE-TEST-21",
+      "side": "backend",
+      "description": "A shared module imports another shared module's concrete Application service.",
+      "touched_files": [
+        "backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "SharedBoundaryRulesTest::test_shared_cross_module_imports_use_contracts_events_domain_or_presentation",
+      "expect_limen_rule": "shared-cross-module-public-surface",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "SharedBoundaryRulesTest::test_shared_cross_module_imports_use_contracts_events_domain_or_presentation": 1
+      },
+      "limen_rules_fired": {
+        "shared-cross-module-public-surface": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-01-raw-success-data",
+      "inventory_id": "L-FE-01",
+      "side": "frontend",
+      "description": "Page file uses the raw `response?.data ??` success fallback.",
+      "touched_files": [
+        "litrev-frontend/src/modules/projects/pages/ProjectsPage.jsx"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "raw-success-response-data",
+      "expect_limen_rule": "raw-success-response-data",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "raw-success-response-data": 1
+      },
+      "limen_rules_fired": {
+        "raw-success-response-data": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-02-local-message-fallback",
+      "inventory_id": "L-FE-02",
+      "side": "frontend",
+      "description": "Page file uses the local `message || t(...)` error fallback.",
+      "touched_files": [
+        "litrev-frontend/src/modules/schedule/pages/SchedulePage.jsx"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "local-message-fallback",
+      "expect_limen_rule": "local-message-fallback",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "local-message-fallback": 1
+      },
+      "limen_rules_fired": {
+        "local-message-fallback": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-03-console-log",
+      "inventory_id": "L-FE-03",
+      "side": "frontend",
+      "description": "A runtime source file leaves a console.log(...) behind.",
+      "touched_files": [
+        "litrev-frontend/src/shared/http/api-client.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "runtime-console-log",
+      "expect_limen_rule": "runtime-console-log",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "runtime-console-log": 1
+      },
+      "limen_rules_fired": {
+        "runtime-console-log": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-04-shared-into-modules",
+      "inventory_id": "L-FE-04",
+      "side": "frontend",
+      "description": "src/shared imports from @/modules.",
+      "touched_files": [
+        "litrev-frontend/src/shared/http/api-projects.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "shared-must-not-depend-on-app-or-modules",
+      "expect_limen_rule": "frontend-shared-not-into-modules",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "shared-must-not-depend-on-app-or-modules": 1
+      },
+      "limen_rules_fired": {
+        "frontend-shared-not-into-modules": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-05-cross-module-deep-import",
+      "inventory_id": "L-FE-05",
+      "side": "frontend",
+      "description": "A module deep-imports another module's internal path via the @/ alias.",
+      "touched_files": [
+        "litrev-frontend/src/modules/schedule/hooks/useProjects.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "cross-module-deep-import",
+      "expect_limen_rule": "frontend-cross-module-public-entry",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 2,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": false,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "cross-module-deep-import": 1,
+        "cross-module-internal-import": 1
+      },
+      "limen_rules_fired": {
+        "frontend-cross-module-public-entry": 1
+      },
+      "notes": "Also trips cross-module-internal-import (L-FE-06) in legacy: one import, two legacy rules."
+    },
+    {
+      "mutation_id": "M-FE-06-cross-module-internal-relative",
+      "inventory_id": "L-FE-06",
+      "side": "frontend",
+      "description": "A module reaches into another module's internals through a relative path.",
+      "touched_files": [
+        "litrev-frontend/src/modules/schedule/hooks/useScheduleInfo.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "cross-module-internal-import",
+      "expect_limen_rule": "frontend-cross-module-public-entry",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "cross-module-internal-import": 1
+      },
+      "limen_rules_fired": {
+        "frontend-cross-module-public-entry": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-07-app-deep-module-import",
+      "inventory_id": "L-FE-07",
+      "side": "frontend",
+      "description": "src/app deep-imports a module path (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/app/DashboardLayout.jsx"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "app-deep-module-import",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "app-deep-module-import": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "L-FE-07 is documented as not-encoded in limen; limen fires a different rule (frontend-cross-module-public-entry does not apply to src/app), so it is expected NOT to fire."
+    },
+    {
+      "mutation_id": "M-FE-08-oversized-page",
+      "inventory_id": "L-FE-08",
+      "side": "frontend",
+      "description": "A page file grows past 600 lines (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/modules/projects/pages/ProjectsPage.jsx"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "oversized-page-file",
+      "expect_limen_rule": "oversized-page-file",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "oversized-page-file": 1
+      },
+      "limen_rules_fired": {
+        "oversized-page-file": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-09-oversized-entrypoint",
+      "inventory_id": "L-FE-09",
+      "side": "frontend",
+      "description": "A module entrypoint grows past 80 lines (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/modules/messages/index.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "oversized-module-entrypoint",
+      "expect_limen_rule": "oversized-module-entrypoint",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "oversized-module-entrypoint": 1
+      },
+      "limen_rules_fired": {
+        "oversized-module-entrypoint": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-10-oversized-hook",
+      "inventory_id": "L-FE-10",
+      "side": "frontend",
+      "description": "A hook file grows past 350 lines (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/modules/schedule/hooks/useProjects.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "oversized-hook-file",
+      "expect_limen_rule": "oversized-hook-file",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "oversized-hook-file": 1
+      },
+      "limen_rules_fired": {
+        "oversized-hook-file": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-11-missing-entrypoint",
+      "inventory_id": "L-FE-11",
+      "side": "frontend",
+      "description": "A module loses its root index.* entrypoint.",
+      "touched_files": [
+        "litrev-frontend/src/modules/folders/index.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "missing-module-entrypoint",
+      "expect_limen_rule": "frontend-module-entrypoint",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 2,
+      "limen_total_delta": 3,
+      "legacy_delta_equals_injected": false,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "missing-module-entrypoint": 1,
+        "unexpected-module-subentrypoint": 1
+      },
+      "limen_rules_fired": {
+        "frontend-module-entrypoint": 1,
+        "unresolved-dependency": 2
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-12-missing-readme",
+      "inventory_id": "L-FE-12",
+      "side": "frontend",
+      "description": "A module loses its README.md (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/modules/folders/README.md"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "missing-module-readme",
+      "expect_limen_rule": "frontend-module-readme-contract",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "missing-module-readme": 1
+      },
+      "limen_rules_fired": {
+        "frontend-module-readme-contract": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-13-missing-readme-contract",
+      "inventory_id": "L-FE-13",
+      "side": "frontend",
+      "description": "A module README loses one of the three required contract sections.",
+      "touched_files": [
+        "litrev-frontend/src/modules/projects/README.md"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "missing-module-contract",
+      "expect_limen_rule": "frontend-module-readme-contract",
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 1,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 1,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "missing-module-contract": 1
+      },
+      "limen_rules_fired": {
+        "frontend-module-readme-contract": 1
+      },
+      "notes": ""
+    },
+    {
+      "mutation_id": "M-FE-15-shared-domain-helper",
+      "inventory_id": "L-FE-15",
+      "side": "frontend",
+      "description": "A src/shared/lib helper is used by only one module (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/shared/lib/mutantHelper.js",
+        "litrev-frontend/src/modules/schedule/hooks/useProjects.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "unexpected-shared-domain-helper",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "unexpected-shared-domain-helper": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "L-FE-15 is documented as not-encoded in limen; limen is expected NOT to fire."
+    },
+    {
+      "mutation_id": "M-FE-14-unexpected-subentrypoint",
+      "inventory_id": "L-FE-14",
+      "side": "frontend",
+      "description": "A module exposes a non-standard root-level public file (legacy WARNING).",
+      "touched_files": [
+        "litrev-frontend/src/modules/folders/mutant.js"
+      ],
+      "injected": 1,
+      "expect_legacy_rule": "unexpected-module-subentrypoint",
+      "expect_limen_rule": null,
+      "legacy_hits_on_expected_rule": 1,
+      "limen_hits_on_expected_rule": 0,
+      "legacy_total_delta": 1,
+      "limen_total_delta": 0,
+      "legacy_delta_equals_injected": true,
+      "detected_legacy": true,
+      "detected_limen": true,
+      "legacy_rules_fired": {
+        "unexpected-module-subentrypoint": 1
+      },
+      "limen_rules_fired": {},
+      "notes": "L-FE-14 is documented as not-encoded in limen; limen is expected NOT to fire."
+    }
+  ]
+}

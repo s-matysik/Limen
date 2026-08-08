@@ -1,0 +1,11 @@
+{
+  "delta": 5,
+  "findings_at_commit_date": 11,
+  "findings_past_expiry": 16,
+  "new_rule_ids_past_expiry": [
+    "host-into-core-baseline",
+    "shared-not-into-host-modules"
+  ],
+  "today_commit": "2026-08-03",
+  "today_late": "2027-01-01"
+}

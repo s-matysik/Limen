@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-control",
+  "heldout": true,
+  "language": "java",
+  "license": "Apache-2.0",
+  "owner": "spring-projects",
+  "reason": "regex=\"true\" on <allow> in org.springframework.graphql",
+  "repo": "spring-graphql",
+  "seconds": 0.0,
+  "sha": "e5d4a108212763dbe6ebe41339f22bf2e54d04b5",
+  "stars": 1593,
+  "status": "untranslatable-config"
+}

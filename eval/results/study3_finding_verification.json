@@ -1,0 +1,24 @@
+{
+ "n_verified": 50,
+ "rules_covered": 13,
+ "sampling": "study2_findings.csv, severity=error, repo_present, excl. spec-dead-entry & unresolved-dependency; unique by (rule_id,file,line,target); stratified by rule_id; seed 20260807",
+ "raters": [
+  "mechanical structural checker (implemented)",
+  "LLM rater (implemented in verify_findings.py; NOT RUN \u2014 frame LLM budget exhausted)"
+ ],
+ "mechanical_real": 50,
+ "mechanical_spurious": 0,
+ "cited_file_present": 50,
+ "cited_target_in_file": 49,
+ "cited_target_on_cited_line": 46,
+ "strict_subset_n": 32,
+ "strict_subset_hits": 32,
+ "strict_subset_rate": 1.0,
+ "strict_subset_ci95": [
+  0.8928208017449293,
+  1.0
+ ],
+ "agreement_between_raters": null,
+ "cohen_kappa": null,
+ "note": "Two-rater agreement is the protocol's requirement and is NOT satisfied: only the mechanical rater ran. The LLM rater is implemented and seeded but needs LLM budget this frame no longer has."
+}

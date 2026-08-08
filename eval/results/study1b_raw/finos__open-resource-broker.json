@@ -1,0 +1,83 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "python",
+  "license": "Apache-2.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/finos__open-resource-broker/_limen_architecture.yaml --workspace /tmp/corpuswork/finos__open-resource-broker --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 3,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 0,
+      "contracts_kept": 3,
+      "dependencies": 5059,
+      "files_analyzed": 986
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config .importlinter --no-cache",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "finos",
+  "reason": null,
+  "repo": "open-resource-broker",
+  "rule_kinds": {
+    "il-application-layer-does-not-import-infrastructure-concretes-0": "forbidden-target",
+    "il-domain-layer-is-clean-no-outer-layer-imports-0": "forbidden-target",
+    "il-infrastructure-layer-does-not-import-upward-layers-0": "forbidden-target"
+  },
+  "seconds": 0.7,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "9f9989957c407897a97b76b02e6e3397a7326512",
+  "stars": 18,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 3
+    },
+    "contracts_total": 3,
+    "ignore_imports_entries": 0,
+    "root_dir": "src",
+    "root_packages": [
+      "orb"
+    ],
+    "rules_emitted": 3,
+    "transitive_by_default": []
+  }
+}

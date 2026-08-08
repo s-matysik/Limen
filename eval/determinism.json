@@ -1,0 +1,99 @@
+{
+  "deterministic": true,
+  "population": {
+    "deps": 2274,
+    "files": 539,
+    "per_root": {
+      "core": {
+        "deps": 46,
+        "files": 7,
+        "unresolved": 0
+      },
+      "core_frontend": {
+        "deps": 66,
+        "files": 27,
+        "unresolved": 0
+      },
+      "frontend": {
+        "deps": 540,
+        "files": 148,
+        "unresolved": 8
+      },
+      "host_app": {
+        "deps": 725,
+        "files": 99,
+        "unresolved": 0
+      },
+      "shared": {
+        "deps": 897,
+        "files": 258,
+        "unresolved": 0
+      }
+    },
+    "unresolved": 8
+  },
+  "runs": {
+    "check-json": {
+      "argv": [
+        "check",
+        "--spec",
+        "/Users/sebastianmatysik/!!!!!Limen/limen/examples/litrev/architecture.yaml",
+        "--workspace",
+        "/Users/sebastianmatysik/!!!!!Limen/workspace",
+        "--today",
+        "2026-08-04",
+        "--format",
+        "json"
+      ],
+      "bytes": 4800,
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "findings": 8,
+      "identical": true,
+      "rule_ids": [
+        "unresolved-dependency"
+      ],
+      "sha256": {
+        "cold": "600ce2b8b7776c373da2599376f38bf11eca4908738b6d8a7acbe33b76122d91",
+        "hashseed": "600ce2b8b7776c373da2599376f38bf11eca4908738b6d8a7acbe33b76122d91",
+        "warm": "600ce2b8b7776c373da2599376f38bf11eca4908738b6d8a7acbe33b76122d91"
+      },
+      "summary": {
+        "errors": 0,
+        "exit_code": 0,
+        "unresolved_count": 8,
+        "warnings": 8
+      }
+    },
+    "extract": {
+      "argv": [
+        "extract",
+        "--spec",
+        "/Users/sebastianmatysik/!!!!!Limen/limen/examples/litrev/architecture.yaml",
+        "--workspace",
+        "/Users/sebastianmatysik/!!!!!Limen/workspace",
+        "--today",
+        "2026-08-04"
+      ],
+      "bytes": 532582,
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "identical": true,
+      "sha256": {
+        "cold": "e6ef5ad782c2e6ef7dccae7c1c6fef14939de6204b416e625b35d05f07982391",
+        "hashseed": "e6ef5ad782c2e6ef7dccae7c1c6fef14939de6204b416e625b35d05f07982391",
+        "warm": "e6ef5ad782c2e6ef7dccae7c1c6fef14939de6204b416e625b35d05f07982391"
+      }
+    }
+  },
+  "schema": "limen-determinism/1",
+  "spec": "/Users/sebastianmatysik/!!!!!Limen/limen/examples/litrev/architecture.yaml",
+  "today": "2026-08-04",
+  "workspace": "/Users/sebastianmatysik/!!!!!Limen/workspace"
+}

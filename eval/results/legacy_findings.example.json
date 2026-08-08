@@ -1,0 +1,523 @@
+{
+  "schema": "legacy-findings/1",
+  "tool": "legacy",
+  "snapshot": {
+    "workspace_tree_id": "562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31",
+    "generated_at": "2026-08-06T22:21:12.192390+00:00",
+    "workspace": "<temporary mutated copy>",
+    "backend_root": "<temporary mutated copy>/litrev-backend",
+    "php_version": "8.5.9"
+  },
+  "oracle": {
+    "php": {
+      "classes": [
+        "Tests\\Architecture\\AdminBoundaryRulesTest",
+        "Tests\\Architecture\\ApplicationBoundaryRulesTest",
+        "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+        "Tests\\Architecture\\HttpBoundaryRulesTest",
+        "Tests\\Architecture\\LayerBoundaryRulesTest",
+        "Tests\\Architecture\\ModelOwnershipRulesTest",
+        "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+        "Tests\\Architecture\\ModuleContractRulesTest",
+        "Tests\\Architecture\\SharedBoundaryRulesTest"
+      ],
+      "executions": [
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "auth",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "folders",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "folder_items",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "projects",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "permission_profiles",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "relationships",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "relationship_requests",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ApplicationBoundaryRulesTest",
+          "method": "test_modules_do_not_import_foreign_application_internals",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_database_config_does_not_define_module_scoped_connections",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_modules_do_not_define_local_deploy_or_docker_directories",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_repo_has_single_root_docker_compose_file",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\HttpBoundaryRulesTest",
+          "method": "test_module_does_not_import_http_layer_of_other_modules",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 14,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_application_layer_does_not_import_module_infrastructure",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_models_do_not_import_module_application_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_models_import_only_allowlisted_module_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_support_imports_only_allowlisted_module_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_every_model_has_declared_owner_module",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_forbidden_model_import_rules_are_enforced",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 6,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_model_imports_are_limited_to_owner_or_declared_consumers",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_model_owner_modules_exist",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+          "method": "test_cross_module_notifications_domain_imports_match_declared_baseline",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+          "method": "test_cross_module_notifications_mail_imports_match_declared_baseline",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleContractRulesTest",
+          "method": "test_module_paths_use_only_allowlisted_cross_module_application_imports",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 9,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_cross_module_imports_use_contracts_events_domain_or_presentation",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_does_not_import_forbidden_host_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_has_no_http_or_infrastructure_layers",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 1
+        }
+      ],
+      "errors": [],
+      "methods_executed": 26,
+      "methods_errored": 0,
+      "assertions": 52,
+      "failed_assertions": 9
+    },
+    "frontend": [
+      {
+        "repo": "litrev-frontend",
+        "cwd": "<temporary mutated copy>/litrev-frontend",
+        "script": "<workspace>/litrev-frontend/scripts/audit-frontend-architecture.mjs",
+        "exit_code": 1,
+        "clean": false,
+        "stdout": "",
+        "stderr": "Frontend architecture audit failed.\n\n- [cross-module-deep-import] src/modules/schedule/hooks/useProjects.js:37\n  Cross-module imports should go through a public module entry point instead of deep internal paths.\n  Matched: @/modules/projects/hooks/useProjectsPageState\n- [cross-module-internal-import] src/modules/schedule/hooks/useProjects.js:37\n  Modules must not import internal files from other modules; use that module's public entry point.\n  Matched: @/modules/projects/hooks/useProjectsPageState\n- [runtime-console-log] src/shared/http/api-client.js:2\n  Do not leave console.log(...) in runtime source files.\n  Matched: console.log(\n- [missing-module-entrypoint] src/modules/folders:1\n  Module is missing a root public entrypoint (`index.js` / `index.jsx` / `index.ts` / `index.tsx`).\n  Matched: missing index.*\n\nWarnings:\n\n- [oversized-page-file] src/modules/projects/pages/ProjectsPage.jsx:1\n  Page file is larger than 600 lines; consider extracting hooks/helpers/components.\n  Observed: 620 lines\n- [unexpected-module-subentrypoint] src/modules/folders:1\n  Module exposes non-standard root-level public files; review whether they should be documented, moved behind `index.*`, or explicitly allowed.\n  Observed: entry.js\n\nIf a match is intentional, either refactor it or explicitly allowlist that file in scripts/audit-frontend-architecture.mjs.\n",
+        "findings": 4,
+        "warnings": 2
+      },
+      {
+        "repo": "frontend-shared",
+        "cwd": "<temporary mutated copy>/frontend-shared",
+        "script": "<workspace>/litrev-frontend/scripts/audit-frontend-architecture.mjs",
+        "exit_code": 0,
+        "clean": true,
+        "stdout": "Frontend architecture audit passed: no blocked anti-patterns found.\n",
+        "stderr": "",
+        "findings": 0,
+        "warnings": 0
+      }
+    ]
+  },
+  "counts": {
+    "total": 15,
+    "per_source": {
+      "frontend-audit": 6,
+      "php-tests": 9
+    },
+    "per_legacy_rule_id": {
+      "missing-module-entrypoint": 1,
+      "unexpected-module-subentrypoint": 1,
+      "oversized-page-file": 1,
+      "cross-module-deep-import": 1,
+      "cross-module-internal-import": 1,
+      "runtime-console-log": 1,
+      "SharedBoundaryRulesTest::test_shared_does_not_import_forbidden_host_classes": 1,
+      "SharedBoundaryRulesTest::test_shared_has_no_http_or_infrastructure_layers": 1,
+      "ModelOwnershipRulesTest::test_every_model_has_declared_owner_module": 1,
+      "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly": 1,
+      "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules": 1,
+      "ModelOwnershipRulesTest::test_forbidden_model_import_rules_are_enforced": 1,
+      "DeploymentBoundaryRulesTest::test_modules_do_not_define_local_deploy_or_docker_directories": 1,
+      "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_domain_imports_match_declared_baseline": 1,
+      "DeploymentBoundaryRulesTest::test_database_config_does_not_define_module_scoped_connections": 1
+    }
+  },
+  "findings": [
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "missing-module-entrypoint",
+      "inventory_id": "L-FE-11",
+      "severity": "error",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/modules/folders",
+      "line": 1,
+      "target": "missing index.*",
+      "message": "Module is missing a root public entrypoint (`index.js` / `index.jsx` / `index.ts` / `index.tsx`).",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/modules/folders",
+        "snippet": "missing index.*"
+      }
+    },
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "unexpected-module-subentrypoint",
+      "inventory_id": "L-FE-14",
+      "severity": "warning",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/modules/folders",
+      "line": 1,
+      "target": "entry.js",
+      "message": "Module exposes non-standard root-level public files; review whether they should be documented, moved behind `index.*`, or explicitly allowed.",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/modules/folders",
+        "snippet": "entry.js"
+      }
+    },
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "oversized-page-file",
+      "inventory_id": "L-FE-08",
+      "severity": "warning",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/modules/projects/pages/ProjectsPage.jsx",
+      "line": 1,
+      "target": "620 lines",
+      "message": "Page file is larger than 600 lines; consider extracting hooks/helpers/components.",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/modules/projects/pages/ProjectsPage.jsx",
+        "snippet": "620 lines"
+      }
+    },
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "cross-module-deep-import",
+      "inventory_id": "L-FE-05",
+      "severity": "error",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/modules/schedule/hooks/useProjects.js",
+      "line": 37,
+      "target": "@/modules/projects/hooks/useProjectsPageState",
+      "message": "Cross-module imports should go through a public module entry point instead of deep internal paths.",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/modules/schedule/hooks/useProjects.js",
+        "snippet": "@/modules/projects/hooks/useProjectsPageState"
+      }
+    },
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "cross-module-internal-import",
+      "inventory_id": "L-FE-06",
+      "severity": "error",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/modules/schedule/hooks/useProjects.js",
+      "line": 37,
+      "target": "@/modules/projects/hooks/useProjectsPageState",
+      "message": "Modules must not import internal files from other modules; use that module's public entry point.",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/modules/schedule/hooks/useProjects.js",
+        "snippet": "@/modules/projects/hooks/useProjectsPageState"
+      }
+    },
+    {
+      "source": "frontend-audit",
+      "legacy_rule_id": "runtime-console-log",
+      "inventory_id": "L-FE-03",
+      "severity": "error",
+      "file": "litrev-arch-snapshot/litrev-frontend/src/shared/http/api-client.js",
+      "line": 2,
+      "target": "console.log(",
+      "message": "Do not leave console.log(...) in runtime source files.",
+      "raw": {
+        "repo": "litrev-frontend",
+        "relative_path": "src/shared/http/api-client.js",
+        "snippet": "console.log("
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "SharedBoundaryRulesTest::test_shared_does_not_import_forbidden_host_classes",
+      "inventory_id": "L-BE-TEST-20",
+      "severity": "error",
+      "message": "Shared package imports forbidden host App\\ class (add to allowed_host_app_imports if intentional): [{\"file\":\"Auth/Application/AuthAdminUserStateFacade.php\",\"import\":\"App\\\\Modules\\\\Folders\\\\Http\\\\Controllers\\\\FolderController\"}]",
+      "file": "litrev-arch-snapshot/backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php",
+      "line": 5,
+      "target": "App\\Modules\\Folders\\Http\\Controllers\\FolderController",
+      "raw": {
+        "file": "Auth/Application/AuthAdminUserStateFacade.php",
+        "import": "App\\Modules\\Folders\\Http\\Controllers\\FolderController"
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "SharedBoundaryRulesTest::test_shared_has_no_http_or_infrastructure_layers",
+      "inventory_id": "L-BE-TEST-19",
+      "severity": "error",
+      "message": "Shared package must not contain Http or Infrastructure layers: [\"Folders/Http/MutantController.php\"]",
+      "file": "litrev-arch-snapshot/backend-shared/src/Folders/Http/MutantController.php",
+      "line": 1,
+      "target": null,
+      "raw": "Folders/Http/MutantController.php"
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "ModelOwnershipRulesTest::test_every_model_has_declared_owner_module",
+      "inventory_id": "L-BE-TEST-12",
+      "severity": "error",
+      "message": "Each model must have a declared owner module in config/architecture.php: [\"App\\\\Models\\\\MutantModel\"]",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Models/MutantModel.php",
+      "line": 7,
+      "target": "App\\Models\\MutantModel",
+      "raw": "App\\Models\\MutantModel"
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "AdminBoundaryRulesTest::test_module_does_not_import_admin_modules_directly",
+      "inventory_id": "L-BE-TEST-02",
+      "severity": "error",
+      "message": "Forbidden admin-module imports found in app/Modules/Folders: [{\"file\":\"/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php\",\"import\":\"use App\\\\Modules\\\\AdminUsers\\\\\"}]",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+      "line": 5,
+      "target": "use App\\Modules\\AdminUsers\\",
+      "raw": {
+        "file": "/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+        "import": "use App\\Modules\\AdminUsers\\"
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "HttpBoundaryRulesTest::test_module_does_not_import_http_layer_of_other_modules",
+      "inventory_id": "L-BE-TEST-07",
+      "severity": "error",
+      "message": "Forbidden cross-module Http imports found in Folders: [{\"file\":\"/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php\",\"imported_module\":\"AdminUsers\"}]",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+      "line": 5,
+      "target": "AdminUsers",
+      "raw": {
+        "file": "/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php",
+        "imported_module": "AdminUsers"
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "ModelOwnershipRulesTest::test_forbidden_model_import_rules_are_enforced",
+      "inventory_id": "L-BE-TEST-15",
+      "severity": "error",
+      "message": "Folders Infrastructure/PermissionProfiles must not import the PermissionProfile owner model directly; use PermissionProfileAssignmentApi instead: [\"app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php\"]",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php",
+      "line": 5,
+      "target": "App\\Models\\PermissionProfile",
+      "raw": {
+        "file": "app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php",
+        "literal": "use App\\Models\\PermissionProfile;"
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "DeploymentBoundaryRulesTest::test_modules_do_not_define_local_deploy_or_docker_directories",
+      "inventory_id": "L-BE-TEST-05",
+      "severity": "error",
+      "message": "Modules should not define their own docker/deploy directories: [\"/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/docker\"]",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/docker",
+      "line": 1,
+      "target": null,
+      "raw": "/Users/sebastianmatysik/.claude-science/orgs/acfa7c51-4bf1-49a5-9495-3958c15db03d/workspaces/e4f1b4a9-4a8c-4350-807e-089c9d5dd17f/.tmp/limen-example-cik02bqn/ws/litrev-backend/app/Modules/Folders/docker"
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "ModuleBoundaryBaselineRulesTest::test_cross_module_notifications_domain_imports_match_declared_baseline",
+      "inventory_id": "L-BE-TEST-16",
+      "severity": "error",
+      "message": "Cross-module Notifications\\Domain imports do not match the declared baseline: {\"app/Modules/Messages/Http/Controllers/TreeMessageController.php\":[\"App\\\\Modules\\\\Notifications\\\\Domain\\\\NotificationChannel\"]}",
+      "file": "litrev-arch-snapshot/litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php",
+      "line": 5,
+      "target": "App\\Modules\\Notifications\\Domain\\NotificationChannel",
+      "raw": {
+        "file": "app/Modules/Messages/Http/Controllers/TreeMessageController.php",
+        "import": "App\\Modules\\Notifications\\Domain\\NotificationChannel",
+        "direction": "unexpected"
+      }
+    },
+    {
+      "source": "php-tests",
+      "legacy_rule_id": "DeploymentBoundaryRulesTest::test_database_config_does_not_define_module_scoped_connections",
+      "inventory_id": "L-BE-TEST-06",
+      "severity": "error",
+      "message": "Database config should not define module-scoped connections: [\"folders_module\"]",
+      "file": "litrev-arch-snapshot/litrev-backend/config/database.php",
+      "line": 34,
+      "target": "folders_module",
+      "raw": "folders_module"
+    }
+  ],
+  "_note": "NOT the study result. A worked example produced by planting 12 mutations from eval/mutation_sensitivity.py into a temporary copy of the workspace, so that the legacy-findings/1 schema can be read and diffed against with non-empty records. The real oracle on the frozen snapshot is legacy_findings.json and it is empty by design (both legacy checkers pass). Mutations planted: M-BE-02-admin-import, M-BE-05-module-docker-dir, M-BE-06-module-db-connection, M-BE-12-undeclared-model, M-BE-15-forbidden-model, M-BE-16-notifications-domain-baseline, M-BE-19-shared-http-layer, M-BE-20-shared-host-import, M-FE-03-console-log, M-FE-05-cross-module-deep-import, M-FE-08-oversized-page, M-FE-11-missing-entrypoint"
+}

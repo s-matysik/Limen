@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "limen: a declarative architecture contract for CI gates and LLM coding agents"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Matysik
+    given-names: Sebastian
+license: MIT
+version: 0.1.0
+date-released: 2026-08-04

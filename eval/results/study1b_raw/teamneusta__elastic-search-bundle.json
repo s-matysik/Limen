@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": false,
+  "language": "php",
+  "license": "MIT",
+  "owner": "teamneusta",
+  "reason": "layer 'Converter Bundle' has no directory collector; its members cannot be located by path alone",
+  "repo": "elastic-search-bundle",
+  "seconds": 0.0,
+  "sha": "dfa601733fac33d53baff8c78aa63fab6c2951a6",
+  "stars": 2,
+  "status": "untranslatable-config"
+}

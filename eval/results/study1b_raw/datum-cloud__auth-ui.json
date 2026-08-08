@@ -1,0 +1,67 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": false,
+  "kinds": [
+    "K6"
+  ],
+  "language": "js",
+  "license": "MIT",
+  "n_limen_rules": 1,
+  "oracle": {
+    "analysis": {
+      "dependencies_cruised": 1251,
+      "dependencies_seen": 1251,
+      "dependencies_unresolved": 1243,
+      "modules_cruised": 499,
+      "resolution_rate": 0.006394884092725819
+    },
+    "command": "/tmp/archtools/depcruise/node_modules/.bin/depcruise --config .dependency-cruiser.cjs --output-type json --no-progress app/**/*.ts app/**/*.tsx app/**/*.js app/**/*.jsx app/**/*.mjs app/**/*.cjs app/**/*.vue",
+    "exit_code": 0,
+    "not_live_reason": "1243/1251 dependencies could not be resolved (0.6% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": false,
+    "stderr_tail": "",
+    "tool": "dependency-cruiser"
+  },
+  "owner": "datum-cloud",
+  "reason": "1243/1251 dependencies could not be resolved (0.6% resolved, threshold 80%): the repository's node_modules and tsconfig path aliases are not installed, so path rules cannot match and a zero-violation report is not a verdict",
+  "repo": "auth-ui",
+  "rule_kinds": {
+    "dc-resources-not-server-edge": "forbidden-target"
+  },
+  "seconds": 0.5,
+  "sha": "8b0e898c327ae56fe6d70a97a77eca159b440e53",
+  "stars": 0,
+  "status": "oracle-not-live",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "native_forbidden_rules": 5,
+    "native_rule_ids_translated": [
+      "resources-not-server-edge"
+    ],
+    "pairs": [
+      "app/resources/ -> app/server/edge/"
+    ],
+    "rules_emitted": 1,
+    "rules_untranslated": 4,
+    "src_dir": "app",
+    "untranslated": [
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "only-composition-imports-providers"
+      },
+      {
+        "reason": "from.path='app/shared/' / to.path='app/(routes|resources|modules|server|components)/' is a regex, not a directory prefix",
+        "rule": "shared-is-leaf"
+      },
+      {
+        "reason": "criteria ['pathNot'] are not expressible and would be silently dropped, widening the rule",
+        "rule": "no-routes-from-resources"
+      },
+      {
+        "reason": "graph/metadata criteria ['circular'] are not predicates over a single dependency edge",
+        "rule": "no-circular"
+      }
+    ]
+  }
+}

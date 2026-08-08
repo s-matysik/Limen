@@ -1,0 +1,38 @@
+{
+  "per-repo/as-is": {
+    "delta_episodes": 37,
+    "episodes_primary_key": 86,
+    "episodes_with_line_in_key": 123,
+    "km_median_primary": 2.459074074074074,
+    "km_median_with_line": 19.68466435185185,
+    "repaired_primary": 86,
+    "repaired_with_line": 123
+  },
+  "per-repo/no-exemptions": {
+    "delta_episodes": 38,
+    "episodes_primary_key": 87,
+    "episodes_with_line_in_key": 125,
+    "km_median_primary": 4.9588425925925925,
+    "km_median_with_line": 19.68466435185185,
+    "repaired_primary": 84,
+    "repaired_with_line": 122
+  },
+  "workspace/as-is": {
+    "delta_episodes": 37,
+    "episodes_primary_key": 89,
+    "episodes_with_line_in_key": 126,
+    "km_median_primary": 14.549826388888889,
+    "km_median_with_line": 19.68466435185185,
+    "repaired_primary": 86,
+    "repaired_with_line": 123
+  },
+  "workspace/no-exemptions": {
+    "delta_episodes": 39,
+    "episodes_primary_key": 92,
+    "episodes_with_line_in_key": 131,
+    "km_median_primary": 14.549826388888889,
+    "km_median_with_line": 19.68466435185185,
+    "repaired_primary": 84,
+    "repaired_with_line": 123
+  }
+}

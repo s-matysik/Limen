@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "GPL-3.0",
+  "owner": "adshares",
+  "reason": "layer 'Domain' has no directory collector; its members cannot be located by path alone",
+  "repo": "adpay",
+  "seconds": 0.0,
+  "sha": "ffcf480bcd45ba9b77f053a82c093906f9b1079e",
+  "stars": 5,
+  "status": "untranslatable-config"
+}

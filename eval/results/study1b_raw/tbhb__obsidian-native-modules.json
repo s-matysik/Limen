@@ -1,0 +1,13 @@
+{
+  "config_kind": "dependency-cruiser",
+  "heldout": false,
+  "language": "js",
+  "license": "MIT",
+  "owner": "tbhb",
+  "reason": "no `forbidden` rule is a directory-prefix ban; untranslated: no-circular (graph/metadata criteria ['circular', 'viaOnly'] are not predicates over a single dependency edge); no-orphans (graph/metadata criteria ['orphan'] are not predicates over a single dependency edge); not-to-unresolvable (graph/me",
+  "repo": "obsidian-native-modules",
+  "seconds": 0.1,
+  "sha": "54e7c57f787a2c19009866d477d3226e910f8b84",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

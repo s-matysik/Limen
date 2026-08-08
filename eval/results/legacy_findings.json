@@ -1,0 +1,297 @@
+{
+  "schema": "legacy-findings/1",
+  "tool": "legacy",
+  "snapshot": {
+    "workspace_tree_id": "562c232df26dab5309088db63e3ac82723d9643479a679b8dd2ad9415a0bbe31",
+    "generated_at": "2026-08-06T22:23:51.080593+00:00",
+    "workspace": "/Users/sebastianmatysik/!!!!!Limen/workspace",
+    "backend_root": "/Users/sebastianmatysik/!!!!!Limen/workspace/litrev-backend",
+    "php_version": "8.5.9"
+  },
+  "oracle": {
+    "php": {
+      "classes": [
+        "Tests\\Architecture\\AdminBoundaryRulesTest",
+        "Tests\\Architecture\\ApplicationBoundaryRulesTest",
+        "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+        "Tests\\Architecture\\HttpBoundaryRulesTest",
+        "Tests\\Architecture\\LayerBoundaryRulesTest",
+        "Tests\\Architecture\\ModelOwnershipRulesTest",
+        "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+        "Tests\\Architecture\\ModuleContractRulesTest",
+        "Tests\\Architecture\\SharedBoundaryRulesTest"
+      ],
+      "executions": [
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "auth",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "folders",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "folder_items",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "projects",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "permission_profiles",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "relationships",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\AdminBoundaryRulesTest",
+          "method": "test_module_does_not_import_admin_modules_directly",
+          "dataset": "relationship_requests",
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ApplicationBoundaryRulesTest",
+          "method": "test_modules_do_not_import_foreign_application_internals",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_database_config_does_not_define_module_scoped_connections",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_modules_do_not_define_local_deploy_or_docker_directories",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\DeploymentBoundaryRulesTest",
+          "method": "test_repo_has_single_root_docker_compose_file",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\HttpBoundaryRulesTest",
+          "method": "test_module_does_not_import_http_layer_of_other_modules",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 14,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_application_layer_does_not_import_module_infrastructure",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_models_do_not_import_module_application_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_models_import_only_allowlisted_module_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\LayerBoundaryRulesTest",
+          "method": "test_support_imports_only_allowlisted_module_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_every_model_has_declared_owner_module",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_forbidden_model_import_rules_are_enforced",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 6,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_model_imports_are_limited_to_owner_or_declared_consumers",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModelOwnershipRulesTest",
+          "method": "test_model_owner_modules_exist",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+          "method": "test_cross_module_notifications_domain_imports_match_declared_baseline",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleBoundaryBaselineRulesTest",
+          "method": "test_cross_module_notifications_mail_imports_match_declared_baseline",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\ModuleContractRulesTest",
+          "method": "test_module_paths_use_only_allowlisted_cross_module_application_imports",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 9,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_cross_module_imports_use_contracts_events_domain_or_presentation",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_does_not_import_forbidden_host_classes",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        },
+        {
+          "class": "Tests\\Architecture\\SharedBoundaryRulesTest",
+          "method": "test_shared_has_no_http_or_infrastructure_layers",
+          "dataset": null,
+          "status": "ran",
+          "error": null,
+          "assertions": 1,
+          "failed_assertions": 0
+        }
+      ],
+      "errors": [],
+      "methods_executed": 26,
+      "methods_errored": 0,
+      "assertions": 52,
+      "failed_assertions": 0
+    },
+    "frontend": [
+      {
+        "repo": "litrev-frontend",
+        "cwd": "/Users/sebastianmatysik/!!!!!Limen/workspace/litrev-frontend",
+        "script": "/Users/sebastianmatysik/!!!!!Limen/workspace/litrev-frontend/scripts/audit-frontend-architecture.mjs",
+        "exit_code": 0,
+        "clean": true,
+        "stdout": "Frontend architecture audit passed: no blocked anti-patterns found.\n",
+        "stderr": "",
+        "findings": 0,
+        "warnings": 0
+      },
+      {
+        "repo": "frontend-shared",
+        "cwd": "/Users/sebastianmatysik/!!!!!Limen/workspace/frontend-shared",
+        "script": "/Users/sebastianmatysik/!!!!!Limen/workspace/litrev-frontend/scripts/audit-frontend-architecture.mjs",
+        "exit_code": 0,
+        "clean": true,
+        "stdout": "Frontend architecture audit passed: no blocked anti-patterns found.\n",
+        "stderr": "",
+        "findings": 0,
+        "warnings": 0
+      }
+    ]
+  },
+  "counts": {
+    "total": 0,
+    "per_source": {},
+    "per_legacy_rule_id": {}
+  },
+  "findings": []
+}

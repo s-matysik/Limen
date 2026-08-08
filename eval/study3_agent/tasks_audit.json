@@ -1,0 +1,1100 @@
+{
+ "pool_size": 34,
+ "considered": [
+  {
+   "repo": "litrev-backend",
+   "sha": "f3708851ff66f68355d3809eb89b1e5e6c0cb571",
+   "parent_sha": "7446fc5ab2b21ceeb4f329523bde71eeee47413f",
+   "date": "2026-05-22",
+   "subject": "feat(projects): GET /api/projects/managers endpoint",
+   "n_changed": 2,
+   "modules": [
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 2,
+    "net_module_lines": 26,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "ProjectsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 4
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "d1750eb86151659bfecdf66e34b4ae762b6665ec",
+   "parent_sha": "75a00e9aa4de8289c85c2ce047572df9acbe4ca0",
+   "date": "2026-05-21",
+   "subject": "feat(auth): impersonation flag in /api/me response",
+   "n_changed": 1,
+   "modules": [
+    "Profile"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 1,
+    "net_module_lines": 4,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "Feature"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 6
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "75a00e9aa4de8289c85c2ce047572df9acbe4ca0",
+   "parent_sha": "4d603e8c8b842c5fa4dbb70240bc5adb51899a36",
+   "date": "2026-05-21",
+   "subject": "feat(users): bulk send_email action + UserManagementDemoSeeder",
+   "n_changed": 2,
+   "modules": [
+    "AdminUsers"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 2,
+    "net_module_lines": 6,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "AdminUsersModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 6
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "4d603e8c8b842c5fa4dbb70240bc5adb51899a36",
+   "parent_sha": "566a218d712f84288cd9f685fae6da7efe03927d",
+   "date": "2026-05-21",
+   "subject": "LitRev: zarządzanie użytkownikami — migracja department/2FA, nowe endpointy",
+   "n_changed": 4,
+   "modules": [
+    "AdminUsers"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 4,
+    "net_module_lines": 259,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "AdminUsersModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 6
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "566a218d712f84288cd9f685fae6da7efe03927d",
+   "parent_sha": "325dce813a9c0badd64073ae598ea67fd4638cfd",
+   "date": "2026-05-20",
+   "subject": "LitRev: endpoint GET /api/projects/owners dla filtra właściciela",
+   "n_changed": 2,
+   "modules": [
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 2,
+    "net_module_lines": 26,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "ProjectsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 4
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "4412aa587dce650f6b116bcf7c0abafbd393247b",
+   "parent_sha": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "date": "2026-05-20",
+   "subject": "LitRev: backend CRUD projektów — migracje, model, controller, seeder",
+   "n_changed": 8,
+   "modules": [
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 7,
+    "net_module_lines": 101,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "ProjectsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 4
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248",
+   "parent_sha": "37c0dc18fabf78ca5b140b1689828f445acc8e14",
+   "date": "2026-05-18",
+   "subject": "Dodanie ekstrakcji pdf-ow w przegladzie literatury.",
+   "n_changed": 99,
+   "modules": [
+    "Folders",
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 3,
+    "n_product_files": 4,
+    "net_module_lines": 32,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "FoldersModule",
+     "ProjectsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 7
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "e46ee9bf64da824630f358191a1c4db6fb38d661",
+   "parent_sha": "67cef387c0be1ed85683f1e7ef3915baac07da99",
+   "date": "2026-05-16",
+   "subject": "Dodanie serwera plikow",
+   "n_changed": 83,
+   "modules": [
+    "FolderItems"
+   ],
+   "c1": {
+    "n_module_product_files": 2,
+    "n_product_files": 6,
+    "net_module_lines": 67,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "FolderItemsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 5
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "67cef387c0be1ed85683f1e7ef3915baac07da99",
+   "parent_sha": "8e005bf06045dc7eaa4bbf431b7a1ec648320a47",
+   "date": "2026-05-10",
+   "subject": "dodanie hostowych adapterów persystencji dla shared",
+   "n_changed": 11,
+   "modules": [
+    "Audit",
+    "Auth",
+    "Relationships"
+   ],
+   "c1": {
+    "n_module_product_files": 9,
+    "n_product_files": 10,
+    "net_module_lines": 252,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "AdminUsersModule",
+     "AuthModule",
+     "RelationshipsModule"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 19
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "a35eba69d8c1c5c47179363e6346c328c20c2d24",
+   "parent_sha": "aa28e0dddfb6240361c6d886287c5931ff3b68e6",
+   "date": "2026-05-22",
+   "subject": "fix(projects): menu portal, share wiring, manager filter, i18n",
+   "n_changed": 6,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 3,
+    "n_product_files": 4,
+    "net_module_lines": 37,
+    "locale_share": 0.0714,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "test:components"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 21
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "210a7b28936c813c05e5a1a38e6d5fc40428a8b9",
+   "parent_sha": "af922b9fbe6fbd5a90a2bc434cf621fba8041372",
+   "date": "2026-05-20",
+   "subject": "litrev-frontend: pełne i18n PL/EN — statusy, daty, formularze, tooltips",
+   "n_changed": 9,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 7,
+    "n_product_files": 7,
+    "net_module_lines": 121,
+    "locale_share": 0.0127,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "test:components"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 21
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "5859c0b22d31ed616ff3f56816d72dc253bf3651",
+   "parent_sha": "02bab673fbb343b37670c35260917daabb7638b6",
+   "date": "2026-05-20",
+   "subject": "litrev-frontend: auto-folder dla nowych projektów, Basic nawigacja folderów",
+   "n_changed": 2,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 2,
+    "n_product_files": 2,
+    "net_module_lines": 11,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "test:components"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 21
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "parent_sha": "5ee315fcc674c2f32c905be4990a071bd58931ed",
+   "date": "2026-05-18",
+   "subject": "Dodanie ekstrakcji pdf-ow w przegladzie literatury.",
+   "n_changed": 7,
+   "modules": [
+    "projects"
+   ],
+   "c1": {
+    "n_module_product_files": 4,
+    "n_product_files": 4,
+    "net_module_lines": 38,
+    "locale_share": 0.2295,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": true
+   },
+   "suite": {
+    "ok": true,
+    "suites": [
+     "test:components"
+    ],
+    "why": ""
+   },
+   "n_test_paths": 21
+  }
+ ],
+ "dropped": [
+  {
+   "repo": "litrev-backend",
+   "sha": "2334481038696bc0b44b6e9a0e340351cbafaf17",
+   "parent_sha": "2e622d7b2e62415301dd909d17067614ffe16174",
+   "date": "2026-06-05",
+   "subject": "fix(arch): add missing Notifications/Application directory",
+   "n_changed": 1,
+   "modules": [
+    "Notifications"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 1,
+    "net_module_lines": 0,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1c"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "53a9a9890b3b037696976868e17e5e90982a4bd2",
+   "parent_sha": "d1750eb86151659bfecdf66e34b4ae762b6665ec",
+   "date": "2026-05-22",
+   "subject": "fix(users): export CSV — use buffered response instead of streamDownload",
+   "n_changed": 1,
+   "modules": [
+    "AdminUsers"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 1,
+    "net_module_lines": 1,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1c"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "37c0dc18fabf78ca5b140b1689828f445acc8e14",
+   "parent_sha": "e46ee9bf64da824630f358191a1c4db6fb38d661",
+   "date": "2026-05-17",
+   "subject": "Dodawanie i edycja przegladow literatury",
+   "n_changed": 93,
+   "modules": [],
+   "c1": {
+    "n_module_product_files": 0,
+    "n_product_files": 6,
+    "net_module_lines": 0,
+    "locale_share": 0.0,
+    "c1a_pass": false,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1a,c1c"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "8e005bf06045dc7eaa4bbf431b7a1ec648320a47",
+   "parent_sha": "46bbf69228e9dc6248041f4f5612b8033ebd0760",
+   "date": "2026-05-10",
+   "subject": "Wydzielenie biblioteki",
+   "n_changed": 431,
+   "modules": [
+    "AdminPolicies",
+    "AdminUsers",
+    "Audit",
+    "Auth",
+    "FolderItems",
+    "Folders",
+    "Harmonogram",
+    "Messages",
+    "Notifications",
+    "PermissionProfiles",
+    "Profile",
+    "Projects",
+    "RelationshipRequests",
+    "Relationships"
+   ],
+   "c1": {
+    "n_module_product_files": 258,
+    "n_product_files": 289,
+    "net_module_lines": -13460,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b,c1c"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "46bbf69228e9dc6248041f4f5612b8033ebd0760",
+   "parent_sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+   "date": "2026-05-07",
+   "subject": "Komentarze",
+   "n_changed": 185,
+   "modules": [
+    "FolderItems",
+    "Folders",
+    "Harmonogram",
+    "Messages",
+    "Notifications",
+    "PermissionProfiles",
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 92,
+    "n_product_files": 110,
+    "net_module_lines": 3087,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+   "parent_sha": "bf64942deaef1d130ebfd93b50ff2007616c029d",
+   "date": "2026-04-30",
+   "subject": "Harmonogram",
+   "n_changed": 95,
+   "modules": [
+    "Harmonogram"
+   ],
+   "c1": {
+    "n_module_product_files": 33,
+    "n_product_files": 41,
+    "net_module_lines": 1749,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "bf64942deaef1d130ebfd93b50ff2007616c029d",
+   "parent_sha": "eab22e210faf3d1e5ea079c8607c164fc135c2fe",
+   "date": "2026-04-26",
+   "subject": "Dodanie opcji w menu Projekty",
+   "n_changed": 127,
+   "modules": [
+    "FolderItems",
+    "Folders",
+    "PermissionProfiles",
+    "Projects"
+   ],
+   "c1": {
+    "n_module_product_files": 52,
+    "n_product_files": 64,
+    "net_module_lines": 2509,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-backend",
+   "sha": "eab22e210faf3d1e5ea079c8607c164fc135c2fe",
+   "parent_sha": "b2a70b496cf6578ebd619b58ce6fe442ec34d8e2",
+   "date": "2026-04-20",
+   "subject": "Obsługa folderów oraz zmiana projektu na modularny monolit",
+   "n_changed": 441,
+   "modules": [
+    "AdminUsers",
+    "Audit",
+    "Auth",
+    "FolderItems",
+    "Folders",
+    "Notifications",
+    "PermissionProfiles",
+    "Profile",
+    "Projects",
+    "RelationshipRequests",
+    "Relationships"
+   ],
+   "c1": {
+    "n_module_product_files": 175,
+    "n_product_files": 244,
+    "net_module_lines": 9900,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "3325b41adab40ed2f567ec99c03c8fc4808bd4ff",
+   "parent_sha": "3077fff283ee879b07377b0fdc534dc66b53c6ae",
+   "date": "2026-06-05",
+   "subject": "refactor(projects-view): extract DocumentsPanel, add module README",
+   "n_changed": 3,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 3,
+    "n_product_files": 3,
+    "net_module_lines": -19,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1c"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "3077fff283ee879b07377b0fdc534dc66b53c6ae",
+   "parent_sha": "479f8ab6531714c1a36fb2085c949071f9f49bba",
+   "date": "2026-05-22",
+   "subject": "fix(ui): avatar test scope, remove unused var, useCallback dep",
+   "n_changed": 3,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 2,
+    "n_product_files": 2,
+    "net_module_lines": -1,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1c"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "479f8ab6531714c1a36fb2085c949071f9f49bba",
+   "parent_sha": "a35eba69d8c1c5c47179363e6346c328c20c2d24",
+   "date": "2026-05-22",
+   "subject": "fix(projects): share form labels \"projekt\" instead of \"katalog\"",
+   "n_changed": 3,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 1,
+    "net_module_lines": 3,
+    "locale_share": 0.5714,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": false,
+    "pass": false
+   },
+   "drop": "C1 failed c1c,c1d"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "af922b9fbe6fbd5a90a2bc434cf621fba8041372",
+   "parent_sha": "5859c0b22d31ed616ff3f56816d72dc253bf3651",
+   "date": "2026-05-20",
+   "subject": "litrev-frontend: i18n PL/EN, language switcher, bugfix profili uprawnień, filtr właściciela",
+   "n_changed": 10,
+   "modules": [
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 6,
+    "n_product_files": 8,
+    "net_module_lines": 44,
+    "locale_share": 0.5164,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": true,
+    "c1d_pass": false,
+    "pass": false
+   },
+   "drop": "C1 failed c1d"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "02bab673fbb343b37670c35260917daabb7638b6",
+   "parent_sha": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "date": "2026-05-20",
+   "subject": "litrev-frontend: widok Projektów — Basic/Advanced, CRUD, Documents, i18n",
+   "n_changed": 20,
+   "modules": [
+    "projects",
+    "projects-list",
+    "projects-view"
+   ],
+   "c1": {
+    "n_module_product_files": 13,
+    "n_product_files": 16,
+    "net_module_lines": 2239,
+    "locale_share": 0.0522,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "5ee315fcc674c2f32c905be4990a071bd58931ed",
+   "parent_sha": "09694ded0797aaed750db46b5d187b07d7f24587",
+   "date": "2026-05-17",
+   "subject": "Poprawienie bledow interfejsu. Usuniecie bledu wyniklego z testow.",
+   "n_changed": 1,
+   "modules": [],
+   "c1": {
+    "n_module_product_files": 0,
+    "n_product_files": 0,
+    "net_module_lines": 0,
+    "locale_share": 0.0,
+    "c1a_pass": false,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1a,c1c"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "09694ded0797aaed750db46b5d187b07d7f24587",
+   "parent_sha": "7080f4aa628ae66903aaab18254c578d429d46c5",
+   "date": "2026-05-17",
+   "subject": "Poprawienie bledow interfejsu. Dodanie sciezki do projektu zawierajacej czesc specyficzna aplikacji.",
+   "n_changed": 6,
+   "modules": [
+    "reviews"
+   ],
+   "c1": {
+    "n_module_product_files": 1,
+    "n_product_files": 3,
+    "net_module_lines": 0,
+    "locale_share": 0.0,
+    "c1a_pass": true,
+    "c1b_pass": true,
+    "c1c_pass": false,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1c"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "7080f4aa628ae66903aaab18254c578d429d46c5",
+   "parent_sha": "c20944bc7aaec469d4c5caf8ffcd680e7e6475cb",
+   "date": "2026-05-16",
+   "subject": "Dodanie serwera plikow",
+   "n_changed": 12665,
+   "modules": [
+    "projects",
+    "projects-list"
+   ],
+   "c1": {
+    "n_module_product_files": 12,
+    "n_product_files": 13,
+    "net_module_lines": 297,
+    "locale_share": 0.1126,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "c20944bc7aaec469d4c5caf8ffcd680e7e6475cb",
+   "parent_sha": "afe6fe4904fa0cf34045cb0620e697955c2c9807",
+   "date": "2026-05-13",
+   "subject": "Wydzielenie biblioteki",
+   "n_changed": 259,
+   "modules": [
+    "admin-users",
+    "auth",
+    "dashboard",
+    "folder-items",
+    "folders",
+    "messages",
+    "notifications",
+    "ownership",
+    "permissions",
+    "profile",
+    "projects",
+    "relationships",
+    "reviews",
+    "search"
+   ],
+   "c1": {
+    "n_module_product_files": 104,
+    "n_product_files": 136,
+    "net_module_lines": -14039,
+    "locale_share": 0.4185,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": false,
+    "c1d_pass": false,
+    "pass": false
+   },
+   "drop": "C1 failed c1b,c1c,c1d"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "afe6fe4904fa0cf34045cb0620e697955c2c9807",
+   "parent_sha": "0d9b9cc784113530b95a25b7c0fa4f97f8479fb5",
+   "date": "2026-05-07",
+   "subject": "Komentarze",
+   "n_changed": 155,
+   "modules": [
+    "messages",
+    "permissions",
+    "projects",
+    "projects-list",
+    "schedule"
+   ],
+   "c1": {
+    "n_module_product_files": 40,
+    "n_product_files": 50,
+    "net_module_lines": 2078,
+    "locale_share": 0.0478,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "0d9b9cc784113530b95a25b7c0fa4f97f8479fb5",
+   "parent_sha": "feed536182c5c8dc844310537bc0c6cb8b6b4a4a",
+   "date": "2026-04-30",
+   "subject": "Harmonogram",
+   "n_changed": 161,
+   "modules": [
+    "projects-list",
+    "schedule"
+   ],
+   "c1": {
+    "n_module_product_files": 27,
+    "n_product_files": 79,
+    "net_module_lines": 3122,
+    "locale_share": 0.0706,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "feed536182c5c8dc844310537bc0c6cb8b6b4a4a",
+   "parent_sha": "82915ff2c474b86f989f2fbfd5d3008eb46e6d5e",
+   "date": "2026-04-26",
+   "subject": "Dodanie opcji w menu Projekty",
+   "n_changed": 130,
+   "modules": [
+    "folders",
+    "ownership",
+    "permissions",
+    "projects",
+    "projects-list"
+   ],
+   "c1": {
+    "n_module_product_files": 45,
+    "n_product_files": 56,
+    "net_module_lines": 2970,
+    "locale_share": 0.0866,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  },
+  {
+   "repo": "litrev-frontend",
+   "sha": "82915ff2c474b86f989f2fbfd5d3008eb46e6d5e",
+   "parent_sha": "c1d3e42430d02b38b7d43f0041b1024e37d513bc",
+   "date": "2026-04-20",
+   "subject": "Obsługa folderów oraz zmiana projektu na modularny monolit",
+   "n_changed": 1094,
+   "modules": [
+    "admin-users",
+    "auth",
+    "dashboard",
+    "folder-items",
+    "folders",
+    "notifications",
+    "ownership",
+    "permissions",
+    "profile",
+    "projects",
+    "relationships",
+    "reviews",
+    "search"
+   ],
+   "c1": {
+    "n_module_product_files": 117,
+    "n_product_files": 219,
+    "net_module_lines": 14778,
+    "locale_share": 0.0483,
+    "c1a_pass": true,
+    "c1b_pass": false,
+    "c1c_pass": true,
+    "c1d_pass": true,
+    "pass": false
+   },
+   "drop": "C1 failed c1b"
+  }
+ ],
+ "arch_lexicon": [
+  "application",
+  "aplikacyjn",
+  "domain",
+  "domen",
+  "infrastructure",
+  "infrastruktur",
+  "presentation",
+  "prezentacj",
+  "contracts",
+  "kontrakt",
+  "layer",
+  "warstw",
+  "http layer",
+  "module",
+  "modul",
+  "moduł",
+  "boundary",
+  "boundaries",
+  "granic",
+  "public surface",
+  "public api",
+  "publiczne api",
+  "entrypoint",
+  "entry point",
+  "punkt wejści",
+  "index.js",
+  "agents.md",
+  "claude.md",
+  "architektur",
+  "architecture",
+  "arch ",
+  "ddd",
+  "monolit",
+  "limen",
+  "baseline",
+  "exempt",
+  "wyjątek regu",
+  "allowlist",
+  "gateway",
+  "adapter",
+  "port ",
+  "facade",
+  "fasad",
+  "controller",
+  "kontroler",
+  "service class",
+  "serwis klas",
+  "namespace",
+  "psr-4",
+  "use statement",
+  "import statement"
+ ],
+ "selected": [
+  {
+   "task_id": "be-01-f3708851",
+   "repo": "litrev-backend",
+   "sha": "f3708851ff66f68355d3809eb89b1e5e6c0cb571",
+   "modules": [
+    "Projects"
+   ],
+   "n_test_paths": 4
+  },
+  {
+   "task_id": "fe-02-a35eba69",
+   "repo": "litrev-frontend",
+   "sha": "a35eba69d8c1c5c47179363e6346c328c20c2d24",
+   "modules": [
+    "projects-view"
+   ],
+   "n_test_paths": 21
+  },
+  {
+   "task_id": "be-03-d1750eb8",
+   "repo": "litrev-backend",
+   "sha": "d1750eb86151659bfecdf66e34b4ae762b6665ec",
+   "modules": [
+    "Profile"
+   ],
+   "n_test_paths": 6
+  },
+  {
+   "task_id": "fe-04-210a7b28",
+   "repo": "litrev-frontend",
+   "sha": "210a7b28936c813c05e5a1a38e6d5fc40428a8b9",
+   "modules": [
+    "projects-view"
+   ],
+   "n_test_paths": 21
+  },
+  {
+   "task_id": "be-05-75a00e9a",
+   "repo": "litrev-backend",
+   "sha": "75a00e9aa4de8289c85c2ce047572df9acbe4ca0",
+   "modules": [
+    "AdminUsers"
+   ],
+   "n_test_paths": 6
+  },
+  {
+   "task_id": "fe-06-5859c0b2",
+   "repo": "litrev-frontend",
+   "sha": "5859c0b22d31ed616ff3f56816d72dc253bf3651",
+   "modules": [
+    "projects-view"
+   ],
+   "n_test_paths": 21
+  },
+  {
+   "task_id": "be-07-4d603e8c",
+   "repo": "litrev-backend",
+   "sha": "4d603e8c8b842c5fa4dbb70240bc5adb51899a36",
+   "modules": [
+    "AdminUsers"
+   ],
+   "n_test_paths": 6
+  },
+  {
+   "task_id": "fe-08-40e68718",
+   "repo": "litrev-frontend",
+   "sha": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+   "modules": [
+    "projects"
+   ],
+   "n_test_paths": 21
+  },
+  {
+   "task_id": "be-09-566a218d",
+   "repo": "litrev-backend",
+   "sha": "566a218d712f84288cd9f685fae6da7efe03927d",
+   "modules": [
+    "Projects"
+   ],
+   "n_test_paths": 4
+  },
+  {
+   "task_id": "be-10-4412aa58",
+   "repo": "litrev-backend",
+   "sha": "4412aa587dce650f6b116bcf7c0abafbd393247b",
+   "modules": [
+    "Projects"
+   ],
+   "n_test_paths": 4
+  }
+ ],
+ "balance": {
+  "litrev-backend": 6,
+  "litrev-frontend": 4
+ }
+}

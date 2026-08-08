@@ -1,0 +1,113 @@
+{
+  "agreement_file_target": 0,
+  "agreements_by_rule": [],
+  "config_kind": "import-linter",
+  "counts": {
+    "agreements": 0,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 0,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 0,
+    "native_findings_in_scope": 0,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 0,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": false,
+  "kinds": [
+    "K6"
+  ],
+  "language": "python",
+  "license": "AGPL-3.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/endurain-project__endurain/_limen_architecture.yaml --workspace /tmp/corpuswork/endurain-project__endurain --today 2026-08-04 --format json",
+    "exit_code": 0,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 22,
+  "native_only_file_target": 0,
+  "oracle": {
+    "analysis": {
+      "contracts_broken": 0,
+      "contracts_kept": 2,
+      "dependencies": 1304,
+      "files_analyzed": 309
+    },
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/ha-pylint/bin/lint-imports --config backend/.importlinter --no-cache",
+    "exit_code": 0,
+    "oracle_kind": "executed-native-tool",
+    "oracle_live": true,
+    "stderr_tail": "",
+    "tool": "import-linter"
+  },
+  "owner": "endurain-project",
+  "reason": null,
+  "repo": "endurain",
+  "rule_kinds": {
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-0": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-1": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-10": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-2": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-3": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-4": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-5": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-6": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-7": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-8": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-auth-internals-directly-9": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-0": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-1": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-10": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-2": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-3": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-4": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-5": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-6": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-7": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-8": "forbidden-target",
+    "il-auth-boundary-non-auth-must-not-import-low-level-auth-ownership-modules-directly-9": "forbidden-target"
+  },
+  "seconds": 0.5,
+  "seeded": {
+    "enabled": false,
+    "reason": "no injection strategy implemented for import-linter"
+  },
+  "sha": "2452ea6ad95b82fda1ad8a7f2429af771cb55767",
+  "stars": 2126,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "contracts_by_type": {
+      "forbidden": 2
+    },
+    "contracts_total": 2,
+    "ignore_imports_entries": 0,
+    "root_dir": "backend/app",
+    "root_packages": [
+      "auth",
+      "users",
+      "activities",
+      "core",
+      "followers",
+      "garmin",
+      "gears",
+      "health",
+      "notifications",
+      "server_settings",
+      "strava",
+      "websocket"
+    ],
+    "rules_emitted": 22,
+    "transitive_by_default": []
+  }
+}

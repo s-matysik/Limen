@@ -1,0 +1,82 @@
+version: 1
+project: limen
+
+roots:
+  limen: { path: src/limen, language: python }
+
+units:
+  discovery:
+    - { root: limen, pattern: "src/limen/{unit}/**" }
+  declared: [extract, facts, report, rules, spec]
+  registry_policy: exact
+
+public_surface:
+  python:
+    - "{unit}/__init__.py"
+
+unresolved_policy:
+  default: warn
+
+rules:
+  - id: rules-are-pure
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["src/limen/rules/**"] }
+    forbid: ["cli", "context", "report", "report.*", "extract", "extract.*", "engine"]
+    message: "Rule modules stay pure: no CLI, no reporting, no extractors, no engine."
+    remedy: "Pass data in through RuleContext instead of importing the shell."
+
+  - id: engine-does-not-import-extractors
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["src/limen/engine.py", "src/limen/context.py"] }
+    forbid: ["extract", "extract.*"]
+    message: "The core consumes facts; it never imports the extractors."
+    remedy: "Wire extractors in cli.py and hand a FactsIndex to the engine."
+
+  - id: context-does-not-import-report
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["src/limen/context.py"] }
+    forbid: ["report", "report.*"]
+    message: "The context generator is independent of the report emitters."
+    remedy: "Keep formatting concerns inside report/."
+
+  - id: extractors-do-not-know-rules
+    kind: forbidden-target
+    severity: error
+    scope: { paths: ["src/limen/extract/**"] }
+    forbid: ["rules", "rules.*", "engine", "context"]
+    message: "An extractor receives a root and files and returns facts; it never sees the rules."
+    remedy: "Move rule-aware logic into the engine."
+
+  - id: no-print-in-core
+    kind: pattern-ban
+    severity: error
+    scope:
+      roots: [limen]
+      include: ["src/limen/rules/**", "src/limen/engine.py", "src/limen/context.py"]
+    pattern: '\bprint\('
+    exempt_files: []
+    message: "Core modules do not print; the CLI owns stdout."
+    remedy: "Return data and let cli.py or report/ render it."
+
+  - id: shipped-schemas-present
+    kind: structure
+    severity: error
+    assert:
+      required_files:
+        - schemas/architecture-spec-1.json
+        - schemas/arch-facts-1.json
+        - schemas/finding-1.json
+    message: "The three published JSON schemas ship with the package."
+    remedy: "Restore the schema file; the loader and validators depend on it."
+
+  - id: module-size
+    kind: metric-threshold
+    severity: warning
+    metric: lines
+    scope: { include: ["src/limen/**/*.py"] }
+    max: 700
+    message: "Module exceeds the review threshold."
+    remedy: "Split the module."

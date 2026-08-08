@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": true,
+  "language": "python",
+  "license": "BSD-3-Clause",
+  "owner": "snorkel-marlin-repos",
+  "reason": "no directory in the tree holds the declared root package(s) ['napari']",
+  "repo": "napari_napari_pr_4464_ef312bd4-ad17-4f29-803b-373723d857a6",
+  "seconds": 0.0,
+  "sha": "93c8efe0e893968d91747fd7305d735bd20f5cae",
+  "stars": 0,
+  "status": "untranslatable-config"
+}

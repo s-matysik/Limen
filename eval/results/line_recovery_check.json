@@ -1,0 +1,53 @@
+{
+  "schema": "line-recovery-check/1",
+  "generated_at": "2026-08-06T22:23:57.008617+00:00",
+  "question": "Where both tools report a violation in the same file, do the recovered legacy line and limen's line coincide?",
+  "mutations_applied": [
+    "M-BE-02-admin-import",
+    "M-BE-03-foreign-application",
+    "M-BE-08-application-into-infrastructure",
+    "M-BE-10-support-module-import",
+    "M-BE-14-model-consumer",
+    "M-BE-15-forbidden-model",
+    "M-BE-16-notifications-domain-baseline",
+    "M-BE-17-notifications-mail-baseline",
+    "M-BE-18-module-application-allowlist",
+    "M-BE-20-shared-host-import",
+    "M-BE-21-shared-cross-module-concrete",
+    "M-FE-01-raw-success-data",
+    "M-FE-02-local-message-fallback",
+    "M-FE-03-console-log",
+    "M-FE-05-cross-module-deep-import"
+  ],
+  "excluded_files_with_preexisting_limen_findings": [
+    "litrev-arch-snapshot/litrev-backend/app/Modules/AdminUsers/Http/Controllers/UserController.php",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Projects/Http/Controllers/ProjectController.php",
+    "litrev-arch-snapshot/litrev-core-backend/src/Reviews/Http/Controllers/ReviewController.php"
+  ],
+  "counts": {
+    "legacy_located_findings": 15,
+    "limen_located_findings": 18,
+    "files_seen_by_both": 11,
+    "coordinates_agreeing": 13,
+    "legacy_only_in_shared_files": 0,
+    "limen_only_in_shared_files": 0
+  },
+  "agreeing": [
+    "litrev-arch-snapshot/backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php:5",
+    "litrev-arch-snapshot/backend-shared/src/Auth/Application/AuthAdminUserStateFacade.php:6",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Http/Controllers/FolderController.php:5",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Folders/Infrastructure/PermissionProfiles/PermissionProfileFolderGateway.php:5",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php:5",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Messages/Http/Controllers/TreeMessageController.php:6",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Profile/Http/Controllers/ProfileController.php:5",
+    "litrev-arch-snapshot/litrev-backend/app/Modules/Relationships/Application/MutantService.php:5",
+    "litrev-arch-snapshot/litrev-backend/app/Support/PolishAlphabet.php:5",
+    "litrev-arch-snapshot/litrev-frontend/src/modules/projects/pages/ProjectsPage.jsx:477",
+    "litrev-arch-snapshot/litrev-frontend/src/modules/schedule/hooks/useProjects.js:37",
+    "litrev-arch-snapshot/litrev-frontend/src/modules/schedule/pages/SchedulePage.jsx:402",
+    "litrev-arch-snapshot/litrev-frontend/src/shared/http/api-client.js:2"
+  ],
+  "legacy_only": [],
+  "limen_only": [],
+  "all_agree": true
+}

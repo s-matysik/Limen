@@ -1,0 +1,181 @@
+{
+  "attribution_method": {
+    "contested_legacy_lines": 5,
+    "legacy": "inventory line ranges per source file; lines claimed by rows of more than one kind, and rows whose kind is not a K-kind (engine infrastructure, spec roots, spec-validate integrity), go to 'shared infrastructure'; lines claimed by no row are split by position into 'shared helper machinery (unclaimed)' (between two claimed ranges of the same file) and 'file scaffolding (unclaimed)' (before the first or after the last claimed line)",
+    "spec": "a rule owns the YAML lines from its `- id:` to the line before the next `- id:`; the preamble (roots, extractors, units, layers, public_surface, artifact_sets, unresolved_policy) is 'shared infrastructure'"
+  },
+  "cross_checks": {
+    "legacy_code_matches_legacy_loc": true,
+    "legacy_rules_matches_inventory": true,
+    "legacy_total_matches_legacy_loc": true,
+    "limen_rules_matches_spec_loc": true,
+    "yaml_code_matches_spec_loc": true,
+    "yaml_total_matches_spec_loc": true
+  },
+  "differences": {
+    "agreements": 0,
+    "categories": {
+      "C1": "legacy false alarm removed",
+      "C2": "legacy gap closed",
+      "C3": "deliberate semantic change"
+    },
+    "legacy_findings_total": 0,
+    "legacy_only": 0,
+    "limen_findings_total": 11,
+    "limen_only": 3,
+    "out_of_scope_legacy": 0,
+    "out_of_scope_limen": 8,
+    "per_category": {
+      "C1": 0,
+      "C2": 3,
+      "C3": 0
+    },
+    "total": 3,
+    "unclassified": 0
+  },
+  "rows": [
+    {
+      "kind": "K1 layer-dependency",
+      "legacy_loc_code": 37,
+      "legacy_loc_total": 45,
+      "legacy_rules": 2,
+      "limen_rules": 4,
+      "yaml_loc_code": 32,
+      "yaml_loc_total": 46
+    },
+    {
+      "kind": "K2 ownership",
+      "legacy_loc_code": 35,
+      "legacy_loc_total": 39,
+      "legacy_rules": 2,
+      "limen_rules": 1,
+      "yaml_loc_code": 20,
+      "yaml_loc_total": 29
+    },
+    {
+      "kind": "K3 consumer-allowlist",
+      "legacy_loc_code": 62,
+      "legacy_loc_total": 69,
+      "legacy_rules": 2,
+      "limen_rules": 1,
+      "yaml_loc_code": 20,
+      "yaml_loc_total": 30
+    },
+    {
+      "kind": "K4 public-api-only",
+      "legacy_loc_code": 156,
+      "legacy_loc_total": 202,
+      "legacy_rules": 7,
+      "limen_rules": 3,
+      "yaml_loc_code": 35,
+      "yaml_loc_total": 58
+    },
+    {
+      "kind": "K5 scoped-allowlist",
+      "legacy_loc_code": 150,
+      "legacy_loc_total": 158,
+      "legacy_rules": 7,
+      "limen_rules": 5,
+      "yaml_loc_code": 61,
+      "yaml_loc_total": 106
+    },
+    {
+      "kind": "K6 forbidden-target",
+      "legacy_loc_code": 131,
+      "legacy_loc_total": 150,
+      "legacy_rules": 5,
+      "limen_rules": 6,
+      "yaml_loc_code": 78,
+      "yaml_loc_total": 109
+    },
+    {
+      "kind": "K7 baseline-snapshot",
+      "legacy_loc_code": 22,
+      "legacy_loc_total": 22,
+      "legacy_rules": 3,
+      "limen_rules": 3,
+      "yaml_loc_code": 38,
+      "yaml_loc_total": 58
+    },
+    {
+      "kind": "K8 pattern-ban",
+      "legacy_loc_code": 36,
+      "legacy_loc_total": 37,
+      "legacy_rules": 3,
+      "limen_rules": 4,
+      "yaml_loc_code": 52,
+      "yaml_loc_total": 76
+    },
+    {
+      "kind": "K9 structure",
+      "legacy_loc_code": 88,
+      "legacy_loc_total": 98,
+      "legacy_rules": 6,
+      "limen_rules": 5,
+      "yaml_loc_code": 50,
+      "yaml_loc_total": 74
+    },
+    {
+      "kind": "K10 metric-threshold",
+      "legacy_loc_code": 29,
+      "legacy_loc_total": 32,
+      "legacy_rules": 3,
+      "limen_rules": 4,
+      "yaml_loc_code": 49,
+      "yaml_loc_total": 56
+    },
+    {
+      "kind": "K11 reachability",
+      "legacy_loc_code": 0,
+      "legacy_loc_total": 0,
+      "legacy_rules": 0,
+      "limen_rules": 0,
+      "yaml_loc_code": 0,
+      "yaml_loc_total": 0
+    },
+    {
+      "kind": "shared infrastructure",
+      "legacy_loc_code": 216,
+      "legacy_loc_total": 260,
+      "legacy_rules": 7,
+      "limen_rules": 0,
+      "yaml_loc_code": 91,
+      "yaml_loc_total": 153
+    },
+    {
+      "kind": "shared helper machinery (unclaimed)",
+      "legacy_loc_code": 108,
+      "legacy_loc_total": 152,
+      "legacy_rules": 0,
+      "limen_rules": 0,
+      "yaml_loc_code": 0,
+      "yaml_loc_total": 0
+    },
+    {
+      "kind": "file scaffolding (unclaimed)",
+      "legacy_loc_code": 176,
+      "legacy_loc_total": 233,
+      "legacy_rules": 0,
+      "limen_rules": 0,
+      "yaml_loc_code": 0,
+      "yaml_loc_total": 0
+    }
+  ],
+  "schema": "study1-table/1",
+  "sources": {
+    "diff": "eval/results/study1_diff.json",
+    "inventory": "eval/legacy_rule_inventory.csv",
+    "legacy_loc": "eval/legacy_loc.json",
+    "spec": "/Users/sebastianmatysik/!!!!!Limen/workspace/architecture.yaml",
+    "spec_loc": "eval/spec_loc.json"
+  },
+  "totals": {
+    "kind": "TOTAL",
+    "legacy_loc_code": 1246,
+    "legacy_loc_total": 1497,
+    "legacy_rules": 47,
+    "limen_rules": 36,
+    "yaml_loc_code": 526,
+    "yaml_loc_total": 795
+  }
+}

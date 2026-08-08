@@ -1,0 +1,13 @@
+{
+  "config_kind": "import-linter",
+  "heldout": true,
+  "language": "python",
+  "license": "Apache-2.0",
+  "owner": "Open-MSS",
+  "reason": "no directory in the tree holds the declared root package(s) ['mslib']",
+  "repo": "MSS",
+  "seconds": 0.0,
+  "sha": "25ca3ae92eba71bc0ad537b7361e2130cfc66915",
+  "stars": 80,
+  "status": "untranslatable-config"
+}

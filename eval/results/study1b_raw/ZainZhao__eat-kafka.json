@@ -1,0 +1,166 @@
+{
+  "agreement_file_target": 6,
+  "agreements_by_rule": [
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:19:kafka.api.FetchRequest",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:20:kafka.api.FetchRequestBuilder",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:21:kafka.javaapi.FetchResponse",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:22:kafka.javaapi.consumer.SimpleConsumer",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:23:kafka.javaapi.message.ByteBufferMessageSet",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    },
+    {
+      "key": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/SimpleConsumerDemo.java:24:kafka.message.MessageAndOffset",
+      "limen_rule_id": "ic-kafka-examples",
+      "native_rule_id": "checkstyle:ImportControl"
+    }
+  ],
+  "config_kind": "import-control",
+  "counts": {
+    "agreements": 6,
+    "differences_limen_only": 0,
+    "differences_native_only": 0,
+    "differences_total": 0,
+    "limen_findings_in_scope": 6,
+    "limen_findings_out_of_scope": 0,
+    "limen_findings_total": 6,
+    "native_findings_in_scope": 6,
+    "native_findings_out_of_scope": 0,
+    "native_findings_total": 6,
+    "per_category": {
+      "C1": 0,
+      "C2": 0,
+      "C3": 0
+    },
+    "unclassified": 0
+  },
+  "differences": [],
+  "heldout": true,
+  "kinds": [
+    "K6"
+  ],
+  "language": "java",
+  "license": "Apache-2.0",
+  "limen": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-eval/bin/python3.13 -m limen.cli check --spec /tmp/corpuswork/ZainZhao__eat-kafka/_limen_architecture.yaml --workspace /tmp/corpuswork/ZainZhao__eat-kafka --today 2026-08-04 --format json",
+    "exit_code": 1,
+    "limen_src": "/Users/sebastianmatysik/!!!!!Limen/limen/src",
+    "stderr_tail": ""
+  },
+  "limen_only_file_target": 0,
+  "n_limen_rules": 1,
+  "native_only_file_target": 0,
+  "oracle": {
+    "command": "/Users/sebastianmatysik/.claude-science/conda/envs/limen-oracles/lib/jvm/bin/java -jar /Users/sebastianmatysik/!!!!!Limen/limen/eval/_scratch/tools/checkstyle-all.jar -c /tmp/corpuswork/_cs/ZainZhao__eat-kafka/cs.xml -p <2 source roots>",
+    "exit_code": 6,
+    "oracle_kind": "executed-native-tool",
+    "source_roots": [
+      "kafka-0.10.0.0-src/examples/src/main/java",
+      "kafka-2.4.0-src/examples/src/main/java"
+    ],
+    "stderr_tail": "Checkstyle ends with 6 errors.\n",
+    "tool": "checkstyle ImportControl"
+  },
+  "owner": "ZainZhao",
+  "reason": null,
+  "repo": "eat-kafka",
+  "rule_kinds": {
+    "ic-kafka-examples": "forbidden-target"
+  },
+  "seconds": 15.4,
+  "seeded": {
+    "both_detected": 1,
+    "enabled": true,
+    "injections": [
+      {
+        "injected_line": 18,
+        "limen_detected": true,
+        "native_detected": true,
+        "package": "kafka.examples",
+        "rel_path": "kafka-0.10.0.0-src/examples/src/main/java/kafka/examples/KafkaProperties.java",
+        "target": "kafka.api.FetchRequest"
+      }
+    ],
+    "limen_detected": 1,
+    "limen_exit": 1,
+    "n_injections": 1,
+    "native_detected": 1,
+    "native_exit": 7
+  },
+  "sha": "1903edc3f9eccd2912d0210e85c185124c26dc77",
+  "stars": 27,
+  "status": "ok",
+  "translation": {
+    "config_fetched_from_raw": false,
+    "coverage": {
+      "guards_covered": 19,
+      "guards_total": 19,
+      "scopes_covered": 4,
+      "scopes_total": 4,
+      "scopes_uncovered": 0,
+      "uncovered_reasons": []
+    },
+    "governed_package": "kafka",
+    "native_guards": 19,
+    "native_scopes": 4,
+    "packages_covered": 1,
+    "packages_skipped": 0,
+    "scope": {
+      "java_files_in_tree": 3179,
+      "limen_only_files": 0,
+      "limen_rule_scopes_cover": 9,
+      "native_only_files": 0,
+      "native_sees": 9,
+      "note": "counts, not a guarantee: `native_sees` is the file set checkstyle was invoked on; `limen_rule_scopes_cover` is the subset matched by at least one emitted rule scope. `native_only_files` are files the native tool checked that no limen rule scopes (their packages had no denied target, so no rule was emitted for them) and `limen_only_files` are files a rule scope matches outside the invoked roots. Both are potential sources of one-sided findings.",
+      "seen_by_both": 9
+    },
+    "source_roots": [
+      "kafka-0.10.0.0-src/examples/src/main/java",
+      "kafka-2.4.0-src/examples/src/main/java"
+    ],
+    "source_roots_not_governed": [
+      "kafka-0.10.0.0-src/clients/src/main/java",
+      "kafka-0.10.0.0-src/connect/api/src/main/java",
+      "kafka-0.10.0.0-src/connect/file/src/main/java",
+      "kafka-0.10.0.0-src/connect/json/src/main/java",
+      "kafka-0.10.0.0-src/connect/runtime/src/main/java",
+      "kafka-0.10.0.0-src/log4j-appender/src/main/java",
+      "kafka-0.10.0.0-src/streams/examples/src/main/java",
+      "kafka-0.10.0.0-src/streams/src/main/java",
+      "kafka-0.10.0.0-src/tools/src/main/java",
+      "kafka-2.4.0-src/clients/src/main/java",
+      "kafka-2.4.0-src/connect/api/src/main/java",
+      "kafka-2.4.0-src/connect/basic-auth-extension/src/main/java",
+      "kafka-2.4.0-src/connect/file/src/main/java",
+      "kafka-2.4.0-src/connect/json/src/main/java",
+      "kafka-2.4.0-src/connect/mirror-client/src/main/java",
+      "kafka-2.4.0-src/connect/mirror/src/main/java",
+      "kafka-2.4.0-src/connect/runtime/src/main/java",
+      "kafka-2.4.0-src/connect/transforms/src/main/java",
+      "kafka-2.4.0-src/generator/src/main/java",
+      "kafka-2.4.0-src/jmh-benchmarks/src/main/java",
+      "kafka-2.4.0-src/log4j-appender/src/main/java",
+      "kafka-2.4.0-src/streams/examples/src/main/java",
+      "kafka-2.4.0-src/streams/src/main/java",
+      "kafka-2.4.0-src/streams/test-utils/src/main/java",
+      "kafka-2.4.0-src/tools/src/main/java"
+    ]
+  }
+}

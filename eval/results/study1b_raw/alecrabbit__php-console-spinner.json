@@ -1,0 +1,13 @@
+{
+  "config_kind": "deptrac",
+  "heldout": true,
+  "language": "php",
+  "license": "MIT",
+  "owner": "alecrabbit",
+  "reason": "no `layers:` in this file",
+  "repo": "php-console-spinner",
+  "seconds": 0.0,
+  "sha": "d05a8606f41b88c60ac2bd052157748b824ba668",
+  "stars": 240,
+  "status": "untranslatable-config"
+}

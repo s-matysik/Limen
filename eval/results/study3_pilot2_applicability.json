@@ -1,0 +1,722 @@
+{
+ "L1-be-01-notif-domain": {
+  "repo": "litrev-backend",
+  "parent_sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+  "today": "2026-04-30",
+  "parent_errors_total": 18,
+  "n_heldout_applicable": 14,
+  "precondition_met": true,
+  "target_rule_id": "notifications-domain-baseline",
+  "target_rule_side": "shown",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 4,
+    "scoped_files_on_parent": 32,
+    "applicable": true
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 508,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 225,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 2,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 219,
+    "applicable": true
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 20,
+    "applicable": true
+   }
+  }
+ },
+ "L1-be-02-notif-domain-harmonogram": {
+  "repo": "litrev-backend",
+  "parent_sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+  "today": "2026-04-30",
+  "parent_errors_total": 18,
+  "n_heldout_applicable": 14,
+  "precondition_met": true,
+  "target_rule_id": "notifications-domain-baseline",
+  "target_rule_side": "shown",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 4,
+    "scoped_files_on_parent": 32,
+    "applicable": true
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 508,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 225,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 2,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 219,
+    "applicable": true
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 20,
+    "applicable": true
+   }
+  }
+ },
+ "L1-be-03-messages-allowlist": {
+  "repo": "litrev-backend",
+  "parent_sha": "633e476ba5cb6e33e7477f9c8ce463b22e48a819",
+  "today": "2026-04-30",
+  "parent_errors_total": 18,
+  "n_heldout_applicable": 14,
+  "precondition_met": true,
+  "target_rule_id": "notifications-application-messages-allowlist",
+  "target_rule_side": "shown",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 4,
+    "scoped_files_on_parent": 32,
+    "applicable": true
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 508,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 225,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 2,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 219,
+    "applicable": true
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 283,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 20,
+    "applicable": true
+   }
+  }
+ },
+ "L1-fe-04-message-fallback": {
+  "repo": "litrev-frontend",
+  "parent_sha": "90f87301c69785f173aa1279324ea718a9d01a50",
+  "today": "2026-03-22",
+  "parent_errors_total": 20,
+  "n_heldout_applicable": 11,
+  "precondition_met": true,
+  "target_rule_id": "local-message-fallback",
+  "target_rule_side": "shown",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 63,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 0,
+    "applicable": true
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 38,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 2,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 0,
+    "applicable": true
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 2,
+    "applicable": true
+   }
+  }
+ },
+ "L1-fe-05-raw-response-data": {
+  "repo": "litrev-frontend",
+  "parent_sha": "90f87301c69785f173aa1279324ea718a9d01a50",
+  "today": "2026-03-22",
+  "parent_errors_total": 20,
+  "n_heldout_applicable": 11,
+  "precondition_met": true,
+  "target_rule_id": "raw-success-response-data",
+  "target_rule_side": "heldout",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 63,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 0,
+    "applicable": true
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 38,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 2,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 25,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 0,
+    "applicable": true
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 2,
+    "applicable": true
+   }
+  }
+ },
+ "L1-fe-06-oversized-page": {
+  "repo": "litrev-frontend",
+  "parent_sha": "40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c",
+  "today": "2026-05-18",
+  "parent_errors_total": 1,
+  "n_heldout_applicable": 14,
+  "precondition_met": true,
+  "target_rule_id": "oversized-page-file",
+  "target_rule_side": "heldout",
+  "per_rule": {
+   "admin-http-notifications-application-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 32,
+    "applicable": true
+   },
+   "application-not-into-infrastructure": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 383,
+    "applicable": true
+   },
+   "file-size": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 559,
+    "applicable": true
+   },
+   "frontend-agents-doc-present": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "frontend-shared-not-into-auth": {
+    "kind": "layer-dependency",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 176,
+    "applicable": true
+   },
+   "host-cross-module-public-surface": {
+    "kind": "public-api-only",
+    "fires_on_parent": 1,
+    "scoped_files_on_parent": 112,
+    "applicable": true
+   },
+   "host-into-core-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 376,
+    "applicable": true
+   },
+   "model-consumers": {
+    "kind": "consumer-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 105,
+    "applicable": true
+   },
+   "modules-have-no-local-deployment": {
+    "kind": "structure",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "modules-not-into-admin": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 87,
+    "applicable": true
+   },
+   "no-debug-dd": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 383,
+    "applicable": true
+   },
+   "no-direct-permissionprofile-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 4,
+    "applicable": true
+   },
+   "no-direct-relationshiprequest-model": {
+    "kind": "forbidden-target",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 2,
+    "applicable": true
+   },
+   "notifications-mail-baseline": {
+    "kind": "baseline-snapshot",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 105,
+    "applicable": true
+   },
+   "oversized-page-file": {
+    "kind": "metric-threshold",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "raw-success-response-data": {
+    "kind": "pattern-ban",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 0,
+    "applicable": false
+   },
+   "relationships-application-relationshiprequests-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 2,
+    "applicable": true
+   },
+   "support-and-models-module-import-allowlist": {
+    "kind": "scoped-allowlist",
+    "fires_on_parent": 0,
+    "scoped_files_on_parent": 22,
+    "applicable": true
+   }
+  }
+ }
+}

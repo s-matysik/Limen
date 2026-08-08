@@ -1,0 +1,144 @@
+{
+  "delta_vs_plan_code_lines": -5,
+  "delta_vs_plan_total_lines": 246,
+  "litrev_root": "/Users/sebastianmatysik/!!!!!Limen/LitRev",
+  "per_file": [
+    {
+      "code_lines": 199,
+      "language": "php",
+      "non_blank_lines": 199,
+      "path": "litrev-backend-main/config/architecture.php",
+      "source_group": "backend_config",
+      "total_lines": 210
+    },
+    {
+      "code_lines": 16,
+      "language": "php",
+      "non_blank_lines": 33,
+      "path": "backend-shared-main/config/architecture.php",
+      "source_group": "backend_shared_config",
+      "total_lines": 36
+    },
+    {
+      "code_lines": 45,
+      "language": "php",
+      "non_blank_lines": 46,
+      "path": "litrev-backend-main/tests/Architecture/AdminBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 55
+    },
+    {
+      "code_lines": 50,
+      "language": "php",
+      "non_blank_lines": 50,
+      "path": "litrev-backend-main/tests/Architecture/ApplicationBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 64
+    },
+    {
+      "code_lines": 94,
+      "language": "php",
+      "non_blank_lines": 95,
+      "path": "litrev-backend-main/tests/Architecture/ArchitectureRulesTestCase.php",
+      "source_group": "backend_tests",
+      "total_lines": 124
+    },
+    {
+      "code_lines": 56,
+      "language": "php",
+      "non_blank_lines": 56,
+      "path": "litrev-backend-main/tests/Architecture/DeploymentBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 67
+    },
+    {
+      "code_lines": 27,
+      "language": "php",
+      "non_blank_lines": 27,
+      "path": "litrev-backend-main/tests/Architecture/HttpBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 34
+    },
+    {
+      "code_lines": 78,
+      "language": "php",
+      "non_blank_lines": 78,
+      "path": "litrev-backend-main/tests/Architecture/LayerBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 94
+    },
+    {
+      "code_lines": 95,
+      "language": "php",
+      "non_blank_lines": 95,
+      "path": "litrev-backend-main/tests/Architecture/ModelOwnershipRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 117
+    },
+    {
+      "code_lines": 55,
+      "language": "php",
+      "non_blank_lines": 55,
+      "path": "litrev-backend-main/tests/Architecture/ModuleBoundaryBaselineRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 68
+    },
+    {
+      "code_lines": 17,
+      "language": "php",
+      "non_blank_lines": 17,
+      "path": "litrev-backend-main/tests/Architecture/ModuleContractRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 20
+    },
+    {
+      "code_lines": 103,
+      "language": "php",
+      "non_blank_lines": 103,
+      "path": "litrev-backend-main/tests/Architecture/SharedBoundaryRulesTest.php",
+      "source_group": "backend_tests",
+      "total_lines": 133
+    },
+    {
+      "code_lines": 411,
+      "language": "js",
+      "non_blank_lines": 411,
+      "path": "litrev-frontend-main/scripts/audit-frontend-architecture.mjs",
+      "source_group": "frontend_audit",
+      "total_lines": 475
+    }
+  ],
+  "per_group": {
+    "backend_config": {
+      "code_lines": 199,
+      "files": 1,
+      "non_blank_lines": 199,
+      "total_lines": 210
+    },
+    "backend_shared_config": {
+      "code_lines": 16,
+      "files": 1,
+      "non_blank_lines": 33,
+      "total_lines": 36
+    },
+    "backend_tests": {
+      "code_lines": 620,
+      "files": 10,
+      "non_blank_lines": 622,
+      "total_lines": 776
+    },
+    "frontend_audit": {
+      "code_lines": 411,
+      "files": 1,
+      "non_blank_lines": 411,
+      "total_lines": 475
+    }
+  },
+  "plan_claim_total_loc": 1251,
+  "totals": {
+    "code_lines": 1246,
+    "files": 13,
+    "non_blank_lines": 1265,
+    "total_lines": 1497
+  }
+}

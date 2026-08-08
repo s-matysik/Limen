@@ -1,0 +1,35 @@
+repo	sha	parent_sha	date	mod_files	tests_in_commit	module_tests_at_parent	subject
+litrev-backend	2334481038696bc0b44b6e9a0e340351cbafaf17	2e622d7b2e62415301dd909d17067614ffe16174	2026-06-05	1	0	45	fix(arch): add missing Notifications/Application directory
+litrev-backend	f3708851ff66f68355d3809eb89b1e5e6c0cb571	7446fc5ab2b21ceeb4f329523bde71eeee47413f	2026-05-22	1	0	45	feat(projects): GET /api/projects/managers endpoint
+litrev-backend	53a9a9890b3b037696976868e17e5e90982a4bd2	d1750eb86151659bfecdf66e34b4ae762b6665ec	2026-05-22	1	0	45	fix(users): export CSV — use buffered response instead of streamDownload
+litrev-backend	d1750eb86151659bfecdf66e34b4ae762b6665ec	75a00e9aa4de8289c85c2ce047572df9acbe4ca0	2026-05-21	1	0	45	feat(auth): impersonation flag in /api/me response
+litrev-backend	75a00e9aa4de8289c85c2ce047572df9acbe4ca0	4d603e8c8b842c5fa4dbb70240bc5adb51899a36	2026-05-21	1	0	45	feat(users): bulk send_email action + UserManagementDemoSeeder
+litrev-backend	4d603e8c8b842c5fa4dbb70240bc5adb51899a36	566a218d712f84288cd9f685fae6da7efe03927d	2026-05-21	1	0	45	LitRev: zarządzanie użytkownikami — migracja department/2FA, nowe endpointy
+litrev-backend	566a218d712f84288cd9f685fae6da7efe03927d	325dce813a9c0badd64073ae598ea67fd4638cfd	2026-05-20	1	0	45	LitRev: endpoint GET /api/projects/owners dla filtra właściciela
+litrev-backend	4412aa587dce650f6b116bcf7c0abafbd393247b	6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248	2026-05-20	1	0	45	LitRev: backend CRUD projektów — migracje, model, controller, seeder
+litrev-backend	6deb7853f25cd0e4ba1dc24fb21d0de24a0d0248	37c0dc18fabf78ca5b140b1689828f445acc8e14	2026-05-18	3	3	45	Dodanie ekstrakcji pdf-ow w przegladzie literatury.
+litrev-backend	37c0dc18fabf78ca5b140b1689828f445acc8e14	e46ee9bf64da824630f358191a1c4db6fb38d661	2026-05-17	1	1	44	Dodawanie i edycja przegladow literatury
+litrev-backend	e46ee9bf64da824630f358191a1c4db6fb38d661	67cef387c0be1ed85683f1e7ef3915baac07da99	2026-05-16	2	1	43	Dodanie serwera plikow
+litrev-backend	67cef387c0be1ed85683f1e7ef3915baac07da99	8e005bf06045dc7eaa4bbf431b7a1ec648320a47	2026-05-10	9	0	43	dodanie hostowych adapterów persystencji dla shared
+litrev-backend	8e005bf06045dc7eaa4bbf431b7a1ec648320a47	46bbf69228e9dc6248041f4f5612b8033ebd0760	2026-05-10	260	29	43	Wydzielenie biblioteki
+litrev-backend	46bbf69228e9dc6248041f4f5612b8033ebd0760	633e476ba5cb6e33e7477f9c8ce463b22e48a819	2026-05-07	92	11	37	Komentarze
+litrev-backend	633e476ba5cb6e33e7477f9c8ce463b22e48a819	bf64942deaef1d130ebfd93b50ff2007616c029d	2026-04-30	33	2	35	Harmonogram
+litrev-backend	bf64942deaef1d130ebfd93b50ff2007616c029d	eab22e210faf3d1e5ea079c8607c164fc135c2fe	2026-04-26	53	3	35	Dodanie opcji w menu Projekty
+litrev-backend	eab22e210faf3d1e5ea079c8607c164fc135c2fe	b2a70b496cf6578ebd619b58ce6fe442ec34d8e2	2026-04-20	192	33	22	Obsługa folderów oraz zmiana projektu na modularny monolit
+litrev-frontend	3325b41adab40ed2f567ec99c03c8fc4808bd4ff	3077fff283ee879b07377b0fdc534dc66b53c6ae	2026-06-05	3	0	21	refactor(projects-view): extract DocumentsPanel, add module README
+litrev-frontend	3077fff283ee879b07377b0fdc534dc66b53c6ae	479f8ab6531714c1a36fb2085c949071f9f49bba	2026-05-22	2	1	21	fix(ui): avatar test scope, remove unused var, useCallback dep
+litrev-frontend	479f8ab6531714c1a36fb2085c949071f9f49bba	a35eba69d8c1c5c47179363e6346c328c20c2d24	2026-05-22	1	0	21	fix(projects): share form labels "projekt" instead of "katalog"
+litrev-frontend	a35eba69d8c1c5c47179363e6346c328c20c2d24	aa28e0dddfb6240361c6d886287c5931ff3b68e6	2026-05-22	3	0	21	fix(projects): menu portal, share wiring, manager filter, i18n
+litrev-frontend	210a7b28936c813c05e5a1a38e6d5fc40428a8b9	af922b9fbe6fbd5a90a2bc434cf621fba8041372	2026-05-20	7	0	21	litrev-frontend: pełne i18n PL/EN — statusy, daty, formularze, tooltips
+litrev-frontend	af922b9fbe6fbd5a90a2bc434cf621fba8041372	5859c0b22d31ed616ff3f56816d72dc253bf3651	2026-05-20	6	0	21	litrev-frontend: i18n PL/EN, language switcher, bugfix profili uprawnień, filtr właściciela
+litrev-frontend	5859c0b22d31ed616ff3f56816d72dc253bf3651	02bab673fbb343b37670c35260917daabb7638b6	2026-05-20	2	0	21	litrev-frontend: auto-folder dla nowych projektów, Basic nawigacja folderów
+litrev-frontend	02bab673fbb343b37670c35260917daabb7638b6	40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c	2026-05-20	13	0	21	litrev-frontend: widok Projektów — Basic/Advanced, CRUD, Documents, i18n
+litrev-frontend	40e68718f03bae0ef9d9b7fb55e9f6d52cdc422c	5ee315fcc674c2f32c905be4990a071bd58931ed	2026-05-18	4	0	21	Dodanie ekstrakcji pdf-ow w przegladzie literatury.
+litrev-frontend	5ee315fcc674c2f32c905be4990a071bd58931ed	09694ded0797aaed750db46b5d187b07d7f24587	2026-05-17	1	1	21	Poprawienie bledow interfejsu. Usuniecie bledu wyniklego z testow.
+litrev-frontend	09694ded0797aaed750db46b5d187b07d7f24587	7080f4aa628ae66903aaab18254c578d429d46c5	2026-05-17	1	0	21	Poprawienie bledow interfejsu. Dodanie sciezki do projektu zawierajacej czesc specyficzna aplikacji.
+litrev-frontend	7080f4aa628ae66903aaab18254c578d429d46c5	c20944bc7aaec469d4c5caf8ffcd680e7e6475cb	2026-05-16	14	4	23	Dodanie serwera plikow
+litrev-frontend	c20944bc7aaec469d4c5caf8ffcd680e7e6475cb	afe6fe4904fa0cf34045cb0620e697955c2c9807	2026-05-13	129	30	46	Wydzielenie biblioteki
+litrev-frontend	afe6fe4904fa0cf34045cb0620e697955c2c9807	0d9b9cc784113530b95a25b7c0fa4f97f8479fb5	2026-05-07	52	11	37	Komentarze
+litrev-frontend	0d9b9cc784113530b95a25b7c0fa4f97f8479fb5	feed536182c5c8dc844310537bc0c6cb8b6b4a4a	2026-04-30	29	2	35	Harmonogram
+litrev-frontend	feed536182c5c8dc844310537bc0c6cb8b6b4a4a	82915ff2c474b86f989f2fbfd5d3008eb46e6d5e	2026-04-26	55	10	32	Dodanie opcji w menu Projekty
+litrev-frontend	82915ff2c474b86f989f2fbfd5d3008eb46e6d5e	c1d3e42430d02b38b7d43f0041b1024e37d513bc	2026-04-20	160	31	11	Obsługa folderów oraz zmiana projektu na modularny monolit
