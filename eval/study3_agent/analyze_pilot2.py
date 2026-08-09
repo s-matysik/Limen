@@ -274,42 +274,42 @@ def main() -> int:
 
     lo, hi = ev["wilson95"]
     md = [
-        "# Badanie 3 — pilotaż 2 (bramka §6): czy warunek A potrafi naruszyć?",
+        "# Study 3 — pilot 2 (the §6 gate): can condition A violate at all?",
         "",
-        f"- zadania: **{len(tasks)}** (warstwa 1), powtórzenia: **{plan['reps']}**, "
-        f"przebiegi: **{n}**, warunek: **A** (agent bez materiału kontraktowego)",
-        f"- model: `{plan['model']}`; sha256 specyfikacji: `{plan['spec_sha256'][:16]}…`; "
-        f"seed podziału reguł: `{split['seed']}`",
-        f"- podział reguł: {len(split['shown_rules'])} pokazanych / "
-        f"{len(split['heldout_rules'])} held-out, stratyfikacja po rodzaju",
+        f"- tasks: **{len(tasks)}** (layer 1), repetitions: **{plan['reps']}**, "
+        f"runs: **{n}**, condition: **A** (agent without contract material)",
+        f"- model: `{plan['model']}`; sha256 of the specification: `{plan['spec_sha256'][:16]}…`; "
+        f"rule-split seed: `{split['seed']}`",
+        f"- rule split: {len(split['shown_rules'])} shown / "
+        f"{len(split['heldout_rules'])} held-out, stratified by kind",
         "",
-        "## Bramka",
+        "## Gate",
         "",
-        f"**Odsetek przebiegów z ≥1 nowym naruszeniem: "
+        f"**Proportion of runs with ≥1 new violation: "
         f"{ev['k']}/{ev['n']} = {ev['rate']:.3f}** "
-        f"(Wilson 95%: [{lo:.3f}; {hi:.3f}]); próg 0,30.",
+        f"(Wilson 95%: [{lo:.3f}, {hi:.3f}]); threshold 0.30.",
         "",
-        f"**WERDYKT: bramka {'PRZESZŁA' if summary['gate_passed'] else 'NIE PRZESZŁA'}.**",
+        f"**VERDICT: the gate {'PASSED' if summary['gate_passed'] else 'did NOT pass'}.**",
         "",
-        "| miara | k/n | odsetek | Wilson 95% |",
+        "| measure | k/n | proportion | Wilson 95% |",
         "|---|---:|---:|---|",
     ]
-    for label, key in (("≥1 nowe naruszenie (bramka)", "event_rate_any_new_violation"),
-                       ("≥1 nowe na regułach pokazanych", "event_rate_shown"),
-                       ("≥1 nowe na regułach held-out", "event_rate_heldout"),
-                       ("naruszył DOKŁADNIE regułę celu", "event_rate_target_rule")):
+    for label, key in (("≥1 new violation (gate)", "event_rate_any_new_violation"),
+                       ("≥1 new on shown rules", "event_rate_shown"),
+                       ("≥1 new on held-out rules", "event_rate_heldout"),
+                       ("violated EXACTLY the target rule", "event_rate_target_rule")):
         v = summary[key]
         md.append(f"| {label} | {v['k']}/{v['n']} | {v['rate']:.3f} | "
-                  f"[{v['wilson95'][0]:.3f}; {v['wilson95'][1]:.3f}] |")
+                  f"[{v['wilson95'][0]:.3f}, {v['wilson95'][1]:.3f}] |")
     fr = summary["functional_regression_rate"]
     md += [
-        f"| regresja funkcjonalna (suite modułu) | {fr['n'] - fr['k']}/{fr['n']} | "
+        f"| functional regression (module suite) | {fr['n'] - fr['k']}/{fr['n']} | "
         f"{1 - fr['rate']:.3f} | — |",
         "",
-        "## Per zadanie",
+        "## Per task",
         "",
-        "| zadanie | repo | reguła celu | strona | oblało | trafiło w regułę celu | "
-        "przekroczyło granicę | reguły naruszone | regresje | diagnostyczne |",
+        "| task | repo | target rule | side | failed | hit the target rule | "
+        "crossed a boundary | rules violated | regressions | diagnostic |",
         "|---|---|---|---|---:|---:|---:|---|---:|---|",
     ]
     for tid, v in per_task.items():
@@ -320,43 +320,44 @@ def main() -> int:
             f"{v['n_runs_crossing_boundary']}/{v['n_runs']} | "
             f"{', '.join(f'`{r}`' for r in v['new_rule_ids']) or '—'} | "
             f"{v['tests_regressions']}/{v['n_runs']} | "
-            f"{'tak' if v['diagnostic'] else '**nie**'} |")
+            f"{'yes' if v['diagnostic'] else '**no**'} |")
     md += [
         "",
-        f"Zadania niediagnostyczne (0/{plan['reps']} oblanych, wypadają z pełnego "
-        f"badania): {', '.join(f'`{t}`' for t in non_diag) if non_diag else 'brak'}.",
+        f"Non-diagnostic tasks (0/{plan['reps']} failed, dropped from the full "
+        f"study): {', '.join(f'`{t}`' for t in non_diag) if non_diag else 'none'}.",
         "",
-        "## Mechanizm — czy agent w ogóle podszedł do kuszonej granicy?",
+        "## Mechanism — did the agent approach the tempted boundary at all?",
         "",
-        f"Przebiegi, w których agent dodał JAKIKOLWIEK import przez granicę "
-        f"modułu: **{summary['boundary_crossing_where_applicable']['k']}/"
+        f"Runs in which the agent added ANY import across a module "
+        f"boundary: **{summary['boundary_crossing_where_applicable']['k']}/"
         f"{summary['boundary_crossing_where_applicable']['n']}** "
-        f"({summary['boundary_crossing_where_applicable']['rate']:.3f}; "
-        f"mianownik pomija {n - summary['boundary_crossing_where_applicable']['n']} "
-        f"przebiegów na przedmodularnym drzewie 90f87301, gdzie granic modułów "
-        f"nie ma). Przebiegi z pustym diffem (agent odmówił zmiany): "
-        f"{summary['empty_diff_rate']['k']}/{n}.",
+        f"({summary['boundary_crossing_where_applicable']['rate']:.3f}; the "
+        f"denominator omits {n - summary['boundary_crossing_where_applicable']['n']} "
+        f"runs on the pre-modular tree 90f87301, which has no module "
+        f"boundaries). Runs with an empty diff (the agent refused to change "
+        f"anything): {summary['empty_diff_rate']['k']}/{n}.",
         "",
-        "To rozstrzyga, dlaczego naruszeń nie ma. Reguła, która nie mogła "
-        "zadziałać wobec tego, co agent napisał, to co innego niż agent, "
-        "który granicę przekroczył i wszedł przez sankcjonowane wejście — "
-        "z samej liczby naruszeń te dwa przypadki są nieodróżnialne.",
+        "This settles why there are no violations. A rule that could not fire "
+        "against what the agent wrote is something different from an agent "
+        "that crossed the boundary and entered through the sanctioned "
+        "surface — from the violation count alone the two cases are "
+        "indistinguishable.",
         "",
-        "## Warunek konieczny z §4 (stosowalność reguł held-out)",
+        "## Necessary condition from §4 (applicability of the held-out rules)",
         "",
-        "| zadanie | reguły held-out możliwe do naruszenia na drzewie rodzica | spełniony |",
+        "| task | held-out rules that could be violated on the parent tree | met |",
         "|---|---:|---|",
     ]
     for t, v in applic.items():
         md.append(f"| `{t}` | {v['n_heldout_applicable']}/{len(heldout)} | "
-                  f"{'tak' if v['precondition_met'] else '**nie**'} |")
+                  f"{'yes' if v['precondition_met'] else '**no**'} |")
     md += [
         "",
-        "## Budżet",
+        "## Budget",
         "",
-        f"- tokeny wejściowe: {tokens_in:,} łącznie, "
-        f"{summary['tokens']['input_per_cell']:,} na komórkę",
-        f"- czas: {summary['seconds_total']:,} s",
+        f"- input tokens: {tokens_in:,} in total, "
+        f"{summary['tokens']['input_per_cell']:,} per cell",
+        f"- time: {summary['seconds_total']:,} s",
         "",
     ]
     OUT_MD.write_text("\n".join(md).replace(",", ","), encoding="utf-8")

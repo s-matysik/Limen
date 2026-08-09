@@ -74,6 +74,10 @@ from pathlib import Path
 # C3 — the architecture lexicon.  A prompt containing any of these leaks the
 # contract into condition A and destroys the design, so it is a hard gate.
 # Matched case-insensitively as substrings on the rewritten prompt.
+# The list is deliberately bilingual: the commit messages of the studied
+# repositories are written in Polish, so the Polish stems below are gate data
+# and must not be translated — removing them would let architecture vocabulary
+# through the gate.
 # --------------------------------------------------------------------------- #
 ARCH_LEXICON = [
     # layer names (en + pl)

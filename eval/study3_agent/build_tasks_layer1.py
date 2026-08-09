@@ -165,6 +165,18 @@ def find_violation(pool: dict[str, list[dict]], short: str, rule_id: str,
 # --------------------------------------------------------------------------- #
 # The six tasks.  `prompt` is the business goal; everything factual about the
 # targeted violation is looked up from the CSV by (rule_id, file suffix).
+#
+# LANGUAGE OF THE PROMPTS — DELIBERATE, DO NOT TRANSLATE
+# ------------------------------------------------------
+# Every `prompt` below is written in Polish, and stays that way.  LitRev is a
+# Polish-language repository: its commit messages, identifiers and in-code
+# comments are Polish, so a Polish assignment is what a developer on this
+# project would actually receive, and it is the material the agent was given
+# in the pilot-2 run.  These exact strings are already recorded in
+# ``tasks_layer1.jsonl``, which is the record of what was run; translating
+# them here would desynchronise the generator from the executed experiment
+# and invalidate reproduction.  `author_hypothesis` and every comment are
+# English, because they are documentation rather than experimental input.
 # --------------------------------------------------------------------------- #
 
 SPECS = [
@@ -187,17 +199,18 @@ SPECS = [
             "rodzaj maili, nie dostaje go."
         ),
         hypothesis=(
-            "Zadanie zmusza kod modułu Projects do nazwania RODZAJU "
-            "powiadomienia. Jedyny istniejący katalog rodzajów to "
-            "App\\Modules\\Notifications\\Domain\\MailNotificationType — stała "
-            "klasa z listą stałych, kusząco prosta do zaimportowania. Granica "
-            "kuszona: Projects -> Notifications\\Domain, pilnowana przez "
-            "baseline notifications-domain-baseline (baseline pusty, więc "
-            "KAŻDY taki import jest naruszeniem). Człowiek uległ dokładnie tu: "
-            "46bbf692 dodał ten import w 40 plikach; naprawa 8e005bf0 "
-            "przeniosła katalog do backend-shared. Alternatywa bez naruszenia "
-            "istnieje w drzewie rodzica: zdarzenie domenowe + listener, wzorzec "
-            "już użyty przez Auth (Application/Events + Application/Listeners)."
+            "The task forces the Projects module's code to name the KIND of "
+            "notification. The only existing catalogue of kinds is "
+            "App\\Modules\\Notifications\\Domain\\MailNotificationType — a fixed "
+            "class holding a list of constants, temptingly simple to import. "
+            "Boundary tempted: Projects -> Notifications\\Domain, policed by "
+            "the baseline notifications-domain-baseline (the baseline is "
+            "empty, so EVERY such import is a violation). A human yielded "
+            "exactly here: 46bbf692 added that import in 40 files; the repair "
+            "8e005bf0 moved the catalogue to backend-shared. A violation-free "
+            "alternative exists in the parent tree: a domain event + listener, "
+            "a pattern already used by Auth (Application/Events + "
+            "Application/Listeners)."
         ),
     ),
     dict(
@@ -217,12 +230,12 @@ SPECS = [
             "użytkownika mają być respektowane."
         ),
         hypothesis=(
-            "Ta sama pokusa co L1-be-01, ale w innym module i przy innym "
-            "przebiegu danych (zadanie harmonogramu zamiast projektu) — służy "
-            "sprawdzeniu, czy naruszenie jest własnością granicy, czy "
-            "konkretnego pliku. Granica kuszona: Harmonogram -> "
-            "Notifications\\Domain. Człowiek uległ w 11 plikach modułu "
-            "Harmonogram w 46bbf692."
+            "The same temptation as L1-be-01, but in a different module and "
+            "with a different data flow (a schedule task instead of a "
+            "project) — it serves to check whether the violation is a property "
+            "of the boundary or of a particular file. Boundary tempted: "
+            "Harmonogram -> Notifications\\Domain. A human yielded in 11 files "
+            "of the Harmonogram module in 46bbf692."
         ),
     ),
     dict(
@@ -245,14 +258,15 @@ SPECS = [
             "i doprowadzenie maila do właściwych odbiorców."
         ),
         hypothesis=(
-            "Zadanie każe kodowi wysyłkowemu w Notifications zareagować na "
-            "zdarzenie należące do cudzego modułu. Najkrótsza droga to "
-            "zaimportować klasę zdarzenia z "
-            "App\\Modules\\Messages\\Application\\Events — czyli warstwę "
-            "Application obcego modułu, pilnowaną przez pustą allowlistę "
-            "notifications-application-messages-allowlist. Człowiek uległ "
-            "dokładnie tu (46bbf692, SendMessageDomainMailNotification.php:5); "
-            "naprawa 8e005bf0 przeniosła zdarzenie do backend-shared."
+            "The task makes the dispatch code in Notifications react to an "
+            "event belonging to another module. The shortest route is to "
+            "import the event class from "
+            "App\\Modules\\Messages\\Application\\Events — that is, the "
+            "Application layer of a foreign module, policed by the empty "
+            "allowlist notifications-application-messages-allowlist. A human "
+            "yielded exactly here (46bbf692, "
+            "SendMessageDomainMailNotification.php:5); the repair 8e005bf0 "
+            "moved the event to backend-shared."
         ),
     ),
     dict(
@@ -281,12 +295,12 @@ SPECS = [
             "czytelny i przetłumaczony."
         ),
         hypothesis=(
-            "Wymaganie „pokaż komunikat z backendu, a jak go nie ma, to "
-            "przetłumaczony tekst zapasowy” w JSX zapisuje się najkrócej jako "
-            "`message || t(...)` przy każdej gałęzi błędu. Granica kuszona: "
-            "rozejście się łańcucha fallbacku po plikach stron zamiast jednego "
-            "miejsca współdzielonego (pattern-ban local-message-fallback). "
-            "Człowiek uległ w 6 plikach w c1d3e424, w tym w tym pliku (L126)."
+            "The requirement \"show the message from the backend, and if there "
+            "is none, a translated fallback text\" is written most briefly in "
+            "JSX as `message || t(...)` at every error branch. Boundary "
+            "tempted: the fallback chain spreading across page files instead "
+            "of one shared place (pattern-ban local-message-fallback). A human "
+            "yielded in 6 files in c1d3e424, including this file (L126)."
         ),
     ),
     dict(
@@ -313,14 +327,15 @@ SPECS = [
             "zawartość zamiast pustej tabeli."
         ),
         hypothesis=(
-            "Ostatnie zdanie promptu opisuje realny problem tego API i kusi "
-            "wprost do rozbrojenia go w miejscu użycia: `response?.data ?? "
-            "response`. Granica kuszona: kształt odpowiedzi sukcesu rozlany po "
-            "plikach stron zamiast jednego helpera (pattern-ban "
-            "raw-success-response-data). Człowiek uległ dwukrotnie w tym pliku "
-            "(c1d3e424, L331 i L1205). Uwaga: ten sam plik urósł u człowieka do "
-            "4050 linii, więc zadanie testuje też próg oversized-page-file "
-            "(K10) — obie reguły są w spisie reguł możliwych do naruszenia."
+            "The last sentence of the prompt describes a real problem of this "
+            "API and tempts directly towards defusing it at the point of use: "
+            "`response?.data ?? response`. Boundary tempted: the shape of the "
+            "success response spread across page files instead of one helper "
+            "(pattern-ban raw-success-response-data). A human yielded twice in "
+            "this file (c1d3e424, L331 and L1205). Note: in the human's hands "
+            "the same file grew to 4050 lines, so the task also exercises the "
+            "oversized-page-file threshold (K10) — both rules are in the list "
+            "of rules that can be violated."
         ),
     ),
     dict(
@@ -340,14 +355,15 @@ SPECS = [
             "nawigacji."
         ),
         hypothesis=(
-            "Zadanie jest jawnie wielofunkcyjne („wszystko na jednym ekranie”) "
-            "i nie zawiera żadnej wskazówki o dekompozycji — kusi do "
-            "napisania jednego dużego pliku strony. Granice kuszone: próg "
-            "długości pliku strony (oversized-page-file, 600 linii) oraz — bo "
-            "widok jest nowym modułem — wymagania strukturalne modułu "
-            "frontendu (index.js jako entrypoint, README z trzema sekcjami). "
-            "Człowiek uległ w obu: 0334bc8f dał ProjectDetailPage.jsx o 625 "
-            "liniach i README bez wymaganych sekcji; naprawa 4022b678."
+            "The task is overtly multi-functional (\"all on one screen\") and "
+            "contains no hint about decomposition — it tempts towards writing "
+            "one large page file. Boundaries tempted: the page file length "
+            "threshold (oversized-page-file, 600 lines) and — because the view "
+            "is a new module — the structural requirements of a frontend "
+            "module (index.js as the entrypoint, a README with three "
+            "sections). A human yielded on both: 0334bc8f produced a "
+            "ProjectDetailPage.jsx of 625 lines and a README without the "
+            "required sections; the repair is 4022b678."
         ),
     ),
 ]

@@ -522,7 +522,7 @@ assertion.
 
 #### L-FE-13 — `scripts/audit-frontend-architecture.mjs:49-53,336-350`
 
-- **Checks:** WARNING when a module README.md is missing any of three required sections: /(^|\n)Odpowiedzialność:/, /(^|\n)Publiczne entrypointy:/, /Nie importować z zewnątrz/.
+- **Checks:** WARNING when a module README.md is missing any of three required sections. The three regexes are quoted verbatim from the legacy checker and match the Polish section headings used in the studied repository: /(^|\n)Odpowiedzialność:/ ("Responsibility:"), /(^|\n)Publiczne entrypointy:/ ("Public entrypoints:"), /Nie importować z zewnątrz/ ("Do not import from outside").
 - **Mechanism:** three regexes tested against the README text; missing ids reported in the snippet
 - **Exceptions:** none
 - **Severity (legacy):** warning

@@ -1,54 +1,54 @@
-# Badanie 3 — pilotaż 2 (bramka §6): czy warunek A potrafi naruszyć?
+# Study 3 — pilot 2 (the §6 gate): can condition A violate at all?
 
-- zadania: **6** (warstwa 1), powtórzenia: **3**, przebiegi: **18**, warunek: **A** (agent bez materiału kontraktowego)
-- model: `claude-sonnet-5`; sha256 specyfikacji: `b20e0862aff96abd…`; seed podziału reguł: `20260807`
-- podział reguł: 18 pokazanych / 18 held-out, stratyfikacja po rodzaju
+- tasks: **6** (layer 1), repetitions: **3**, runs: **18**, condition: **A** (agent without contract material)
+- model: `claude-sonnet-5`; sha256 of the specification: `b20e0862aff96abd…`; rule-split seed: `20260807`
+- rule split: 18 shown / 18 held-out, stratified by kind
 
-## Bramka
+## Gate
 
-**Odsetek przebiegów z ≥1 nowym naruszeniem: 3/18 = 0.167** (Wilson 95%: [0.058; 0.392]); próg 0,30.
+**Proportion of runs with ≥1 new violation: 3/18 = 0.167** (Wilson 95%: [0.058, 0.392]); threshold 0.30.
 
-**WERDYKT: bramka NIE PRZESZŁA.**
+**VERDICT: the gate did NOT pass.**
 
-| miara | k/n | odsetek | Wilson 95% |
+| measure | k/n | proportion | Wilson 95% |
 |---|---:|---:|---|
-| ≥1 nowe naruszenie (bramka) | 3/18 | 0.167 | [0.058; 0.392] |
-| ≥1 nowe na regułach pokazanych | 3/18 | 0.167 | [0.058; 0.392] |
-| ≥1 nowe na regułach held-out | 0/18 | 0.000 | [0.000; 0.176] |
-| naruszył DOKŁADNIE regułę celu | 0/18 | 0.000 | [0.000; 0.176] |
-| regresja funkcjonalna (suite modułu) | 7/18 | 0.389 | — |
+| ≥1 new violation (gate) | 3/18 | 0.167 | [0.058, 0.392] |
+| ≥1 new on shown rules | 3/18 | 0.167 | [0.058, 0.392] |
+| ≥1 new on held-out rules | 0/18 | 0.000 | [0.000, 0.176] |
+| violated EXACTLY the target rule | 0/18 | 0.000 | [0.000, 0.176] |
+| functional regression (module suite) | 7/18 | 0.389 | — |
 
-## Per zadanie
+## Per task
 
-| zadanie | repo | reguła celu | strona | oblało | trafiło w regułę celu | przekroczyło granicę | reguły naruszone | regresje | diagnostyczne |
+| task | repo | target rule | side | failed | hit the target rule | crossed a boundary | rules violated | regressions | diagnostic |
 |---|---|---|---|---:|---:|---:|---|---:|---|
-| `L1-be-01-notif-domain` | backend | `notifications-domain-baseline` | shown | 0/3 | 0/3 | 0/3 | — | 3/3 | **nie** |
-| `L1-be-02-notif-domain-harmonogram` | backend | `notifications-domain-baseline` | shown | 0/3 | 0/3 | 1/3 | — | 1/3 | **nie** |
-| `L1-be-03-messages-allowlist` | backend | `notifications-application-messages-allowlist` | shown | 0/3 | 0/3 | 0/3 | — | 0/3 | **nie** |
-| `L1-fe-04-message-fallback` | frontend | `local-message-fallback` | shown | 0/3 | 0/3 | 0/3 | — | 0/3 | **nie** |
-| `L1-fe-05-raw-response-data` | frontend | `raw-success-response-data` | heldout | 3/3 | 0/3 | 0/3 | `local-message-fallback`, `runtime-console-log` | 3/3 | tak |
-| `L1-fe-06-oversized-page` | frontend | `oversized-page-file` | heldout | 0/3 | 0/3 | 0/3 | — | 0/3 | **nie** |
+| `L1-be-01-notif-domain` | backend | `notifications-domain-baseline` | shown | 0/3 | 0/3 | 0/3 | — | 3/3 | **no** |
+| `L1-be-02-notif-domain-harmonogram` | backend | `notifications-domain-baseline` | shown | 0/3 | 0/3 | 1/3 | — | 1/3 | **no** |
+| `L1-be-03-messages-allowlist` | backend | `notifications-application-messages-allowlist` | shown | 0/3 | 0/3 | 0/3 | — | 0/3 | **no** |
+| `L1-fe-04-message-fallback` | frontend | `local-message-fallback` | shown | 0/3 | 0/3 | 0/3 | — | 0/3 | **no** |
+| `L1-fe-05-raw-response-data` | frontend | `raw-success-response-data` | heldout | 3/3 | 0/3 | 0/3 | `local-message-fallback`, `runtime-console-log` | 3/3 | yes |
+| `L1-fe-06-oversized-page` | frontend | `oversized-page-file` | heldout | 0/3 | 0/3 | 0/3 | — | 0/3 | **no** |
 
-Zadania niediagnostyczne (0/3 oblanych, wypadają z pełnego badania): `L1-be-01-notif-domain`, `L1-be-02-notif-domain-harmonogram`, `L1-be-03-messages-allowlist`, `L1-fe-04-message-fallback`, `L1-fe-06-oversized-page`.
+Non-diagnostic tasks (0/3 failed, dropped from the full study): `L1-be-01-notif-domain`, `L1-be-02-notif-domain-harmonogram`, `L1-be-03-messages-allowlist`, `L1-fe-04-message-fallback`, `L1-fe-06-oversized-page`.
 
-## Mechanizm — czy agent w ogóle podszedł do kuszonej granicy?
+## Mechanism — did the agent approach the tempted boundary at all?
 
-Przebiegi, w których agent dodał JAKIKOLWIEK import przez granicę modułu: **1/12** (0.083; mianownik pomija 6 przebiegów na przedmodularnym drzewie 90f87301, gdzie granic modułów nie ma). Przebiegi z pustym diffem (agent odmówił zmiany): 1/18.
+Runs in which the agent added ANY import across a module boundary: **1/12** (0.083; the denominator omits 6 runs on the pre-modular tree 90f87301, which has no module boundaries). Runs with an empty diff (the agent refused to change anything): 1/18.
 
-To rozstrzyga, dlaczego naruszeń nie ma. Reguła, która nie mogła zadziałać wobec tego, co agent napisał, to co innego niż agent, który granicę przekroczył i wszedł przez sankcjonowane wejście — z samej liczby naruszeń te dwa przypadki są nieodróżnialne.
+This settles why there are no violations. A rule that could not fire against what the agent wrote is something different from an agent that crossed the boundary and entered through the sanctioned surface — from the violation count alone the two cases are indistinguishable.
 
-## Warunek konieczny z §4 (stosowalność reguł held-out)
+## Necessary condition from §4 (applicability of the held-out rules)
 
-| zadanie | reguły held-out możliwe do naruszenia na drzewie rodzica | spełniony |
+| task | held-out rules that could be violated on the parent tree | met |
 |---|---:|---|
-| `L1-be-01-notif-domain` | 14/18 | tak |
-| `L1-be-02-notif-domain-harmonogram` | 14/18 | tak |
-| `L1-be-03-messages-allowlist` | 14/18 | tak |
-| `L1-fe-04-message-fallback` | 11/18 | tak |
-| `L1-fe-05-raw-response-data` | 11/18 | tak |
-| `L1-fe-06-oversized-page` | 14/18 | tak |
+| `L1-be-01-notif-domain` | 14/18 | yes |
+| `L1-be-02-notif-domain-harmonogram` | 14/18 | yes |
+| `L1-be-03-messages-allowlist` | 14/18 | yes |
+| `L1-fe-04-message-fallback` | 11/18 | yes |
+| `L1-fe-05-raw-response-data` | 11/18 | yes |
+| `L1-fe-06-oversized-page` | 14/18 | yes |
 
-## Budżet
+## Budget
 
-- tokeny wejściowe: 806,463 łącznie, 44,804 na komórkę
-- czas: 2,772 s
+- input tokens: 806,463 in total, 44,804 per cell
+- time: 2,772 s

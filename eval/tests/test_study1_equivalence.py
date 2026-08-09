@@ -57,6 +57,9 @@ def ws(tmp_path: Path) -> Path:
         "# shared\n"
         "**Forbidden:** importing concrete Application classes from a sibling "
         "module (actions, services).\n", encoding="utf-8")
+    # The two AGENTS.md fixtures below reproduce the Polish documentation lines
+    # of the studied repositories verbatim, because DOC_EVIDENCE matches them as
+    # literal patterns. They are fixture data, not prose to be translated.
     (root / "backend-shared/src").mkdir(parents=True)
     (root / "backend-shared/src/AGENTS.md").write_text(
         "- Między modułami preferuj:\n  - `Application\\Contracts\\*`\n",

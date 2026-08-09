@@ -166,7 +166,7 @@ command that reproduces it.
 ## Documentation
 
 - [`research-report.md`](research-report.md) — every measured number with its reproducing command
-- [`STOSOWANIE.md`](STOSOWANIE.md) — what the studies did and did not establish (Polish)
+- [`ADOPTION.md`](ADOPTION.md) — what the studies did and did not establish, and what follows for adoption
 - [`docs/deviations.md`](docs/deviations.md) — where limen deliberately departs from legacy semantics
 - [`docs/study3-redesign.md`](docs/study3-redesign.md) — protocol for the agent experiment
 

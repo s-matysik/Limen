@@ -607,6 +607,9 @@ def catalogue() -> list[Mutation]:
             side="frontend",
             frontend_repo=FRONTEND,
             description="A module README loses one of the three required contract sections.",
+            # The marker is the literal Polish section heading used by the studied
+            # frontend repository and matched verbatim by the legacy checker; it is
+            # data, not prose, and must not be translated.
             apply=strip_readme_section(f("src/modules/projects/README.md"), "Odpowiedzialność:"),
             injected=1,
             expect_legacy_rule="missing-module-contract",

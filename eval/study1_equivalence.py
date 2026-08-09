@@ -137,6 +137,10 @@ def in_comparison_scope(finding: dict[str, Any]) -> tuple[bool, str]:
 # Each entry names a documentation file (workspace-relative) and a regex that
 # must match a line in it. The matching line is quoted into the report.
 # Entries are keyed by limen rule_id.
+# The documentation of the studied repositories is written in Polish, so some
+# patterns below are verbatim quotations of Polish sentences. They are data,
+# not prose: translating them would stop the pattern matching the file under
+# study and silently drop the evidence.
 DOC_EVIDENCE: dict[str, list[dict[str, str]]] = {
     "host-cross-module-public-surface": [
         {

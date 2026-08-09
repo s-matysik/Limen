@@ -1,168 +1,171 @@
-# Badanie 3 — jak przetestować hipotezę, której pilotaż nie przetestował
+# Study 3 — how to test the hypothesis the pilot did not test
 
-Dokument projektowy. Wszystkie liczby diagnostyczne pochodzą z `eval/results/`
-(`study3_summary.json`, `study2_lifetimes.csv`) i są odtwarzalne komendami z `research-report.md`.
+Design document. All diagnostic numbers come from `eval/results/`
+(`study3_summary.json`, `study2_lifetimes.csv`) and are reproducible with the commands in `research-report.md`.
 
-## 1. Hipoteza, dosłownie
+## 1. The hypothesis, literally
 
-Protokół (krok 17c): *„held-out rules: podzbiór zadań oceniasz regułami nieobecnymi w kontekście
-podanym agentowi — jeśli poprawa przenosi się na reguły niepodane, to najmocniejszy wynik
-artykułu."*
+The protocol (step 17c): *"held-out rules: a subset of tasks is scored with rules absent from the
+context given to the agent — if the improvement carries over to the rules that were not given, this
+is the strongest result of the article."*
 
-Rozbicie na dwie hipotezy, bo mają różny status dowodowy i różny koszt:
+It is broken into two hypotheses, because they have a different evidential status and a different cost:
 
-- **H1 (zgodność):** agent z kontraktem wprowadza mniej naruszeń reguł, **które mu pokazano**,
-  niż agent z pełną prozą. Słabsza — mierzy, czy agent wykonuje instrukcję.
-- **H2 (transfer):** poprawa przenosi się na reguły, **których mu nie pokazano**. Mocniejsza —
-  mierzy, czy kontrakt uczy zasady, a nie tylko listy zakazów. To jest teza artykułu.
+- **H1 (conformance):** an agent with a contract introduces fewer violations of the rules **it was
+  shown** than an agent with the full prose. The weaker one — it measures whether the agent follows
+  an instruction.
+- **H2 (transfer):** the improvement carries over to the rules **it was not shown**. The stronger one —
+  it measures whether the contract teaches a principle rather than just a list of prohibitions. This
+  is the thesis of the article.
 
-Pilotaż nie obalił żadnej z nich. Nie zdołał ich przetestować.
+The pilot refuted neither of them. It failed to test them.
 
-## 2. Dlaczego pilotaż nie zadziałał — diagnoza, nie wymówka
+## 2. Why the pilot did not work — a diagnosis, not an excuse
 
-Δ liczby błędów = 0 w 23 z 25 przebiegów; wariancja międzyzadaniowa = 0 we wszystkich sześciu
-kontrastach; test permutacyjny w trybie all-zero (p = 1). Trzy przyczyny, wszystkie zmierzone:
+Δ error count = 0 in 23 of 25 runs; between-task variance = 0 in all six
+contrasts; the permutation test in all-zero mode (p = 1). Three causes, all measured:
 
-1. **Zadania nie mogły naruszyć reguł.** Reguły egzekwują granice *między* modułami; zadania
-   były zmianami *wewnątrz* jednego modułu.
-2. **Drzewa rodzica były czyste na regułach pokazywanych.** Cały dług historyczny leżał na
-   regułach held-out, więc nie było czego naprawiać ani pogarszać.
-3. **Naruszenia są w tym projekcie rzadkim zdarzeniem.** W całej historii **9 commitów**
-   wprowadziło jakiekolwiek naruszenie (89 epizodów), z czego **7 zostało później naprawionych**.
-   Losowo wybrane zadanie ma niską szansę trafić w sytuację, w której reguła w ogóle działa.
+1. **The tasks could not violate the rules.** The rules enforce boundaries *between* modules; the tasks
+   were changes *within* a single module.
+2. **The parent trees were clean on the shown rules.** The entire historical debt lay on the
+   held-out rules, so there was nothing to repair or to worsen.
+3. **Violations are a rare event in this project.** In the whole history **9 commits**
+   introduced any violation at all (89 episodes), of which **7 were later repaired**.
+   A randomly chosen task has a low chance of landing in a situation where a rule can fire at all.
 
-Punkt 3 jest najważniejszy: **LitRev nie ma dość materiału na K=20 zadań podatnych na
-naruszenie.** Zwiększanie K w obrębie tego repozytorium nie pomoże.
+Point 3 is the most important: **LitRev does not have enough material for K=20 violation-prone
+tasks.** Increasing K within this repository will not help.
 
-## 3. Dobór zadań — trzy warstwy zamiast jednej
+## 3. Task sampling — three layers instead of one
 
-Zamiast „commity dodające use-case" (dobór, który dał podłogę), trzy warstwy o rosnącej
-podatności na naruszenie. Każde zadanie dostaje etykietę warstwy i **jest raportowane osobno**.
+Instead of "commits that add a use case" (the sampling that produced the floor), three layers of
+increasing susceptibility to violation. Each task gets a layer label and **is reported separately**.
 
-### Warstwa 1 — zadania z udokumentowanym naruszeniem (n ≈ 7)
+### Layer 1 — tasks with a documented violation (n ≈ 7)
 
-Siedem commitów, które historycznie wprowadziły naruszenie **później naprawione przez człowieka**:
-`46bbf692` (41 naruszeń), `9cf5ac79` (15), `eab22e21` (12), `c1d3e424` (11), `82915ff2` (3),
-`c32d1719` (2), `0334bc8f` (2). Wartość: wiadomo, że pokusa jest realna (człowiek jej uległ)
-**i** że istnieje poprawne rozwiązanie (człowiek je potem napisał). To jest ground truth,
-którego nie da się wymyślić.
+Seven commits that historically introduced a violation **later repaired by a human**:
+`46bbf692` (41 violations), `9cf5ac79` (15), `eab22e21` (12), `c1d3e424` (11), `82915ff2` (3),
+`c32d1719` (2), `0334bc8f` (2). The value: it is known that the temptation is real (a human yielded to it)
+**and** that a correct solution exists (a human later wrote it). This is ground truth that
+cannot be invented.
 
-Ograniczenie do zapisania: to są w większości duże commity, więc zadanie trzeba wyciąć do
-podzadania obejmującego jedno naruszenie.
+A limitation to record: these are mostly large commits, so a task must be cut down to a
+subtask covering a single violation.
 
-### Warstwa 2 — zadania międzymodułowe z historii (n ≈ 8)
+### Layer 2 — cross-module tasks from history (n ≈ 8)
 
-Commity dotykające ≥ 2 modułów: backend `8e005bf0` (16 modułów), `eab22e21` (12), `46bbf692` (7),
-`bf64942d` (5), `67cef387` (3), `6deb7853` (2); frontend 4 dalsze. Wymagają przekroczenia
-granicy modułu, więc reguła ma szansę zadziałać. Duże commity tnie się na podzadania.
+Commits touching ≥ 2 modules: backend `8e005bf0` (16 modules), `eab22e21` (12), `46bbf692` (7),
+`bf64942d` (5), `67cef387` (3), `6deb7853` (2); frontend 4 more. They require crossing a
+module boundary, so a rule has a chance to fire. Large commits are cut into subtasks.
 
-### Warstwa 3 — zadania syntetyczne, preregistrowane (n ≈ 10)
+### Layer 3 — synthetic, preregistered tasks (n ≈ 10)
 
-Warstwy 1–2 nie dadzą K=20 z samego LitRev. Brakujące zadania układa się syntetycznie —
-**ale z zabezpieczeniem przeciw dopasowaniu ich pod reguły**:
+Layers 1–2 will not yield K=20 from LitRev alone. The missing tasks are composed synthetically —
+**but with a safeguard against fitting them to the rules**:
 
-- zadania pisze się **przed** wylosowaniem podziału na reguły pokazane i held-out;
-- treść zadania opisuje **cel biznesowy** („dodaj powiadomienie e-mail przy zmianie właściciela
-  projektu"), nigdy mechanizm („użyj Contracts");
-- każde zadanie ma zapisane, **która granica architektoniczna jest w nim naturalnie kuszona**
-  i dlaczego — to jest hipoteza autora, weryfikowana potem wynikiem warunku A;
-- zadania, w których **warunek A nie naruszył niczego w żadnym powtórzeniu**, są odrzucane
-  jako niediagnostyczne — z podaniem liczby odrzuconych. Zadanie, którego nie da się oblać,
-  nie mierzy niczego.
+- the tasks are written **before** the split into shown and held-out rules is drawn;
+- the content of a task describes a **business goal** ("add an e-mail notification when the owner of a
+  project changes"), never a mechanism ("use Contracts");
+- each task records **which architectural boundary it naturally tempts**
+  and why — this is the author's hypothesis, verified afterwards by the result of condition A;
+- tasks in which **condition A violated nothing in any repetition** are rejected
+  as non-diagnostic — with the number of rejections reported. A task that cannot be failed
+  measures nothing.
 
-Warstwa 3 jest oznaczona w `tasks.jsonl` i w każdej tabeli. Jeśli wynik na warstwach 1–2
-różni się od wyniku na warstwie 3, to jest to informacja o generalizacji, nie szum do uśrednienia.
+Layer 3 is marked in `tasks.jsonl` and in every table. If the result on layers 1–2
+differs from the result on layer 3, that is information about generalisation, not noise to be averaged away.
 
-## 4. Podział reguł — jądro projektu H2
+## 4. The rule split — the core of the H2 design
 
-Podział na pokazane i held-out musi być **losowy i wykonany przed pierwszym przebiegiem**,
-inaczej H2 jest niefalsyfikowalna.
+The split into shown and held-out must be **random and performed before the first run**,
+otherwise H2 is unfalsifiable.
 
-- **Stratyfikacja po rodzaju reguły** (K1–K10). Bez tego wszystkie reguły jednego rodzaju mogą
-  trafić do jednej połowy i „transfer" oznaczałby tylko podobieństwo w obrębie rodzaju.
-- **Dwa niezależne podziały** (seed A i seed B), każde zadanie przechodzi oba. Transfer
-  utrzymujący się przy obu jest odporny na przypadek doboru; transfer widoczny tylko przy jednym
-  jest artefaktem.
-- **Warunek konieczny, sprawdzany przed startem:** drzewo rodzica każdego zadania musi mieć
-  ≥ 1 możliwe naruszenie reguły held-out. W pilotażu ten warunek był naruszony i to była
-  bezpośrednia przyczyna Δ_heldout = 0 wszędzie.
-- Sam podział zapisany w wynikach razem z sha256 specyfikacji.
+- **Stratification by rule kind** (K1–K10). Without it all rules of one kind could
+  land in one half and "transfer" would mean only similarity within a kind.
+- **Two independent splits** (seed A and seed B), every task passing through both. Transfer that
+  holds under both is robust to sampling chance; transfer visible under only one
+  is an artefact.
+- **A necessary condition, checked before the start:** the parent tree of every task must have
+  ≥ 1 possible held-out rule violation. In the pilot this condition was violated and that was the
+  direct cause of Δ_heldout = 0 everywhere.
+- The split itself is recorded in the results together with the sha256 of the specification.
 
-## 5. Miary — zamiana pierwotnej na współpierwotną
+## 5. Measures — swapping the primary for the co-primary
 
-| Miara | Rola | Uzasadnienie |
+| Measure | Role | Rationale |
 |---|---|---|
-| regresja funkcjonalna (istniejący suite modułu pada) | **pierwotna** | jedyna zmierzona z niezerową wariancją: 0,32 [0,17; 0,52]; niezależna od limen |
-| naruszenia reguł **held-out** | **pierwotna dla H2** | to jest teza artykułu |
-| naruszenia reguł pokazanych | wtórna | zdegenerowana w pilotażu; raportowana, nie testowana jako główna |
-| tokeny kontekstu | wtórna | zmierzona: redukcja 81,4% (5,37×) |
-| iteracje do czystego D | wtórna | |
+| functional regression (the module's existing suite fails) | **primary** | the only one measured with non-zero variance: 0.32 [0.17, 0.52]; independent of limen |
+| violations of **held-out** rules | **primary for H2** | this is the thesis of the article |
+| violations of shown rules | secondary | degenerate in the pilot; reported, not tested as the main measure |
+| context tokens | secondary | measured: reduction 81.4% (5.37×) |
+| iterations to a clean D | secondary | |
 
-Zamiana miary pierwotnej to najważniejsza zmiana wobec protokołu i wynika wprost z pomiaru,
-nie z wygody. Uzasadnienie idzie do artykułu razem z liczbą, która ją wymusiła.
+The swap of the primary measure is the most important change relative to the protocol and follows
+directly from measurement, not from convenience. The rationale goes into the article together with the
+number that forced it.
 
-**Miara zdarzeniowa zamiast liczbowej.** Zamiast średniej liczby naruszeń (zdominowanej przez
-zera) — odsetek przebiegów z co najmniej jednym naruszeniem, z przedziałami Wilsona i modelem
-logistycznym mieszanym (zadanie jako efekt losowy). Przy zdarzeniach rzadkich to jest właściwy
-model, a nie test t na zerach.
+**An event measure instead of a count measure.** Instead of the mean number of violations (dominated by
+zeros) — the proportion of runs with at least one violation, with Wilson intervals and a mixed
+logistic model (task as a random effect). For rare events this is the appropriate
+model, not a t-test on zeros.
 
-## 6. Liczebność
+## 6. Sample size
 
-Z pilotażu: regresja funkcjonalna 0,32 [0,17; 0,52], częstość zdarzeń 0,08 [0,02; 0,25].
+From the pilot: functional regression 0.32 [0.17, 0.52], event rate 0.08 [0.02, 0.25].
 
-| Cel | Przebiegi na ramię |
+| Target | Runs per arm |
 |---|---:|
-| regresja 0,40 vs 0,15 | 49 |
-| regresja 0,40 vs 0,20 | 82 |
-| zdarzenia 0,30 vs 0,10 | 62 |
-| zdarzenia 0,20 vs 0,05 | 76 |
+| regression 0.40 vs 0.15 | 49 |
+| regression 0.40 vs 0.20 | 82 |
+| events 0.30 vs 0.10 | 62 |
+| events 0.20 vs 0.05 | 76 |
 
-To jest **K = 20, R = 4** (80 przebiegów na ramię, 320 łącznie) — z zastrzeżeniem, że liczby
-te zakładają, iż nowy dobór zadań podniesie częstość zdarzeń z 0,08 do rzędu 0,20–0,30.
-**Ten warunek trzeba sprawdzić drugim pilotażem**, zanim uruchomi się pełny przebieg:
-K = 6 zadań z warstwy 1, tylko warunki A i C, R = 3 (36 przebiegów, ~2,2 mln tokenów wejściowych
-przy zmierzonych 60 299 na komórkę — patrz tabela w §7).
-Jeśli warunek A nie oblewa ≥ 30% przebiegów, projekt zadań nadal jest zły i pełny przebieg
-byłby stratą.
+This is **K = 20, R = 4** (80 runs per arm, 320 in total) — with the caveat that these numbers
+assume the new task sampling will raise the event rate from 0.08 to the order of 0.20–0.30.
+**This condition must be checked with a second pilot** before the full run is launched:
+K = 6 tasks from layer 1, conditions A and C only, R = 3 (36 runs, ~2.2M input tokens
+at the measured 60,299 per cell — see the table in §7).
+If condition A does not fail ≥ 30% of runs, the task design is still bad and the full run
+would be a waste.
 
-## 7. Budżet i wykonanie
+## 7. Budget and execution
 
-Zmierzone: 60 299 tokenów wejściowych na komórkę, 1 507 477 na 25 komórek.
+Measured: 60,299 input tokens per cell, 1,507,477 for 25 cells.
 
-| Etap | Komórki | Tokeny wejścia | Sesje (limit 2 mln) |
+| Stage | Cells | Input tokens | Sessions (limit 2M) |
 |---|---:|---:|---:|
-| pilotaż 2 (walidacja doboru) | 36 | ~2,2 mln | 2 |
-| pełne badanie K=20, R=4, 4 warunki | 320 | ~19,3 mln | 10–11 |
-| dwa podziały reguł (§4) | ×2 dla H2 | ~+9,6 mln | +5 |
+| pilot 2 (sampling validation) | 36 | ~2.2M | 2 |
+| full study K=20, R=4, 4 conditions | 320 | ~19.3M | 10–11 |
+| two rule splits (§4) | ×2 for H2 | ~+9.6M | +5 |
 
-Wykonanie musi być **przyrostowe i wznawialne** — plan zamrożony przed startem
-(`study3_plan.json` już to robi), każdy przebieg zapisywany osobno, wznowienie dokłada brakujące
-komórki. To działało w pilotażu i jest jedynym powodem, dla którego przerwanie na 25/120 nie
-skasowało pracy.
+Execution must be **incremental and resumable** — the plan frozen before the start
+(`study3_plan.json` already does this), every run recorded separately, resumption adding the missing
+cells. This worked in the pilot and is the only reason why stopping at 25/120 did not
+destroy the work.
 
-## 8. Kontrola cyrkularności — czego zabrakło
+## 8. Circularity control — what was missing
 
-Protokół wymaga trzech środków; pilotaż dostarczył półtora.
+The protocol requires three measures; the pilot delivered one and a half.
 
-1. **Ręczna weryfikacja ≥ 50 findings ze zgodnością dwóch raterów** — *niespełnione*.
-   Rater mechaniczny sprawdził 50 pozycji z 13 reguł (50/50 realne, cel na wskazanej linii
-   w 46/50), drugi rater jest zaimplementowany i zaseedowany, ale nie został uruchomiony.
-   Bez drugiego ratera nie ma zgodności ani kappy — to musi być zrobione albo jawnie
-   zaraportowane jako brak.
-2. **Niezależna miara funkcjonalna** — *spełnione*, i awansuje na miarę pierwotną.
-3. **Held-out rules** — *zaimplementowane, ale niediagnostyczne*, bo warunek z §4 nie był
-   sprawdzony. Naprawa opisana wyżej.
+1. **Manual verification of ≥ 50 findings with agreement between two raters** — *not met*.
+   The mechanical rater checked 50 items from 13 rules (50/50 real, the target on the cited line
+   in 46/50), the second rater is implemented and seeded, but was not run.
+   Without the second rater there is neither agreement nor kappa — this must either be done or
+   explicitly reported as absent.
+2. **An independent functional measure** — *met*, and it is promoted to the primary measure.
+3. **Held-out rules** — *implemented, but non-diagnostic*, because the condition from §4 was not
+   checked. The fix is described above.
 
-## 9. Co uznać za wynik
+## 9. What counts as a result
 
-- **H2 potwierdzona:** istotnie niższa częstość naruszeń reguł held-out w C/D niż w A/B,
-  przy obu podziałach reguł, bez pogorszenia regresji funkcjonalnej. To jest wynik, o który
-  chodzi w artykule.
-- **H1 potwierdzona, H2 nie:** kontrakt działa jak lista zakazów — użyteczne narzędzie,
-  słabsza teza. Też publikowalne, ale zmienia tytuł pracy.
-- **Żadna nie potwierdzona przy zdrowej częstości zdarzeń** (A oblewa ≥ 30%): uczciwy wynik
-  negatywny, mówiący że przy tym modelu i tych zadaniach kontrakt nie poprawia architektury.
-  Wymaga zaraportowania z przedziałami ufności i mocą, nie samym p.
-- **Częstość zdarzeń nadal przy podłodze:** projekt zadań jest zły, wynik nie istnieje.
-  Nie wolno wtedy raportować „braku różnicy" jako wyniku — to jest błąd, którego pilotaż
-  o mało nie popełnił.
+- **H2 confirmed:** a significantly lower rate of held-out rule violations in C/D than in A/B,
+  under both rule splits, without a worsening of functional regression. This is the result the
+  article is about.
+- **H1 confirmed, H2 not:** the contract works as a list of prohibitions — a useful tool,
+  a weaker thesis. Also publishable, but it changes the title of the work.
+- **Neither confirmed at a healthy event rate** (A fails ≥ 30%): an honest negative
+  result, saying that with this model and these tasks the contract does not improve the architecture.
+  It requires reporting with confidence intervals and power, not with a p-value alone.
+- **The event rate still at the floor:** the task design is bad, the result does not exist.
+  It is then not permissible to report "no difference" as a result — that is the error the pilot
+  came close to committing.
