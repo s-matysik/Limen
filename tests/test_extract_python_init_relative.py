@@ -17,12 +17,12 @@ from limen.spec.model import RootSpec
 
 
 FILES = {
-    "./pkg/__init__.py": "from .base import Thing\nfrom .sub import helper\n",
-    "./pkg/base.py": "class Thing: pass\n",
-    "./pkg/sub/__init__.py": "from .helper import helper\nfrom ..base import Thing\n",
-    "./pkg/sub/helper.py": "def helper(): pass\n",
-    "./pkg/sub/deep/__init__.py": "from ...base import Thing\n",
-    "./pkg/consumer.py": "from .sub.helper import helper\n",
+    "pkg/__init__.py": "from .base import Thing\nfrom .sub import helper\n",
+    "pkg/base.py": "class Thing: pass\n",
+    "pkg/sub/__init__.py": "from .helper import helper\nfrom ..base import Thing\n",
+    "pkg/sub/helper.py": "def helper(): pass\n",
+    "pkg/sub/deep/__init__.py": "from ...base import Thing\n",
+    "pkg/consumer.py": "from .sub.helper import helper\n",
 }
 
 

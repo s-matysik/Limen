@@ -43,8 +43,15 @@ class PythonRegexExtractor(RegexExtractorBase):
         prefix = root.prefix.rstrip("/")
 
         def module_of(rel_path: str) -> str:
-            assert rel_path.startswith(prefix + "/") or rel_path == prefix
-            inner = rel_path[len(prefix) + 1:]
+            # An empty prefix is a repository-level root (`path: .`): module
+            # names stay fully qualified, which is the only way to express a
+            # package whose own modules import it absolutely (`from pkg.sub
+            # import X`) — the dominant style in scientific Python.
+            if not prefix:
+                inner = rel_path
+            else:
+                assert rel_path.startswith(prefix + "/") or rel_path == prefix
+                inner = rel_path[len(prefix) + 1:]
             if inner.endswith(".py"):
                 inner = inner[:-3]
             if inner.endswith("/__init__"):

@@ -54,7 +54,8 @@ def _classify_paths(spec: Spec, index: FactsIndex, paths: list[str]) -> list[Pat
             continue
         root = None
         for r in sorted(spec.roots.values(), key=lambda r: -len(r.prefix)):
-            if p == r.prefix or p.startswith(r.prefix.rstrip("/") + "/"):
+            # A repository-level root has an empty prefix and owns every path.
+            if not r.prefix or p == r.prefix or p.startswith(r.prefix.rstrip("/") + "/"):
                 root = r.name
                 break
         unit = layer = None

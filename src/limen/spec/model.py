@@ -37,8 +37,17 @@ class RootSpec:
 
     @property
     def prefix(self) -> str:
-        """Repo-relative prefix under which this root's files live."""
-        return f"{self.repo}/{self.path}" if self.repo else self.path
+        """Repo-relative prefix under which this root's files live.
+
+        A root declared at repository level (``path: .``) normalises to the
+        empty string, so every consumer that joins or strips this prefix keeps
+        working on bare repo-relative paths instead of growing a ``./`` segment
+        that matches nothing.
+        """
+        path = "" if self.path in (".", "./") else self.path
+        if self.repo:
+            return f"{self.repo}/{path}".rstrip("/")
+        return path
 
 
 @dataclass(frozen=True)
