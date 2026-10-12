@@ -61,7 +61,13 @@ class PythonRegexExtractor(RegexExtractorBase):
                                for m in modules)
                 return module, internal
             pkg_parts = module_of(importer_rel).split(".")
-            base = pkg_parts[: len(pkg_parts) - dots]
+            # `__init__.py` IS the package, not a module inside it: `module_of`
+            # already returns the package name for it, so subtracting `dots`
+            # levels walks one step too far and `from .X import Y` landed in the
+            # PARENT package.  Left unfixed this both drops real edges and emits
+            # false ones (`pkg.sub -> pkg.base` instead of `pkg.sub.base`).
+            up = dots - 1 if importer_rel.endswith("__init__.py") else dots
+            base = pkg_parts[: len(pkg_parts) - up] if up else pkg_parts
             abs_mod = ".".join(base + ([module] if module else [])).strip(".")
             return abs_mod, True
 
