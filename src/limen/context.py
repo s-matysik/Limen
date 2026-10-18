@@ -104,9 +104,21 @@ def _rule_applies(rule: Rule, infos: list[PathInfo], spec: Spec) -> int:
             # It covers a path when the path is in scope (the artefact side) or
             # is itself the designated exporter -- editing the exporter is how
             # the obligation gets discharged, so the rule is relevant there too.
-            if scope.path_matches(info.path, info.root) \
-                    or any(glob_to_regex(x).match(info.path)
-                           for x in rule.params.get("from") or []):
+            froms = [str(x) for x in rule.params.get("from") or []]
+            hit = scope.path_matches(info.path, info.root) \
+                or any(glob_to_regex(x).match(info.path) for x in froms)
+            if not hit and not info.path.endswith(".py"):
+                # A directory request (with or without a trailing slash) is how
+                # an agent asks before creating a file that does not exist yet:
+                # exactly the case this kind is for.  A file glob such as
+                # `pkg/est/*.py` never matches the bare directory, so without
+                # this branch the obligation was silently absent from the
+                # context precisely when it mattered (measured: 19 of 19 tasks
+                # rendered "(none)").
+                d = info.path.rstrip("/") + "/"
+                hit = any(x.startswith(d) for x in froms) \
+                    or any(g.startswith(d) for g in scope.paths)
+            if hit:
                 n += 1
             continue
         if rule.kind == "layer-dependency":

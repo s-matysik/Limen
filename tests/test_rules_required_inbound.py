@@ -87,3 +87,19 @@ def test_exemption_suppresses_a_known_gap():
 
 def test_kind_is_full_scan_because_the_verdict_lives_in_another_file():
     assert "required-inbound" in FULL_SCAN_KINDS
+
+
+def test_context_shows_obligation_for_a_directory_request():
+    """An agent asks for context BEFORE creating the file, so the request is a
+    directory.  A file-glob scope never matches a bare directory; before the fix
+    the obligation rendered as "(none)" on every one of 19 real tasks."""
+    from limen.context import generate_context
+    spec = spec_from(SPEC_YAML)
+    files = [ff("pkg/api.py", declares=["pkg.api"], language="python", kind="module"),
+             ff("pkg/est/alpha.py", declares=["pkg.est.alpha"], language="python",
+                kind="module")]
+    index = make_index(files, root="repo", language="python")
+    for asked in ("pkg/est/", "pkg/est", "pkg/est/gamma.py"):
+        text = generate_context(spec, index, [asked])
+        assert "exported" in text, asked
+    assert "exported" not in generate_context(spec, index, ["pkg/other/"])
