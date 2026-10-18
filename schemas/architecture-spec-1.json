@@ -3,20 +3,46 @@
   "$id": "https://limen.dev/schemas/architecture-spec-1.json",
   "title": "limen architecture specification, version 1",
   "type": "object",
-  "required": ["version", "roots", "rules"],
+  "required": [
+    "version",
+    "roots",
+    "rules"
+  ],
   "properties": {
-    "version": { "enum": [1] },
-    "project": { "type": "string" },
+    "version": {
+      "enum": [
+        1
+      ]
+    },
+    "project": {
+      "type": "string"
+    },
     "roots": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "required": ["path", "language"],
+        "required": [
+          "path",
+          "language"
+        ],
         "properties": {
-          "path": { "type": "string" },
-          "language": { "enum": ["php", "js", "python", "java"] },
-          "namespace": { "type": "string" },
-          "repo": { "type": "string" }
+          "path": {
+            "type": "string"
+          },
+          "language": {
+            "enum": [
+              "php",
+              "js",
+              "python",
+              "java"
+            ]
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
@@ -28,16 +54,33 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["pattern"],
+            "required": [
+              "pattern"
+            ],
             "properties": {
-              "root": { "type": "string" },
-              "pattern": { "type": "string" }
+              "root": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           }
         },
-        "declared": { "type": "array", "items": { "type": "string" } },
-        "registry_policy": { "enum": ["exact", "subset", "open"] }
+        "declared": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "registry_policy": {
+          "enum": [
+            "exact",
+            "subset",
+            "open"
+          ]
+        }
       },
       "additionalProperties": false
     },
@@ -48,49 +91,100 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["pattern"],
+            "required": [
+              "pattern"
+            ],
             "properties": {
-              "root": { "type": "string" },
-              "pattern": { "type": "string" }
+              "root": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           }
         },
-        "declared": { "type": "array", "items": { "type": "string" } },
-        "allowed_direction": { "type": "array", "items": { "type": "string" } }
+        "declared": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_direction": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
     "public_surface": {
       "type": "object",
-      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
     },
     "artifact_sets": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "required": ["discovery"],
+        "required": [
+          "discovery"
+        ],
         "properties": {
           "discovery": {
             "type": "object",
-            "required": ["pattern"],
+            "required": [
+              "pattern"
+            ],
             "properties": {
-              "root": { "type": "string" },
-              "pattern": { "type": "string" }
+              "root": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           },
-          "identity": { "enum": ["declared_fqcn", "path"] }
+          "identity": {
+            "enum": [
+              "declared_fqcn",
+              "path"
+            ]
+          }
         },
         "additionalProperties": false
       }
     },
-    "extractors": { "type": "object" },
+    "extractors": {
+      "type": "object"
+    },
     "unresolved_policy": {
       "type": "object",
       "properties": {
-        "default": { "enum": ["off", "warn", "error"] },
-        "per_root": { "type": "object", "additionalProperties": { "enum": ["off", "warn", "error"] } }
+        "default": {
+          "enum": [
+            "off",
+            "warn",
+            "error"
+          ]
+        },
+        "per_root": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "off",
+              "warn",
+              "error"
+            ]
+          }
+        }
       },
       "additionalProperties": false
     },
@@ -98,19 +192,49 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "kind", "severity", "message"],
+        "required": [
+          "id",
+          "kind",
+          "severity",
+          "message"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
-          "kind": {
-            "enum": ["layer-dependency", "ownership", "consumer-allowlist",
-                     "public-api-only", "scoped-allowlist", "forbidden-target",
-                     "baseline-snapshot", "pattern-ban", "structure",
-                     "metric-threshold", "reachability"]
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
           },
-          "severity": { "enum": ["error", "warning", "info"] },
-          "message": { "type": "string" },
-          "remedy": { "type": "string" },
-          "scope": { "type": "object" }
+          "kind": {
+            "enum": [
+              "layer-dependency",
+              "ownership",
+              "consumer-allowlist",
+              "public-api-only",
+              "scoped-allowlist",
+              "forbidden-target",
+              "baseline-snapshot",
+              "pattern-ban",
+              "structure",
+              "metric-threshold",
+              "reachability",
+              "required-inbound"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning",
+              "info"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "remedy": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "object"
+          }
         }
       }
     }

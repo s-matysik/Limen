@@ -100,6 +100,15 @@ def _rule_applies(rule: Rule, infos: list[PathInfo], spec: Spec) -> int:
             if root is None or info.root == root:
                 n += 1
             continue
+        if rule.kind == "required-inbound":
+            # It covers a path when the path is in scope (the artefact side) or
+            # is itself the designated exporter -- editing the exporter is how
+            # the obligation gets discharged, so the rule is relevant there too.
+            if scope.path_matches(info.path, info.root) \
+                    or any(glob_to_regex(x).match(info.path)
+                           for x in rule.params.get("from") or []):
+                n += 1
+            continue
         if rule.kind == "layer-dependency":
             if info.layer == (rule.params.get("forbid") or {}).get("from_layer") \
                     and scope.path_matches(info.path, info.root):
@@ -207,7 +216,21 @@ def _expand(rule: Rule, ctx: RuleContext, infos: list[PathInfo],
                      f"requires an `expected:` entry with reason/owner/expires, "
                      f"and removing the import means removing the entry).")
     elif rule.kind == "pattern-ban":
+        # The authored message carries the norm in the project's own words and
+        # usually its provenance (a doc line reference).  Emitting only the raw
+        # regex replaced that with something the reader has to decompile, and
+        # measurement on a real contract showed it silently dropped the norm for
+        # half the rules in scope.  Norm first, regex as the operational detail.
+        if rule.message:
+            lines.append(rule.message.strip())
         lines.append(f"Forbidden pattern in these files: `{p.get('pattern')}`.")
+    elif rule.kind == "required-inbound":
+        froms = ", ".join(f"`{x}`" for x in p.get("from") or []) or "(unset)"
+        if rule.message:
+            lines.append(rule.message.strip())
+        lines.append(f"Anything you add under this scope must be referenced "
+                     f"from {froms}; a file nothing there imports is a "
+                     f"violation on that file.")
     elif rule.kind == "structure":
         assertion = p.get("assert") or {}
         if assertion.get("forbidden_dirs"):
