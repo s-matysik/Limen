@@ -15,8 +15,18 @@ def check(rule: Rule, ctx: RuleContext) -> list[Finding]:
     except re.error:
         return []  # caught earlier by spec validation (S7)
     scope = Scope(rule.scope)
-    exempt = ExemptionSet.parse(rule.params.get("exempt_files"),
-                                f"{rule.spec_path}.exempt_files", ctx.today)
+    # The spec validator documents `exempt_files` entries keyed by `path:`;
+    # older specs used `target:`.  Accept both.  Reading only `target:` made a
+    # validator-approved `- path: x.py` entry an exemption with no constraint
+    # at all, which matched EVERY file and silently switched the rule off
+    # (measured: an injected violation went undetected in 5 of 5 libraries).
+    raw = []
+    for e in rule.params.get("exempt_files") or []:
+        if isinstance(e, dict) and "path" not in e and "target" in e:
+            e = {**e, "path": e["target"]}
+        raw.append(e)
+    exempt = ExemptionSet.parse(raw, f"{rule.spec_path}.exempt_files",
+                                ctx.today, target_key="path")
     out: list[Finding] = []
     for f in ctx.index.files:
         if not scope.file_matches(f):

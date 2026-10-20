@@ -125,6 +125,12 @@ class ExemptionSet:
 
     def _matches(self, ex: Exemption, target: Optional[str], path: Optional[str],
                  path_target: bool) -> bool:
+        if ex.target is None and ex.scope is None:
+            # An exemption that names neither a target nor a scope constrains
+            # nothing.  Treating it as matching would exempt everything and
+            # turn the rule off without a word; it never matches instead, so
+            # it surfaces as an unconsumed (dead) entry.
+            return False
         if ex.target is not None:
             probe = path if path_target else target
             if probe is None:
