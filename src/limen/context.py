@@ -128,7 +128,19 @@ def _rule_applies(rule: Rule, infos: list[PathInfo], spec: Spec) -> int:
             continue
         if scope.path_matches(info.path, info.root):
             n += 1
+        elif not info.path.endswith(".py") and _dir_request_matches(scope, info):
+            n += 1
     return n
+
+
+def _dir_request_matches(scope: Scope, info: PathInfo) -> bool:
+    """A directory request asks what applies to a file the agent is about to
+    create there.  File-glob scopes (`pkg/**/*.py`) never match the bare
+    directory, so every such rule was silently absent from the context of a
+    directory request (measured: 102 of 102 code rules over 37 real tasks).
+    Probe with a hypothetical new module directly in that directory."""
+    probe = info.path.rstrip("/") + "/_limen_new_module.py"
+    return scope.path_matches(probe, info.root)
 
 
 def _public_symbols_by_unit(ctx: RuleContext) -> dict[str, list[str]]:
