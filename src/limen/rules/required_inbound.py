@@ -53,8 +53,16 @@ def check(rule: Rule, ctx: RuleContext) -> list[Finding]:
     via = {str(v) for v in rule.params.get("via") or []}
     from_rx = [glob_to_regex(p) for p in froms]
     scope = Scope(rule.scope)
-    exempt = ExemptionSet.parse(rule.params.get("exempt"),
-                                f"{rule.spec_path}.exempt", ctx.today)
+    # Entries are documented as keyed by `path` (the unexported file); accept
+    # `target` too.  Parsing only `target` made the documented form a dead
+    # entry that never matched, so pre-existing state could not be recorded.
+    raw = []
+    for e in rule.params.get("exempt") or []:
+        if isinstance(e, dict) and "path" not in e and "target" in e:
+            e = {**e, "path": e["target"]}
+        raw.append(e)
+    exempt = ExemptionSet.parse(raw, f"{rule.spec_path}.exempt", ctx.today,
+                                target_key="path")
 
     referenced: set[str] = set()
     for g in ctx.index.files:
@@ -76,7 +84,7 @@ def check(rule: Rule, ctx: RuleContext) -> list[Finding]:
             continue
         if f.path in referenced:
             continue
-        status, ex = exempt.check(target=f.path, path=f.path)
+        status, ex = exempt.check(path=f.path, path_target=True)
         if status == "active":
             continue
         if status == "expired":

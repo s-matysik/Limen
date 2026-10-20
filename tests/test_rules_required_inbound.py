@@ -103,3 +103,21 @@ def test_context_shows_obligation_for_a_directory_request():
         text = generate_context(spec, index, [asked])
         assert "exported" in text, asked
     assert "exported" not in generate_context(spec, index, ["pkg/other/"])
+
+
+def test_exemption_keyed_by_documented_path():
+    # The rule's docstring documents `path`; before this fix only `target`
+    # was read, so the documented form never matched.
+    out = _run({"from": ["pkg/api.py"],
+                "exempt": [{"path": "pkg/est/beta.py", "reason": "legacy",
+                            "owner": "team", "expires": "2099-01-01"}]},
+               ["pkg.est.alpha"])
+    assert out == []
+
+
+def test_exemption_for_other_file_does_not_suppress():
+    out = _run({"from": ["pkg/api.py"],
+                "exempt": [{"path": "pkg/est/gamma.py", "reason": "legacy",
+                            "owner": "team", "expires": "2099-01-01"}]},
+               ["pkg.est.alpha"])
+    assert [f.file for f in out] == ["pkg/est/beta.py"]
