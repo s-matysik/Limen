@@ -142,7 +142,8 @@ def _dir_request_matches(scope: Scope, info: PathInfo) -> bool:
     directory, so every such rule was silently absent from the context of a
     directory request (measured: 102 of 102 code rules over 37 real tasks).
     Probe with a hypothetical new module directly in that directory."""
-    probe = info.path.rstrip("/") + "/_limen_new_module.py"
+    # No leading underscore: specs commonly exclude private modules (`_*.py`).
+    probe = info.path.rstrip("/") + "/limen_new_module.py"
     return scope.path_matches(probe, info.root)
 
 
