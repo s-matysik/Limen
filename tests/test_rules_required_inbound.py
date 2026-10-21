@@ -121,3 +121,14 @@ def test_exemption_for_other_file_does_not_suppress():
                             "owner": "team", "expires": "2099-01-01"}]},
                ["pkg.est.alpha"])
     assert [f.file for f in out] == ["pkg/est/beta.py"]
+
+
+def test_context_shows_recursive_glob_obligation_for_nested_directory():
+    """Scope `pkg/**/*.py` with exporter glob `pkg/**/__init__.py`: a request
+    for a nested directory must still show the obligation (found on baybe)."""
+    from limen.context import generate_context
+    spec = spec_from(SPEC_YAML.replace('scope: { paths: ["pkg/est/**"] }', 'scope: { paths: ["pkg/**/*.py"] }').replace('from: ["pkg/api.py"]', 'from: ["pkg/**/__init__.py"]'))
+    files = [ff("pkg/api.py", declares=["pkg.api"], language="python", kind="module"),
+             ff("pkg/est/deep/alpha.py", declares=["pkg.est.deep.alpha"], language="python", kind="module")]
+    index = make_index(files, root="repo", language="python")
+    assert "exported" in generate_context(spec, index, ["pkg/est/deep/"])

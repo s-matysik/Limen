@@ -119,7 +119,8 @@ def _rule_applies(rule: Rule, infos: list[PathInfo], spec: Spec) -> int:
                 # rendered "(none)").
                 d = info.path.rstrip("/") + "/"
                 hit = any(x.startswith(d) for x in froms) \
-                    or any(g.startswith(d) for g in scope.paths)
+                    or any(g.startswith(d) for g in scope.paths) \
+                    or _dir_request_matches(scope, info)
             if hit:
                 n += 1
             continue
