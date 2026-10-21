@@ -34,6 +34,28 @@ _IMPORT_RX = re.compile(r"^[ \t]*import\s+([\w\., ]+)", re.MULTILINE)
 _FROM_RX = re.compile(r"^[ \t]*from\s+(\.*)([\w\.]*)\s+import\b", re.MULTILINE)
 
 
+def _imported_names(text: str, pos: int) -> list[str]:
+    """Names after `import` in a from-import starting at `pos`: handles a
+    parenthesised list across lines and backslash continuations."""
+    rest = text[pos:]
+    s = rest.lstrip(" \t")
+    if s.startswith("("):
+        body = s[1:s.find(")")] if ")" in s else s[1:]
+    else:
+        body = ""
+        for ln in rest.split("\n"):
+            body += ln
+            if not ln.rstrip().endswith("\\"):
+                break
+            body = body.rstrip()[:-1] + " "
+    out = []
+    for part in body.replace("\n", " ").split(","):
+        nm = part.strip().split(" as ")[0].strip()
+        if nm and nm != "*" and nm.isidentifier():
+            out.append(nm)
+    return out
+
+
 class PythonRegexExtractor(RegexExtractorBase):
     name = "python-regex"
     languages = {"python"}
@@ -79,6 +101,7 @@ class PythonRegexExtractor(RegexExtractorBase):
             return abs_mod, True
 
         resolve.module_of = module_of  # type: ignore[attr-defined]
+        resolve.modules = modules  # type: ignore[attr-defined]
         return resolve
 
     def extract_file(self, rel_path: str, text: str, resolver: Callable):
@@ -98,6 +121,16 @@ class PythonRegexExtractor(RegexExtractorBase):
             target, _internal = resolver(len(m.group(1)), m.group(2), rel_path)
             if target:
                 deps.append(Dep(target=target, line=line, via="import"))
+            # `from . import mod` / `from pkg import mod`: an imported NAME can
+            # be a submodule.  Without this edge a package that exports a new
+            # module the most common way (`from . import hmc` in __init__.py)
+            # had no dependency on it, and `required-inbound` reported the
+            # maintainers' own solution as a violation.
+            known = getattr(resolver, "modules", None) or set()
+            for name in _imported_names(stripped, m.end()):
+                sub = f"{target}.{name}" if target else name
+                if sub in known:
+                    deps.append(Dep(target=sub, line=line, via="import"))
 
         unresolved = [Unresolved(rel_path, line, raw, reason)
                       for line, raw, reason in
