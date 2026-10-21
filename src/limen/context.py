@@ -20,6 +20,8 @@ Deterministic byte-for-byte; covered by ``test_context_is_deterministic`` and
 """
 from __future__ import annotations
 
+import re
+
 from dataclasses import dataclass
 from datetime import date
 from typing import Optional
@@ -156,6 +158,36 @@ def _public_symbols_by_unit(ctx: RuleContext) -> dict[str, list[str]]:
     for unit in out:
         out[unit].sort()
     return out
+
+
+def _is_path_target(target) -> bool:
+    t = str(target or "")
+    return "/" in t or t.endswith(".py")
+
+
+def _path_covers(requested: str, target: str) -> bool:
+    req = posix(requested).rstrip("/")
+    tgt = posix(target)
+    if "*" in tgt:
+        return bool(glob_to_regex(tgt).match(req)) or tgt.startswith(req + "/")
+    return tgt == req or tgt.startswith(req + "/")
+
+
+def _same_dir(requested: str, target: str) -> bool:
+    req = posix(requested)
+    if not req.endswith(".py") and "." not in req.rsplit("/", 1)[-1]:
+        return False
+    return req.rsplit("/", 1)[0] == posix(target).rsplit("/", 1)[0]
+
+
+def _summarise_exemptions(lines: list[str]) -> list[str]:
+    counts: dict[str, int] = {}
+    for line in lines:
+        m = re.match(r"- \[([^\]]+)\]", line)
+        rid = m.group(1) if m else "?"
+        counts[rid] = counts.get(rid, 0) + 1
+    return [f"- [{rid}] {n} existing file(s) exempted as pre-existing state; "
+            f"new code must still comply" for rid, n in sorted(counts.items())]
 
 
 def _fmt_exemption(ex: Exemption) -> str:
@@ -340,7 +372,17 @@ def generate_context(spec: Spec, index: FactsIndex, paths: list[str],
                     continue
                 relevant = ex.scope is None or any(
                     glob_to_regex(ex.scope).match(i.path) for i in infos)
-                if ex.scope is None:
+                if ex.scope is None and _is_path_target(ex.target):
+                    # A file exemption is relevant only when that file is one of
+                    # the requested paths or lies under a requested directory.
+                    # Before, any exemption carrying a reason was listed for every
+                    # request: a task in pkg/a/ received pre-existing debt from
+                    # pkg/b/ (measured: up to 106 lines, most of the context).
+                    relevant = any(_path_covers(i.path, str(ex.target))
+                                   or _same_dir(i.path, str(ex.target))
+                                   or (i.unit and f"/{i.unit}/" in "/" + posix(str(ex.target)))
+                                   for i in infos)
+                elif ex.scope is None:
                     relevant = any(
                         i.unit and ex.target and i.unit in str(ex.target)
                         for i in infos) or ex.reason is not None
@@ -396,6 +438,13 @@ def generate_context(spec: Spec, index: FactsIndex, paths: list[str],
         active.remove(victim)
         truncated = True
     text = assemble(active, False, truncated)
+    if token_estimate(text) > budget_tokens and len(exemption_lines) > 0:
+        # Next cheapest cut: summarise exemptions per rule instead of listing
+        # every file.  The agent only needs to know that pre-existing state is
+        # tolerated; the rule text itself is what it must follow.
+        exemption_lines = _summarise_exemptions(exemption_lines)
+        truncated = True
+        text = assemble(active, False, truncated)
     if token_estimate(text) > budget_tokens:
         # budget cannot even hold the errors: compact id + remedy list
         text = assemble([b for b in active if b.severity == "error"],
