@@ -2,120 +2,104 @@
 title: limen
 ---
 
-**One declarative specification. Three consumers. No LLM in the gate.**
+[Home](./) · [Tutorial](tutorial) · [Using limen with coding agents](agents) · [Rule kinds](rules) · [CLI reference](cli) · [Evaluation](evaluation)
 
-*limen* (Latin: threshold, boundary) expresses architecture rules once, as data, and drives a
-deterministic CI gate, a task-scoped context generator for coding agents, and a review checklist
-from that single file.
+**One architecture contract. Checked in CI, shown to coding agents, readable by people.**
 
-[Get started](#installation) · [Rule kinds](rules) · [CLI reference](cli) ·
-[Reproducing the evaluation](evaluation) · [GitHub](https://github.com/s-matysik/Limen)
+*limen* (Latin: threshold, boundary) lets a project write its architectural rules once, in a
+declarative `architecture.yaml`, and use that one file in three places:
 
----
+| Command | Who uses it | What it gives |
+| --- | --- | --- |
+| `limen check` | CI, reviewers | Pass or fail, and for every violation: file, line, offending import or text, rule, message and remedy. No model, no network, byte-identical output for the same inputs. |
+| `limen context --paths ...` | coding agents, developers | The rules that apply to the files about to be changed, including rules for a new file in a directory, plus the command that will verify the work. |
+| `limen review --for-diff ...` | a reviewing agent or person | A checklist for a diff. A report, not a verdict; the verdict is `limen check`. |
 
 ## Why
 
-Architecture rules in polyglot code bases end up scattered across language-specific checkers —
-ArchUnit for Java, Deptrac for PHP, import-linter for Python, dependency-cruiser for JavaScript.
-Each is a single-purpose artefact: it answers one question, in CI, and nothing else can use what it
-knows. Meanwhile coding agents are told about architecture in prose (`AGENTS.md`, `CLAUDE.md`),
-which nothing verifies and which drifts from the code.
+Researchers and organisations increasingly let AI agents change their code. The rules that keep a
+codebase coherent, such as "the core package must not import the estimators" or "every new
+estimator is exported from the package", usually live in three places that nobody checks against
+each other: a checker script in CI, design documents, and instruction files such as `AGENTS.md` or
+`CLAUDE.md`. Instructions tell an agent what to do; they do not tell anyone whether it was done.
 
-limen removes the duplication. The rules that fail your build are the same rules, from the same
-file, that the agent is shown before it writes anything.
-
-## The three consumers
-
-| Command | What it produces |
-| --- | --- |
-| `limen check` | Deterministic pass/fail. No model, no network. Two runs on the same tree produce a byte-identical report. |
-| `limen context --paths ...` | A Markdown contract narrowed to the files being modified, token-budgeted, with the exact verification command. |
-| `limen review --for-diff ...` | A checklist for a verifying agent. A report, not a verdict. |
+With limen the rule that fails the build is the same rule, from the same file, that the agent is
+shown before it starts and that it receives, with a remedy, when it gets it wrong.
 
 ## Installation
 
 ```bash
-pip install limen-arch
+pip install "git+https://github.com/s-matysik/Limen.git"
+limen --version
 ```
 
-Requires Python 3.10+ and PyYAML. Nothing else: no build step, no network access, no LLM at check
-time.
-
-## Sixty seconds
+or, for development:
 
 ```bash
-# 1. bootstrap a specification from what you already have
-limen init --workspace "$PWD" > architecture.yaml
+git clone https://github.com/s-matysik/Limen.git
+cd Limen
+pip install -e ".[dev]"
+python -m pytest -q
+```
 
-# 2. check the specification itself before checking the code
+Requires Python 3.10 or later and PyYAML. No build step, no network access and no language model
+at check time.
+
+## Five-minute example
+
+A small package `mylib` has three architectural rules. The full walkthrough is in the
+[tutorial](tutorial); in short:
+
+```bash
 limen spec validate --spec "$PWD/architecture.yaml" --workspace "$PWD" --strict-spec
-
-# 3. enforce it
-limen check --spec "$PWD/architecture.yaml" --workspace "$PWD"
+limen check         --spec "$PWD/architecture.yaml" --workspace "$PWD"
 ```
 
-{: .warning }
-**`--spec` must be an absolute path.** A relative path is resolved against `--workspace`, which
-produces a misleading *"specification file not found"*.
+```text
+limen check — mylib
+===================
+ERROR   [estimators-do-not-plot] mylib/estimators/ridge.py:2
+        target: mylib.plotting
+        Estimators compute; plotting lives in mylib.plotting.
+        remedy: Return the data and let the caller plot it.
+        spec:   rules[1].exempt
+ERROR   [new-estimators-exported] mylib/estimators/ridge.py
+        target: mylib/estimators/ridge.py
+        Every estimator module is re-exported by mylib/estimators/__init__.py.
+        remedy: Add 'from mylib.estimators.<module> import <Class>' to mylib/estimators/__init__.py.
+        spec:   rules[3].exempt
+WARNING [no-print-in-library] mylib/plotting/__init__.py:2
+        target: print(
+        Library code does not print.
+        remedy: Use the logging module.
+        spec:   rules[2].exempt_files
 
-## What a specification looks like
-
-```yaml
-version: 1
-roots:
-  - id: host_app
-    repo: litrev-backend
-units:
-  - id: projects
-    kind: module
-    paths: ["app/Modules/Projects/**"]
-    public_surface: ["app/Modules/Projects/Contracts/**"]
-rules:
-  - id: modules-through-contracts-only
-    kind: public-api-only
-    severity: error
-    message: "cross-module access goes through Contracts\\"
-exemptions:
-  - rule: modules-through-contracts-only
-    path: app/Legacy/Importer.php
-    reason: "pre-modularisation importer, scheduled for extraction"
-    owner: team-platform
-    since: 2026-05-02
-    expires: 2026-11-01
+Summary: 2 error(s), 1 warning(s), unresolved: 0. Exit code 1.
 ```
 
-Every exemption carries a reason, an owner and a date. When it legalises debt rather than a
-permanent decision, it also carries an expiry. A suppression is auditable rather than invisible.
+Every finding names the file, the line, the rule and the fix. Exit code 1 blocks the merge.
 
-## Evidence
+## What the evaluation showed
 
-limen was retrofitted onto a nine-repository polyglot system whose rules were enforced by three
-unrelated mechanisms.
+Details, protocols and caveats are in the accompanying paper and in [Evaluation](evaluation).
 
-| | |
-| --- | ---: |
-| Legacy rules replaced | 47 |
-| Legacy checker code replaced | 1,246 lines |
-| Resulting specification | 36 declarations, 526 lines |
-| Unclassified differences vs. legacy | **0** |
-| Mutation sensitivity (injected violations detected) | **35 / 35** |
-| Agreement with the real framework | 26/26 tests, 20/20 mutants |
-| Determinism | byte-identical over 539 files, 2,274 dependencies |
+| Question | Result |
+| --- | --- |
+| Can it replace an existing checker? | A production checker of 47 handwritten rules (1,246 lines) became 36 declarations (526 lines) with zero unexplained differences; 35 of 35 seeded violations detected. |
+| Does it agree with established tools? | On 12 repositories using dependency-cruiser, deptrac, import-control or import-linter: precision 96.9%, recall 93.4% for forbidden imports. |
+| Do its findings help a coding agent? | In 25 open-source projects, after an agent broke a documented rule, one round with the findings of `limen check` made 129 of 135 answers pass the check, against 105 with the same rules as prose and 13 with a generic "review your work" request. |
 
-Equivalence was established by **executing the unmodified legacy checkers** as an oracle — not by
-reimplementing their rules, which would have compared our reading of a rule against itself.
+Limits: one model family; changes that add a module; success means passing the check, not
+functional correctness. Rules supplied before a change helped equally as limen context or as
+prose; the advantage of limen is the check after the change.
 
-Every number is reproducible with a single command; see [Reproducing the evaluation](evaluation).
+## Where to go next
 
-## What limen does not claim
+- [Tutorial](tutorial): write a first contract, read the findings, fix them, add exemptions.
+- [Using limen with coding agents](agents): the loop context, change, check, fix.
+- [Rule kinds](rules): the twelve kinds and their parameters.
+- [CLI reference](cli): all commands, options, exit codes and a GitHub Actions workflow.
 
-The tool generates scoped context for coding agents, and that context is 81.4% smaller than the
-project's full architectural prose. **We do not claim this improves the architectural quality of
-generated code.** Two experiments attempted to measure that and neither could: the first had a
-degenerate primary measure, the second found that the agent solved tasks inside a single module and
-never approached the boundaries the rules govern. Both are reported as negative results with
-diagnosed causes in [`research-report.md`](https://github.com/s-matysik/Limen/blob/main/research-report.md).
+## Citation and licence
 
-## License
-
-MIT.
+See [`CITATION.cff`](https://github.com/s-matysik/Limen/blob/main/CITATION.cff). MIT licence.

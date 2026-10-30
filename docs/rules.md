@@ -2,71 +2,114 @@
 title: Rule kinds
 ---
 
-[Home](./) · [CLI reference](cli) · **Rule kinds** · [Evaluation](evaluation)
+[Home](./) · [Tutorial](tutorial) · [Using limen with coding agents](agents) · [Rule kinds](rules) · [CLI reference](cli) · [Evaluation](evaluation)
 
-Eleven kinds. Every rule carries a severity of `error` or `warning`; the two are never conflated in
-a report or an exit code.
+Twelve kinds. Every rule has `id`, `kind`, `severity` (`error`, `warning` or `info`) and `message`,
+and should have a `remedy`. Most rules take a `scope`: `roots` (ids from `roots`), `paths` and
+`include` (globs), and `exclude`. The JSON schema is
+[`schemas/architecture-spec-1.json`](https://github.com/s-matysik/Limen/blob/main/schemas/architecture-spec-1.json);
+unknown keys at rule level are rejected.
 
-| Kind | Enforces | Typical use |
+| Kind | Constraint | Main parameters |
 | --- | --- | --- |
-| `layer-dependency` | which layer may depend on which | domain must not import infrastructure |
-| `ownership` | every artefact has a declared owner | each model belongs to exactly one module |
-| `consumer-allowlist` | who may consume a given unit | only listed modules read this model |
-| `public-api-only` | access only through a declared public surface | cross-module calls go through contracts |
-| `scoped-allowlist` | narrow exceptions bound to a path | this directory may import these classes |
-| `forbidden-target` | targets that must never be imported | no direct framework access from domain |
-| `baseline-snapshot` | accepted debt, frozen and monitored | existing violations must not grow |
-| `pattern-ban` | textual patterns that must not appear | no `console.log` in shipped code |
-| `structure` | required files, directories, documentation | every module has a README with a contract |
-| `metric-threshold` | size and complexity limits | no page component over 400 lines |
-| `reachability` | transitive dependency constraints | this unit must not reach that one, however indirectly |
+| `layer-dependency` | which declared layer may depend on which | `layers` section, `forbid`, `exempt` |
+| `ownership` | every artefact belongs to a declared unit | `artifact_set`, `owners`, `require_every_artifact_owned` |
+| `consumer-allowlist` | only listed units may import a target | `artifact_set`, `allow` |
+| `public-api-only` | consumers import only the public surface of a unit | `public_surface` section, `exempt` |
+| `scoped-allowlist` | inside a scope, only listed targets may be imported | `target_prefix`, `allow` |
+| `forbidden-target` | inside a scope, listed targets must not be imported | `forbid` (names or globs), `exempt` |
+| `baseline-snapshot` | recorded current state may shrink but not grow | `target_pattern`, `expected`, `exclude_units` |
+| `pattern-ban` | a text pattern must not occur in scoped files | `pattern` (Python regex), `exempt_files` |
+| `structure` | required directories and files exist | `assert` (for example `required_files`), `exempt` |
+| `metric-threshold` | file size stays below a limit | `metric: lines`, `max` |
+| `reachability` | independence, layering or forbidden paths over transitive dependencies | `mode`, `units`, `order`, `forbid`, `max_depth`, `ignore_edges` |
+| `required-inbound` | every scoped file is imported by one of the listed files (a positive obligation) | `from` (globs), `via`, `exempt` |
 
-## Languages
+## Examples
 
-Extraction is syntactic — imports and declarations, not runtime behaviour.
+**forbidden-target**: the core must not import estimators.
 
-| Language | Extracted |
-| --- | --- |
-| PHP | `namespace`, `use`, class/interface/trait declarations |
-| JavaScript / TypeScript | `import`, `require`, re-exports |
-| Python | `import`, `from ... import` |
-| Java | `package`, `import` |
+```yaml
+- id: core-does-not-import-estimators
+  kind: forbidden-target
+  severity: error
+  scope: { roots: [lib], paths: ["mylib/core/**"] }
+  forbid: ["mylib.estimators", "mylib.estimators.*"]
+  message: "mylib.core is the bottom layer and must not import estimators."
+  remedy: "Move the shared code into mylib.core and import it from the estimator."
+```
 
-## Multi-repository specifications
+**pattern-ban**: a regular expression that must not match. Patterns are compiled without
+multi-line mode; use the inline flag `(?m)` to anchor at line starts.
 
-`roots[].repo` lets one specification span several repositories under a common workspace directory.
-This is what makes cross-repository rules possible at all: a per-repository checker cannot see a
-boundary that runs between repositories.
+```yaml
+- id: no-print-in-library
+  kind: pattern-ban
+  severity: warning
+  scope: { roots: [lib], paths: ["mylib/**/*.py"] }
+  pattern: '\bprint\('
+  message: "Library code does not print."
+  remedy: "Use the logging module."
+  exempt_files:
+    - { path: mylib/cli.py, reason: "command-line entry point", owner: maintainers }
+```
+
+**required-inbound**: every estimator is exported by the package. This is the only kind that
+requires an edge rather than forbidding one, so it catches a new module that nothing imports.
+
+```yaml
+- id: new-estimators-exported
+  kind: required-inbound
+  severity: error
+  scope:
+    roots: [lib]
+    paths: ["mylib/estimators/*.py"]
+    exclude: ["**/__init__.py"]
+  from: ["mylib/estimators/__init__.py"]
+  message: "Every estimator module is re-exported by mylib/estimators/__init__.py."
+  remedy: "Add 'from mylib.estimators.<module> import <Class>' to mylib/estimators/__init__.py."
+```
+
+## Roots
 
 ```yaml
 roots:
-  - id: host_app
-    repo: litrev-backend
-  - id: shared
-    repo: backend-shared
-rules:
-  - id: shared-not-into-host-modules
-    kind: forbidden-target
-    from: shared
-    to: host_app
-    severity: error
+  lib: { path: ., language: python }       # repository-level root
+  web: { path: frontend/src, language: js }
 ```
+
+`language` is `python`, `js` (JavaScript and TypeScript), `php` or `java`. A root may also name a
+`repo` so that one contract can span several repositories in a common workspace. For Python
+packages that import themselves absolutely, use a repository-level root (`path: .`).
 
 ## Exemptions
 
+Exemptions are attached to the rule they relax. Entries under `exempt` name a `target` (the
+imported name or glob) and optionally a `scope` (glob of the importing file); entries under
+`exempt_files` (for `pattern-ban`) and `exempt` of `required-inbound` name a `path`. All may carry
+`reason`, `owner`, `since`, `expires` and `ticket`.
+
 ```yaml
-exemptions:
-  - rule: shared-not-into-host-modules
-    path: src/Legacy/Importer.php
-    reason: "pre-modularisation importer, scheduled for extraction"
-    owner: team-platform
-    since: 2026-05-02
-    expires: 2026-11-01
+exempt:
+  - target: "mylib.estimators.ols"
+    scope: "mylib/core/legacy.py"
+    reason: "legacy adapter, scheduled for removal"
+    owner: "maintainers"
+    since: 2026-10-01
+    expires: 2027-06-30
 ```
 
-`--today` freezes the clock, which makes expiry deterministic in tests and in historical analysis.
+An active exemption suppresses the finding. After `expires`, the finding returns as an error that
+names the expired exemption. An exemption that matches nothing is reported as dead under
+`--strict-spec`. `--today` (or `LIMEN_TODAY`) fixes the evaluation date.
 
-{: .note }
-In the published study, exemptions legalised debt with a median actual age of 76 days against a
-declared lifetime of 149 days, and all were still open at the end of the observation window. An
-exemption without `expires` is forever.
+## Languages
+
+Extraction is syntactic: imports and declarations, not runtime behaviour.
+
+| Language | Extracted |
+| --- | --- |
+| Python | `import`, `from ... import` (including relative imports and submodules imported by name), re-exports through `__init__.py` |
+| JavaScript / TypeScript | `import`, `require`, re-exports |
+| PHP | `namespace`, `use`, class, interface and trait declarations |
+| Java | `package`, `import` |

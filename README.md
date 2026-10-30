@@ -14,7 +14,7 @@ driven by **one** specification (`architecture.yaml`):
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 
-**Documentation:** https://s-matysik.github.io/Limen/
+**Documentation and tutorial:** https://s-matysik.github.io/Limen/
 
 ## What limen is not
 
@@ -29,8 +29,10 @@ driven by **one** specification (`architecture.yaml`):
 Requires Python 3.10+ and PyYAML. No build step, no network access, no LLM at check time.
 
 ```bash
-pip install -e .
+pip install "git+https://github.com/s-matysik/Limen.git"
 ```
+
+For development: `git clone https://github.com/s-matysik/Limen.git && cd Limen && pip install -e ".[dev]"`.
 
 Reproducing the published evaluation additionally requires PHP 8.2+ and Node.js 20+, because the
 legacy checkers are executed unmodified as oracles.
@@ -77,7 +79,7 @@ limen check   --spec /abs/path/architecture.yaml --workspace /abs/path/repo
 ```yaml
 - name: Architecture contract
   run: |
-    pip install limen-arch
+    pip install "git+https://github.com/s-matysik/Limen.git"
     limen check --spec "$PWD/architecture.yaml" --workspace "$PWD" --format json
 ```
 
@@ -93,7 +95,7 @@ the active exemptions, and the command that will verify its work.
 
 ## Rule kinds
 
-Eleven kinds are supported; each rule carries a severity of `error` or `warning`, and the two are
+Twelve kinds are supported; each rule carries a severity of `error` or `warning`, and the two are
 never conflated in a report or an exit code.
 
 | Kind | Enforces |
@@ -109,6 +111,7 @@ never conflated in a report or an exit code.
 | `structure` | required files, directories, documentation |
 | `metric-threshold` | size and complexity limits |
 | `reachability` | transitive dependency constraints |
+| `required-inbound` | every scoped file is imported by a designated file (for example, new modules are exported) |
 
 Supported languages: PHP, JavaScript/TypeScript, Python, Java.
 
@@ -119,14 +122,25 @@ than a permanent decision it also carries `expires`. A suppression is therefore 
 than invisible:
 
 ```yaml
-exemptions:
-  - rule: shared-not-into-host-modules
-    path: src/legacy/Importer.php
-    reason: "pre-modularisation importer, scheduled for extraction"
-    owner: "team-platform"
-    since: 2026-05-02
-    expires: 2026-11-01
+rules:
+  - id: shared-not-into-host-modules
+    kind: forbidden-target
+    severity: error
+    scope: { roots: [shared], paths: ["src/**"] }
+    forbid: ["App\\Modules\\*"]
+    message: "Shared code must not depend on host-application modules."
+    remedy: "Move the dependency behind a contract in the shared package."
+    exempt:
+      - target: "App\\Modules\\*"
+        scope: "src/legacy/Importer.php"
+        reason: "pre-modularisation importer, scheduled for extraction"
+        owner: "team-platform"
+        since: 2026-05-02
+        expires: 2026-11-01
 ```
+
+Exemptions belong to the rule they relax (`exempt`, or `exempt_files` for `pattern-ban`). After
+`expires` the finding returns as an error.
 
 ## Reproducing the evaluation
 

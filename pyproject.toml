@@ -37,5 +37,12 @@ python-regex = "limen.extract.python:PythonRegexExtractor"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+# The JSON schemas are read at run time (spec/loader.py looks next to the
+# package when it is not run from a checkout), so a non-editable install must
+# ship them.  src/limen/schemas is a copy of the canonical schemas/ directory;
+# tests/test_packaged_schemas.py keeps the two identical.
+[tool.setuptools.package-data]
+limen = ["schemas/*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://limen.dev/schemas/finding-1.json",
+  "title": "limen finding, version 1",
+  "type": "object",
+  "required": ["rule_id", "kind", "severity", "file", "message"],
+  "properties": {
+    "rule_id": { "type": "string" },
+    "kind": { "type": "string" },
+    "severity": { "enum": ["error", "warning", "info"] },
+    "file": { "type": ["string", "null"] },
+    "line": { "type": ["integer", "null"] },
+    "unit": { "type": ["string", "null"] },
+    "target": { "type": ["string", "null"] },
+    "message": { "type": "string" },
+    "remedy": { "type": ["string", "null"] },
+    "exemptible": { "type": "boolean" },
+    "spec_path": { "type": ["string", "null"] },
+    "path_trace": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

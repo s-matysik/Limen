@@ -2,16 +2,15 @@
 title: Reproducing the evaluation
 ---
 
-[Home](./) · [CLI reference](cli) · [Rule kinds](rules) · **Evaluation**
+[Home](./) · [Tutorial](tutorial) · [Using limen with coding agents](agents) · [Rule kinds](rules) · [CLI reference](cli) · [Evaluation](evaluation)
 
-Every number in the accompanying paper is produced by a script in `eval/` and reproducible with a
-single command. Nothing is typed by hand: `research-report.md` is itself generated from the result
-files.
+The numbers for the fidelity, translation and history studies are produced by scripts in `eval/`.
+`research-report.md` is generated from the result files.
 
 ## Prerequisites
 
 Python 3.10+ for limen. Reproducing the equivalence study additionally needs **PHP 8.2+** and
-**Node.js 20+**, because the legacy checkers are executed unmodified as oracles rather than
+**Node.js 20+**, because the legacy checkers are executed unmodified as the reference rather than
 reimplemented.
 
 ```bash
@@ -20,7 +19,7 @@ pip install -e .
 export PYTHONPATH="$PWD/src"
 ```
 
-## Study 1 — equivalence
+## Study 1: equivalence with a production checker
 
 ```bash
 python eval/run_legacy_oracle.py          # unmodified legacy checkers
@@ -31,41 +30,35 @@ python eval/mutation_sensitivity.py       # one injected violation per rule
 python eval/validate_shim_against_laravel.py --laravel-root <root>
 ```
 
-The acceptance criterion — zero unclassified differences — is enforced by the exit code, not by
-inspection.
+The acceptance criterion, zero unclassified differences, is enforced by the exit code.
 
-## Study 1b — differential against native checkers
+## Study 1b: differential against native checkers
 
 ```bash
 GITHUB_TOKEN=... python eval/build_corpus.py   # sampling; writes eval/corpus.jsonl
 python eval/study1b_corpus.py                  # differential per repository
 ```
 
-720 repositories screened, 60 included, 12 yielding a comparable run. The screening flow is part of
-the result: 108 screened repositories carry a checker configuration that declares no rule at all.
+720 repositories screened, 60 included, 12 yielding a comparable run.
 
-## Study 2 — repository history
+## Study 2: repository history
 
 ```bash
 python eval/study2_history.py     # per-commit measurement
 python eval/study2_metrics.py     # metrics, CSVs, figure
 ```
 
-{: .warning }
-`units.registry_policy: exact` aborts historical trees with exit 3 before any rule runs. Without
-relaxing it to `open`, the study returns zero findings for every commit and the project looks clean.
+**Note.** `units.registry_policy: exact` aborts historical trees with exit 3 before any rule runs.
+Relax it to `open` for historical analysis.
 
-## Study 3 — coding agents
+## Agent studies
 
-```bash
-python eval/study3_agent/select_tasks.py
-python eval/study3_agent/run.py
-python eval/study3_agent/analyze.py
-```
-
-Both attempts are reported as negative results with diagnosed causes. See
-[`docs/study3-redesign.md`](https://github.com/s-matysik/Limen/blob/main/docs/study3-redesign.md)
-for the protocol a properly powered replication would need.
+The first agent pilot (`eval/study3_agent/`) produced too few violations to answer its question;
+see [`docs/study3-redesign.md`](https://github.com/s-matysik/Limen/blob/main/docs/study3-redesign.md).
+The later prevention and repair studies on 45 open-source repositories, summarised on the
+[home page](./), are described with protocols, prompts and per-repository results in the
+supplementary material of the accompanying paper; their data and scripts are deposited with the
+paper's data archive.
 
 ## Regenerating the report
 
@@ -76,5 +69,4 @@ python eval/build_report.py       # rewrites research-report.md from eval/result
 ## Not in the repository
 
 Third-party source trees downloaded by the corpus scripts (7.4 GB) and raw per-run agent outputs.
-Both are reproducible: the corpus from the pinned SHAs in `eval/corpus.jsonl`, the agent runs from
-`eval/results/study3_plan.json`.
+The corpus is reproducible from the pinned SHAs in `eval/corpus.jsonl`.
